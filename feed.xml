@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>nauval atmaja</title>
+    <link href="http://nauvalatmaja.com/feed.xml" rel="self"/>
+    <link href="http://nauvalatmaja.com"/>
+    <updated>2014-12-31T04:26:59.039Z</updated>
+    <id>http://nauvalatmaja.com</id>
+    <author>
+        <name>Nauval Atmaja</name>
+        <email>nauval@atmaja.com</email>
+    </author>
+
+    
+    <entry>
+        <title>Setting Up Custom Domain for GitHub Pages</title>
+        <link href="http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/"/>
+        <updated>2014-12-31T03:23:00.000Z</updated>
+        <id>tag:nauvalatmaja.com,2014-12-31,/posts/2014-12-31-setting-up-custom-domain-for-github-pages/</id>
+        <content type="html"><![CDATA[<p>It has been a couple days since <a href="http://nauvalatmaja.com/">nauvalatmaja.com</a> is online,
+and to be honest the process was not as hard as I had imagined. Kudos to 
+<a href="http://davidensinger.com/">David Ensinger</a> who has written in details on 
+how he <a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/">set up his custom domain for his GitHub pages</a> and
+<a href="http://davidensinger.com/2014/04/transferring-the-dns-from-namecheap-to-cloudflare-for-github-pages/">tweak it to get faster by using cloudflare</a>. All
+the needed information to do this can be found there.</p>
+<p>I purchased this this domain name at <a href="https://www.namecheap.com/">NameCheap</a>, as suggested by David&#39;s post,
+with just a bit more than five bucks for a year. Then, I used the free plan of <a href="https://cloudflare.com">CloudFlare</a>
+for the DNSs, which I think it is sufficient for my need, and set up the DNS records using <code>CNAME</code>
+on the CloudFlare panel to point to my GitHub Pages address. Lastly,
+<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/">I add a <code>CNAME</code> file in the root directory of my GitHub Pages repository to redirect it</a>. 
+And that&#39;s it, practically the process is done after you transfer the DNS from NameCheap to
+CloudFlare, you may need to wait for a while to make the changes take effect.</p>
+<p>It took me less than three hours, more or less, to make my custom domain
+accessible. Frankly, I spent more hours thinking the custom domain name I 
+should use than did the actual setup. I am quite happy with the 
+setup, hosting static pages on GitHub is right decision. It is simple, easy
+and particularly fast, well it&#39;s static html pages anyway.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title>Rendering Backbone (Sub)View</title>
+        <link href="http://nauvalatmaja.com/posts/2014-12-29-rendering-backbone-subview/"/>
+        <updated>2014-12-29T14:52:00.000Z</updated>
+        <id>tag:nauvalatmaja.com,2014-12-29,/posts/2014-12-29-rendering-backbone-subview/</id>
+        <content type="html"><![CDATA[<p>When learning backbone.js (i&#39;m a novice by the way), at first, I was actually having a hard time
+to grasp the backbone view. Especially how the best practice to render
+the view and build a rather complex view consists of several subviews.
+And then, magically I came accross Ian Storm Taylor&#39;s post about 
+<a href="http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/">his experience on dealing with backbone subview</a>.
+At first I didn&#39;t quiet understand well about the post until I found
+<a href="http://stackoverflow.com/questions/9337927/how-to-handle-initializing-and-rendering-subviews-in-backbone-js">a thread on stackoverflow</a>, which was started by <a href="http://ianstormtaylor.com">Ian Storm Taylor</a>.</p>
+<p>Based on the posts, I created a simple case study to better understand how it works.
+The requirements were to list pairs of username and email input by users.
+So at first I created the view as listed below:</p>
+<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"application"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Add a user to the user list<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"login"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"online-users"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"login-template"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/template"</span>&gt;</span><span class="javascript">
+  &lt;h1&gt; login &lt;<span class="hljs-regexp">/h1&gt;
+  &lt;input id="username" type="text" placeholder="username" /</span>&gt; 
+  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">id</span> = "<span class="hljs-attribute">email</span>" <span class="hljs-attribute">type</span> = "<span class="hljs-attribute">text</span>" <span class="hljs-attribute">placeholder</span> = "<span class="hljs-attribute">email</span>" /&gt;</span> 
+  <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">id</span> = "<span class="hljs-attribute">button-login</span>" <span class="hljs-attribute">type</span> = "<span class="hljs-attribute">button</span>"&gt;</span> Login <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+</span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"userlist-template"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/template"</span>&gt;</span><span class="javascript">
+  &lt;li&gt;
+    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">%=</span> <span class="hljs-attribute">username</span> %&gt;</span> / <span class="hljs-tag">&lt;<span class="hljs-title">%=</span> <span class="hljs-attribute">email</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">id</span> = "<span class="hljs-attribute">force-logout</span>"&gt;</span>force logout<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
+</span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<p>To better visualize, lets see this picture:</p>
+<p><img src="http://nauvalatmaja.com/images/backbone-view-schema.png" alt="Application view"></p>
+<p>The outer container is <code>#application</code> and inside it there are
+two other sub-containers <code>#login</code> and <code>#online-users</code>. Each container
+or sub-container is represented in a separated view: <code>AppView</code>, <code>LoginView</code>
+and <code>UserListView</code> respectively. To make it
+nicely structured, the <code>UserListView</code> has a sub-view
+called <code>UserView</code> that renders each pair of username and email 
+handles of the button clicked event.
+there is an exception for the last view where the view is 
+created for each username-password pair then appended in 
+the container <code>#online-users</code>.</p>
+<p>Now let&#39;s get to the code.</p>
+<pre class="highlight"><code class="hljs javascript">app.AppView = Backbone.View.extend({
+  el: <span class="hljs-string">'#application'</span>,
+
+  initialize: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.users = <span class="hljs-keyword">new</span> app.UserList();
+
+    <span class="hljs-keyword">this</span>.loginView = <span class="hljs-keyword">new</span> app.LoginView();
+    <span class="hljs-keyword">this</span>.userListView = <span class="hljs-keyword">new</span> app.UserListView( { collection: <span class="hljs-keyword">this</span>.users } );
+
+    <span class="hljs-keyword">this</span>.listenTo(<span class="hljs-keyword">this</span>.loginView, <span class="hljs-string">'login'</span>, <span class="hljs-keyword">this</span>.login);
+  },
+
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.loginView.setElement(<span class="hljs-keyword">this</span>.$(<span class="hljs-string">'#login'</span>)).render();
+    <span class="hljs-keyword">this</span>.userListView.setElement(<span class="hljs-keyword">this</span>.$(<span class="hljs-string">'#online-users'</span>)).render();
+  },
+
+  <span class="hljs-comment">/* ... */</span>
+
+  login: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(user)</span> </span>{
+    <span class="hljs-keyword">this</span>.users.create( user );
+  }
+});
+
+app.LoginView = Backbone.View.extend({
+  template: _.template($(<span class="hljs-string">'#login-template'</span>).html()),
+
+  events: {
+    <span class="hljs-string">'click #button-login'</span>: <span class="hljs-string">'login'</span>
+  },
+
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">this</span>.$el.html(<span class="hljs-keyword">this</span>.template());
+  },
+
+  login: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-comment">// login logic</span>
+  },
+
+  <span class="hljs-comment">/* ... */</span>
+});
+</code></pre>
+<p>Here, the most important thing to connect Backbone view to
+the html is the <code>el</code> (element) property. The <code>el</code> property defines to 
+which element the view template will be rendered, or at least in this case 
+study. In the <code>AppView</code> the <code>el</code> is set to <code>#application</code> 
+as the root container of the application. However, for its 
+sub-views, the <code>el</code> property is not defined in the view
+definition but set dynamically using <code>setElement</code> method.
+As Ian suggested, this is done to avoid the unbinding of 
+sub-views&#39; events when rendered more than a time.</p>
+<p>The instantiation
+of sub-views depends on how the sub-views are rendered.
+<code>LoginView</code> and <code>UserListView</code> are instantiated in
+the <code>initialize</code> method as the application only need 
+an instance for each of them. In contrast, <code>UserView</code>
+is instantiated for each user (model) as it needs to
+associate the button click event inside the view with
+the contained model.</p>
+<pre class="highlight"><code class="hljs javascript">app.UserListView = Backbone.View.extend({
+  initialize: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.listenTo(<span class="hljs-keyword">this</span>.collection, <span class="hljs-string">'add'</span>, <span class="hljs-keyword">this</span>.renderOne);
+    <span class="hljs-keyword">this</span>.listenTo(<span class="hljs-keyword">this</span>.collection, <span class="hljs-string">'reset'</span>, <span class="hljs-keyword">this</span>.renderAll);
+  },
+
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.renderAll();
+  },
+
+  renderOne: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(user)</span> </span>{
+    <span class="hljs-keyword">var</span> view = <span class="hljs-keyword">new</span> app.UserView( { model: user } );
+    <span class="hljs-keyword">this</span>.$el.append(view.render().el);
+  },
+
+  renderAll: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.collection.each(<span class="hljs-keyword">this</span>.renderOne);
+  }
+});
+
+app.UserView = Backbone.View.extend({
+  template: _.template($(<span class="hljs-string">'#userlist-template'</span>).html()),
+  tagName: <span class="hljs-string">'li'</span>,
+  events: {
+      <span class="hljs-string">'click #force-logout'</span>: <span class="hljs-string">'clear'</span>
+  },
+
+  initialize: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">this</span>.listenTo(<span class="hljs-keyword">this</span>.model, <span class="hljs-string">'destroy'</span>, <span class="hljs-keyword">this</span>.remove);
+  },
+
+  render: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">this</span>.$el.html( <span class="hljs-keyword">this</span>.template( <span class="hljs-keyword">this</span>.model.attributes ) );
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+  },
+
+  clear: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">this</span>.model.destroy();
+  }
+});
+</code></pre>
+<p>To make the code structured nicely, I used the <code>html()</code> and
+<code>append()</code> method of Backbone view&#39;s <code>$el</code> property. Some people
+might use jquery&#39;s selector <code>$(&#39;.element&#39;)</code> to render the html,
+which I think it isn&#39;t clean enough. Lastly, I&#39;ve made a <a href="http://jsfiddle.net/npatmaja/csL45j3s/">fiddle</a>
+about this post where you can play around. Hope this post 
+helps someone to understand more about backbone view.</p>
+]]></content>
+    </entry>
+    
+    <entry>
+        <title>Blogging with Docpad</title>
+        <link href="http://nauvalatmaja.com/posts/2014-12-28-blogging-with-docpad/"/>
+        <updated>2014-12-28T10:31:00.000Z</updated>
+        <id>tag:nauvalatmaja.com,2014-12-28,/posts/2014-12-28-blogging-with-docpad/</id>
+        <content type="html"><![CDATA[<p>It has been a long time since I planned to have a dedicated blog for 
+writing about some more <em>&quot;meaningful&quot;</em> stuff instead of just
+my rumbling I posted on my <a href="http://noval78.wordpress.com">trash bin</a>. 
+After a while, I decided to use <a href="https://pages.github.com/">GitHub pages</a> 
+to host my posts. However, the problem is, I don&#39;t want to install 
+<a href="https://github.com/jekyll/jekyll">Jekyll</a> in my machine so I tried to do built it 
+manually without installing Jekyll locally, which was proven to be a 
+hard thing to do at the. Since I had other 
+higher priorities, the project was abandoned till recently.</p>
+<p>As I am now re-learning javascript and node.js, I searched about static 
+blogging with node.js to pick this blog project up, with a resolution 
+to make it online. And that was how I came accross
+<a href="http://docpad.org">docpad</a>, a dinamyc static site generator built 
+using node.js. Similar to Jekyll, it can render markdown files to 
+bunch of static htmls. To build a blog using docpad wasn&#39;t hard 
+thing to do. There were skeletons that you can choose
+to bootstrap your blog when you first run <code>docpad run</code>.</p>
+<p><img src="http://nauvalatmaja.com/images/docpad-run-skeleton.png" alt="docpad skeletons"></p>
+<p>Since I am really bad at web design, I searched for blogs built using 
+docpad and its source hosted on github. Then, I found
+<a href="http://www.ewal.net">Erv Walter&#39;s blog</a> which satisfied my 
+requirements: simple and clean. So I cloned the blog&#39;s repository
+and adapted it to the skeleton I used and did some minor changes, 
+and <em>voila</em> here it is. Lastly, I
+used <a href="https://docpad.org/plugin/ghpages">GitHub pages plugin</a>
+to <a href="http://seethroughtrees.github.io/posts/github-pages-with-docpad/">push the blog to github</a>.</p>
+]]></content>
+    </entry>
+    
+</feed>

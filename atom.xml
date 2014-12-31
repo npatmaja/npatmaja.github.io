@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>nauval atmaja</title>
+  <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
+  <link href="http://nauvalatmaja.com"/>
+  <updated>2014-12-31T04:26:59.039Z</updated>
+  <id>http://nauvalatmaja.com</id>
+  <author>
+    <name>Nauval Atmaja</name>
+    <email>nauval@atmaja.com</email>
+  </author>
+
+  
+    <entry>
+      <title>Setting Up Custom Domain for GitHub Pages</title>
+      <link href="http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/"/>
+      <updated>2014-12-31T03:23:00.000Z</updated>
+      <id>http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/</id>
+      <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;/&gt;
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        if (window.location.hostname == 'www.nauvalatmaja.com' || window.location.hostname == 'nauvalatmaja.com') {
+
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-58073141-1', 'auto');
+          ga('send', 'pageview');  
+        }
+    &lt;/script&gt;
+
+    &lt;title&gt;Setting Up Custom Domain for GitHub Pages | nauval atmaja&lt;/title&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;Nauval Atmaja&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;link href=&quot;/feed.xml&quot; rel=&quot;alternate&quot; title=&quot;www.nauvalatmaja.com&quot; type=&quot;application/atom+xml&quot;&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;300x300&quot; href=&quot;icon/icon.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;196x196&quot; href=&quot;icon/icon-196.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;link href=&quot;/ico/favicon.ico&quot; rel=&quot;shortcut icon&quot;&gt;
+
+    &lt;style&gt;
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    &lt;/style&gt;
+
+    &lt;!-- Bootstrap --&gt;
+    &lt;link href=&quot;/styles/site.css?&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/vendor/rainbow.css&quot;&gt;
+    &lt;!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;
+    &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;/scripts/vendor/html5shiv.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/scripts/vendor/respond.min.js&quot;&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+
+    &lt;meta name=&quot;generator&quot; content=&quot;DocPad v6.69.2&quot; /&gt;
+    
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;a href=&quot;https://plus.google.com/112846605467404730226?rel=author&quot; class=&quot;google googleplus-hidden&quot; title=&quot;Google+&quot;&gt;Google+&lt;/a&gt;
+
+&lt;div class=&quot;navbar navbar-default navbar-static-top navbar-shadow&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;span class=&quot;text-primary&quot;&gt;nauval atmaja&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;collapse navbar-collapse navbar-right&quot;&gt;
+            &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+                &lt;!--&lt;li&gt;&lt;a href=&quot;/&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;--&gt;
+                &lt;!-- &lt;li&gt;&lt;a href=&quot;/archives/&quot;&gt;Archives&lt;/a&gt;&lt;/li&gt; --&gt;
+                
+                    &lt;li typeof=&quot;sioc:Page&quot;, about= /pages/archives/&gt;
+                      &lt;a href='/pages/archives/', property=&quot;dc:title&quot;&gt;Blog Archives&lt;/a&gt;
+                    &lt;/li&gt;
+                
+                &lt;li class=&quot;hidden-xs&quot;&gt;
+                    &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;http://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;form class=&quot;navbar-form navbar-right hidden-xs&quot; role=&quot;search&quot; action=&quot;http://google.com/search&quot;
+                  method=&quot;get&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;search&quot; name=&quot;q&quot; class=&quot;form-control&quot; placeholder=&quot;Search&quot;&gt;
+                    &lt;input type=&quot;hidden&quot; name=&quot;q&quot; value=&quot;site:www.nauvalatmaja.com&quot;&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;clear&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12 col-md-10&quot;&gt;
+            
+            &lt;article id=&quot;post&quot; class=&quot;post&quot;&gt;
+    
+        &lt;h1&gt;Setting Up Custom Domain for GitHub Pages&lt;/h1&gt;
+    
+    &lt;div class=&quot;post-date&quot;&gt;Dec 31st, 2014&lt;/div&gt;
+    &lt;div class=&quot;post-content&quot;&gt;
+        &lt;p&gt;It has been a couple days since &lt;a href=&quot;http://nauvalatmaja.com/&quot;&gt;nauvalatmaja.com&lt;/a&gt; is online,
+and to be honest the process was not as hard as I had imagined. Kudos to 
+&lt;a href=&quot;http://davidensinger.com/&quot;&gt;David Ensinger&lt;/a&gt; who has written in details on 
+how he &lt;a href=&quot;http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/&quot;&gt;set up his custom domain for his GitHub pages&lt;/a&gt; and
+&lt;a href=&quot;http://davidensinger.com/2014/04/transferring-the-dns-from-namecheap-to-cloudflare-for-github-pages/&quot;&gt;tweak it to get faster by using cloudflare&lt;/a&gt;. All
+the needed information to do this can be found there.&lt;/p&gt;
+&lt;p&gt;I purchased this this domain name at &lt;a href=&quot;https://www.namecheap.com/&quot;&gt;NameCheap&lt;/a&gt;, as suggested by David&amp;#39;s post,
+with just a bit more than five bucks for a year. Then, I used the free plan of &lt;a href=&quot;https://cloudflare.com&quot;&gt;CloudFlare&lt;/a&gt;
+for the DNSs, which I think it is sufficient for my need, and set up the DNS records using &lt;code&gt;CNAME&lt;/code&gt;
+on the CloudFlare panel to point to my GitHub Pages address. Lastly,
+&lt;a href=&quot;https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/&quot;&gt;I add a &lt;code&gt;CNAME&lt;/code&gt; file in the root directory of my GitHub Pages repository to redirect it&lt;/a&gt;. 
+And that&amp;#39;s it, practically the process is done after you transfer the DNS from NameCheap to
+CloudFlare, you may need to wait for a while to make the changes take effect.&lt;/p&gt;
+&lt;p&gt;It took me less than three hours, more or less, to make my custom domain
+accessible. Frankly, I spent more hours thinking the custom domain name I 
+should use than did the actual setup. I am quite happy with the 
+setup, hosting static pages on GitHub is right decision. It is simple, easy
+and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
+
+    &lt;/div&gt;
+    
+        &lt;div class=&quot;twitter-share&quot;&gt;
+  &lt;a href='https://twitter.com/intent/tweet?text=Setting+Up+Custom+Domain+for+GitHub+Pages&amp;url=http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/&amp;via=novalpas&amp;hashtags=GitHub Pages%2Ccustom domain%2CNameCheap%2CCloudFlare' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
+&lt;/div&gt;
+
+    
+    
+        &lt;div class=&quot;post-tags&quot;&gt;
+            Posted In: 
+  &lt;a href='/tags/github-pages/'&gt;GitHub Pages&lt;/a&gt;
+
+  &lt;a href='/tags/custom-domain/'&gt;custom domain&lt;/a&gt;
+
+  &lt;a href='/tags/namecheap/'&gt;NameCheap&lt;/a&gt;
+
+  &lt;a href='/tags/cloudflare/'&gt;CloudFlare&lt;/a&gt;
+ 
+        &lt;/div&gt;
+    
+&lt;/article&gt; 
+            &lt;!-- get next and prev link --&gt;
+            
+            &lt;div class=&quot;page-nav&quot;&gt;
+              
+                
+                    
+                    
+                         &lt;a href=&quot;/posts/2014-12-29-rendering-backbone-subview/&quot; class=&quot;page-nav-older&quot;&gt;
+                          &lt;span class=&quot;icon icon-arrow-left-2&quot;&gt;&lt;/span&gt; Rendering Backbone (Sub)View
+                        &lt;/a&gt;
+                    
+                
+              
+                
+              
+                
+              
+            &lt;/div&gt;
+            &lt;div id=&quot;disqus_thread&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var disqus_shortname = 'nauvalatmaja';
+    var disqus_url = 'http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/';
+    var disqus_identifier = disqus_url;
+    var disqus_title = 'Setting Up Custom Domain for GitHub Pages';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+
+            &lt;div id=&quot;me&quot;&gt;
+    &lt;p&gt;
+        &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
+        Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
+        Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;contact me&lt;/a&gt; with any comments,
+        suggestions or even to just say Hi!
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://twitter.com/novalpas&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;Email Me&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;navbar navbar-footer&quot;&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;script src=&quot;/vendor/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/components-bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js&quot;&gt;&lt;/script&gt;
+
+
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+	var $buoop = {
+		url: 'http://whatbrowser.org/',
+        reminder: 0,
+		newwindow: false,
+		'text': 'You are using an outdated browser (%s). &lt;a%s&gt;More information &amp;#187;&lt;/a&gt;',
+		'text_af': 'Jy gebruik \'n verouderde webblaaier (%s). &lt;a%s&gt;Meer inligting &amp;#187;&lt;/a&gt;',
+		'text_cs': 'Používáte zastaralý prohlížeč (%s). &lt;a%s&gt;Více informací &amp;#187;&lt;/a&gt;',
+		'text_da': 'Du bruger en ældre browser (%s). &lt;a%s&gt;Mere information &amp;#187;&lt;/a&gt;',
+		'text_de': 'Sie benutzen einen veralteten Browser (%s). &lt;a%s&gt;Mehr Informationen &amp;#187;&lt;/a&gt;',
+		'text_el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. &lt;a%s&gt;Περισσότερες πληροφορίες &amp;#187;&lt;/a&gt;',
+		'text_es': 'Su navegador está obsoleto (%s). &lt;a%s&gt;M&amp;aacute;s informaci&amp;oacute;n &amp;#187;&lt;/a&gt;',
+		'text_fi': 'Käytät vanhentunutta selainta (%s). &lt;a%s&gt;Lisää tietoa &amp;#187;&lt;/a&gt;',
+		'text_fr': 'Votre navigateur n\'est pas à jour (%s). &lt;a%s&gt;Plus d\'information &amp;#187;&lt;/a&gt;',
+		'text_hu': 'A böngészője elavult (%s). &lt;a%s&gt;További információ &amp;#187;&lt;/a&gt;',
+		'text_id': 'Anda menggunakan web browser versi lama (%s). &lt;a%s&gt;Informasi selengkapnya &amp;#187;&lt;/a&gt;',
+		'text_is': 'Þú ert að nota úreltan vafra (%s). &lt;a%s&gt;Nánari upplýsingar &amp;#187;&lt;/a&gt;',
+		'text_it': 'Stai usando un browser datato (%s). &lt;a%s&gt;Ulteriori informazioni &amp;#187;&lt;/a&gt;',
+		'text_nl': 'U gebruikt op dit moment een verouderde webbrowser (%s). &lt;a%s&gt;Meer informatie &amp;#187;&lt;/a&gt;',
+		'text_pl': 'Używasz przestarzałej przeglądarki (%s). &lt;a%s&gt;Więcej informacji &amp;#187;&lt;/a&gt;',
+		'text_pt': 'Você está usando um navegador antigo (%s). &lt;a%s&gt;Mais informações &amp;#187;&lt;/a&gt;',
+		'text_ro': 'Browserul dumneavoastră este depăşit (%s). &lt;a%s&gt;Mai multe informații &amp;#187;&lt;/a&gt;',
+		'text_ru': 'Вы используете устаревший браузер (%s). &lt;a%s&gt;Подробнее &amp;#187;&lt;/a&gt;',
+		'text_sk': 'Používate zastaralý prehliadač (%s). &lt;a%s&gt;Viac informácií &amp;#187;&lt;/a&gt;',
+		'text_sr': 'Vi koristite zastarelu verziju browsera (%s). &lt;a%s&gt;Vi&amp;#353;e informacija &amp;#187;&lt;/a&gt;',
+		'text_sv': 'Du använder en gammal webbläsare (%s). &lt;a%s&gt;Mer information &amp;#187;&lt;/a&gt;',
+		'text_tr': 'Çok eski bir tarayıcı kullanıyorsunuz (%s). &lt;a%s&gt;Daha fazla bilgi &amp;#187;&lt;/a&gt;',
+		'text_vi': 'Trình duyệt bạn dùng đã lỗi thời rồi (%s). &lt;a%s&gt;Thêm thông tin &amp;#187;&lt;/a&gt;'
+	};
+	$buoop.ol = window.onload;
+	window.onload=function(){
+		try {if ($buoop.ol) $buoop.ol();}catch (e) {}
+		var e = document.createElement(&quot;script&quot;);
+		e.setAttribute(&quot;type&quot;, &quot;text/javascript&quot;);
+		e.setAttribute(&quot;src&quot;, &quot;//browser-update.org/update.js&quot;);
+		document.body.appendChild(e);
+	}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Rendering Backbone (Sub)View</title>
+      <link href="http://nauvalatmaja.com/posts/2014-12-29-rendering-backbone-subview/"/>
+      <updated>2014-12-29T14:52:00.000Z</updated>
+      <id>http://nauvalatmaja.com/posts/2014-12-29-rendering-backbone-subview/</id>
+      <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;/&gt;
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        if (window.location.hostname == 'www.nauvalatmaja.com' || window.location.hostname == 'nauvalatmaja.com') {
+
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-58073141-1', 'auto');
+          ga('send', 'pageview');  
+        }
+    &lt;/script&gt;
+
+    &lt;title&gt;Rendering Backbone (Sub)View | nauval atmaja&lt;/title&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;Nauval Atmaja&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;link href=&quot;/feed.xml&quot; rel=&quot;alternate&quot; title=&quot;www.nauvalatmaja.com&quot; type=&quot;application/atom+xml&quot;&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;300x300&quot; href=&quot;icon/icon.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;196x196&quot; href=&quot;icon/icon-196.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;link href=&quot;/ico/favicon.ico&quot; rel=&quot;shortcut icon&quot;&gt;
+
+    &lt;style&gt;
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    &lt;/style&gt;
+
+    &lt;!-- Bootstrap --&gt;
+    &lt;link href=&quot;/styles/site.css?&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/vendor/rainbow.css&quot;&gt;
+    &lt;!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;
+    &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;/scripts/vendor/html5shiv.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/scripts/vendor/respond.min.js&quot;&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+
+    &lt;meta name=&quot;generator&quot; content=&quot;DocPad v6.69.2&quot; /&gt;
+    
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;a href=&quot;https://plus.google.com/112846605467404730226?rel=author&quot; class=&quot;google googleplus-hidden&quot; title=&quot;Google+&quot;&gt;Google+&lt;/a&gt;
+
+&lt;div class=&quot;navbar navbar-default navbar-static-top navbar-shadow&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;span class=&quot;text-primary&quot;&gt;nauval atmaja&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;collapse navbar-collapse navbar-right&quot;&gt;
+            &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+                &lt;!--&lt;li&gt;&lt;a href=&quot;/&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;--&gt;
+                &lt;!-- &lt;li&gt;&lt;a href=&quot;/archives/&quot;&gt;Archives&lt;/a&gt;&lt;/li&gt; --&gt;
+                
+                    &lt;li typeof=&quot;sioc:Page&quot;, about= /pages/archives/&gt;
+                      &lt;a href='/pages/archives/', property=&quot;dc:title&quot;&gt;Blog Archives&lt;/a&gt;
+                    &lt;/li&gt;
+                
+                &lt;li class=&quot;hidden-xs&quot;&gt;
+                    &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;http://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;form class=&quot;navbar-form navbar-right hidden-xs&quot; role=&quot;search&quot; action=&quot;http://google.com/search&quot;
+                  method=&quot;get&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;search&quot; name=&quot;q&quot; class=&quot;form-control&quot; placeholder=&quot;Search&quot;&gt;
+                    &lt;input type=&quot;hidden&quot; name=&quot;q&quot; value=&quot;site:www.nauvalatmaja.com&quot;&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;clear&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12 col-md-10&quot;&gt;
+            
+            &lt;article id=&quot;post&quot; class=&quot;post&quot;&gt;
+    
+        &lt;h1&gt;Rendering Backbone (Sub)View&lt;/h1&gt;
+    
+    &lt;div class=&quot;post-date&quot;&gt;Dec 29th, 2014&lt;/div&gt;
+    &lt;div class=&quot;post-content&quot;&gt;
+        &lt;p&gt;When learning backbone.js (i&amp;#39;m a novice by the way), at first, I was actually having a hard time
+to grasp the backbone view. Especially how the best practice to render
+the view and build a rather complex view consists of several subviews.
+And then, magically I came accross Ian Storm Taylor&amp;#39;s post about 
+&lt;a href=&quot;http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/&quot;&gt;his experience on dealing with backbone subview&lt;/a&gt;.
+At first I didn&amp;#39;t quiet understand well about the post until I found
+&lt;a href=&quot;http://stackoverflow.com/questions/9337927/how-to-handle-initializing-and-rendering-subviews-in-backbone-js&quot;&gt;a thread on stackoverflow&lt;/a&gt;, which was started by &lt;a href=&quot;http://ianstormtaylor.com&quot;&gt;Ian Storm Taylor&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Based on the posts, I created a simple case study to better understand how it works.
+The requirements were to list pairs of username and email input by users.
+So at first I created the view as listed below:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs xml&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-value&quot;&gt;&quot;application&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;Add a user to the user list&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-value&quot;&gt;&quot;login&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-value&quot;&gt;&quot;online-users&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-title&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-value&quot;&gt;&quot;login-template&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;hljs-value&quot;&gt;&quot;text/template&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;
+  &amp;lt;h1&amp;gt; login &amp;lt;&lt;span class=&quot;hljs-regexp&quot;&gt;/h1&amp;gt;
+  &amp;lt;input id=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;username&quot; /&lt;/span&gt;&amp;gt; 
+  &lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;id&lt;/span&gt; = &quot;&lt;span class=&quot;hljs-attribute&quot;&gt;email&lt;/span&gt;&quot; &lt;span class=&quot;hljs-attribute&quot;&gt;type&lt;/span&gt; = &quot;&lt;span class=&quot;hljs-attribute&quot;&gt;text&lt;/span&gt;&quot; &lt;span class=&quot;hljs-attribute&quot;&gt;placeholder&lt;/span&gt; = &quot;&lt;span class=&quot;hljs-attribute&quot;&gt;email&lt;/span&gt;&quot; /&amp;gt;&lt;/span&gt; 
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;id&lt;/span&gt; = &quot;&lt;span class=&quot;hljs-attribute&quot;&gt;button-login&lt;/span&gt;&quot; &lt;span class=&quot;hljs-attribute&quot;&gt;type&lt;/span&gt; = &quot;&lt;span class=&quot;hljs-attribute&quot;&gt;button&lt;/span&gt;&quot;&amp;gt;&lt;/span&gt; Login &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-title&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;hljs-value&quot;&gt;&quot;userlist-template&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;hljs-value&quot;&gt;&quot;text/template&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;
+  &amp;lt;li&amp;gt;
+    &lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;username&lt;/span&gt; %&amp;gt;&lt;/span&gt; / &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;email&lt;/span&gt; %&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-title&quot;&gt;span&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-title&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;hljs-attribute&quot;&gt;id&lt;/span&gt; = &quot;&lt;span class=&quot;hljs-attribute&quot;&gt;force-logout&lt;/span&gt;&quot;&amp;gt;&lt;/span&gt;force logout&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-title&quot;&gt;button&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-title&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To better visualize, lets see this picture:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/backbone-view-schema.png&quot; alt=&quot;Application view&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The outer container is &lt;code&gt;#application&lt;/code&gt; and inside it there are
+two other sub-containers &lt;code&gt;#login&lt;/code&gt; and &lt;code&gt;#online-users&lt;/code&gt;. Each container
+or sub-container is represented in a separated view: &lt;code&gt;AppView&lt;/code&gt;, &lt;code&gt;LoginView&lt;/code&gt;
+and &lt;code&gt;UserListView&lt;/code&gt; respectively. To make it
+nicely structured, the &lt;code&gt;UserListView&lt;/code&gt; has a sub-view
+called &lt;code&gt;UserView&lt;/code&gt; that renders each pair of username and email 
+handles of the button clicked event.
+there is an exception for the last view where the view is 
+created for each username-password pair then appended in 
+the container &lt;code&gt;#online-users&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now let&amp;#39;s get to the code.&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs javascript&quot;&gt;app.AppView = Backbone.View.extend({
+  el: &lt;span class=&quot;hljs-string&quot;&gt;'#application'&lt;/span&gt;,
+
+  initialize: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.users = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; app.UserList();
+
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.loginView = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; app.LoginView();
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.userListView = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; app.UserListView( { collection: &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.users } );
+
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.listenTo(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.loginView, &lt;span class=&quot;hljs-string&quot;&gt;'login'&lt;/span&gt;, &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.login);
+  },
+
+  render: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.loginView.setElement(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$(&lt;span class=&quot;hljs-string&quot;&gt;'#login'&lt;/span&gt;)).render();
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.userListView.setElement(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$(&lt;span class=&quot;hljs-string&quot;&gt;'#online-users'&lt;/span&gt;)).render();
+  },
+
+  &lt;span class=&quot;hljs-comment&quot;&gt;/* ... */&lt;/span&gt;
+
+  login: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;(user)&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.users.create( user );
+  }
+});
+
+app.LoginView = Backbone.View.extend({
+  template: _.template($(&lt;span class=&quot;hljs-string&quot;&gt;'#login-template'&lt;/span&gt;).html()),
+
+  events: {
+    &lt;span class=&quot;hljs-string&quot;&gt;'click #button-login'&lt;/span&gt;: &lt;span class=&quot;hljs-string&quot;&gt;'login'&lt;/span&gt;
+  },
+
+  render: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+      &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$el.html(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.template());
+  },
+
+  login: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-comment&quot;&gt;// login logic&lt;/span&gt;
+  },
+
+  &lt;span class=&quot;hljs-comment&quot;&gt;/* ... */&lt;/span&gt;
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here, the most important thing to connect Backbone view to
+the html is the &lt;code&gt;el&lt;/code&gt; (element) property. The &lt;code&gt;el&lt;/code&gt; property defines to 
+which element the view template will be rendered, or at least in this case 
+study. In the &lt;code&gt;AppView&lt;/code&gt; the &lt;code&gt;el&lt;/code&gt; is set to &lt;code&gt;#application&lt;/code&gt; 
+as the root container of the application. However, for its 
+sub-views, the &lt;code&gt;el&lt;/code&gt; property is not defined in the view
+definition but set dynamically using &lt;code&gt;setElement&lt;/code&gt; method.
+As Ian suggested, this is done to avoid the unbinding of 
+sub-views&amp;#39; events when rendered more than a time.&lt;/p&gt;
+&lt;p&gt;The instantiation
+of sub-views depends on how the sub-views are rendered.
+&lt;code&gt;LoginView&lt;/code&gt; and &lt;code&gt;UserListView&lt;/code&gt; are instantiated in
+the &lt;code&gt;initialize&lt;/code&gt; method as the application only need 
+an instance for each of them. In contrast, &lt;code&gt;UserView&lt;/code&gt;
+is instantiated for each user (model) as it needs to
+associate the button click event inside the view with
+the contained model.&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs javascript&quot;&gt;app.UserListView = Backbone.View.extend({
+  initialize: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.listenTo(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.collection, &lt;span class=&quot;hljs-string&quot;&gt;'add'&lt;/span&gt;, &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.renderOne);
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.listenTo(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.collection, &lt;span class=&quot;hljs-string&quot;&gt;'reset'&lt;/span&gt;, &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.renderAll);
+  },
+
+  render: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.renderAll();
+  },
+
+  renderOne: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;(user)&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; view = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; app.UserView( { model: user } );
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$el.append(view.render().el);
+  },
+
+  renderAll: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.collection.each(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.renderOne);
+  }
+});
+
+app.UserView = Backbone.View.extend({
+  template: _.template($(&lt;span class=&quot;hljs-string&quot;&gt;'#userlist-template'&lt;/span&gt;).html()),
+  tagName: &lt;span class=&quot;hljs-string&quot;&gt;'li'&lt;/span&gt;,
+  events: {
+      &lt;span class=&quot;hljs-string&quot;&gt;'click #force-logout'&lt;/span&gt;: &lt;span class=&quot;hljs-string&quot;&gt;'clear'&lt;/span&gt;
+  },
+
+  initialize: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.listenTo(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.model, &lt;span class=&quot;hljs-string&quot;&gt;'destroy'&lt;/span&gt;, &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.remove);
+  },
+
+  render: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+      &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$el.html( &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.template( &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.model.attributes ) );
+      &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;;
+  },
+
+  clear: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+      &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.model.destroy();
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To make the code structured nicely, I used the &lt;code&gt;html()&lt;/code&gt; and
+&lt;code&gt;append()&lt;/code&gt; method of Backbone view&amp;#39;s &lt;code&gt;$el&lt;/code&gt; property. Some people
+might use jquery&amp;#39;s selector &lt;code&gt;$(&amp;#39;.element&amp;#39;)&lt;/code&gt; to render the html,
+which I think it isn&amp;#39;t clean enough. Lastly, I&amp;#39;ve made a &lt;a href=&quot;http://jsfiddle.net/npatmaja/csL45j3s/&quot;&gt;fiddle&lt;/a&gt;
+about this post where you can play around. Hope this post 
+helps someone to understand more about backbone view.&lt;/p&gt;
+
+    &lt;/div&gt;
+    
+        &lt;div class=&quot;twitter-share&quot;&gt;
+  &lt;a href='https://twitter.com/intent/tweet?text=Rendering+Backbone+(Sub)View&amp;url=http://nauvalatmaja.com/posts/2014-12-29-rendering-backbone-subview/&amp;via=novalpas&amp;hashtags=backbone.js%2Cview%2Cjavascript' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
+&lt;/div&gt;
+
+    
+    
+        &lt;div class=&quot;post-tags&quot;&gt;
+            Posted In: 
+  &lt;a href='/tags/backbone-js/'&gt;backbone.js&lt;/a&gt;
+
+  &lt;a href='/tags/view/'&gt;view&lt;/a&gt;
+
+  &lt;a href='/tags/javascript/'&gt;javascript&lt;/a&gt;
+ 
+        &lt;/div&gt;
+    
+&lt;/article&gt; 
+            &lt;!-- get next and prev link --&gt;
+            
+            &lt;div class=&quot;page-nav&quot;&gt;
+              
+                
+              
+                
+                    
+                        &lt;a href=&quot;/posts/2014-12-31-setting-up-custom-domain-for-github-pages/&quot; class=&quot;page-nav-newer&quot;&gt;
+                          Setting Up Custom Domain for GitHub Pages &lt;span class=&quot;icon icon-arrow-right-2&quot;&gt;&lt;/span&gt;
+                        &lt;/a&gt;
+                    
+                    
+                         &lt;a href=&quot;/posts/2014-12-28-blogging-with-docpad/&quot; class=&quot;page-nav-older&quot;&gt;
+                          &lt;span class=&quot;icon icon-arrow-left-2&quot;&gt;&lt;/span&gt; Blogging with Docpad
+                        &lt;/a&gt;
+                    
+                
+              
+                
+              
+            &lt;/div&gt;
+            &lt;div id=&quot;disqus_thread&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var disqus_shortname = 'nauvalatmaja';
+    var disqus_url = 'http://nauvalatmaja.com/posts/2014-12-29-rendering-backbone-subview/';
+    var disqus_identifier = disqus_url;
+    var disqus_title = 'Rendering Backbone (Sub)View';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+
+            &lt;div id=&quot;me&quot;&gt;
+    &lt;p&gt;
+        &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
+        Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
+        Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;contact me&lt;/a&gt; with any comments,
+        suggestions or even to just say Hi!
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://twitter.com/novalpas&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;Email Me&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;navbar navbar-footer&quot;&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;script src=&quot;/vendor/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/components-bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js&quot;&gt;&lt;/script&gt;
+
+
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+	var $buoop = {
+		url: 'http://whatbrowser.org/',
+        reminder: 0,
+		newwindow: false,
+		'text': 'You are using an outdated browser (%s). &lt;a%s&gt;More information &amp;#187;&lt;/a&gt;',
+		'text_af': 'Jy gebruik \'n verouderde webblaaier (%s). &lt;a%s&gt;Meer inligting &amp;#187;&lt;/a&gt;',
+		'text_cs': 'Používáte zastaralý prohlížeč (%s). &lt;a%s&gt;Více informací &amp;#187;&lt;/a&gt;',
+		'text_da': 'Du bruger en ældre browser (%s). &lt;a%s&gt;Mere information &amp;#187;&lt;/a&gt;',
+		'text_de': 'Sie benutzen einen veralteten Browser (%s). &lt;a%s&gt;Mehr Informationen &amp;#187;&lt;/a&gt;',
+		'text_el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. &lt;a%s&gt;Περισσότερες πληροφορίες &amp;#187;&lt;/a&gt;',
+		'text_es': 'Su navegador está obsoleto (%s). &lt;a%s&gt;M&amp;aacute;s informaci&amp;oacute;n &amp;#187;&lt;/a&gt;',
+		'text_fi': 'Käytät vanhentunutta selainta (%s). &lt;a%s&gt;Lisää tietoa &amp;#187;&lt;/a&gt;',
+		'text_fr': 'Votre navigateur n\'est pas à jour (%s). &lt;a%s&gt;Plus d\'information &amp;#187;&lt;/a&gt;',
+		'text_hu': 'A böngészője elavult (%s). &lt;a%s&gt;További információ &amp;#187;&lt;/a&gt;',
+		'text_id': 'Anda menggunakan web browser versi lama (%s). &lt;a%s&gt;Informasi selengkapnya &amp;#187;&lt;/a&gt;',
+		'text_is': 'Þú ert að nota úreltan vafra (%s). &lt;a%s&gt;Nánari upplýsingar &amp;#187;&lt;/a&gt;',
+		'text_it': 'Stai usando un browser datato (%s). &lt;a%s&gt;Ulteriori informazioni &amp;#187;&lt;/a&gt;',
+		'text_nl': 'U gebruikt op dit moment een verouderde webbrowser (%s). &lt;a%s&gt;Meer informatie &amp;#187;&lt;/a&gt;',
+		'text_pl': 'Używasz przestarzałej przeglądarki (%s). &lt;a%s&gt;Więcej informacji &amp;#187;&lt;/a&gt;',
+		'text_pt': 'Você está usando um navegador antigo (%s). &lt;a%s&gt;Mais informações &amp;#187;&lt;/a&gt;',
+		'text_ro': 'Browserul dumneavoastră este depăşit (%s). &lt;a%s&gt;Mai multe informații &amp;#187;&lt;/a&gt;',
+		'text_ru': 'Вы используете устаревший браузер (%s). &lt;a%s&gt;Подробнее &amp;#187;&lt;/a&gt;',
+		'text_sk': 'Používate zastaralý prehliadač (%s). &lt;a%s&gt;Viac informácií &amp;#187;&lt;/a&gt;',
+		'text_sr': 'Vi koristite zastarelu verziju browsera (%s). &lt;a%s&gt;Vi&amp;#353;e informacija &amp;#187;&lt;/a&gt;',
+		'text_sv': 'Du använder en gammal webbläsare (%s). &lt;a%s&gt;Mer information &amp;#187;&lt;/a&gt;',
+		'text_tr': 'Çok eski bir tarayıcı kullanıyorsunuz (%s). &lt;a%s&gt;Daha fazla bilgi &amp;#187;&lt;/a&gt;',
+		'text_vi': 'Trình duyệt bạn dùng đã lỗi thời rồi (%s). &lt;a%s&gt;Thêm thông tin &amp;#187;&lt;/a&gt;'
+	};
+	$buoop.ol = window.onload;
+	window.onload=function(){
+		try {if ($buoop.ol) $buoop.ol();}catch (e) {}
+		var e = document.createElement(&quot;script&quot;);
+		e.setAttribute(&quot;type&quot;, &quot;text/javascript&quot;);
+		e.setAttribute(&quot;src&quot;, &quot;//browser-update.org/update.js&quot;);
+		document.body.appendChild(e);
+	}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</content>
+    </entry>
+  
+    <entry>
+      <title>Blogging with Docpad</title>
+      <link href="http://nauvalatmaja.com/posts/2014-12-28-blogging-with-docpad/"/>
+      <updated>2014-12-28T10:31:00.000Z</updated>
+      <id>http://nauvalatmaja.com/posts/2014-12-28-blogging-with-docpad/</id>
+      <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;/&gt;
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        if (window.location.hostname == 'www.nauvalatmaja.com' || window.location.hostname == 'nauvalatmaja.com') {
+
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-58073141-1', 'auto');
+          ga('send', 'pageview');  
+        }
+    &lt;/script&gt;
+
+    &lt;title&gt;Blogging with Docpad | nauval atmaja&lt;/title&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;Nauval Atmaja&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;link href=&quot;/feed.xml&quot; rel=&quot;alternate&quot; title=&quot;www.nauvalatmaja.com&quot; type=&quot;application/atom+xml&quot;&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;300x300&quot; href=&quot;icon/icon.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;196x196&quot; href=&quot;icon/icon-196.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;link href=&quot;/ico/favicon.ico&quot; rel=&quot;shortcut icon&quot;&gt;
+
+    &lt;style&gt;
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    &lt;/style&gt;
+
+    &lt;!-- Bootstrap --&gt;
+    &lt;link href=&quot;/styles/site.css?&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/vendor/rainbow.css&quot;&gt;
+    &lt;!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;
+    &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;/scripts/vendor/html5shiv.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/scripts/vendor/respond.min.js&quot;&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+
+    &lt;meta name=&quot;generator&quot; content=&quot;DocPad v6.69.2&quot; /&gt;
+    
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;a href=&quot;https://plus.google.com/112846605467404730226?rel=author&quot; class=&quot;google googleplus-hidden&quot; title=&quot;Google+&quot;&gt;Google+&lt;/a&gt;
+
+&lt;div class=&quot;navbar navbar-default navbar-static-top navbar-shadow&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;span class=&quot;text-primary&quot;&gt;nauval atmaja&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;collapse navbar-collapse navbar-right&quot;&gt;
+            &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+                &lt;!--&lt;li&gt;&lt;a href=&quot;/&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;--&gt;
+                &lt;!-- &lt;li&gt;&lt;a href=&quot;/archives/&quot;&gt;Archives&lt;/a&gt;&lt;/li&gt; --&gt;
+                
+                    &lt;li typeof=&quot;sioc:Page&quot;, about= /pages/archives/&gt;
+                      &lt;a href='/pages/archives/', property=&quot;dc:title&quot;&gt;Blog Archives&lt;/a&gt;
+                    &lt;/li&gt;
+                
+                &lt;li class=&quot;hidden-xs&quot;&gt;
+                    &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;http://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;form class=&quot;navbar-form navbar-right hidden-xs&quot; role=&quot;search&quot; action=&quot;http://google.com/search&quot;
+                  method=&quot;get&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;search&quot; name=&quot;q&quot; class=&quot;form-control&quot; placeholder=&quot;Search&quot;&gt;
+                    &lt;input type=&quot;hidden&quot; name=&quot;q&quot; value=&quot;site:www.nauvalatmaja.com&quot;&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;clear&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12 col-md-10&quot;&gt;
+            
+            &lt;article id=&quot;post&quot; class=&quot;post&quot;&gt;
+    
+        &lt;h1&gt;Blogging with Docpad&lt;/h1&gt;
+    
+    &lt;div class=&quot;post-date&quot;&gt;Dec 28th, 2014&lt;/div&gt;
+    &lt;div class=&quot;post-content&quot;&gt;
+        &lt;p&gt;It has been a long time since I planned to have a dedicated blog for 
+writing about some more &lt;em&gt;&amp;quot;meaningful&amp;quot;&lt;/em&gt; stuff instead of just
+my rumbling I posted on my &lt;a href=&quot;http://noval78.wordpress.com&quot;&gt;trash bin&lt;/a&gt;. 
+After a while, I decided to use &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub pages&lt;/a&gt; 
+to host my posts. However, the problem is, I don&amp;#39;t want to install 
+&lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&lt;/a&gt; in my machine so I tried to do built it 
+manually without installing Jekyll locally, which was proven to be a 
+hard thing to do at the. Since I had other 
+higher priorities, the project was abandoned till recently.&lt;/p&gt;
+&lt;p&gt;As I am now re-learning javascript and node.js, I searched about static 
+blogging with node.js to pick this blog project up, with a resolution 
+to make it online. And that was how I came accross
+&lt;a href=&quot;http://docpad.org&quot;&gt;docpad&lt;/a&gt;, a dinamyc static site generator built 
+using node.js. Similar to Jekyll, it can render markdown files to 
+bunch of static htmls. To build a blog using docpad wasn&amp;#39;t hard 
+thing to do. There were skeletons that you can choose
+to bootstrap your blog when you first run &lt;code&gt;docpad run&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/docpad-run-skeleton.png&quot; alt=&quot;docpad skeletons&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Since I am really bad at web design, I searched for blogs built using 
+docpad and its source hosted on github. Then, I found
+&lt;a href=&quot;http://www.ewal.net&quot;&gt;Erv Walter&amp;#39;s blog&lt;/a&gt; which satisfied my 
+requirements: simple and clean. So I cloned the blog&amp;#39;s repository
+and adapted it to the skeleton I used and did some minor changes, 
+and &lt;em&gt;voila&lt;/em&gt; here it is. Lastly, I
+used &lt;a href=&quot;https://docpad.org/plugin/ghpages&quot;&gt;GitHub pages plugin&lt;/a&gt;
+to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-docpad/&quot;&gt;push the blog to github&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;/div&gt;
+    
+        &lt;div class=&quot;twitter-share&quot;&gt;
+  &lt;a href='https://twitter.com/intent/tweet?text=Blogging+with+Docpad&amp;url=http://nauvalatmaja.com/posts/2014-12-28-blogging-with-docpad/&amp;via=novalpas&amp;hashtags=blog%2Cdocpad%2Cnode.js' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
+&lt;/div&gt;
+
+    
+    
+        &lt;div class=&quot;post-tags&quot;&gt;
+            Posted In: 
+  &lt;a href='/tags/blog/'&gt;blog&lt;/a&gt;
+
+  &lt;a href='/tags/docpad/'&gt;docpad&lt;/a&gt;
+
+  &lt;a href='/tags/node-js/'&gt;node.js&lt;/a&gt;
+ 
+        &lt;/div&gt;
+    
+&lt;/article&gt; 
+            &lt;!-- get next and prev link --&gt;
+            
+            &lt;div class=&quot;page-nav&quot;&gt;
+              
+                
+              
+                
+              
+                
+                    
+                        &lt;a href=&quot;/posts/2014-12-29-rendering-backbone-subview/&quot; class=&quot;page-nav-newer&quot;&gt;
+                          Rendering Backbone (Sub)View &lt;span class=&quot;icon icon-arrow-right-2&quot;&gt;&lt;/span&gt;
+                        &lt;/a&gt;
+                    
+                    
+                
+              
+            &lt;/div&gt;
+            &lt;div id=&quot;disqus_thread&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var disqus_shortname = 'nauvalatmaja';
+    var disqus_url = 'http://nauvalatmaja.com/posts/2014-12-28-blogging-with-docpad/';
+    var disqus_identifier = disqus_url;
+    var disqus_title = 'Blogging with Docpad';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+
+            &lt;div id=&quot;me&quot;&gt;
+    &lt;p&gt;
+        &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
+        Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
+        Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;contact me&lt;/a&gt; with any comments,
+        suggestions or even to just say Hi!
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://twitter.com/novalpas&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;Email Me&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;navbar navbar-footer&quot;&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;script src=&quot;/vendor/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/components-bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js&quot;&gt;&lt;/script&gt;
+
+
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+	var $buoop = {
+		url: 'http://whatbrowser.org/',
+        reminder: 0,
+		newwindow: false,
+		'text': 'You are using an outdated browser (%s). &lt;a%s&gt;More information &amp;#187;&lt;/a&gt;',
+		'text_af': 'Jy gebruik \'n verouderde webblaaier (%s). &lt;a%s&gt;Meer inligting &amp;#187;&lt;/a&gt;',
+		'text_cs': 'Používáte zastaralý prohlížeč (%s). &lt;a%s&gt;Více informací &amp;#187;&lt;/a&gt;',
+		'text_da': 'Du bruger en ældre browser (%s). &lt;a%s&gt;Mere information &amp;#187;&lt;/a&gt;',
+		'text_de': 'Sie benutzen einen veralteten Browser (%s). &lt;a%s&gt;Mehr Informationen &amp;#187;&lt;/a&gt;',
+		'text_el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. &lt;a%s&gt;Περισσότερες πληροφορίες &amp;#187;&lt;/a&gt;',
+		'text_es': 'Su navegador está obsoleto (%s). &lt;a%s&gt;M&amp;aacute;s informaci&amp;oacute;n &amp;#187;&lt;/a&gt;',
+		'text_fi': 'Käytät vanhentunutta selainta (%s). &lt;a%s&gt;Lisää tietoa &amp;#187;&lt;/a&gt;',
+		'text_fr': 'Votre navigateur n\'est pas à jour (%s). &lt;a%s&gt;Plus d\'information &amp;#187;&lt;/a&gt;',
+		'text_hu': 'A böngészője elavult (%s). &lt;a%s&gt;További információ &amp;#187;&lt;/a&gt;',
+		'text_id': 'Anda menggunakan web browser versi lama (%s). &lt;a%s&gt;Informasi selengkapnya &amp;#187;&lt;/a&gt;',
+		'text_is': 'Þú ert að nota úreltan vafra (%s). &lt;a%s&gt;Nánari upplýsingar &amp;#187;&lt;/a&gt;',
+		'text_it': 'Stai usando un browser datato (%s). &lt;a%s&gt;Ulteriori informazioni &amp;#187;&lt;/a&gt;',
+		'text_nl': 'U gebruikt op dit moment een verouderde webbrowser (%s). &lt;a%s&gt;Meer informatie &amp;#187;&lt;/a&gt;',
+		'text_pl': 'Używasz przestarzałej przeglądarki (%s). &lt;a%s&gt;Więcej informacji &amp;#187;&lt;/a&gt;',
+		'text_pt': 'Você está usando um navegador antigo (%s). &lt;a%s&gt;Mais informações &amp;#187;&lt;/a&gt;',
+		'text_ro': 'Browserul dumneavoastră este depăşit (%s). &lt;a%s&gt;Mai multe informații &amp;#187;&lt;/a&gt;',
+		'text_ru': 'Вы используете устаревший браузер (%s). &lt;a%s&gt;Подробнее &amp;#187;&lt;/a&gt;',
+		'text_sk': 'Používate zastaralý prehliadač (%s). &lt;a%s&gt;Viac informácií &amp;#187;&lt;/a&gt;',
+		'text_sr': 'Vi koristite zastarelu verziju browsera (%s). &lt;a%s&gt;Vi&amp;#353;e informacija &amp;#187;&lt;/a&gt;',
+		'text_sv': 'Du använder en gammal webbläsare (%s). &lt;a%s&gt;Mer information &amp;#187;&lt;/a&gt;',
+		'text_tr': 'Çok eski bir tarayıcı kullanıyorsunuz (%s). &lt;a%s&gt;Daha fazla bilgi &amp;#187;&lt;/a&gt;',
+		'text_vi': 'Trình duyệt bạn dùng đã lỗi thời rồi (%s). &lt;a%s&gt;Thêm thông tin &amp;#187;&lt;/a&gt;'
+	};
+	$buoop.ol = window.onload;
+	window.onload=function(){
+		try {if ($buoop.ol) $buoop.ol();}catch (e) {}
+		var e = document.createElement(&quot;script&quot;);
+		e.setAttribute(&quot;type&quot;, &quot;text/javascript&quot;);
+		e.setAttribute(&quot;src&quot;, &quot;//browser-update.org/update.js&quot;);
+		document.body.appendChild(e);
+	}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</content>
+    </entry>
+  
+</feed>
