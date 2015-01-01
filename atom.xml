@@ -3,7 +3,7 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2014-12-31T04:26:59.039Z</updated>
+  <updated>2015-01-01T04:32:12.437Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
@@ -751,25 +751,29 @@ helps someone to understand more about backbone view.&lt;/p&gt;
         &lt;p&gt;It has been a long time since I planned to have a dedicated blog for 
 writing about some more &lt;em&gt;&amp;quot;meaningful&amp;quot;&lt;/em&gt; stuff instead of just
 my rumbling I posted on my &lt;a href=&quot;http://noval78.wordpress.com&quot;&gt;trash bin&lt;/a&gt;. 
-After a while, I decided to use &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub pages&lt;/a&gt; 
-to host my posts. However, the problem is, I don&amp;#39;t want to install 
-&lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&lt;/a&gt; in my machine so I tried to do built it 
+After looking out what blogging platforms available, I finally decided 
+to use &lt;a href=&quot;https://pages.github.com/&quot;&gt;GitHub pages&lt;/a&gt; 
+to host my posts. However, as it uses &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&lt;/a&gt;
+as its engine, many people suggested to install Jekyll in my local machine, which
+was a no-show for me. So I tried to built it 
 manually without installing Jekyll locally, which was proven to be a 
-hard thing to do at the. Since I had other 
-higher priorities, the project was abandoned till recently.&lt;/p&gt;
+hard thing to do at the. And later then, I had to postponed the project
+until recently due to some higher priority activities.&lt;/p&gt;
 &lt;p&gt;As I am now re-learning javascript and node.js, I searched about static 
-blogging with node.js to pick this blog project up, with a resolution 
+blogging with node.js to pick this blog project up once again, with a resolution 
 to make it online. And that was how I came accross
 &lt;a href=&quot;http://docpad.org&quot;&gt;docpad&lt;/a&gt;, a dinamyc static site generator built 
 using node.js. Similar to Jekyll, it can render markdown files to 
-bunch of static htmls. To build a blog using docpad wasn&amp;#39;t hard 
+bunch of static htmls. Surprisingly, to build a blog using docpad wasn&amp;#39;t hard 
 thing to do. There were skeletons that you can choose
 to bootstrap your blog when you first run &lt;code&gt;docpad run&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/docpad-run-skeleton.png&quot; alt=&quot;docpad skeletons&quot;&gt;&lt;/p&gt;
-&lt;p&gt;Since I am really bad at web design, I searched for blogs built using 
-docpad and its source hosted on github. Then, I found
+&lt;p&gt;After creating the skeleton, next thing that is needed to do is to 
+customize your blog appearance. Since I am bad at web design, I searched 
+for blogs built using 
+docpad whom source hosted on github. Fortunately, I found
 &lt;a href=&quot;http://www.ewal.net&quot;&gt;Erv Walter&amp;#39;s blog&lt;/a&gt; which satisfied my 
-requirements: simple and clean. So I cloned the blog&amp;#39;s repository
+requirements for being simple simple and clean. So I cloned the blog&amp;#39;s repository
 and adapted it to the skeleton I used and did some minor changes, 
 and &lt;em&gt;voila&lt;/em&gt; here it is. Lastly, I
 used &lt;a href=&quot;https://docpad.org/plugin/ghpages&quot;&gt;GitHub pages plugin&lt;/a&gt;
