@@ -3,7 +3,7 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-01T09:04:01.239Z</updated>
+  <updated>2015-01-01T09:08:51.065Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
@@ -769,11 +769,11 @@ thing to do. There were skeletons that you can choose
 to bootstrap your blog when you first run &lt;code&gt;docpad run&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/docpad-run-skeleton.png&quot; alt=&quot;docpad skeletons&quot;&gt;&lt;/p&gt;
 &lt;p&gt;After creating the skeleton, next thing that is needed to do is to 
-customize your blog appearance. Since I am bad at web design, I searched 
+customize blog&amp;#39;s appearance. Since I am bad at web design, I searched 
 for blogs built using 
 docpad whom source hosted on github. Fortunately, I found
 &lt;a href=&quot;http://www.ewal.net&quot;&gt;Erv Walter&amp;#39;s blog&lt;/a&gt; which satisfied my 
-requirements for being simple simple and clean. So I cloned the blog&amp;#39;s repository
+requirements for being simple and clean. So I cloned the blog&amp;#39;s repository
 and adapted it to the skeleton I used and did some minor changes, 
 and &lt;em&gt;voila&lt;/em&gt; here it is. Lastly, I
 used &lt;a href=&quot;https://docpad.org/plugin/ghpages&quot;&gt;GitHub pages plugin&lt;/a&gt;
