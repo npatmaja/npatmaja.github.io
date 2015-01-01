@@ -3,7 +3,7 @@
     <title>nauval atmaja</title>
     <link href="http://nauvalatmaja.com/feed.xml" rel="self"/>
     <link href="http://nauvalatmaja.com"/>
-    <updated>2015-01-01T04:32:12.437Z</updated>
+    <updated>2015-01-01T09:04:01.239Z</updated>
     <id>http://nauvalatmaja.com</id>
     <author>
         <name>Nauval Atmaja</name>
@@ -206,8 +206,8 @@ to host my posts. However, as it uses <a href="https://github.com/jekyll/jekyll"
 as its engine, many people suggested to install Jekyll in my local machine, which
 was a no-show for me. So I tried to built it 
 manually without installing Jekyll locally, which was proven to be a 
-hard thing to do at the. And later then, I had to postponed the project
-until recently due to some higher priority activities.</p>
+hard thing to do. Later, I had to postponed the project
+due to some higher priority activities until recent time.</p>
 <p>As I am now re-learning javascript and node.js, I searched about static 
 blogging with node.js to pick this blog project up once again, with a resolution 
 to make it online. And that was how I came accross
