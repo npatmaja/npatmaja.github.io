@@ -3,11 +3,11 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-01T09:08:51.065Z</updated>
+  <updated>2015-01-01T17:37:42.636Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
-    <email>nauval@atmaja.com</email>
+    <email>nauval.atmaja@gmail.com</email>
   </author>
 
   
@@ -38,6 +38,8 @@
 
     &lt;title&gt;Setting Up Custom Domain for GitHub Pages | nauval atmaja&lt;/title&gt;
     &lt;meta name=&quot;author&quot; content=&quot;Nauval Atmaja&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Nauval Atmaja's personal notes on software development and all that&quot;&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;link href=&quot;/feed.xml&quot; rel=&quot;alternate&quot; title=&quot;www.nauvalatmaja.com&quot; type=&quot;application/atom+xml&quot;&gt;
     &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;300x300&quot; href=&quot;icon/icon.png&quot;&gt; --&gt;
@@ -90,7 +92,7 @@
                 
                 &lt;li class=&quot;hidden-xs&quot;&gt;
                     &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
-                    &lt;a href=&quot;http://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
@@ -192,13 +194,13 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
         &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
         Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
         Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
-        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;contact me&lt;/a&gt; with any comments,
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;contact me&lt;/a&gt; with any comments,
         suggestions or even to just say Hi!
     &lt;/p&gt;
     &lt;p&gt;
-        &lt;a href=&quot;https://twitter.com/novalpas&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;Email Me&lt;/a&gt;
+        &lt;a href=&quot;&lt;%= @twitter %&gt;&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;&lt;%= @github %&gt;&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
 
@@ -289,6 +291,8 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
 
     &lt;title&gt;Rendering Backbone (Sub)View | nauval atmaja&lt;/title&gt;
     &lt;meta name=&quot;author&quot; content=&quot;Nauval Atmaja&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Nauval Atmaja's personal notes on software development and all that&quot;&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;link href=&quot;/feed.xml&quot; rel=&quot;alternate&quot; title=&quot;www.nauvalatmaja.com&quot; type=&quot;application/atom+xml&quot;&gt;
     &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;300x300&quot; href=&quot;icon/icon.png&quot;&gt; --&gt;
@@ -341,7 +345,7 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
                 
                 &lt;li class=&quot;hidden-xs&quot;&gt;
                     &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
-                    &lt;a href=&quot;http://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
@@ -574,13 +578,13 @@ helps someone to understand more about backbone view.&lt;/p&gt;
         &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
         Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
         Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
-        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;contact me&lt;/a&gt; with any comments,
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;contact me&lt;/a&gt; with any comments,
         suggestions or even to just say Hi!
     &lt;/p&gt;
     &lt;p&gt;
-        &lt;a href=&quot;https://twitter.com/novalpas&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;Email Me&lt;/a&gt;
+        &lt;a href=&quot;&lt;%= @twitter %&gt;&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;&lt;%= @github %&gt;&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
 
@@ -671,6 +675,8 @@ helps someone to understand more about backbone view.&lt;/p&gt;
 
     &lt;title&gt;Blogging with Docpad | nauval atmaja&lt;/title&gt;
     &lt;meta name=&quot;author&quot; content=&quot;Nauval Atmaja&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Nauval Atmaja's personal notes on software development and all that&quot;&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
     &lt;link href=&quot;/feed.xml&quot; rel=&quot;alternate&quot; title=&quot;www.nauvalatmaja.com&quot; type=&quot;application/atom+xml&quot;&gt;
     &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;300x300&quot; href=&quot;icon/icon.png&quot;&gt; --&gt;
@@ -723,7 +729,7 @@ helps someone to understand more about backbone view.&lt;/p&gt;
                 
                 &lt;li class=&quot;hidden-xs&quot;&gt;
                     &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
-                    &lt;a href=&quot;http://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
@@ -835,13 +841,13 @@ to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-doc
         &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
         Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
         Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
-        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;contact me&lt;/a&gt; with any comments,
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;contact me&lt;/a&gt; with any comments,
         suggestions or even to just say Hi!
     &lt;/p&gt;
     &lt;p&gt;
-        &lt;a href=&quot;https://twitter.com/novalpas&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;mailto:nauval@atmaja.com&quot;&gt;Email Me&lt;/a&gt;
+        &lt;a href=&quot;&lt;%= @twitter %&gt;&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;&lt;%= @github %&gt;&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
 

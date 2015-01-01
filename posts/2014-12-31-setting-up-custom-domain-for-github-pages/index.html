@@ -20,6 +20,8 @@
 
     <title>Setting Up Custom Domain for GitHub Pages | nauval atmaja</title>
     <meta name="author" content="Nauval Atmaja">
+    <meta name="description" content="Nauval Atmaja's personal notes on software development and all that">
+    <meta name="keywords" content="software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/feed.xml" rel="alternate" title="www.nauvalatmaja.com" type="application/atom+xml">
     <!-- <link rel="icon" sizes="300x300" href="icon/icon.png"> -->
@@ -72,7 +74,7 @@
                 
                 <li class="hidden-xs">
                     <a href="/feed.xml" class="rss"><span class="icon icon-feed"></span></a>
-                    <a href="http://twitter.com/novalpas" class="twitter"><span class="icon icon-twitter"></span></a>
+                    <a href="https://twitter.com/novalpas" class="twitter"><span class="icon icon-twitter"></span></a>
                     <a href="https://github.com/npatmaja" class="github"><span class="icon icon-github"></span></a>
                 </li>
             </ul>
@@ -174,13 +176,13 @@ and particularly fast, well it&#39;s static html pages anyway.</p>
         <img src="/images/avatar.png", alt="nauval atmaja">
         Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
         Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
-        Have a look around and don't hesitate to <a href="mailto:nauval@atmaja.com">contact me</a> with any comments,
+        Have a look around and don't hesitate to <a href="mailto:<%= @site.email %>">contact me</a> with any comments,
         suggestions or even to just say Hi!
     </p>
     <p>
-        <a href="https://twitter.com/novalpas">@novalpas</a> &#8226;
-        <a href="https://github.com/npatmaja">GitHub</a> &#8226;
-        <a href="mailto:nauval@atmaja.com">Email Me</a>
+        <a href="<%= @twitter %>">@novalpas</a> &#8226;
+        <a href="<%= @github %>">GitHub</a> &#8226;
+        <a href="mailto:<%= @site.email %>">Email Me</a>
     </p>
 </div>
 
