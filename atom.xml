@@ -3,7 +3,7 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-08T08:37:27.762Z</updated>
+  <updated>2015-01-08T08:51:38.057Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
@@ -208,13 +208,13 @@ version.&lt;/p&gt;
         &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
         Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
         Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
-        Have a look around and don't hesitate to &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;contact me&lt;/a&gt; with any comments,
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;contact me&lt;/a&gt; with any comments,
         suggestions or even to just say Hi!
     &lt;/p&gt;
     &lt;p&gt;
-        &lt;a href=&quot;&lt;%= @twitter %&gt;&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;&lt;%= @github %&gt;&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;Email Me&lt;/a&gt;
+        &lt;a href=&quot;https://twitter.com/novalpas/&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
 
@@ -467,13 +467,13 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
         &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
         Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
         Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
-        Have a look around and don't hesitate to &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;contact me&lt;/a&gt; with any comments,
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;contact me&lt;/a&gt; with any comments,
         suggestions or even to just say Hi!
     &lt;/p&gt;
     &lt;p&gt;
-        &lt;a href=&quot;&lt;%= @twitter %&gt;&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;&lt;%= @github %&gt;&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;Email Me&lt;/a&gt;
+        &lt;a href=&quot;https://twitter.com/novalpas/&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
 
@@ -853,13 +853,13 @@ helps someone to understand more about backbone view.&lt;/p&gt;
         &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
         Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
         Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
-        Have a look around and don't hesitate to &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;contact me&lt;/a&gt; with any comments,
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;contact me&lt;/a&gt; with any comments,
         suggestions or even to just say Hi!
     &lt;/p&gt;
     &lt;p&gt;
-        &lt;a href=&quot;&lt;%= @twitter %&gt;&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;&lt;%= @github %&gt;&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;Email Me&lt;/a&gt;
+        &lt;a href=&quot;https://twitter.com/novalpas/&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
 
@@ -1118,13 +1118,13 @@ to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-doc
         &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
         Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
         Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
-        Have a look around and don't hesitate to &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;contact me&lt;/a&gt; with any comments,
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;contact me&lt;/a&gt; with any comments,
         suggestions or even to just say Hi!
     &lt;/p&gt;
     &lt;p&gt;
-        &lt;a href=&quot;&lt;%= @twitter %&gt;&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;&lt;%= @github %&gt;&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
-        &lt;a href=&quot;mailto:&lt;%= @site.email %&gt;&quot;&gt;Email Me&lt;/a&gt;
+        &lt;a href=&quot;https://twitter.com/novalpas/&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
 
