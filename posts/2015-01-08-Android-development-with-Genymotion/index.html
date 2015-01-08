@@ -18,7 +18,7 @@
         }
     </script>
 
-    <title>Setting Up Custom Domain for GitHub Pages | nauval atmaja</title>
+    <title>Android Development with Genymotion | nauval atmaja</title>
     <meta name="author" content="Nauval Atmaja">
     <meta name="description" content="Nauval Atmaja's personal notes on software development and all that">
     <meta name="keywords" content="software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX">
@@ -95,46 +95,58 @@
             
             <article id="post" class="post">
     
-        <h1>Setting Up Custom Domain for GitHub Pages</h1>
+        <h1>Android Development with Genymotion</h1>
     
-    <div class="post-date">Dec 31st, 2014</div>
+    <div class="post-date">Jan 8th, 2015</div>
     <div class="post-content">
-        <p>It has been a couple days since <a href="http://nauvalatmaja.com/">nauvalatmaja.com</a> is online,
-and to be honest the process was not as hard as I had imagined. Kudos to 
-<a href="http://davidensinger.com/">David Ensinger</a> who has written in details on 
-how he <a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/">set up his custom domain for his GitHub pages</a> and
-<a href="http://davidensinger.com/2014/04/transferring-the-dns-from-namecheap-to-cloudflare-for-github-pages/">tweak it to get faster by using cloudflare</a>. All
-the needed information to do this can be found there.</p>
-<p>I purchased this this domain name at <a href="https://www.namecheap.com/">NameCheap</a>, as suggested by David&#39;s post,
-with just a bit more than five bucks for a year. Then, I used the free plan of <a href="https://cloudflare.com">CloudFlare</a>
-for the DNSs, which I think it is sufficient for my need, and set up the DNS records using <code>CNAME</code>
-on the CloudFlare panel to point to my GitHub Pages address. Lastly,
-<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/">I add a <code>CNAME</code> file in the root directory of my GitHub Pages repository to redirect it</a>. 
-And that&#39;s it, practically the process is done after you transfer the DNS from NameCheap to
-CloudFlare, you may need to wait for a while to make the changes take effect.</p>
-<p>It took me less than three hours, more or less, to make my custom domain
-accessible. Frankly, I spent more hours thinking the custom domain name I 
-should use than did the actual setup. I am quite happy with the 
-setup, hosting static pages on GitHub is right decision. It is simple, easy
-and particularly fast, well it&#39;s static html pages anyway.</p>
+        <p>I am a noob in android development and one thing I am not
+comfortable with is the stock android device emulator.
+The default emulator is really slow, the boot-up process could
+take minutes in my machine (I won&#39;t say my machine is fast either,
+but it is sufficient), the app deployment takes too much time, 
+moreover, the interaction is sluggish. Hence, it is a no go.</p>
+<p>Up to now, I used my own android phone to test my app. It is fast,
+quite responsive, but I the downside is I need my phone connected
+to my laptop when I work on the app. Not to mention when I can&#39;t find
+my USB cable, disaster. </p>
+<p><img src="/images/genymotion.png" alt="Genymotion in action"></p>
+<p>Fortunately, there is an alternative to android 
+stock emulator called <a href="https://www.genymotion.com">Genymotion</a>. It runs
+on top of <a href="https://www.virtualbox.org">VirtualBox</a>, in other words, each android
+virtual device is an virtual machine in VirtualBox. To use Genymotion
+I have to register in the first place (the free account is sufficient for me) 
+and then <a href="https://www.genymotion.com/#!/developers/user-guide#installing-genymotion">downloaded and install the application</a>. 
+After that, I need to create the virtual device
+in the Genymotion application. 
+As I use Eclipse Android Development Tools, I then installed 
+<a href="http://marketplace.eclipse.org/content/genymotion-plugin-eclipse">eclipse plugin for Genymotion</a>. A plugin for 
+Android Studio is also available in the Genymotion&#39;s website. Restart Eclipse and 
+all is ready. A note, you need to install VirtualBox to use Genymotion, 
+otherwise it will complain about can not starting virtualization or 
+something.</p>
+<p>At first I was skeptical about this emulator but it turn out to be the
+opposite. It runs flawlessly, it boots up very fast and very responsive, and at some
+point it is even faster than my phone. More importantly, it consumes considerably less
+CPU resources compared to the default emulator, impressive. In the conclusion, I recommend
+this emulator for android development over the stock emulator. If you need to access
+more features other than camera and GPS, you can always change to the subscribe
+version.</p>
 
     </div>
     
         <div class="twitter-share">
-  <a href='https://twitter.com/intent/tweet?text=Setting+Up+Custom+Domain+for+GitHub+Pages&url=http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/&via=novalpas&hashtags=GitHub Pages%2Ccustom domain%2CNameCheap%2CCloudFlare' class='twitter-share-button' data-via='novalpas' data-count= 'none'><img src='/ico/twitter_white_small.png', width='16px', height='16px'/>tweet</a>
+  <a href='https://twitter.com/intent/tweet?text=Android+Development+with+Genymotion&url=http://nauvalatmaja.com/posts/2015-01-08-Android-development-with-Genymotion/&via=novalpas&hashtags=Genymotion%2Candroid%2Cemulator' class='twitter-share-button' data-via='novalpas' data-count= 'none'><img src='/ico/twitter_white_small.png', width='16px', height='16px'/>tweet</a>
 </div>
 
     
     
         <div class="post-tags">
             Posted In: 
-  <a href='/tags/github-pages/'>GitHub Pages</a>
+  <a href='/tags/genymotion/'>Genymotion</a>
 
-  <a href='/tags/custom-domain/'>custom domain</a>
+  <a href='/tags/android/'>android</a>
 
-  <a href='/tags/namecheap/'>NameCheap</a>
-
-  <a href='/tags/cloudflare/'>CloudFlare</a>
+  <a href='/tags/emulator/'>emulator</a>
  
         </div>
     
@@ -144,18 +156,14 @@ and particularly fast, well it&#39;s static html pages anyway.</p>
             <div class="page-nav">
               
                 
-              
+                    
+                    
+                         <a href="/posts/2014-12-31-setting-up-custom-domain-for-github-pages/" class="page-nav-older">
+                          <span class="icon icon-arrow-left-2"></span> Setting Up Custom Domain for GitHub Pages
+                        </a>
+                    
                 
-                    
-                        <a href="/posts/2015-01-08-Android-development-with-Genymotion/" class="page-nav-newer">
-                          Android Development with Genymotion <span class="icon icon-arrow-right-2"></span>
-                        </a>
-                    
-                    
-                         <a href="/posts/2014-12-29-rendering-backbone-subview/" class="page-nav-older">
-                          <span class="icon icon-arrow-left-2"></span> Rendering Backbone (Sub)View
-                        </a>
-                    
+              
                 
               
                 
@@ -166,9 +174,9 @@ and particularly fast, well it&#39;s static html pages anyway.</p>
             <div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 <script type="text/javascript">
     var disqus_shortname = 'nauvalatmaja';
-    var disqus_url = 'http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/';
+    var disqus_url = 'http://nauvalatmaja.com/posts/2015-01-08-Android-development-with-Genymotion/';
     var disqus_identifier = disqus_url;
-    var disqus_title = 'Setting Up Custom Domain for GitHub Pages';
+    var disqus_title = 'Android Development with Genymotion';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
