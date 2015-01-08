@@ -3,7 +3,7 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-08T08:31:45.795Z</updated>
+  <updated>2015-01-08T08:37:27.762Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
@@ -133,13 +133,13 @@ stock emulator called &lt;a href=&quot;https://www.genymotion.com&quot;&gt;Genym
 on top of &lt;a href=&quot;https://www.virtualbox.org&quot;&gt;VirtualBox&lt;/a&gt;, in other words, each android
 virtual device is an virtual machine in VirtualBox. To use Genymotion
 I have to register in the first place (the free account is sufficient for me) 
-and then &lt;a href=&quot;https://www.genymotion.com/#!/developers/user-guide#installing-genymotion&quot;&gt;downloaded and install the application&lt;/a&gt;. 
-After that, I need to create the virtual device
+and then &lt;a href=&quot;https://www.genymotion.com/#!/developers/user-guide#installing-genymotion&quot;&gt;downloaded and installed the application&lt;/a&gt;. 
+Following that, I created a virtual device of my liking
 in the Genymotion application. 
 As I use Eclipse Android Development Tools, I then installed 
 &lt;a href=&quot;http://marketplace.eclipse.org/content/genymotion-plugin-eclipse&quot;&gt;eclipse plugin for Genymotion&lt;/a&gt;. A plugin for 
-Android Studio is also available in the Genymotion&amp;#39;s website. Restart Eclipse and 
-all is ready. A note, you need to install VirtualBox to use Genymotion, 
+Android Studio is also available in the Genymotion&amp;#39;s website. Restarted Eclipse and 
+all was ready. A note, you need to install VirtualBox to use Genymotion, 
 otherwise it will complain about can not starting virtualization or 
 something.&lt;/p&gt;
 &lt;p&gt;At first I was skeptical about this emulator but it turn out to be the
