@@ -3,7 +3,7 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-08T08:25:07.277Z</updated>
+  <updated>2015-01-08T08:31:45.795Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
@@ -124,7 +124,7 @@ take minutes in my machine (I won&amp;#39;t say my machine is fast either,
 but it is sufficient), the app deployment takes too much time, 
 moreover, the interaction is sluggish. Hence, it is a no go.&lt;/p&gt;
 &lt;p&gt;Up to now, I used my own android phone to test my app. It is fast,
-quite responsive, but I the downside is I need my phone connected
+quite responsive, but the downside is I need to connect my phone
 to my laptop when I work on the app. Not to mention when I can&amp;#39;t find
 my USB cable, disaster. &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/genymotion.png&quot; alt=&quot;Genymotion in action&quot;&gt;&lt;/p&gt;
