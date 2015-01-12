@@ -3,7 +3,7 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-08T08:51:38.057Z</updated>
+  <updated>2015-01-12T04:45:02.993Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
@@ -13,9 +13,9 @@
   
     <entry>
       <title>Android Development with Genymotion</title>
-      <link href="http://nauvalatmaja.com/posts/2015-01-08-Android-development-with-Genymotion/"/>
+      <link href="http://nauvalatmaja.com/2015/01/08/Android-development-with-Genymotion/"/>
       <updated>2015-01-08T03:23:00.000Z</updated>
-      <id>http://nauvalatmaja.com/posts/2015-01-08-Android-development-with-Genymotion/</id>
+      <id>http://nauvalatmaja.com/2015/01/08/Android-development-with-Genymotion/</id>
       <content type="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -153,7 +153,7 @@ version.&lt;/p&gt;
     &lt;/div&gt;
     
         &lt;div class=&quot;twitter-share&quot;&gt;
-  &lt;a href='https://twitter.com/intent/tweet?text=Android+Development+with+Genymotion&amp;url=http://nauvalatmaja.com/posts/2015-01-08-Android-development-with-Genymotion/&amp;via=novalpas&amp;hashtags=Genymotion%2Candroid%2Cemulator' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
+  &lt;a href='https://twitter.com/intent/tweet?text=Android+Development+with+Genymotion&amp;url=http://nauvalatmaja.com/2015/01/08/Android-development-with-Genymotion/&amp;via=novalpas&amp;hashtags=Genymotion%2Candroid%2Cemulator' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
 &lt;/div&gt;
 
     
@@ -176,7 +176,7 @@ version.&lt;/p&gt;
                 
                     
                     
-                         &lt;a href=&quot;/posts/2014-12-31-setting-up-custom-domain-for-github-pages/&quot; class=&quot;page-nav-older&quot;&gt;
+                         &lt;a href=&quot;/2014/12/31/setting-up-custom-domain-for-github-pages/&quot; class=&quot;page-nav-older&quot;&gt;
                           &lt;span class=&quot;icon icon-arrow-left-2&quot;&gt;&lt;/span&gt; Setting Up Custom Domain for GitHub Pages
                         &lt;/a&gt;
                     
@@ -192,7 +192,7 @@ version.&lt;/p&gt;
             &lt;div id=&quot;disqus_thread&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
     var disqus_shortname = 'nauvalatmaja';
-    var disqus_url = 'http://nauvalatmaja.com/posts/2015-01-08-Android-development-with-Genymotion/';
+    var disqus_url = 'http://nauvalatmaja.com/2015/01/08/Android-development-with-Genymotion/';
     var disqus_identifier = disqus_url;
     var disqus_title = 'Android Development with Genymotion';
 
@@ -280,9 +280,9 @@ version.&lt;/p&gt;
   
     <entry>
       <title>Setting Up Custom Domain for GitHub Pages</title>
-      <link href="http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/"/>
+      <link href="http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/"/>
       <updated>2014-12-31T03:23:00.000Z</updated>
-      <id>http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/</id>
+      <id>http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/</id>
       <content type="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -406,7 +406,7 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
     &lt;/div&gt;
     
         &lt;div class=&quot;twitter-share&quot;&gt;
-  &lt;a href='https://twitter.com/intent/tweet?text=Setting+Up+Custom+Domain+for+GitHub+Pages&amp;url=http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/&amp;via=novalpas&amp;hashtags=GitHub Pages%2Ccustom domain%2CNameCheap%2CCloudFlare' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
+  &lt;a href='https://twitter.com/intent/tweet?text=Setting+Up+Custom+Domain+for+GitHub+Pages&amp;url=http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/&amp;via=novalpas&amp;hashtags=GitHub Pages%2Ccustom domain%2CNameCheap%2CCloudFlare' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
 &lt;/div&gt;
 
     
@@ -432,12 +432,12 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
               
                 
                     
-                        &lt;a href=&quot;/posts/2015-01-08-Android-development-with-Genymotion/&quot; class=&quot;page-nav-newer&quot;&gt;
+                        &lt;a href=&quot;/2015/01/08/Android-development-with-Genymotion/&quot; class=&quot;page-nav-newer&quot;&gt;
                           Android Development with Genymotion &lt;span class=&quot;icon icon-arrow-right-2&quot;&gt;&lt;/span&gt;
                         &lt;/a&gt;
                     
                     
-                         &lt;a href=&quot;/posts/2014-12-29-rendering-backbone-subview/&quot; class=&quot;page-nav-older&quot;&gt;
+                         &lt;a href=&quot;/2014/12/29/rendering-backbone-subview/&quot; class=&quot;page-nav-older&quot;&gt;
                           &lt;span class=&quot;icon icon-arrow-left-2&quot;&gt;&lt;/span&gt; Rendering Backbone (Sub)View
                         &lt;/a&gt;
                     
@@ -451,7 +451,7 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
             &lt;div id=&quot;disqus_thread&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
     var disqus_shortname = 'nauvalatmaja';
-    var disqus_url = 'http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/';
+    var disqus_url = 'http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/';
     var disqus_identifier = disqus_url;
     var disqus_title = 'Setting Up Custom Domain for GitHub Pages';
 
@@ -539,9 +539,9 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
   
     <entry>
       <title>Rendering Backbone (Sub)View</title>
-      <link href="http://nauvalatmaja.com/posts/2014-12-29-rendering-backbone-subview/"/>
+      <link href="http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/"/>
       <updated>2014-12-29T14:52:00.000Z</updated>
-      <id>http://nauvalatmaja.com/posts/2014-12-29-rendering-backbone-subview/</id>
+      <id>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</id>
       <content type="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -794,7 +794,7 @@ helps someone to understand more about backbone view.&lt;/p&gt;
     &lt;/div&gt;
     
         &lt;div class=&quot;twitter-share&quot;&gt;
-  &lt;a href='https://twitter.com/intent/tweet?text=Rendering+Backbone+(Sub)View&amp;url=http://nauvalatmaja.com/posts/2014-12-29-rendering-backbone-subview/&amp;via=novalpas&amp;hashtags=backbone.js%2Cview%2Cjavascript' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
+  &lt;a href='https://twitter.com/intent/tweet?text=Rendering+Backbone+(Sub)View&amp;url=http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/&amp;via=novalpas&amp;hashtags=backbone.js%2Cview%2Cjavascript' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
 &lt;/div&gt;
 
     
@@ -820,12 +820,12 @@ helps someone to understand more about backbone view.&lt;/p&gt;
               
                 
                     
-                        &lt;a href=&quot;/posts/2014-12-31-setting-up-custom-domain-for-github-pages/&quot; class=&quot;page-nav-newer&quot;&gt;
+                        &lt;a href=&quot;/2014/12/31/setting-up-custom-domain-for-github-pages/&quot; class=&quot;page-nav-newer&quot;&gt;
                           Setting Up Custom Domain for GitHub Pages &lt;span class=&quot;icon icon-arrow-right-2&quot;&gt;&lt;/span&gt;
                         &lt;/a&gt;
                     
                     
-                         &lt;a href=&quot;/posts/2014-12-28-blogging-with-docpad/&quot; class=&quot;page-nav-older&quot;&gt;
+                         &lt;a href=&quot;/2014/12/28/blogging-with-docpad/&quot; class=&quot;page-nav-older&quot;&gt;
                           &lt;span class=&quot;icon icon-arrow-left-2&quot;&gt;&lt;/span&gt; Blogging with Docpad
                         &lt;/a&gt;
                     
@@ -837,7 +837,7 @@ helps someone to understand more about backbone view.&lt;/p&gt;
             &lt;div id=&quot;disqus_thread&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
     var disqus_shortname = 'nauvalatmaja';
-    var disqus_url = 'http://nauvalatmaja.com/posts/2014-12-29-rendering-backbone-subview/';
+    var disqus_url = 'http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/';
     var disqus_identifier = disqus_url;
     var disqus_title = 'Rendering Backbone (Sub)View';
 
@@ -925,9 +925,9 @@ helps someone to understand more about backbone view.&lt;/p&gt;
   
     <entry>
       <title>Blogging with Docpad</title>
-      <link href="http://nauvalatmaja.com/posts/2014-12-28-blogging-with-docpad/"/>
+      <link href="http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/"/>
       <updated>2014-12-28T10:31:00.000Z</updated>
-      <id>http://nauvalatmaja.com/posts/2014-12-28-blogging-with-docpad/</id>
+      <id>http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/</id>
       <content type="html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -1063,7 +1063,7 @@ to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-doc
     &lt;/div&gt;
     
         &lt;div class=&quot;twitter-share&quot;&gt;
-  &lt;a href='https://twitter.com/intent/tweet?text=Blogging+with+Docpad&amp;url=http://nauvalatmaja.com/posts/2014-12-28-blogging-with-docpad/&amp;via=novalpas&amp;hashtags=blog%2Cdocpad%2Cnode.js' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
+  &lt;a href='https://twitter.com/intent/tweet?text=Blogging+with+Docpad&amp;url=http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/&amp;via=novalpas&amp;hashtags=blog%2Cdocpad%2Cnode.js' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
 &lt;/div&gt;
 
     
@@ -1091,7 +1091,7 @@ to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-doc
               
                 
                     
-                        &lt;a href=&quot;/posts/2014-12-29-rendering-backbone-subview/&quot; class=&quot;page-nav-newer&quot;&gt;
+                        &lt;a href=&quot;/2014/12/29/rendering-backbone-subview/&quot; class=&quot;page-nav-newer&quot;&gt;
                           Rendering Backbone (Sub)View &lt;span class=&quot;icon icon-arrow-right-2&quot;&gt;&lt;/span&gt;
                         &lt;/a&gt;
                     
@@ -1102,7 +1102,7 @@ to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-doc
             &lt;div id=&quot;disqus_thread&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;&lt;/div&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
     var disqus_shortname = 'nauvalatmaja';
-    var disqus_url = 'http://nauvalatmaja.com/posts/2014-12-28-blogging-with-docpad/';
+    var disqus_url = 'http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/';
     var disqus_identifier = disqus_url;
     var disqus_title = 'Blogging with Docpad';
 

@@ -3,7 +3,7 @@
     <title>nauval atmaja</title>
     <link href="http://nauvalatmaja.com/feed.xml" rel="self"/>
     <link href="http://nauvalatmaja.com"/>
-    <updated>2015-01-08T08:51:38.057Z</updated>
+    <updated>2015-01-12T04:45:02.993Z</updated>
     <id>http://nauvalatmaja.com</id>
     <author>
         <name>Nauval Atmaja</name>
@@ -13,9 +13,9 @@
     
     <entry>
         <title>Android Development with Genymotion</title>
-        <link href="http://nauvalatmaja.com/posts/2015-01-08-Android-development-with-Genymotion/"/>
+        <link href="http://nauvalatmaja.com/2015/01/08/Android-development-with-Genymotion/"/>
         <updated>2015-01-08T03:23:00.000Z</updated>
-        <id>tag:nauvalatmaja.com,2015-01-08,/posts/2015-01-08-Android-development-with-Genymotion/</id>
+        <id>tag:nauvalatmaja.com,2015-01-08,/2015/01/08/Android-development-with-Genymotion/</id>
         <content type="html"><![CDATA[<p>I am a noob in android development and one thing I am not
 comfortable with is the stock android device emulator.
 The default emulator is really slow, the boot-up process could
@@ -53,9 +53,9 @@ version.</p>
     
     <entry>
         <title>Setting Up Custom Domain for GitHub Pages</title>
-        <link href="http://nauvalatmaja.com/posts/2014-12-31-setting-up-custom-domain-for-github-pages/"/>
+        <link href="http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/"/>
         <updated>2014-12-31T03:23:00.000Z</updated>
-        <id>tag:nauvalatmaja.com,2014-12-31,/posts/2014-12-31-setting-up-custom-domain-for-github-pages/</id>
+        <id>tag:nauvalatmaja.com,2014-12-31,/2014/12/31/setting-up-custom-domain-for-github-pages/</id>
         <content type="html"><![CDATA[<p>It has been a couple days since <a href="http://nauvalatmaja.com/">nauvalatmaja.com</a> is online,
 and to be honest the process was not as hard as I had imagined. Kudos to 
 <a href="http://davidensinger.com/">David Ensinger</a> who has written in details on 
@@ -79,9 +79,9 @@ and particularly fast, well it&#39;s static html pages anyway.</p>
     
     <entry>
         <title>Rendering Backbone (Sub)View</title>
-        <link href="http://nauvalatmaja.com/posts/2014-12-29-rendering-backbone-subview/"/>
+        <link href="http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/"/>
         <updated>2014-12-29T14:52:00.000Z</updated>
-        <id>tag:nauvalatmaja.com,2014-12-29,/posts/2014-12-29-rendering-backbone-subview/</id>
+        <id>tag:nauvalatmaja.com,2014-12-29,/2014/12/29/rendering-backbone-subview/</id>
         <content type="html"><![CDATA[<p>When learning backbone.js (i&#39;m a novice by the way), at first, I was actually having a hard time
 to grasp the backbone view. Especially how the best practice to render
 the view and build a rather complex view consists of several subviews.
@@ -234,9 +234,9 @@ helps someone to understand more about backbone view.</p>
     
     <entry>
         <title>Blogging with Docpad</title>
-        <link href="http://nauvalatmaja.com/posts/2014-12-28-blogging-with-docpad/"/>
+        <link href="http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/"/>
         <updated>2014-12-28T10:31:00.000Z</updated>
-        <id>tag:nauvalatmaja.com,2014-12-28,/posts/2014-12-28-blogging-with-docpad/</id>
+        <id>tag:nauvalatmaja.com,2014-12-28,/2014/12/28/blogging-with-docpad/</id>
         <content type="html"><![CDATA[<p>It has been a long time since I planned to have a dedicated blog for 
 writing about some more <em>&quot;meaningful&quot;</em> stuff instead of just
 my rumbling I posted on my <a href="http://noval78.wordpress.com">trash bin</a>. 
