@@ -3,7 +3,7 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-12T04:45:02.993Z</updated>
+  <updated>2015-01-12T08:20:18.559Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
@@ -49,12 +49,6 @@
     &lt;!-- &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
     &lt;link href=&quot;/ico/favicon.ico&quot; rel=&quot;shortcut icon&quot;&gt;
 
-    &lt;style&gt;
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-            display: none !important;
-        }
-    &lt;/style&gt;
-
     &lt;!-- Bootstrap --&gt;
     &lt;link href=&quot;/styles/site.css?&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot;&gt;
     &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/vendor/rainbow.css&quot;&gt;
@@ -94,6 +88,7 @@
                     &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot; class=&quot;linkedin&quot;&gt;&lt;span class=&quot;icon icon-linkedin&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
             &lt;form class=&quot;navbar-form navbar-right hidden-xs&quot; role=&quot;search&quot; action=&quot;http://google.com/search&quot;
@@ -214,6 +209,7 @@ version.&lt;/p&gt;
     &lt;p&gt;
         &lt;a href=&quot;https://twitter.com/novalpas/&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
         &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot;&gt;linkedin&lt;/a&gt; &amp;#8226;
         &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
@@ -229,6 +225,7 @@ version.&lt;/p&gt;
 
 
 &lt;script src=&quot;/vendor/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/mermaid.full.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/vendor/components-bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js&quot;&gt;&lt;/script&gt;
@@ -316,12 +313,6 @@ version.&lt;/p&gt;
     &lt;!-- &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
     &lt;link href=&quot;/ico/favicon.ico&quot; rel=&quot;shortcut icon&quot;&gt;
 
-    &lt;style&gt;
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-            display: none !important;
-        }
-    &lt;/style&gt;
-
     &lt;!-- Bootstrap --&gt;
     &lt;link href=&quot;/styles/site.css?&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot;&gt;
     &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/vendor/rainbow.css&quot;&gt;
@@ -361,6 +352,7 @@ version.&lt;/p&gt;
                     &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot; class=&quot;linkedin&quot;&gt;&lt;span class=&quot;icon icon-linkedin&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
             &lt;form class=&quot;navbar-form navbar-right hidden-xs&quot; role=&quot;search&quot; action=&quot;http://google.com/search&quot;
@@ -473,6 +465,7 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
     &lt;p&gt;
         &lt;a href=&quot;https://twitter.com/novalpas/&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
         &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot;&gt;linkedin&lt;/a&gt; &amp;#8226;
         &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
@@ -488,6 +481,7 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
 
 
 &lt;script src=&quot;/vendor/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/mermaid.full.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/vendor/components-bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js&quot;&gt;&lt;/script&gt;
@@ -575,12 +569,6 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
     &lt;!-- &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
     &lt;link href=&quot;/ico/favicon.ico&quot; rel=&quot;shortcut icon&quot;&gt;
 
-    &lt;style&gt;
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-            display: none !important;
-        }
-    &lt;/style&gt;
-
     &lt;!-- Bootstrap --&gt;
     &lt;link href=&quot;/styles/site.css?&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot;&gt;
     &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/vendor/rainbow.css&quot;&gt;
@@ -620,6 +608,7 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
                     &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot; class=&quot;linkedin&quot;&gt;&lt;span class=&quot;icon icon-linkedin&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
             &lt;form class=&quot;navbar-form navbar-right hidden-xs&quot; role=&quot;search&quot; action=&quot;http://google.com/search&quot;
@@ -859,6 +848,7 @@ helps someone to understand more about backbone view.&lt;/p&gt;
     &lt;p&gt;
         &lt;a href=&quot;https://twitter.com/novalpas/&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
         &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot;&gt;linkedin&lt;/a&gt; &amp;#8226;
         &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
@@ -874,6 +864,7 @@ helps someone to understand more about backbone view.&lt;/p&gt;
 
 
 &lt;script src=&quot;/vendor/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/mermaid.full.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/vendor/components-bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js&quot;&gt;&lt;/script&gt;
@@ -961,12 +952,6 @@ helps someone to understand more about backbone view.&lt;/p&gt;
     &lt;!-- &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
     &lt;link href=&quot;/ico/favicon.ico&quot; rel=&quot;shortcut icon&quot;&gt;
 
-    &lt;style&gt;
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-            display: none !important;
-        }
-    &lt;/style&gt;
-
     &lt;!-- Bootstrap --&gt;
     &lt;link href=&quot;/styles/site.css?&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot;&gt;
     &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/vendor/rainbow.css&quot;&gt;
@@ -1006,6 +991,7 @@ helps someone to understand more about backbone view.&lt;/p&gt;
                     &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                     &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot; class=&quot;linkedin&quot;&gt;&lt;span class=&quot;icon icon-linkedin&quot;&gt;&lt;/span&gt;&lt;/a&gt;
                 &lt;/li&gt;
             &lt;/ul&gt;
             &lt;form class=&quot;navbar-form navbar-right hidden-xs&quot; role=&quot;search&quot; action=&quot;http://google.com/search&quot;
@@ -1124,6 +1110,7 @@ to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-doc
     &lt;p&gt;
         &lt;a href=&quot;https://twitter.com/novalpas/&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
         &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot;&gt;linkedin&lt;/a&gt; &amp;#8226;
         &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;Email Me&lt;/a&gt;
     &lt;/p&gt;
 &lt;/div&gt;
@@ -1139,6 +1126,7 @@ to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-doc
 
 
 &lt;script src=&quot;/vendor/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/mermaid.full.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;/vendor/components-bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js&quot;&gt;&lt;/script&gt;
 &lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js&quot;&gt;&lt;/script&gt;

@@ -18,7 +18,7 @@
         }
     </script>
 
-    <title>docpad | nauval atmaja</title>
+    <title>Rendering Mermaid in Docpad | nauval atmaja</title>
     <meta name="author" content="Nauval Atmaja">
     <meta name="description" content="Nauval Atmaja's personal notes on software development and all that">
     <meta name="keywords" content="software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX">
@@ -85,32 +85,116 @@
 </div>
 <div class="clear">
 <div class="container">
-    
-<div class="tag-title"><span class="tag-tagname">docpad</span> Posts</div>
-
-
-    
-    
-    <div class="abstract">
-        
-        <div class="abstract-year">2014</div>
+    <div class="row">
+        <div class="col-sm-12 col-md-10">
             
-        
-        <div class="abstract-date">Dec 28</div>
-        <div class="abstract-title"><a href="/2014/12/28/blogging-with-docpad/">Blogging with Docpad</a></div>
-        
-        <div class="abstract-tags">
+            <article id="post" class="post">
+    
+        <h1>Rendering Mermaid in Docpad</h1>
+    
+    <div class="post-date">Jan 12th, 2015</div>
+    <div class="post-content">
+        <div class="mermaid">
+graph LR
+  A[Square Rect] -- Link text --> B((Circle))
+  A --> C(Round Rect)
+  B --> D{Rhombus}
+  C --> D
+</div>
+<div class="mermaid">
+graph TB
+  sq[Square shape] --> ci((Circle shape))
+
+
+  %% Notice that no text in shape are added here instead that is appended further down
+  e --> od3>Really long text with linebreak<br>in an Odd shape]
+
+  %% Comments after double percent signs
+  e((Inner / circle<br>and some odd <br>special characters)) --> f(,.?!+-)
+
+  cyr[Cyrillic]-->cyr2((Circle shape));
+
+   classDef green fill:#9f6,stroke:#333,stroke-width:2px;
+   classDef orange fill:#f96,stroke:#333,stroke-width:4px;
+   class sq,e green
+   class di orange
+</div>
+<div class="mermaid">
+sequenceDiagram
+  Alice ->> Bob: Hello Bob, how are you?
+  Bob-->>John: How about you John?
+  Bob--x Alice: I am good thanks!
+  Bob-x John: I am good thanks!
+  Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+  Bob-->Alice: Checking with John...
+  Alice->John: Yes... John, how are you?
+</div>
+
+    </div>
+    
+        <div class="twitter-share">
+  <a href='https://twitter.com/intent/tweet?text=Rendering+Mermaid+in+Docpad&url=http://nauvalatmaja.com/drafts/2015-01-12-rendering-mermaid-in-docpad/&via=novalpas&hashtags=Mermaid%2CDocPad%2CMarked' class='twitter-share-button' data-via='novalpas' data-count= 'none'><img src='/ico/twitter_white_small.png', width='16px', height='16px'/>tweet</a>
+</div>
+
+    
+    
+        <div class="post-tags">
             Posted In: 
-  <a href='/tags/blog/'>blog</a>
+  <a href='/tags/mermaid/'>Mermaid</a>
 
-  <a href='/tags/docpad/'>docpad</a>
+  <a href='/tags/docpad/'>DocPad</a>
 
-  <a href='/tags/node-js/'>node.js</a>
+  <a href='/tags/marked/'>Marked</a>
  
         </div>
+    
+</article> 
+            <!-- get next and prev link -->
+            
+            <div class="page-nav">
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </div>
+            <div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+<script type="text/javascript">
+    var disqus_shortname = 'nauvalatmaja';
+    var disqus_url = 'http://nauvalatmaja.com/drafts/2015-01-12-rendering-mermaid-in-docpad/';
+    var disqus_identifier = disqus_url;
+    var disqus_title = 'Rendering Mermaid in Docpad';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+            <div id="me">
+    <p>
+        <img src="/images/avatar.png", alt="nauval atmaja">
+        Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
+        Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
+        Have a look around and don't hesitate to <a href="mailto:nauval.atmaja@gmail.com">contact me</a> with any comments,
+        suggestions or even to just say Hi!
+    </p>
+    <p>
+        <a href="https://twitter.com/novalpas/">@novalpas</a> &#8226;
+        <a href="https://github.com/npatmaja">GitHub</a> &#8226;
+        <a href="https://id.linkedin.com/in/nauvalatmaja/">linkedin</a> &#8226;
+        <a href="mailto:nauval.atmaja@gmail.com">Email Me</a>
+    </p>
+</div>
+
+        </div>
     </div>
-
-
 </div>
 <div class="container">
     <div class="navbar navbar-footer">
