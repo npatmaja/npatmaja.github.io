@@ -3,13 +3,362 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-12T08:20:18.559Z</updated>
+  <updated>2015-01-13T14:26:21.310Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
     <email>nauval.atmaja@gmail.com</email>
   </author>
 
+  
+    <entry>
+      <title>Rendering Mermaid in Docpad</title>
+      <link href="http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/"/>
+      <updated>2015-01-13T03:23:00.000Z</updated>
+      <id>http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/</id>
+      <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;/&gt;
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        if (window.location.hostname == 'www.nauvalatmaja.com' || window.location.hostname == 'nauvalatmaja.com') {
+
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-58073141-1', 'auto');
+          ga('send', 'pageview');  
+        }
+    &lt;/script&gt;
+
+    &lt;title&gt;Rendering Mermaid in Docpad | nauval atmaja&lt;/title&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;Nauval Atmaja&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Nauval Atmaja's personal notes on software development and all that&quot;&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;link href=&quot;/feed.xml&quot; rel=&quot;alternate&quot; title=&quot;www.nauvalatmaja.com&quot; type=&quot;application/atom+xml&quot;&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;300x300&quot; href=&quot;icon/icon.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;196x196&quot; href=&quot;icon/icon-196.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;link href=&quot;/ico/favicon.ico&quot; rel=&quot;shortcut icon&quot;&gt;
+
+    &lt;!-- Bootstrap --&gt;
+    &lt;link href=&quot;/styles/site.css?&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/vendor/rainbow.css&quot;&gt;
+    &lt;!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;
+    &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;/scripts/vendor/html5shiv.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/scripts/vendor/respond.min.js&quot;&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+
+    &lt;meta name=&quot;generator&quot; content=&quot;DocPad v6.69.2&quot; /&gt;
+    
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;a href=&quot;https://plus.google.com/112846605467404730226?rel=author&quot; class=&quot;google googleplus-hidden&quot; title=&quot;Google+&quot;&gt;Google+&lt;/a&gt;
+
+&lt;div class=&quot;navbar navbar-default navbar-static-top navbar-shadow&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;span class=&quot;text-primary&quot;&gt;nauval atmaja&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;collapse navbar-collapse navbar-right&quot;&gt;
+            &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+                &lt;!--&lt;li&gt;&lt;a href=&quot;/&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;--&gt;
+                &lt;!-- &lt;li&gt;&lt;a href=&quot;/archives/&quot;&gt;Archives&lt;/a&gt;&lt;/li&gt; --&gt;
+                
+                    &lt;li typeof=&quot;sioc:Page&quot;, about= /pages/archives/&gt;
+                      &lt;a href='/pages/archives/', property=&quot;dc:title&quot;&gt;Blog Archives&lt;/a&gt;
+                    &lt;/li&gt;
+                
+                &lt;li class=&quot;hidden-xs&quot;&gt;
+                    &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot; class=&quot;linkedin&quot;&gt;&lt;span class=&quot;icon icon-linkedin&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;form class=&quot;navbar-form navbar-right hidden-xs&quot; role=&quot;search&quot; action=&quot;http://google.com/search&quot;
+                  method=&quot;get&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;search&quot; name=&quot;q&quot; class=&quot;form-control&quot; placeholder=&quot;Search&quot;&gt;
+                    &lt;input type=&quot;hidden&quot; name=&quot;q&quot; value=&quot;site:www.nauvalatmaja.com&quot;&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;clear&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12 col-md-10&quot;&gt;
+            
+            &lt;article id=&quot;post&quot; class=&quot;post&quot;&gt;
+    
+        &lt;h1&gt;Rendering Mermaid in Docpad&lt;/h1&gt;
+    
+    &lt;div class=&quot;post-date&quot;&gt;Jan 13th, 2015&lt;/div&gt;
+    &lt;div class=&quot;post-content&quot;&gt;
+        &lt;p&gt;I stumbled across &lt;a href=&quot;http://knsv.github.io/mermaid/&quot;&gt;Mermaid&lt;/a&gt; when I saw 
+&lt;a href=&quot;https://twitter.com/nikmd23/status/553224624130228225&quot;&gt;@ronaldwidha retweeted a tweet about it&lt;/a&gt;. 
+Mermaid is a library for &lt;em&gt;writing&lt;/em&gt; diagrams instead of draw 
+them similar to &lt;a href=&quot;https://github.com/chjj/marked&quot;&gt;Marked&lt;/a&gt;
+to markdown, awesome! So, I thought I could use this in my blog just in case I 
+need to draw some flowcharts or sequence diagrams in the future.&lt;/p&gt;
+&lt;p&gt;DocPad uses Marked to render markdown to html via 
+&lt;a href=&quot;https://github.com/docpad/docpad-plugin-marked&quot;&gt;docpad-plugin-marked&lt;/a&gt; 
+but natively, it doesn&amp;#39;t support 
+Mermaid syntax. Fortunately, Marked provide 
+&lt;a href=&quot;https://github.com/chjj/marked#overriding-renderer-methods&quot;&gt;a way to override its renderer&lt;/a&gt;,
+however, it is not yet supported in the current release of the docpad-plugin-marked,
+and &lt;a href=&quot;https://github.com/docpad/docpad-plugin-marked/issues/11&quot;&gt;someone created a ticket on this issue&lt;/a&gt;. 
+So based on the 
+explanation there, I forked the plugin and started to hack it down. 
+To add the functionality itself was not that hard but to define a proper test
+for the plugin was tougher than it looks, at least at first as I didn&amp;#39;t quite 
+understand how DocPad&amp;#39;s plugin tester works. Thanks to &lt;a href=&quot;http://www.delarre.net/posts/unit-testing-docpad-plugins/&quot;&gt;this awesome post&lt;/a&gt;, 
+I could finally write and pass the test. The working version of my fork
+can be found &lt;a href=&quot;https://github.com/npatmaja/docpad-plugin-marked&quot;&gt;at my GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To use the forked plugin, change the dependency definition in &lt;code&gt;package.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs undefined&quot;&gt;&quot;docpad-plugin-marked&quot;: &quot;git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Next is to redefine the &lt;code&gt;code&lt;/code&gt; renderer by putting the definition in the &lt;code&gt;docpad.coffee&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs coffeescript&quot;&gt;&lt;span class=&quot;hljs-attribute&quot;&gt;plugins&lt;/span&gt;:
+  &lt;span class=&quot;hljs-attribute&quot;&gt;marked&lt;/span&gt;:
+    &lt;span class=&quot;hljs-attribute&quot;&gt;markedRenderer&lt;/span&gt;:
+      &lt;span class=&quot;hljs-attribute&quot;&gt;code&lt;/span&gt;: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-params&quot;&gt;(code, lang)&lt;/span&gt; -&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-function&quot;&gt;        &lt;span class=&quot;hljs-title&quot;&gt;escape&lt;/span&gt; = &lt;span class=&quot;hljs-params&quot;&gt;(html, encode)&lt;/span&gt; -&amp;gt;&lt;/span&gt;
+          pattern = &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; !encode &lt;span class=&quot;hljs-keyword&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;hljs-regexp&quot;&gt;/&amp;amp;(?!#?\w+;)/g&lt;/span&gt;  &lt;span class=&quot;hljs-keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;hljs-regexp&quot;&gt;/&amp;amp;/g&lt;/span&gt;
+          &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; html
+            .replace(pattern, &lt;span class=&quot;hljs-string&quot;&gt;'&amp;amp;amp;'&lt;/span&gt;)
+            .replace(&lt;span class=&quot;hljs-regexp&quot;&gt;/&amp;lt;/g&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;'&amp;amp;lt;'&lt;/span&gt;)
+            .replace(&lt;span class=&quot;hljs-regexp&quot;&gt;/&amp;gt;/g&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;'&amp;amp;gt;'&lt;/span&gt;)
+            .replace(&lt;span class=&quot;hljs-regexp&quot;&gt;/&quot;/g&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;'&amp;amp;quot;'&lt;/span&gt;)
+            .replace(&lt;span class=&quot;hljs-regexp&quot;&gt;/'/g&lt;/span&gt;, &lt;span class=&quot;hljs-string&quot;&gt;'&amp;amp;#39;'&lt;/span&gt;)
+
+        &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; code.match(&lt;span class=&quot;hljs-regexp&quot;&gt;/^sequenceDiagram/&lt;/span&gt;)|| code.match(&lt;span class=&quot;hljs-regexp&quot;&gt;/^graph/&lt;/span&gt;)
+          &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;&quot;&amp;lt;div class=\&quot;mermaid\&quot;&amp;gt;\n&lt;span class=&quot;hljs-subst&quot;&gt;#{code}&lt;/span&gt;\n&amp;lt;/div&amp;gt;\n&quot;&lt;/span&gt;
+        &lt;span class=&quot;hljs-keyword&quot;&gt;else&lt;/span&gt;
+          &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;hljs-property&quot;&gt;@options&lt;/span&gt;.highlight
+            out = &lt;span class=&quot;hljs-property&quot;&gt;@options&lt;/span&gt;.highlight code, lang
+            &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; out != &lt;span class=&quot;hljs-literal&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; out != code
+              escaped = &lt;span class=&quot;hljs-literal&quot;&gt;true&lt;/span&gt;
+              code = out
+
+          &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; !lang
+            &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;'&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;'&lt;/span&gt; +
+              (&lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; escaped &lt;span class=&quot;hljs-keyword&quot;&gt;then&lt;/span&gt; code &lt;span class=&quot;hljs-keyword&quot;&gt;else&lt;/span&gt; escape(code, &lt;span class=&quot;hljs-literal&quot;&gt;true&lt;/span&gt;)) +
+              &lt;span class=&quot;hljs-string&quot;&gt;'\n&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;'&lt;/span&gt;
+
+          &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;'&amp;lt;pre&amp;gt;&amp;lt;code class=&quot;'&lt;/span&gt; +
+            &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.options.langPrefix +
+            escape(lang, &lt;span class=&quot;hljs-literal&quot;&gt;true&lt;/span&gt;) +
+            &lt;span class=&quot;hljs-string&quot;&gt;'&quot;&amp;gt;'&lt;/span&gt; +
+            (&lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; escaped &lt;span class=&quot;hljs-keyword&quot;&gt;then&lt;/span&gt; code &lt;span class=&quot;hljs-keyword&quot;&gt;else&lt;/span&gt; escape(code, &lt;span class=&quot;hljs-literal&quot;&gt;true&lt;/span&gt;)) +
+            &lt;span class=&quot;hljs-string&quot;&gt;'\n&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;\n'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Lastly, I added Mermaid.js to blog&amp;#39;s layout as mentioned on Mermaid&amp;#39;s
+documentation. Now all are set to their place, so whenever I put Mermaid 
+syntax in a markdown&amp;#39;s code block &lt;code&gt;```&lt;/code&gt; the code will 
+be transformed to svg image. &lt;/p&gt;
+&lt;p&gt;Without further a due, below are a couple of examples of Mermaid diagram
+definition and their respective rendered diagram. It&amp;#39;s show time!&lt;/p&gt;
+&lt;h1 id=&quot;simple-graph&quot;&gt;Simple graph&lt;/h1&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs livecodeserver&quot;&gt;%% remove comment &lt;span class=&quot;hljs-built_in&quot;&gt;to&lt;/span&gt; render &lt;span class=&quot;hljs-operator&quot;&gt;the&lt;/span&gt; graph
+graph TB 
+  subgraph &lt;span class=&quot;hljs-constant&quot;&gt;one&lt;/span&gt; 
+    a1&lt;span class=&quot;hljs-comment&quot;&gt;--&amp;gt;a2&lt;/span&gt;
+  &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;
+  subgraph &lt;span class=&quot;hljs-constant&quot;&gt;two&lt;/span&gt;
+    b1&lt;span class=&quot;hljs-comment&quot;&gt;--&amp;gt;b2&lt;/span&gt;
+  &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;
+  subgraph &lt;span class=&quot;hljs-constant&quot;&gt;three&lt;/span&gt;
+    c1&lt;span class=&quot;hljs-comment&quot;&gt;--&amp;gt;c2&lt;/span&gt;
+  &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;
+  c1&lt;span class=&quot;hljs-comment&quot;&gt;--&amp;gt;a2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;div class=&quot;mermaid&quot;&gt;
+graph TB 
+  subgraph one 
+    a1--&gt;a2
+  end
+  subgraph two
+    b1--&gt;b2
+  end
+  subgraph three
+    c1--&gt;c2
+  end
+  c1--&gt;a2
+&lt;/div&gt;
+&lt;h1 id=&quot;sequence-diagram&quot;&gt;Sequence diagram&lt;/h1&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs livecodeserver&quot;&gt;%% remove comment &lt;span class=&quot;hljs-built_in&quot;&gt;to&lt;/span&gt; render &lt;span class=&quot;hljs-operator&quot;&gt;the&lt;/span&gt; diagram
+sequenceDiagram
+  Alice -&amp;gt;&amp;gt; Bob: Hello Bob, how are you?
+  Bob&lt;span class=&quot;hljs-comment&quot;&gt;--&amp;gt;&amp;gt;John: How about you John?&lt;/span&gt;
+  Bob&lt;span class=&quot;hljs-comment&quot;&gt;--x Alice: I am good thanks!&lt;/span&gt;
+  Bob-x John: I am good thanks!
+  Note &lt;span class=&quot;hljs-constant&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;hljs-operator&quot;&gt;of&lt;/span&gt; John: Bob thinks &lt;span class=&quot;hljs-operator&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;long&lt;/span&gt;&amp;lt;br/&amp;gt;&lt;span class=&quot;hljs-keyword&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;hljs-built_in&quot;&gt;time&lt;/span&gt;, so &lt;span class=&quot;hljs-keyword&quot;&gt;long&lt;/span&gt;&amp;lt;br/&amp;gt;that &lt;span class=&quot;hljs-operator&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;hljs-keyword&quot;&gt;text&lt;/span&gt; does&amp;lt;br/&amp;gt;&lt;span class=&quot;hljs-operator&quot;&gt;not&lt;/span&gt; fit &lt;span class=&quot;hljs-command&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-title&quot;&gt;row&lt;/span&gt;.&lt;/span&gt;
+
+  Bob&lt;span class=&quot;hljs-comment&quot;&gt;--&amp;gt;Alice: Checking with John...&lt;/span&gt;
+  Alice-&amp;gt;John: Yes... John, how are you?
+&lt;/code&gt;&lt;/pre&gt;&lt;div class=&quot;mermaid&quot;&gt;
+sequenceDiagram
+  Alice -&gt;&gt; Bob: Hello Bob, how are you?
+  Bob--&gt;&gt;John: How about you John?
+  Bob--x Alice: I am good thanks!
+  Bob-x John: I am good thanks!
+  Note right of John: Bob thinks a long&lt;br/&gt;long time, so long&lt;br/&gt;that the text does&lt;br/&gt;not fit on a row.
+
+  Bob--&gt;Alice: Checking with John...
+  Alice-&gt;John: Yes... John, how are you?
+&lt;/div&gt;
+&lt;h2 id=&quot;side-note&quot;&gt;Side note&lt;/h2&gt;
+&lt;p&gt;The CSS I use to style the diagram can be seen &lt;a href=&quot;https://raw.githubusercontent.com/npatmaja/nauvalatmaja.com/master/src/render/styles/mermaid.less&quot;&gt;here&lt;/a&gt;. Happy diagramming!&lt;/p&gt;
+
+    &lt;/div&gt;
+    
+        &lt;div class=&quot;twitter-share&quot;&gt;
+  &lt;a href='https://twitter.com/intent/tweet?text=Rendering+Mermaid+in+Docpad&amp;url=http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/&amp;via=novalpas&amp;hashtags=Mermaid%2CDocPad%2CMarked%2Cdocpad-plugin-marked' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
+&lt;/div&gt;
+
+    
+    
+        &lt;div class=&quot;post-tags&quot;&gt;
+            Posted In: 
+  &lt;a href='/tags/mermaid/'&gt;Mermaid&lt;/a&gt;
+
+  &lt;a href='/tags/docpad/'&gt;DocPad&lt;/a&gt;
+
+  &lt;a href='/tags/marked/'&gt;Marked&lt;/a&gt;
+
+  &lt;a href='/tags/docpad-plugin-marked/'&gt;docpad-plugin-marked&lt;/a&gt;
+ 
+        &lt;/div&gt;
+    
+&lt;/article&gt; 
+            &lt;!-- get next and prev link --&gt;
+            
+            &lt;div class=&quot;page-nav&quot;&gt;
+              
+                
+                    
+                    
+                         &lt;a href=&quot;/2015/01/08/Android-development-with-Genymotion/&quot; class=&quot;page-nav-older&quot;&gt;
+                          &lt;span class=&quot;icon icon-arrow-left-2&quot;&gt;&lt;/span&gt; Android Development with Genymotion
+                        &lt;/a&gt;
+                    
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            &lt;/div&gt;
+            &lt;div id=&quot;disqus_thread&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var disqus_shortname = 'nauvalatmaja';
+    var disqus_url = 'http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/';
+    var disqus_identifier = disqus_url;
+    var disqus_title = 'Rendering Mermaid in Docpad';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+
+            &lt;div id=&quot;me&quot;&gt;
+    &lt;p&gt;
+        &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
+        Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
+        Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;contact me&lt;/a&gt; with any comments,
+        suggestions or even to just say Hi!
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://twitter.com/novalpas/&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot;&gt;linkedin&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;Email Me&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;navbar navbar-footer&quot;&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;script src=&quot;/vendor/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/mermaid.full.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/components-bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js&quot;&gt;&lt;/script&gt;
+
+
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+	var $buoop = {
+		url: 'http://whatbrowser.org/',
+        reminder: 0,
+		newwindow: false,
+		'text': 'You are using an outdated browser (%s). &lt;a%s&gt;More information &amp;#187;&lt;/a&gt;',
+		'text_af': 'Jy gebruik \'n verouderde webblaaier (%s). &lt;a%s&gt;Meer inligting &amp;#187;&lt;/a&gt;',
+		'text_cs': 'Používáte zastaralý prohlížeč (%s). &lt;a%s&gt;Více informací &amp;#187;&lt;/a&gt;',
+		'text_da': 'Du bruger en ældre browser (%s). &lt;a%s&gt;Mere information &amp;#187;&lt;/a&gt;',
+		'text_de': 'Sie benutzen einen veralteten Browser (%s). &lt;a%s&gt;Mehr Informationen &amp;#187;&lt;/a&gt;',
+		'text_el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. &lt;a%s&gt;Περισσότερες πληροφορίες &amp;#187;&lt;/a&gt;',
+		'text_es': 'Su navegador está obsoleto (%s). &lt;a%s&gt;M&amp;aacute;s informaci&amp;oacute;n &amp;#187;&lt;/a&gt;',
+		'text_fi': 'Käytät vanhentunutta selainta (%s). &lt;a%s&gt;Lisää tietoa &amp;#187;&lt;/a&gt;',
+		'text_fr': 'Votre navigateur n\'est pas à jour (%s). &lt;a%s&gt;Plus d\'information &amp;#187;&lt;/a&gt;',
+		'text_hu': 'A böngészője elavult (%s). &lt;a%s&gt;További információ &amp;#187;&lt;/a&gt;',
+		'text_id': 'Anda menggunakan web browser versi lama (%s). &lt;a%s&gt;Informasi selengkapnya &amp;#187;&lt;/a&gt;',
+		'text_is': 'Þú ert að nota úreltan vafra (%s). &lt;a%s&gt;Nánari upplýsingar &amp;#187;&lt;/a&gt;',
+		'text_it': 'Stai usando un browser datato (%s). &lt;a%s&gt;Ulteriori informazioni &amp;#187;&lt;/a&gt;',
+		'text_nl': 'U gebruikt op dit moment een verouderde webbrowser (%s). &lt;a%s&gt;Meer informatie &amp;#187;&lt;/a&gt;',
+		'text_pl': 'Używasz przestarzałej przeglądarki (%s). &lt;a%s&gt;Więcej informacji &amp;#187;&lt;/a&gt;',
+		'text_pt': 'Você está usando um navegador antigo (%s). &lt;a%s&gt;Mais informações &amp;#187;&lt;/a&gt;',
+		'text_ro': 'Browserul dumneavoastră este depăşit (%s). &lt;a%s&gt;Mai multe informații &amp;#187;&lt;/a&gt;',
+		'text_ru': 'Вы используете устаревший браузер (%s). &lt;a%s&gt;Подробнее &amp;#187;&lt;/a&gt;',
+		'text_sk': 'Používate zastaralý prehliadač (%s). &lt;a%s&gt;Viac informácií &amp;#187;&lt;/a&gt;',
+		'text_sr': 'Vi koristite zastarelu verziju browsera (%s). &lt;a%s&gt;Vi&amp;#353;e informacija &amp;#187;&lt;/a&gt;',
+		'text_sv': 'Du använder en gammal webbläsare (%s). &lt;a%s&gt;Mer information &amp;#187;&lt;/a&gt;',
+		'text_tr': 'Çok eski bir tarayıcı kullanıyorsunuz (%s). &lt;a%s&gt;Daha fazla bilgi &amp;#187;&lt;/a&gt;',
+		'text_vi': 'Trình duyệt bạn dùng đã lỗi thời rồi (%s). &lt;a%s&gt;Thêm thông tin &amp;#187;&lt;/a&gt;'
+	};
+	$buoop.ol = window.onload;
+	window.onload=function(){
+		try {if ($buoop.ol) $buoop.ol();}catch (e) {}
+		var e = document.createElement(&quot;script&quot;);
+		e.setAttribute(&quot;type&quot;, &quot;text/javascript&quot;);
+		e.setAttribute(&quot;src&quot;, &quot;//browser-update.org/update.js&quot;);
+		document.body.appendChild(e);
+	}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</content>
+    </entry>
   
     <entry>
       <title>Android Development with Genymotion</title>
@@ -169,6 +518,12 @@ version.&lt;/p&gt;
             &lt;div class=&quot;page-nav&quot;&gt;
               
                 
+              
+                
+                    
+                        &lt;a href=&quot;/2015/01/13/rendering-mermaid-in-docpad/&quot; class=&quot;page-nav-newer&quot;&gt;
+                          Rendering Mermaid in Docpad &lt;span class=&quot;icon icon-arrow-right-2&quot;&gt;&lt;/span&gt;
+                        &lt;/a&gt;
                     
                     
                          &lt;a href=&quot;/2014/12/31/setting-up-custom-domain-for-github-pages/&quot; class=&quot;page-nav-older&quot;&gt;
@@ -419,6 +774,8 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
             &lt;!-- get next and prev link --&gt;
             
             &lt;div class=&quot;page-nav&quot;&gt;
+              
+                
               
                 
               
@@ -808,6 +1165,8 @@ helps someone to understand more about backbone view.&lt;/p&gt;
                 
               
                 
+              
+                
                     
                         &lt;a href=&quot;/2014/12/31/setting-up-custom-domain-for-github-pages/&quot; class=&quot;page-nav-newer&quot;&gt;
                           Setting Up Custom Domain for GitHub Pages &lt;span class=&quot;icon icon-arrow-right-2&quot;&gt;&lt;/span&gt;
@@ -1068,6 +1427,8 @@ to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-doc
             &lt;!-- get next and prev link --&gt;
             
             &lt;div class=&quot;page-nav&quot;&gt;
+              
+                
               
                 
               

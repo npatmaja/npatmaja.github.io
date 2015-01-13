@@ -90,6 +90,143 @@
             
     <article id="post" class="post">
     
+        <h1><a href='/2015/01/13/rendering-mermaid-in-docpad/'>Rendering Mermaid in Docpad</a></h1>
+    
+    <div class="post-date">Jan 13th, 2015</div>
+    <div class="post-content">
+        <p>I stumbled across <a href="http://knsv.github.io/mermaid/">Mermaid</a> when I saw 
+<a href="https://twitter.com/nikmd23/status/553224624130228225">@ronaldwidha retweeted a tweet about it</a>. 
+Mermaid is a library for <em>writing</em> diagrams instead of draw 
+them similar to <a href="https://github.com/chjj/marked">Marked</a>
+to markdown, awesome! So, I thought I could use this in my blog just in case I 
+need to draw some flowcharts or sequence diagrams in the future.</p>
+<p>DocPad uses Marked to render markdown to html via 
+<a href="https://github.com/docpad/docpad-plugin-marked">docpad-plugin-marked</a> 
+but natively, it doesn&#39;t support 
+Mermaid syntax. Fortunately, Marked provide 
+<a href="https://github.com/chjj/marked#overriding-renderer-methods">a way to override its renderer</a>,
+however, it is not yet supported in the current release of the docpad-plugin-marked,
+and <a href="https://github.com/docpad/docpad-plugin-marked/issues/11">someone created a ticket on this issue</a>. 
+So based on the 
+explanation there, I forked the plugin and started to hack it down. 
+To add the functionality itself was not that hard but to define a proper test
+for the plugin was tougher than it looks, at least at first as I didn&#39;t quite 
+understand how DocPad&#39;s plugin tester works. Thanks to <a href="http://www.delarre.net/posts/unit-testing-docpad-plugins/">this awesome post</a>, 
+I could finally write and pass the test. The working version of my fork
+can be found <a href="https://github.com/npatmaja/docpad-plugin-marked">at my GitHub</a>.</p>
+<p>To use the forked plugin, change the dependency definition in <code>package.json</code>:</p>
+<pre class="highlight"><code class="hljs undefined">"docpad-plugin-marked": "git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git"
+</code></pre>
+<p>Next is to redefine the <code>code</code> renderer by putting the definition in the <code>docpad.coffee</code></p>
+<pre class="highlight"><code class="hljs coffeescript"><span class="hljs-attribute">plugins</span>:
+  <span class="hljs-attribute">marked</span>:
+    <span class="hljs-attribute">markedRenderer</span>:
+      <span class="hljs-attribute">code</span>: <span class="hljs-function"><span class="hljs-params">(code, lang)</span> -&gt;</span>
+<span class="hljs-function">        <span class="hljs-title">escape</span> = <span class="hljs-params">(html, encode)</span> -&gt;</span>
+          pattern = <span class="hljs-keyword">if</span> !encode <span class="hljs-keyword">then</span> <span class="hljs-regexp">/&amp;(?!#?\w+;)/g</span>  <span class="hljs-keyword">else</span> <span class="hljs-regexp">/&amp;/g</span>
+          <span class="hljs-keyword">return</span> html
+            .replace(pattern, <span class="hljs-string">'&amp;amp;'</span>)
+            .replace(<span class="hljs-regexp">/&lt;/g</span>, <span class="hljs-string">'&amp;lt;'</span>)
+            .replace(<span class="hljs-regexp">/&gt;/g</span>, <span class="hljs-string">'&amp;gt;'</span>)
+            .replace(<span class="hljs-regexp">/"/g</span>, <span class="hljs-string">'&amp;quot;'</span>)
+            .replace(<span class="hljs-regexp">/'/g</span>, <span class="hljs-string">'&amp;#39;'</span>)
+
+        <span class="hljs-keyword">if</span> code.match(<span class="hljs-regexp">/^sequenceDiagram/</span>)|| code.match(<span class="hljs-regexp">/^graph/</span>)
+          <span class="hljs-keyword">return</span> <span class="hljs-string">"&lt;div class=\"mermaid\"&gt;\n<span class="hljs-subst">#{code}</span>\n&lt;/div&gt;\n"</span>
+        <span class="hljs-keyword">else</span>
+          <span class="hljs-keyword">if</span> <span class="hljs-property">@options</span>.highlight
+            out = <span class="hljs-property">@options</span>.highlight code, lang
+            <span class="hljs-keyword">if</span> out != <span class="hljs-literal">null</span> &amp;&amp; out != code
+              escaped = <span class="hljs-literal">true</span>
+              code = out
+
+          <span class="hljs-keyword">if</span> !lang
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;pre&gt;&lt;code&gt;'</span> +
+              (<span class="hljs-keyword">if</span> escaped <span class="hljs-keyword">then</span> code <span class="hljs-keyword">else</span> escape(code, <span class="hljs-literal">true</span>)) +
+              <span class="hljs-string">'\n&lt;/code&gt;&lt;/pre&gt;'</span>
+
+          <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;pre&gt;&lt;code class="'</span> +
+            <span class="hljs-keyword">this</span>.options.langPrefix +
+            escape(lang, <span class="hljs-literal">true</span>) +
+            <span class="hljs-string">'"&gt;'</span> +
+            (<span class="hljs-keyword">if</span> escaped <span class="hljs-keyword">then</span> code <span class="hljs-keyword">else</span> escape(code, <span class="hljs-literal">true</span>)) +
+            <span class="hljs-string">'\n&lt;/code&gt;&lt;/pre&gt;\n'</span>
+</code></pre><p>Lastly, I added Mermaid.js to blog&#39;s layout as mentioned on Mermaid&#39;s
+documentation. Now all are set to their place, so whenever I put Mermaid 
+syntax in a markdown&#39;s code block <code>```</code> the code will 
+be transformed to svg image. </p>
+<p>Without further a due, below are a couple of examples of Mermaid diagram
+definition and their respective rendered diagram. It&#39;s show time!</p>
+<h1 id="simple-graph">Simple graph</h1>
+<pre class="highlight"><code class="hljs livecodeserver">%% remove comment <span class="hljs-built_in">to</span> render <span class="hljs-operator">the</span> graph
+graph TB 
+  subgraph <span class="hljs-constant">one</span> 
+    a1<span class="hljs-comment">--&gt;a2</span>
+  <span class="hljs-function"><span class="hljs-keyword">end</span></span>
+  subgraph <span class="hljs-constant">two</span>
+    b1<span class="hljs-comment">--&gt;b2</span>
+  <span class="hljs-function"><span class="hljs-keyword">end</span></span>
+  subgraph <span class="hljs-constant">three</span>
+    c1<span class="hljs-comment">--&gt;c2</span>
+  <span class="hljs-function"><span class="hljs-keyword">end</span></span>
+  c1<span class="hljs-comment">--&gt;a2</span>
+</code></pre><div class="mermaid">
+graph TB 
+  subgraph one 
+    a1-->a2
+  end
+  subgraph two
+    b1-->b2
+  end
+  subgraph three
+    c1-->c2
+  end
+  c1-->a2
+</div>
+<h1 id="sequence-diagram">Sequence diagram</h1>
+<pre class="highlight"><code class="hljs livecodeserver">%% remove comment <span class="hljs-built_in">to</span> render <span class="hljs-operator">the</span> diagram
+sequenceDiagram
+  Alice -&gt;&gt; Bob: Hello Bob, how are you?
+  Bob<span class="hljs-comment">--&gt;&gt;John: How about you John?</span>
+  Bob<span class="hljs-comment">--x Alice: I am good thanks!</span>
+  Bob-x John: I am good thanks!
+  Note <span class="hljs-constant">right</span> <span class="hljs-operator">of</span> John: Bob thinks <span class="hljs-operator">a</span> <span class="hljs-keyword">long</span>&lt;br/&gt;<span class="hljs-keyword">long</span> <span class="hljs-built_in">time</span>, so <span class="hljs-keyword">long</span>&lt;br/&gt;that <span class="hljs-operator">the</span> <span class="hljs-keyword">text</span> does&lt;br/&gt;<span class="hljs-operator">not</span> fit <span class="hljs-command"><span class="hljs-keyword">on</span> <span class="hljs-title">a</span> <span class="hljs-title">row</span>.</span>
+
+  Bob<span class="hljs-comment">--&gt;Alice: Checking with John...</span>
+  Alice-&gt;John: Yes... John, how are you?
+</code></pre><div class="mermaid">
+sequenceDiagram
+  Alice ->> Bob: Hello Bob, how are you?
+  Bob-->>John: How about you John?
+  Bob--x Alice: I am good thanks!
+  Bob-x John: I am good thanks!
+  Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+  Bob-->Alice: Checking with John...
+  Alice->John: Yes... John, how are you?
+</div>
+<h2 id="side-note">Side note</h2>
+<p>The CSS I use to style the diagram can be seen <a href="https://raw.githubusercontent.com/npatmaja/nauvalatmaja.com/master/src/render/styles/mermaid.less">here</a>. Happy diagramming!</p>
+
+    </div>
+    
+    
+        <div class="post-tags">
+            Posted In: 
+  <a href='/tags/mermaid/'>Mermaid</a>
+
+  <a href='/tags/docpad/'>DocPad</a>
+
+  <a href='/tags/marked/'>Marked</a>
+
+  <a href='/tags/docpad-plugin-marked/'>docpad-plugin-marked</a>
+ 
+        </div>
+    
+</article>
+
+    <article id="post" class="post">
+    
         <h1><a href='/2015/01/08/Android-development-with-Genymotion/'>Android Development with Genymotion</a></h1>
     
     <div class="post-date">Jan 8th, 2015</div>

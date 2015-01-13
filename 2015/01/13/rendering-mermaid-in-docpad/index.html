@@ -18,7 +18,7 @@
         }
     </script>
 
-    <title>Setting Up Custom Domain for GitHub Pages | nauval atmaja</title>
+    <title>Rendering Mermaid in Docpad | nauval atmaja</title>
     <meta name="author" content="Nauval Atmaja">
     <meta name="description" content="Nauval Atmaja's personal notes on software development and all that">
     <meta name="keywords" content="software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX">
@@ -90,46 +90,141 @@
             
             <article id="post" class="post">
     
-        <h1>Setting Up Custom Domain for GitHub Pages</h1>
+        <h1>Rendering Mermaid in Docpad</h1>
     
-    <div class="post-date">Dec 31st, 2014</div>
+    <div class="post-date">Jan 13th, 2015</div>
     <div class="post-content">
-        <p>It has been a couple days since <a href="http://nauvalatmaja.com/">nauvalatmaja.com</a> is online,
-and to be honest the process was not as hard as I had imagined. Kudos to 
-<a href="http://davidensinger.com/">David Ensinger</a> who has written in details on 
-how he <a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/">set up his custom domain for his GitHub pages</a> and
-<a href="http://davidensinger.com/2014/04/transferring-the-dns-from-namecheap-to-cloudflare-for-github-pages/">tweak it to get faster by using cloudflare</a>. All
-the needed information to do this can be found there.</p>
-<p>I purchased this this domain name at <a href="https://www.namecheap.com/">NameCheap</a>, as suggested by David&#39;s post,
-with just a bit more than five bucks for a year. Then, I used the free plan of <a href="https://cloudflare.com">CloudFlare</a>
-for the DNSs, which I think it is sufficient for my need, and set up the DNS records using <code>CNAME</code>
-on the CloudFlare panel to point to my GitHub Pages address. Lastly,
-<a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/">I add a <code>CNAME</code> file in the root directory of my GitHub Pages repository to redirect it</a>. 
-And that&#39;s it, practically the process is done after you transfer the DNS from NameCheap to
-CloudFlare, you may need to wait for a while to make the changes take effect.</p>
-<p>It took me less than three hours, more or less, to make my custom domain
-accessible. Frankly, I spent more hours thinking the custom domain name I 
-should use than did the actual setup. I am quite happy with the 
-setup, hosting static pages on GitHub is right decision. It is simple, easy
-and particularly fast, well it&#39;s static html pages anyway.</p>
+        <p>I stumbled across <a href="http://knsv.github.io/mermaid/">Mermaid</a> when I saw 
+<a href="https://twitter.com/nikmd23/status/553224624130228225">@ronaldwidha retweeted a tweet about it</a>. 
+Mermaid is a library for <em>writing</em> diagrams instead of draw 
+them similar to <a href="https://github.com/chjj/marked">Marked</a>
+to markdown, awesome! So, I thought I could use this in my blog just in case I 
+need to draw some flowcharts or sequence diagrams in the future.</p>
+<p>DocPad uses Marked to render markdown to html via 
+<a href="https://github.com/docpad/docpad-plugin-marked">docpad-plugin-marked</a> 
+but natively, it doesn&#39;t support 
+Mermaid syntax. Fortunately, Marked provide 
+<a href="https://github.com/chjj/marked#overriding-renderer-methods">a way to override its renderer</a>,
+however, it is not yet supported in the current release of the docpad-plugin-marked,
+and <a href="https://github.com/docpad/docpad-plugin-marked/issues/11">someone created a ticket on this issue</a>. 
+So based on the 
+explanation there, I forked the plugin and started to hack it down. 
+To add the functionality itself was not that hard but to define a proper test
+for the plugin was tougher than it looks, at least at first as I didn&#39;t quite 
+understand how DocPad&#39;s plugin tester works. Thanks to <a href="http://www.delarre.net/posts/unit-testing-docpad-plugins/">this awesome post</a>, 
+I could finally write and pass the test. The working version of my fork
+can be found <a href="https://github.com/npatmaja/docpad-plugin-marked">at my GitHub</a>.</p>
+<p>To use the forked plugin, change the dependency definition in <code>package.json</code>:</p>
+<pre class="highlight"><code class="hljs undefined">"docpad-plugin-marked": "git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git"
+</code></pre>
+<p>Next is to redefine the <code>code</code> renderer by putting the definition in the <code>docpad.coffee</code></p>
+<pre class="highlight"><code class="hljs coffeescript"><span class="hljs-attribute">plugins</span>:
+  <span class="hljs-attribute">marked</span>:
+    <span class="hljs-attribute">markedRenderer</span>:
+      <span class="hljs-attribute">code</span>: <span class="hljs-function"><span class="hljs-params">(code, lang)</span> -&gt;</span>
+<span class="hljs-function">        <span class="hljs-title">escape</span> = <span class="hljs-params">(html, encode)</span> -&gt;</span>
+          pattern = <span class="hljs-keyword">if</span> !encode <span class="hljs-keyword">then</span> <span class="hljs-regexp">/&amp;(?!#?\w+;)/g</span>  <span class="hljs-keyword">else</span> <span class="hljs-regexp">/&amp;/g</span>
+          <span class="hljs-keyword">return</span> html
+            .replace(pattern, <span class="hljs-string">'&amp;amp;'</span>)
+            .replace(<span class="hljs-regexp">/&lt;/g</span>, <span class="hljs-string">'&amp;lt;'</span>)
+            .replace(<span class="hljs-regexp">/&gt;/g</span>, <span class="hljs-string">'&amp;gt;'</span>)
+            .replace(<span class="hljs-regexp">/"/g</span>, <span class="hljs-string">'&amp;quot;'</span>)
+            .replace(<span class="hljs-regexp">/'/g</span>, <span class="hljs-string">'&amp;#39;'</span>)
+
+        <span class="hljs-keyword">if</span> code.match(<span class="hljs-regexp">/^sequenceDiagram/</span>)|| code.match(<span class="hljs-regexp">/^graph/</span>)
+          <span class="hljs-keyword">return</span> <span class="hljs-string">"&lt;div class=\"mermaid\"&gt;\n<span class="hljs-subst">#{code}</span>\n&lt;/div&gt;\n"</span>
+        <span class="hljs-keyword">else</span>
+          <span class="hljs-keyword">if</span> <span class="hljs-property">@options</span>.highlight
+            out = <span class="hljs-property">@options</span>.highlight code, lang
+            <span class="hljs-keyword">if</span> out != <span class="hljs-literal">null</span> &amp;&amp; out != code
+              escaped = <span class="hljs-literal">true</span>
+              code = out
+
+          <span class="hljs-keyword">if</span> !lang
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;pre&gt;&lt;code&gt;'</span> +
+              (<span class="hljs-keyword">if</span> escaped <span class="hljs-keyword">then</span> code <span class="hljs-keyword">else</span> escape(code, <span class="hljs-literal">true</span>)) +
+              <span class="hljs-string">'\n&lt;/code&gt;&lt;/pre&gt;'</span>
+
+          <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;pre&gt;&lt;code class="'</span> +
+            <span class="hljs-keyword">this</span>.options.langPrefix +
+            escape(lang, <span class="hljs-literal">true</span>) +
+            <span class="hljs-string">'"&gt;'</span> +
+            (<span class="hljs-keyword">if</span> escaped <span class="hljs-keyword">then</span> code <span class="hljs-keyword">else</span> escape(code, <span class="hljs-literal">true</span>)) +
+            <span class="hljs-string">'\n&lt;/code&gt;&lt;/pre&gt;\n'</span>
+</code></pre><p>Lastly, I added Mermaid.js to blog&#39;s layout as mentioned on Mermaid&#39;s
+documentation. Now all are set to their place, so whenever I put Mermaid 
+syntax in a markdown&#39;s code block <code>```</code> the code will 
+be transformed to svg image. </p>
+<p>Without further a due, below are a couple of examples of Mermaid diagram
+definition and their respective rendered diagram. It&#39;s show time!</p>
+<h1 id="simple-graph">Simple graph</h1>
+<pre class="highlight"><code class="hljs livecodeserver">%% remove comment <span class="hljs-built_in">to</span> render <span class="hljs-operator">the</span> graph
+graph TB 
+  subgraph <span class="hljs-constant">one</span> 
+    a1<span class="hljs-comment">--&gt;a2</span>
+  <span class="hljs-function"><span class="hljs-keyword">end</span></span>
+  subgraph <span class="hljs-constant">two</span>
+    b1<span class="hljs-comment">--&gt;b2</span>
+  <span class="hljs-function"><span class="hljs-keyword">end</span></span>
+  subgraph <span class="hljs-constant">three</span>
+    c1<span class="hljs-comment">--&gt;c2</span>
+  <span class="hljs-function"><span class="hljs-keyword">end</span></span>
+  c1<span class="hljs-comment">--&gt;a2</span>
+</code></pre><div class="mermaid">
+graph TB 
+  subgraph one 
+    a1-->a2
+  end
+  subgraph two
+    b1-->b2
+  end
+  subgraph three
+    c1-->c2
+  end
+  c1-->a2
+</div>
+<h1 id="sequence-diagram">Sequence diagram</h1>
+<pre class="highlight"><code class="hljs livecodeserver">%% remove comment <span class="hljs-built_in">to</span> render <span class="hljs-operator">the</span> diagram
+sequenceDiagram
+  Alice -&gt;&gt; Bob: Hello Bob, how are you?
+  Bob<span class="hljs-comment">--&gt;&gt;John: How about you John?</span>
+  Bob<span class="hljs-comment">--x Alice: I am good thanks!</span>
+  Bob-x John: I am good thanks!
+  Note <span class="hljs-constant">right</span> <span class="hljs-operator">of</span> John: Bob thinks <span class="hljs-operator">a</span> <span class="hljs-keyword">long</span>&lt;br/&gt;<span class="hljs-keyword">long</span> <span class="hljs-built_in">time</span>, so <span class="hljs-keyword">long</span>&lt;br/&gt;that <span class="hljs-operator">the</span> <span class="hljs-keyword">text</span> does&lt;br/&gt;<span class="hljs-operator">not</span> fit <span class="hljs-command"><span class="hljs-keyword">on</span> <span class="hljs-title">a</span> <span class="hljs-title">row</span>.</span>
+
+  Bob<span class="hljs-comment">--&gt;Alice: Checking with John...</span>
+  Alice-&gt;John: Yes... John, how are you?
+</code></pre><div class="mermaid">
+sequenceDiagram
+  Alice ->> Bob: Hello Bob, how are you?
+  Bob-->>John: How about you John?
+  Bob--x Alice: I am good thanks!
+  Bob-x John: I am good thanks!
+  Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+  Bob-->Alice: Checking with John...
+  Alice->John: Yes... John, how are you?
+</div>
+<h2 id="side-note">Side note</h2>
+<p>The CSS I use to style the diagram can be seen <a href="https://raw.githubusercontent.com/npatmaja/nauvalatmaja.com/master/src/render/styles/mermaid.less">here</a>. Happy diagramming!</p>
 
     </div>
     
         <div class="twitter-share">
-  <a href='https://twitter.com/intent/tweet?text=Setting+Up+Custom+Domain+for+GitHub+Pages&url=http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/&via=novalpas&hashtags=GitHub Pages%2Ccustom domain%2CNameCheap%2CCloudFlare' class='twitter-share-button' data-via='novalpas' data-count= 'none'><img src='/ico/twitter_white_small.png', width='16px', height='16px'/>tweet</a>
+  <a href='https://twitter.com/intent/tweet?text=Rendering+Mermaid+in+Docpad&url=http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/&via=novalpas&hashtags=Mermaid%2CDocPad%2CMarked%2Cdocpad-plugin-marked' class='twitter-share-button' data-via='novalpas' data-count= 'none'><img src='/ico/twitter_white_small.png', width='16px', height='16px'/>tweet</a>
 </div>
 
     
     
         <div class="post-tags">
             Posted In: 
-  <a href='/tags/github-pages/'>GitHub Pages</a>
+  <a href='/tags/mermaid/'>Mermaid</a>
 
-  <a href='/tags/custom-domain/'>custom domain</a>
+  <a href='/tags/docpad/'>DocPad</a>
 
-  <a href='/tags/namecheap/'>NameCheap</a>
+  <a href='/tags/marked/'>Marked</a>
 
-  <a href='/tags/cloudflare/'>CloudFlare</a>
+  <a href='/tags/docpad-plugin-marked/'>docpad-plugin-marked</a>
  
         </div>
     
@@ -139,20 +234,16 @@ and particularly fast, well it&#39;s static html pages anyway.</p>
             <div class="page-nav">
               
                 
-              
+                    
+                    
+                         <a href="/2015/01/08/Android-development-with-Genymotion/" class="page-nav-older">
+                          <span class="icon icon-arrow-left-2"></span> Android Development with Genymotion
+                        </a>
+                    
                 
               
                 
-                    
-                        <a href="/2015/01/08/Android-development-with-Genymotion/" class="page-nav-newer">
-                          Android Development with Genymotion <span class="icon icon-arrow-right-2"></span>
-                        </a>
-                    
-                    
-                         <a href="/2014/12/29/rendering-backbone-subview/" class="page-nav-older">
-                          <span class="icon icon-arrow-left-2"></span> Rendering Backbone (Sub)View
-                        </a>
-                    
+              
                 
               
                 
@@ -163,9 +254,9 @@ and particularly fast, well it&#39;s static html pages anyway.</p>
             <div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
 <script type="text/javascript">
     var disqus_shortname = 'nauvalatmaja';
-    var disqus_url = 'http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/';
+    var disqus_url = 'http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/';
     var disqus_identifier = disqus_url;
-    var disqus_title = 'Setting Up Custom Domain for GitHub Pages';
+    var disqus_title = 'Rendering Mermaid in Docpad';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
