@@ -3,7 +3,7 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-13T14:26:21.310Z</updated>
+  <updated>2015-01-13T14:36:04.353Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
@@ -173,7 +173,7 @@ can be found &lt;a href=&quot;https://github.com/npatmaja/docpad-plugin-marked&q
 documentation. Now all are set to their place, so whenever I put Mermaid 
 syntax in a markdown&amp;#39;s code block &lt;code&gt;```&lt;/code&gt; the code will 
 be transformed to svg image. &lt;/p&gt;
-&lt;p&gt;Without further a due, below are a couple of examples of Mermaid diagram
+&lt;p&gt;Without further ado, below are a couple of examples of Mermaid diagram
 definition and their respective rendered diagram. It&amp;#39;s show time!&lt;/p&gt;
 &lt;h1 id=&quot;simple-graph&quot;&gt;Simple graph&lt;/h1&gt;
 &lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs livecodeserver&quot;&gt;%% remove comment &lt;span class=&quot;hljs-built_in&quot;&gt;to&lt;/span&gt; render &lt;span class=&quot;hljs-operator&quot;&gt;the&lt;/span&gt; graph
