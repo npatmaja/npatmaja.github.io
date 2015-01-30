@@ -3,13 +3,389 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-13T14:48:23.657Z</updated>
+  <updated>2015-01-30T05:53:18.853Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
     <email>nauval.atmaja@gmail.com</email>
   </author>
 
+  
+    <entry>
+      <title>Upload Files with Backbone.js, Node.js and express 4.x</title>
+      <link href="http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone-nodejs-express-4/"/>
+      <updated>2015-01-30T06:00:00.000Z</updated>
+      <id>http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone-nodejs-express-4/</id>
+      <content type="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;/&gt;
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;/&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;/&gt;
+
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        if (window.location.hostname == 'www.nauvalatmaja.com' || window.location.hostname == 'nauvalatmaja.com') {
+
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-58073141-1', 'auto');
+          ga('send', 'pageview');  
+        }
+    &lt;/script&gt;
+
+    &lt;title&gt;Upload Files with Backbone.js, Node.js and express 4.x | nauval atmaja&lt;/title&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;Nauval Atmaja&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Nauval Atmaja's personal notes on software development and all that&quot;&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;link href=&quot;/feed.xml&quot; rel=&quot;alternate&quot; title=&quot;www.nauvalatmaja.com&quot; type=&quot;application/atom+xml&quot;&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;300x300&quot; href=&quot;icon/icon.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;196x196&quot; href=&quot;icon/icon-196.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;icon&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;apple-touch-icon&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;!-- &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;128x128&quot; href=&quot;icon/icon-128.png&quot;&gt; --&gt;
+    &lt;link href=&quot;/ico/favicon.ico&quot; rel=&quot;shortcut icon&quot;&gt;
+
+    &lt;!-- Bootstrap --&gt;
+    &lt;link href=&quot;/styles/site.css?&quot; rel=&quot;stylesheet&quot; media=&quot;screen&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/vendor/rainbow.css&quot;&gt;
+    &lt;!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;
+    &lt;!--[if lt IE 9]&gt;
+    &lt;script src=&quot;/scripts/vendor/html5shiv.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/scripts/vendor/respond.min.js&quot;&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+
+    &lt;meta name=&quot;generator&quot; content=&quot;DocPad v6.69.2&quot; /&gt;
+    
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;a href=&quot;https://plus.google.com/112846605467404730226?rel=author&quot; class=&quot;google googleplus-hidden&quot; title=&quot;Google+&quot;&gt;Google+&lt;/a&gt;
+
+&lt;div class=&quot;navbar navbar-default navbar-static-top navbar-shadow&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;navbar-header&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;&lt;span class=&quot;text-primary&quot;&gt;nauval atmaja&lt;/span&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;collapse navbar-collapse navbar-right&quot;&gt;
+            &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+                &lt;!--&lt;li&gt;&lt;a href=&quot;/&quot;&gt;Blog&lt;/a&gt;&lt;/li&gt;--&gt;
+                &lt;!-- &lt;li&gt;&lt;a href=&quot;/archives/&quot;&gt;Archives&lt;/a&gt;&lt;/li&gt; --&gt;
+                
+                    &lt;li typeof=&quot;sioc:Page&quot;, about= /pages/archives/&gt;
+                      &lt;a href='/pages/archives/', property=&quot;dc:title&quot;&gt;Blog Archives&lt;/a&gt;
+                    &lt;/li&gt;
+                
+                &lt;li class=&quot;hidden-xs&quot;&gt;
+                    &lt;a href=&quot;/feed.xml&quot; class=&quot;rss&quot;&gt;&lt;span class=&quot;icon icon-feed&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://twitter.com/novalpas&quot; class=&quot;twitter&quot;&gt;&lt;span class=&quot;icon icon-twitter&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://github.com/npatmaja&quot; class=&quot;github&quot;&gt;&lt;span class=&quot;icon icon-github&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot; class=&quot;linkedin&quot;&gt;&lt;span class=&quot;icon icon-linkedin&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;form class=&quot;navbar-form navbar-right hidden-xs&quot; role=&quot;search&quot; action=&quot;http://google.com/search&quot;
+                  method=&quot;get&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;search&quot; name=&quot;q&quot; class=&quot;form-control&quot; placeholder=&quot;Search&quot;&gt;
+                    &lt;input type=&quot;hidden&quot; name=&quot;q&quot; value=&quot;site:www.nauvalatmaja.com&quot;&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;clear&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-12 col-md-10&quot;&gt;
+            
+            &lt;article id=&quot;post&quot; class=&quot;post&quot;&gt;
+    
+        &lt;h1&gt;Upload Files with Backbone.js, Node.js and express 4.x&lt;/h1&gt;
+    
+    &lt;div class=&quot;post-date&quot;&gt;Jan 30th, 2015&lt;/div&gt;
+    &lt;div class=&quot;post-content&quot;&gt;
+        &lt;p&gt;&lt;a href=&quot;https://github.com/addyosmani/backbone-fundamentals&quot;&gt;Backbone fundamentals&lt;/a&gt;
+is a great &lt;em&gt;free&lt;/em&gt; resource to learn Backbone.js from scratch. The book was written by 
+&lt;a href=&quot;http://addyosmani.com/&quot;&gt;Addy Osmany&lt;/a&gt; under &lt;a href=&quot;https://en.wikipedia.org/wiki/Creative_Commons_license&quot;&gt;creative-commons license&lt;/a&gt;.
+As its second exercise, the book guide the readers to create a simple library application
+that uses Node.js as the back-end. However, it left the part to upload book&amp;#39;s cover
+to the readers as an exercise. Hence, here is the way I did it.&lt;/p&gt;
+&lt;h1 id=&quot;requirement&quot;&gt;Requirement&lt;/h1&gt;
+&lt;p&gt;There are two additional requirements for the upload book&amp;#39;s cover features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The selected cover should be previewed as thumbnail&lt;/p&gt;
+&lt;p&gt;This implies that there should be a space to show the selected
+image. When users change the image, the preview should change 
+accordingly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Upload process shall happen only when a new book is added&lt;/p&gt;
+&lt;p&gt;The upload happens if and only if when users click the button
+to add a new book. This signifies that the displaying the cover&amp;#39;s
+preview should not upload to image file to the server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&quot;problems&quot;&gt;Problems&lt;/h1&gt;
+&lt;p&gt;After browsing for awhile, I found &lt;a href=&quot;http://markdawson.tumblr.com/post/18359176420/asynchronous-file-uploading-using-express-and&quot;&gt;a blog post to upload file asynchronously using Node.js and express&lt;/a&gt;, which was good
+as a starting point. However, similar to most of online references I had found, 
+they were pretty much obsolete; most of them were using express &amp;lt;= 3.x that supported file upload
+by using &lt;code&gt;body-parse&lt;/code&gt; middleware (as mentioned in the blog post) where in express
+4.x the &lt;code&gt;body-parse&lt;/code&gt; middleware did not support file upload any longer.&lt;/p&gt;
+&lt;p&gt;Another problem was to address the requirement: previewing images without
+upload them to the server in the first place. This was tricky, as most of the 
+solutions were to have the images uploaded first then fetch the images&amp;#39; URL 
+to be previewed.&lt;/p&gt;
+&lt;h1 id=&quot;solution&quot;&gt;Solution&lt;/h1&gt;
+&lt;p&gt;I had to admit, the first problem is another RTFM problem. So when I read again
+&lt;a href=&quot;https://github.com/expressjs/body-parser&quot;&gt;&lt;code&gt;body-parser&lt;/code&gt;&amp;#39;s documentation&lt;/a&gt; it was
+written clearly that &lt;code&gt;body-parse&lt;/code&gt; did not handle multipart bodies (file uploads).
+Furthermore, it mentioned the alternatives modules to handle multipart bodies, and
+one of them is &lt;a href=&quot;https://www.npmjs.com/package/multer#readme&quot;&gt;multer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Just like another express middleware, I needed to tell express to use multer and
+specified to which directory the files will be uploaded as shown in the following
+coffeescript code (yes, I wrote the back-end using coffeescript).&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs coffeescript&quot;&gt;express = &lt;span class=&quot;hljs-built_in&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;'express'&lt;/span&gt;
+multer = &lt;span class=&quot;hljs-built_in&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;hljs-string&quot;&gt;'multer'&lt;/span&gt;
+
+app = express()
+app.use multer( { &lt;span class=&quot;hljs-attribute&quot;&gt;dest&lt;/span&gt;: &lt;span class=&quot;hljs-string&quot;&gt;&quot;&lt;span class=&quot;hljs-subst&quot;&gt;#{__root}&lt;/span&gt;/public/img/covers/&quot;&lt;/span&gt; } )
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For the second problem, I found out that javascript provides a 
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/FileReader&quot;&gt;&lt;code&gt;FileReader&lt;/code&gt; object whose capable of reading file from client&amp;#39;s machine&lt;/a&gt;, 
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications#Example.3A_Showing_thumbnails_of_user-selected_images&quot;&gt;which could be used to load a selected image from a browser locally&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The following code is a Backbone view to handle the feature to display the selected image.
+The main idea is to catch the &lt;code&gt;change&lt;/code&gt; event from an &lt;code&gt;&amp;lt;input type=&amp;quot;file&amp;quot;&amp;gt;&lt;/code&gt; and read the file
+and render it through the designated &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; element and later on to upload the file as well.&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs javascript&quot;&gt;app.ThumbnailView = Backbone.View.extend({
+  events: {
+    &lt;span class=&quot;hljs-string&quot;&gt;'change #coverImageUpload'&lt;/span&gt;: &lt;span class=&quot;hljs-string&quot;&gt;'renderThumb'&lt;/span&gt;,
+    &lt;span class=&quot;hljs-string&quot;&gt;'submit #uploadCoverForm'&lt;/span&gt;: &lt;span class=&quot;hljs-string&quot;&gt;'upload'&lt;/span&gt;
+  },
+
+  render: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.renderThumb();
+  },
+
+  renderThumb: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; input = &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$(&lt;span class=&quot;hljs-string&quot;&gt;'#coverImageUpload'&lt;/span&gt;);
+    &lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; img = &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$(&lt;span class=&quot;hljs-string&quot;&gt;'#uploadedImage'&lt;/span&gt;)[&lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;];
+    &lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt;(input.val() !== &lt;span class=&quot;hljs-string&quot;&gt;''&lt;/span&gt;) {
+      &lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; selected_file = input[&lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;].files[&lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;];
+      &lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; reader = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; FileReader();
+      reader.onload = (&lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;(aImg)&lt;/span&gt; &lt;/span&gt;{ &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;hljs-params&quot;&gt;(e)&lt;/span&gt; &lt;/span&gt;{ aImg.src = e.target.result; }; })(img);
+      reader.readAsDataURL(selected_file);
+    }
+  },
+
+  submit: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$form = &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$(&lt;span class=&quot;hljs-string&quot;&gt;'#uploadCoverForm'&lt;/span&gt;);
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$form.submit();
+  },
+
+  upload: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;var&lt;/span&gt; _this = &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;;
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$form.ajaxSubmit({
+      error: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;(xhr)&lt;/span&gt; &lt;/span&gt;{
+        _this.renderStatus(&lt;span class=&quot;hljs-string&quot;&gt;'Error: '&lt;/span&gt; + xhr.status);
+      },
+      success: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;(response)&lt;/span&gt; &lt;/span&gt;{
+        _this.trigger(&lt;span class=&quot;hljs-string&quot;&gt;'image-uploaded'&lt;/span&gt;, response.path);
+        _this.clearField();
+      }
+    });
+    &lt;span class=&quot;hljs-keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;hljs-literal&quot;&gt;false&lt;/span&gt;;
+  },
+
+  renderStatus: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;(status)&lt;/span&gt; &lt;/span&gt;{
+     $(&lt;span class=&quot;hljs-string&quot;&gt;'#status'&lt;/span&gt;).text(status);
+  },
+
+  clearField: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$(&lt;span class=&quot;hljs-string&quot;&gt;'#uploadedImage'&lt;/span&gt;)[&lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;].src = &lt;span class=&quot;hljs-string&quot;&gt;''&lt;/span&gt;;
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$(&lt;span class=&quot;hljs-string&quot;&gt;'#coverImageUpload'&lt;/span&gt;).val(&lt;span class=&quot;hljs-string&quot;&gt;''&lt;/span&gt;);
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The uploading part was a bit tricky. I used Backbone View&amp;#39;s event to make sure
+that the newly added book has the right cover image. The way to do this is to
+make sure when a user clicks the &lt;strong&gt;add book button&lt;/strong&gt;, the cover image
+will be uploaded first and when the the upload success an event will be 
+triggered with the server path of the uploaded image as the parameter. Then the path will 
+be used as the value of &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; related to the book cover. The last step
+is to create the book object in the Backbone Collection, which will be 
+sync&amp;#39;d to the Node.js back-end server. The following sequence diagram 
+pictures the description above.&lt;/p&gt;
+&lt;div class=&quot;mermaid&quot;&gt;
+sequenceDiagram
+  User-&gt;&gt;LibraryView: click add book button
+  LibraryView-&gt;&gt;ThumbnailView: upload
+  ThumbnailView-&gt;&gt;ThumbnailView: trigger('uploaded', response.path)
+  opt uploaded event
+    LibraryView-&gt;&gt;LibraryView: updateInput
+    LibraryView-&gt;&gt;LibraryView: createData
+  end
+&lt;/div&gt;
+&lt;p&gt;To enable the event in the &lt;code&gt;LibraryView&lt;/code&gt;, the object needs to listen to
+to the &lt;code&gt;ThumbnailView&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs actionscript&quot;&gt;app.LibraryView = Backbone.View.extend({
+  ...
+
+  initialize: &lt;span class=&quot;hljs-function&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;hljs-params&quot;&gt;(initialBooks)&lt;/span&gt; &lt;/span&gt;{
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.collection = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; app.Library(initialBooks);
+
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.thumbnailView = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; app.ThumbnailView();
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.bookListView = &lt;span class=&quot;hljs-keyword&quot;&gt;new&lt;/span&gt; app.BookListView( { collection: &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.collection } );
+
+    &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.listenTo(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.thumbnailView, &lt;span class=&quot;hljs-string&quot;&gt;'image-uploaded'&lt;/span&gt;, &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.updateInput);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And that&amp;#39;s all folks! The complete solution can be seen &lt;a href=&quot;https://github.com/npatmaja/library&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;/div&gt;
+    
+        &lt;div class=&quot;twitter-share&quot;&gt;
+  &lt;a href='https://twitter.com/intent/tweet?text=Upload+Files+with+Backbone.js,+Node.js+and+express+4.x&amp;url=http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone-nodejs-express-4/&amp;via=novalpas&amp;hashtags=Node.js%2Cexpress%2CBackbone.js%2Cupload%2Cmulter%2CBackbone Fundamentals' class='twitter-share-button' data-via='novalpas' data-count= 'none'&gt;&lt;img src='/ico/twitter_white_small.png', width='16px', height='16px'/&gt;tweet&lt;/a&gt;
+&lt;/div&gt;
+
+    
+    
+        &lt;div class=&quot;post-tags&quot;&gt;
+            Posted In: 
+  &lt;a href='/tags/node-js/'&gt;Node.js&lt;/a&gt;
+
+  &lt;a href='/tags/express/'&gt;express&lt;/a&gt;
+
+  &lt;a href='/tags/backbone-js/'&gt;Backbone.js&lt;/a&gt;
+
+  &lt;a href='/tags/upload/'&gt;upload&lt;/a&gt;
+
+  &lt;a href='/tags/multer/'&gt;multer&lt;/a&gt;
+
+  &lt;a href='/tags/backbone-fundamentals/'&gt;Backbone Fundamentals&lt;/a&gt;
+ 
+        &lt;/div&gt;
+    
+&lt;/article&gt; 
+            &lt;!-- get next and prev link --&gt;
+            
+            &lt;div class=&quot;page-nav&quot;&gt;
+              
+                
+                    
+                    
+                         &lt;a href=&quot;/2015/01/13/rendering-mermaid-in-docpad/&quot; class=&quot;page-nav-older&quot;&gt;
+                          &lt;span class=&quot;icon icon-arrow-left-2&quot;&gt;&lt;/span&gt; Rendering Mermaid in Docpad
+                        &lt;/a&gt;
+                    
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            &lt;/div&gt;
+            &lt;div id=&quot;disqus_thread&quot;&gt;&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var disqus_shortname = 'nauvalatmaja';
+    var disqus_url = 'http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone-nodejs-express-4/';
+    var disqus_identifier = disqus_url;
+    var disqus_title = 'Upload Files with Backbone.js, Node.js and express 4.x';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+
+            &lt;div id=&quot;me&quot;&gt;
+    &lt;p&gt;
+        &lt;img src=&quot;/images/avatar.png&quot;, alt=&quot;nauval atmaja&quot;&gt;
+        Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
+        Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
+        Have a look around and don't hesitate to &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;contact me&lt;/a&gt; with any comments,
+        suggestions or even to just say Hi!
+    &lt;/p&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://twitter.com/novalpas/&quot;&gt;@novalpas&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://github.com/npatmaja&quot;&gt;GitHub&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;https://id.linkedin.com/in/nauvalatmaja/&quot;&gt;linkedin&lt;/a&gt; &amp;#8226;
+        &lt;a href=&quot;mailto:nauval.atmaja@gmail.com&quot;&gt;Email Me&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;navbar navbar-footer&quot;&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;script src=&quot;/vendor/jquery/dist/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/mermaid.full.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;/vendor/components-bootstrap/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js&quot;&gt;&lt;/script&gt;
+
+
+
+&lt;script type=&quot;text/javascript&quot;&gt;
+	var $buoop = {
+		url: 'http://whatbrowser.org/',
+        reminder: 0,
+		newwindow: false,
+		'text': 'You are using an outdated browser (%s). &lt;a%s&gt;More information &amp;#187;&lt;/a&gt;',
+		'text_af': 'Jy gebruik \'n verouderde webblaaier (%s). &lt;a%s&gt;Meer inligting &amp;#187;&lt;/a&gt;',
+		'text_cs': 'Používáte zastaralý prohlížeč (%s). &lt;a%s&gt;Více informací &amp;#187;&lt;/a&gt;',
+		'text_da': 'Du bruger en ældre browser (%s). &lt;a%s&gt;Mere information &amp;#187;&lt;/a&gt;',
+		'text_de': 'Sie benutzen einen veralteten Browser (%s). &lt;a%s&gt;Mehr Informationen &amp;#187;&lt;/a&gt;',
+		'text_el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. &lt;a%s&gt;Περισσότερες πληροφορίες &amp;#187;&lt;/a&gt;',
+		'text_es': 'Su navegador está obsoleto (%s). &lt;a%s&gt;M&amp;aacute;s informaci&amp;oacute;n &amp;#187;&lt;/a&gt;',
+		'text_fi': 'Käytät vanhentunutta selainta (%s). &lt;a%s&gt;Lisää tietoa &amp;#187;&lt;/a&gt;',
+		'text_fr': 'Votre navigateur n\'est pas à jour (%s). &lt;a%s&gt;Plus d\'information &amp;#187;&lt;/a&gt;',
+		'text_hu': 'A böngészője elavult (%s). &lt;a%s&gt;További információ &amp;#187;&lt;/a&gt;',
+		'text_id': 'Anda menggunakan web browser versi lama (%s). &lt;a%s&gt;Informasi selengkapnya &amp;#187;&lt;/a&gt;',
+		'text_is': 'Þú ert að nota úreltan vafra (%s). &lt;a%s&gt;Nánari upplýsingar &amp;#187;&lt;/a&gt;',
+		'text_it': 'Stai usando un browser datato (%s). &lt;a%s&gt;Ulteriori informazioni &amp;#187;&lt;/a&gt;',
+		'text_nl': 'U gebruikt op dit moment een verouderde webbrowser (%s). &lt;a%s&gt;Meer informatie &amp;#187;&lt;/a&gt;',
+		'text_pl': 'Używasz przestarzałej przeglądarki (%s). &lt;a%s&gt;Więcej informacji &amp;#187;&lt;/a&gt;',
+		'text_pt': 'Você está usando um navegador antigo (%s). &lt;a%s&gt;Mais informações &amp;#187;&lt;/a&gt;',
+		'text_ro': 'Browserul dumneavoastră este depăşit (%s). &lt;a%s&gt;Mai multe informații &amp;#187;&lt;/a&gt;',
+		'text_ru': 'Вы используете устаревший браузер (%s). &lt;a%s&gt;Подробнее &amp;#187;&lt;/a&gt;',
+		'text_sk': 'Používate zastaralý prehliadač (%s). &lt;a%s&gt;Viac informácií &amp;#187;&lt;/a&gt;',
+		'text_sr': 'Vi koristite zastarelu verziju browsera (%s). &lt;a%s&gt;Vi&amp;#353;e informacija &amp;#187;&lt;/a&gt;',
+		'text_sv': 'Du använder en gammal webbläsare (%s). &lt;a%s&gt;Mer information &amp;#187;&lt;/a&gt;',
+		'text_tr': 'Çok eski bir tarayıcı kullanıyorsunuz (%s). &lt;a%s&gt;Daha fazla bilgi &amp;#187;&lt;/a&gt;',
+		'text_vi': 'Trình duyệt bạn dùng đã lỗi thời rồi (%s). &lt;a%s&gt;Thêm thông tin &amp;#187;&lt;/a&gt;'
+	};
+	$buoop.ol = window.onload;
+	window.onload=function(){
+		try {if ($buoop.ol) $buoop.ol();}catch (e) {}
+		var e = document.createElement(&quot;script&quot;);
+		e.setAttribute(&quot;type&quot;, &quot;text/javascript&quot;);
+		e.setAttribute(&quot;src&quot;, &quot;//browser-update.org/update.js&quot;);
+		document.body.appendChild(e);
+	}
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</content>
+    </entry>
   
     <entry>
       <title>Rendering Mermaid in Docpad</title>
@@ -252,6 +628,12 @@ sequenceDiagram
             &lt;div class=&quot;page-nav&quot;&gt;
               
                 
+              
+                
+                    
+                        &lt;a href=&quot;/2015/01/30/upload-files-with-backbone-nodejs-express-4/&quot; class=&quot;page-nav-newer&quot;&gt;
+                          Upload Files with Backbone.js, Node.js and express 4.x &lt;span class=&quot;icon icon-arrow-right-2&quot;&gt;&lt;/span&gt;
+                        &lt;/a&gt;
                     
                     
                          &lt;a href=&quot;/2015/01/08/Android-development-with-Genymotion/&quot; class=&quot;page-nav-older&quot;&gt;
@@ -520,6 +902,8 @@ version.&lt;/p&gt;
                 
               
                 
+              
+                
                     
                         &lt;a href=&quot;/2015/01/13/rendering-mermaid-in-docpad/&quot; class=&quot;page-nav-newer&quot;&gt;
                           Rendering Mermaid in Docpad &lt;span class=&quot;icon icon-arrow-right-2&quot;&gt;&lt;/span&gt;
@@ -774,6 +1158,8 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
             &lt;!-- get next and prev link --&gt;
             
             &lt;div class=&quot;page-nav&quot;&gt;
+              
+                
               
                 
               
@@ -1167,6 +1553,8 @@ helps someone to understand more about backbone view.&lt;/p&gt;
                 
               
                 
+              
+                
                     
                         &lt;a href=&quot;/2014/12/31/setting-up-custom-domain-for-github-pages/&quot; class=&quot;page-nav-newer&quot;&gt;
                           Setting Up Custom Domain for GitHub Pages &lt;span class=&quot;icon icon-arrow-right-2&quot;&gt;&lt;/span&gt;
@@ -1427,6 +1815,8 @@ to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-doc
             &lt;!-- get next and prev link --&gt;
             
             &lt;div class=&quot;page-nav&quot;&gt;
+              
+                
               
                 
               

@@ -18,7 +18,7 @@
         }
     </script>
 
-    <title>Android Development with Genymotion | nauval atmaja</title>
+    <title>nauval atmaja</title>
     <meta name="author" content="Nauval Atmaja">
     <meta name="description" content="Nauval Atmaja's personal notes on software development and all that">
     <meta name="keywords" content="software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX">
@@ -62,10 +62,6 @@
                 <!--<li><a href="/">Blog</a></li>-->
                 <!-- <li><a href="/archives/">Archives</a></li> -->
                 
-                    <li typeof="sioc:Page", about= /pages/archives/>
-                      <a href='/pages/archives/', property="dc:title">Blog Archives</a>
-                    </li>
-                
                 <li class="hidden-xs">
                     <a href="/feed.xml" class="rss"><span class="icon icon-feed"></span></a>
                     <a href="https://twitter.com/novalpas" class="twitter"><span class="icon icon-twitter"></span></a>
@@ -88,107 +84,68 @@
     <div class="row">
         <div class="col-sm-12 col-md-10">
             
-            <article id="post" class="post">
+    <article id="post" class="post">
     
-        <h1>Android Development with Genymotion</h1>
+        <h1><a href='/2014/12/28/blogging-with-docpad/'>Blogging with Docpad</a></h1>
     
-    <div class="post-date">Jan 8th, 2015</div>
+    <div class="post-date">Dec 28th, 2014</div>
     <div class="post-content">
-        <p>I am a noob in android development and one thing I am not
-comfortable with is the stock android device emulator.
-The default emulator is really slow, the boot-up process could
-take minutes in my machine (I won&#39;t say my machine is fast either,
-but it is sufficient), the app deployment takes too much time, 
-moreover, the interaction is sluggish. Hence, it is a no go.</p>
-<p>Up to now, I used my own android phone to test my app. It is fast,
-quite responsive, but the downside is I need to connect my phone
-to my laptop when I work on the app. Not to mention when I can&#39;t find
-my USB cable, disaster. </p>
-<p><img src="/images/genymotion.png" alt="Genymotion in action"></p>
-<p>Fortunately, there is an alternative to android 
-stock emulator called <a href="https://www.genymotion.com">Genymotion</a>. It runs
-on top of <a href="https://www.virtualbox.org">VirtualBox</a>, in other words, each android
-virtual device is an virtual machine in VirtualBox. To use Genymotion
-I have to register in the first place (the free account is sufficient for me) 
-and then <a href="https://www.genymotion.com/#!/developers/user-guide#installing-genymotion">downloaded and installed the application</a>. 
-Following that, I created a virtual device of my liking
-in the Genymotion application. 
-As I use Eclipse Android Development Tools, I then installed 
-<a href="http://marketplace.eclipse.org/content/genymotion-plugin-eclipse">eclipse plugin for Genymotion</a>. A plugin for 
-Android Studio is also available in the Genymotion&#39;s website. Restarted Eclipse and 
-all was ready. A note, you need to install VirtualBox to use Genymotion, 
-otherwise it will complain about can not starting virtualization or 
-something.</p>
-<p>At first I was skeptical about this emulator but it turn out to be the
-opposite. It runs flawlessly, it boots up very fast and very responsive, and at some
-point it is even faster than my phone. More importantly, it consumes considerably less
-CPU resources compared to the default emulator, impressive. In the conclusion, I recommend
-this emulator for android development over the stock emulator. If you need to access
-more features other than camera and GPS, you can always change to the subscribe
-version.</p>
+        <p>It has been a long time since I planned to have a dedicated blog for 
+writing about some more <em>&quot;meaningful&quot;</em> stuff instead of just
+my rumbling I posted on my <a href="http://noval78.wordpress.com">trash bin</a>. 
+After looking out what blogging platforms available, I finally decided 
+to use <a href="https://pages.github.com/">GitHub pages</a> 
+to host my posts. However, as it uses <a href="https://github.com/jekyll/jekyll">Jekyll</a>
+as its engine, many people suggested to install Jekyll in my local machine, which
+was a no-show for me. So I tried to built it 
+manually without installing Jekyll locally, which was proven to be a 
+hard thing to do. Later, I had to postponed the project
+due to some higher priority activities until recent time.</p>
+<p>As I am now re-learning javascript and node.js, I searched about static 
+blogging with node.js to pick this blog project up once again, with a resolution 
+to make it online. And that was how I came accross
+<a href="http://docpad.org">docpad</a>, a dinamyc static site generator built 
+using node.js. Similar to Jekyll, it can render markdown files to 
+bunch of static htmls. Surprisingly, to build a blog using docpad wasn&#39;t hard 
+thing to do. There were skeletons that you can choose
+to bootstrap your blog when you first run <code>docpad run</code>.</p>
+<p><img src="/images/docpad-run-skeleton.png" alt="docpad skeletons"></p>
+<p>After creating the skeleton, next thing that is needed to do is to 
+customize blog&#39;s appearance. Since I am bad at web design, I searched 
+for blogs built using 
+docpad whom source hosted on github. Fortunately, I found
+<a href="http://www.ewal.net">Erv Walter&#39;s blog</a> which satisfied my 
+requirements for being simple and clean. So I cloned the blog&#39;s repository
+and adapted it to the skeleton I used and did some minor changes, 
+and <em>voila</em> here it is. Lastly, I
+used <a href="https://docpad.org/plugin/ghpages">GitHub pages plugin</a>
+to <a href="http://seethroughtrees.github.io/posts/github-pages-with-docpad/">push the blog to github</a>.</p>
 
     </div>
-    
-        <div class="twitter-share">
-  <a href='https://twitter.com/intent/tweet?text=Android+Development+with+Genymotion&url=http://nauvalatmaja.com/2015/01/08/Android-development-with-Genymotion/&via=novalpas&hashtags=Genymotion%2Candroid%2Cemulator' class='twitter-share-button' data-via='novalpas' data-count= 'none'><img src='/ico/twitter_white_small.png', width='16px', height='16px'/>tweet</a>
-</div>
-
     
     
         <div class="post-tags">
             Posted In: 
-  <a href='/tags/genymotion/'>Genymotion</a>
+  <a href='/tags/blog/'>blog</a>
 
-  <a href='/tags/android/'>android</a>
+  <a href='/tags/docpad/'>docpad</a>
 
-  <a href='/tags/emulator/'>emulator</a>
+  <a href='/tags/node-js/'>node.js</a>
  
         </div>
     
-</article> 
-            <!-- get next and prev link -->
-            
-            <div class="page-nav">
-              
-                
-              
-                
-              
-                
-                    
-                        <a href="/2015/01/13/rendering-mermaid-in-docpad/" class="page-nav-newer">
-                          Rendering Mermaid in Docpad <span class="icon icon-arrow-right-2"></span>
-                        </a>
-                    
-                    
-                         <a href="/2014/12/31/setting-up-custom-domain-for-github-pages/" class="page-nav-older">
-                          <span class="icon icon-arrow-left-2"></span> Setting Up Custom Domain for GitHub Pages
-                        </a>
-                    
-                
-              
-                
-              
-                
-              
-                
-              
-            </div>
-            <div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-<script type="text/javascript">
-    var disqus_shortname = 'nauvalatmaja';
-    var disqus_url = 'http://nauvalatmaja.com/2015/01/08/Android-development-with-Genymotion/';
-    var disqus_identifier = disqus_url;
-    var disqus_title = 'Android Development with Genymotion';
+</article>
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
 
-            <div id="me">
+<div class="page-nav">
+    
+    
+    <a class="page-nav-newer" href="/">Newer <span class="icon icon-arrow-right-2"></span></a>
+    
+    <div class="page-nav-archives"><a href="/pages/archives/">- Blog Archives -</a></div>
+</div>
+
+<div id="me">
     <p>
         <img src="/images/avatar.png", alt="nauval atmaja">
         Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
