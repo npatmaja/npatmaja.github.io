@@ -3,7 +3,7 @@
     <title>nauval atmaja</title>
     <link href="http://nauvalatmaja.com/feed.xml" rel="self"/>
     <link href="http://nauvalatmaja.com"/>
-    <updated>2015-02-05T12:19:26.264Z</updated>
+    <updated>2015-02-05T16:00:27.626Z</updated>
     <id>http://nauvalatmaja.com</id>
     <author>
         <name>Nauval Atmaja</name>
@@ -36,6 +36,8 @@ to add a new book. This signifies that the displaying the cover&#39;s
 preview should not upload to image file to the server.</p>
 </li>
 </ul>
+<!-- Read more -->
+
 <h1 id="problems">Problems</h1>
 <p>After browsing for awhile, I found <a href="http://markdawson.tumblr.com/post/18359176420/asynchronous-file-uploading-using-express-and">a blog post to upload file asynchronously using Node.js and express</a>, which was good
 as a starting point. However, similar to most of online references I had found, 
@@ -187,6 +189,8 @@ for the plugin was tougher than it looks, at least at first as I didn&#39;t quit
 understand how DocPad&#39;s plugin tester works. Thanks to <a href="http://www.delarre.net/posts/unit-testing-docpad-plugins/">this awesome post</a>, 
 I could finally write and pass the test. The working version of my fork
 can be found <a href="https://github.com/npatmaja/docpad-plugin-marked">at my GitHub</a>.</p>
+<!-- Read more -->
+
 <p>To use the forked plugin, change the dependency definition in <code>package.json</code>:</p>
 <pre class="highlight"><code class="hljs undefined">"docpad-plugin-marked": "git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git"
 </code></pre>
@@ -299,6 +303,8 @@ quite responsive, but the downside is I need to connect my phone
 to my laptop when I work on the app. Not to mention when I can&#39;t find
 my USB cable, disaster. </p>
 <p><img src="http://nauvalatmaja.com/images/genymotion.png" alt="Genymotion in action"></p>
+<!-- Read more -->
+
 <p>Fortunately, there is an alternative to android 
 stock emulator called <a href="https://www.genymotion.com">Genymotion</a>. It runs
 on top of <a href="https://www.virtualbox.org">VirtualBox</a>, in other words, each android
@@ -384,6 +390,8 @@ So at first I created the view as listed below:</p>
 </code></pre>
 <p>To better visualize, lets see this picture:</p>
 <p><img src="http://nauvalatmaja.com/images/backbone-view-schema.png" alt="Application view"></p>
+<!-- Read more -->
+
 <p>The outer container is <code>#application</code> and inside it there are
 two other sub-containers <code>#login</code> and <code>#online-users</code>. Each container
 or sub-container is represented in a separated view: <code>AppView</code>, <code>LoginView</code>
@@ -520,6 +528,8 @@ was a no-show for me. So I tried to built it
 manually without installing Jekyll locally, which was proven to be a 
 hard thing to do. Later, I had to postponed the project
 due to some higher priority activities until recent time.</p>
+<!-- Read more -->
+
 <p>As I am now re-learning javascript and node.js, I searched about static 
 blogging with node.js to pick this blog project up once again, with a resolution 
 to make it online. And that was how I came accross
@@ -527,7 +537,7 @@ to make it online. And that was how I came accross
 using node.js. Similar to Jekyll, it can render markdown files to 
 bunch of static htmls. Surprisingly, to build a blog using docpad wasn&#39;t hard 
 thing to do. There were skeletons that you can choose
-to bootstrap your blog when you first run <code>docpad run</code>.</p>
+to bootstrap your blog when you run <code>docpad run</code> for the first time.</p>
 <p><img src="http://nauvalatmaja.com/images/docpad-run-skeleton.png" alt="docpad skeletons"></p>
 <p>After creating the skeleton, next thing that is needed to do is to 
 customize blog&#39;s appearance. Since I am bad at web design, I searched 

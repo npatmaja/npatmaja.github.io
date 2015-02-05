@@ -3,7 +3,7 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-02-05T12:19:26.264Z</updated>
+  <updated>2015-02-05T16:00:27.626Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
@@ -132,6 +132,8 @@ to add a new book. This signifies that the displaying the cover&amp;#39;s
 preview should not upload to image file to the server.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;!-- Read more --&gt;
+
 &lt;h1 id=&quot;problems&quot;&gt;Problems&lt;/h1&gt;
 &lt;p&gt;After browsing for awhile, I found &lt;a href=&quot;http://markdawson.tumblr.com/post/18359176420/asynchronous-file-uploading-using-express-and&quot;&gt;a blog post to upload file asynchronously using Node.js and express&lt;/a&gt;, which was good
 as a starting point. However, similar to most of online references I had found, 
@@ -340,7 +342,7 @@ for the complete solution.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;container&quot;&gt;
     &lt;div class=&quot;navbar navbar-footer&quot;&gt;
-        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014 - 2015&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -517,6 +519,8 @@ for the plugin was tougher than it looks, at least at first as I didn&amp;#39;t 
 understand how DocPad&amp;#39;s plugin tester works. Thanks to &lt;a href=&quot;http://www.delarre.net/posts/unit-testing-docpad-plugins/&quot;&gt;this awesome post&lt;/a&gt;, 
 I could finally write and pass the test. The working version of my fork
 can be found &lt;a href=&quot;https://github.com/npatmaja/docpad-plugin-marked&quot;&gt;at my GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- Read more --&gt;
+
 &lt;p&gt;To use the forked plugin, change the dependency definition in &lt;code&gt;package.json&lt;/code&gt;:&lt;/p&gt;
 &lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;hljs undefined&quot;&gt;&quot;docpad-plugin-marked&quot;: &quot;git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git&quot;
 &lt;/code&gt;&lt;/pre&gt;
@@ -695,7 +699,7 @@ sequenceDiagram
 &lt;/div&gt;
 &lt;div class=&quot;container&quot;&gt;
     &lt;div class=&quot;navbar navbar-footer&quot;&gt;
-        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014 - 2015&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -863,6 +867,8 @@ quite responsive, but the downside is I need to connect my phone
 to my laptop when I work on the app. Not to mention when I can&amp;#39;t find
 my USB cable, disaster. &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/genymotion.png&quot; alt=&quot;Genymotion in action&quot;&gt;&lt;/p&gt;
+&lt;!-- Read more --&gt;
+
 &lt;p&gt;Fortunately, there is an alternative to android 
 stock emulator called &lt;a href=&quot;https://www.genymotion.com&quot;&gt;Genymotion&lt;/a&gt;. It runs
 on top of &lt;a href=&quot;https://www.virtualbox.org&quot;&gt;VirtualBox&lt;/a&gt;, in other words, each android
@@ -967,7 +973,7 @@ version.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;container&quot;&gt;
     &lt;div class=&quot;navbar navbar-footer&quot;&gt;
-        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014 - 2015&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1227,7 +1233,7 @@ and particularly fast, well it&amp;#39;s static html pages anyway.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;container&quot;&gt;
     &lt;div class=&quot;navbar navbar-footer&quot;&gt;
-        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014 - 2015&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1414,6 +1420,8 @@ So at first I created the view as listed below:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;To better visualize, lets see this picture:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/backbone-view-schema.png&quot; alt=&quot;Application view&quot;&gt;&lt;/p&gt;
+&lt;!-- Read more --&gt;
+
 &lt;p&gt;The outer container is &lt;code&gt;#application&lt;/code&gt; and inside it there are
 two other sub-containers &lt;code&gt;#login&lt;/code&gt; and &lt;code&gt;#online-users&lt;/code&gt;. Each container
 or sub-container is represented in a separated view: &lt;code&gt;AppView&lt;/code&gt;, &lt;code&gt;LoginView&lt;/code&gt;
@@ -1614,7 +1622,7 @@ helps someone to understand more about backbone view.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;container&quot;&gt;
     &lt;div class=&quot;navbar navbar-footer&quot;&gt;
-        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014 - 2015&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1782,6 +1790,8 @@ was a no-show for me. So I tried to built it
 manually without installing Jekyll locally, which was proven to be a 
 hard thing to do. Later, I had to postponed the project
 due to some higher priority activities until recent time.&lt;/p&gt;
+&lt;!-- Read more --&gt;
+
 &lt;p&gt;As I am now re-learning javascript and node.js, I searched about static 
 blogging with node.js to pick this blog project up once again, with a resolution 
 to make it online. And that was how I came accross
@@ -1789,7 +1799,7 @@ to make it online. And that was how I came accross
 using node.js. Similar to Jekyll, it can render markdown files to 
 bunch of static htmls. Surprisingly, to build a blog using docpad wasn&amp;#39;t hard 
 thing to do. There were skeletons that you can choose
-to bootstrap your blog when you first run &lt;code&gt;docpad run&lt;/code&gt;.&lt;/p&gt;
+to bootstrap your blog when you run &lt;code&gt;docpad run&lt;/code&gt; for the first time.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/docpad-run-skeleton.png&quot; alt=&quot;docpad skeletons&quot;&gt;&lt;/p&gt;
 &lt;p&gt;After creating the skeleton, next thing that is needed to do is to 
 customize blog&amp;#39;s appearance. Since I am bad at web design, I searched 
@@ -1880,7 +1890,7 @@ to &lt;a href=&quot;http://seethroughtrees.github.io/posts/github-pages-with-doc
 &lt;/div&gt;
 &lt;div class=&quot;container&quot;&gt;
     &lt;div class=&quot;navbar navbar-footer&quot;&gt;
-        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014&lt;/p&gt;
+        &lt;p class=&quot;navbar-center navbar-text&quot;&gt;© Nauval Atmaja 2014 - 2015&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
