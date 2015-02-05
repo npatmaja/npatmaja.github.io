@@ -3,7 +3,7 @@
     <title>nauval atmaja</title>
     <link href="http://nauvalatmaja.com/feed.xml" rel="self"/>
     <link href="http://nauvalatmaja.com"/>
-    <updated>2015-01-30T05:53:18.853Z</updated>
+    <updated>2015-02-05T12:19:26.264Z</updated>
     <id>http://nauvalatmaja.com</id>
     <author>
         <name>Nauval Atmaja</name>
@@ -116,7 +116,14 @@ and render it through the designated <code>&lt;img&gt;</code> element and later 
     <span class="hljs-keyword">this</span>.$(<span class="hljs-string">'#coverImageUpload'</span>).val(<span class="hljs-string">''</span>);
   }
 });
-</code></pre><p>The uploading part was a bit tricky. I used Backbone View&#39;s event to make sure
+</code></pre><p>In details, when a user has selected a cover image, the <code>&#39;change #coverImageUpload&#39;: &#39;renderThumb&#39;</code> 
+event will be triggered. To add a bit context, <code>#coverImageUpload</code> is the id of the <code>&lt;input type=&quot;file&quot;&gt;</code>
+to upload a file and <code>renderThumb</code> is the function will be executed as the event&#39;s callback. In the
+function, whenever a user selected a picture, the view will get the selected file and read the file
+as data URL through <code>FileReader.readAsDataURL</code> function. When the particular function is executed,
+it triggers <code>FileReader</code>&#39;s <code>onload</code> event with the result of the data reading process as its callback&#39;s
+parameter, which is used as the image source of the <code>&lt;img&gt;</code> element as shown in the listing above.</p>
+<p>The uploading part was a bit tricky. I used Backbone View&#39;s event to make sure
 that the newly added book has the right cover image. The way to do this is to
 make sure when a user clicks the <strong>add book button</strong>, the cover image
 will be uploaded first and when the the upload success an event will be 
@@ -149,7 +156,9 @@ to the <code>ThumbnailView</code>.</p>
     <span class="hljs-keyword">this</span>.listenTo(<span class="hljs-keyword">this</span>.thumbnailView, <span class="hljs-string">'image-uploaded'</span>, <span class="hljs-keyword">this</span>.updateInput);
   }
 }
-</code></pre><p>And that&#39;s all folks! The complete solution can be seen <a href="https://github.com/npatmaja/library">here</a>.</p>
+</code></pre><p>And that&#39;s all folks! I hope this tutorial could be a help for someone who looks for the solution
+for the exercise. Please see the <a href="https://github.com/npatmaja/library">project&#39;s repository</a> 
+for the complete solution.</p>
 ]]></content>
     </entry>
     

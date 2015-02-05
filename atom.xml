@@ -3,7 +3,7 @@
   <title>nauval atmaja</title>
   <link href="http://nauvalatmaja.com/atom.xml" rel="self"/>
   <link href="http://nauvalatmaja.com"/>
-  <updated>2015-01-30T05:53:18.853Z</updated>
+  <updated>2015-02-05T12:19:26.264Z</updated>
   <id>http://nauvalatmaja.com</id>
   <author>
     <name>Nauval Atmaja</name>
@@ -212,7 +212,14 @@ and render it through the designated &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt
     &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.$(&lt;span class=&quot;hljs-string&quot;&gt;'#coverImageUpload'&lt;/span&gt;).val(&lt;span class=&quot;hljs-string&quot;&gt;''&lt;/span&gt;);
   }
 });
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The uploading part was a bit tricky. I used Backbone View&amp;#39;s event to make sure
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In details, when a user has selected a cover image, the &lt;code&gt;&amp;#39;change #coverImageUpload&amp;#39;: &amp;#39;renderThumb&amp;#39;&lt;/code&gt; 
+event will be triggered. To add a bit context, &lt;code&gt;#coverImageUpload&lt;/code&gt; is the id of the &lt;code&gt;&amp;lt;input type=&amp;quot;file&amp;quot;&amp;gt;&lt;/code&gt;
+to upload a file and &lt;code&gt;renderThumb&lt;/code&gt; is the function will be executed as the event&amp;#39;s callback. In the
+function, whenever a user selected a picture, the view will get the selected file and read the file
+as data URL through &lt;code&gt;FileReader.readAsDataURL&lt;/code&gt; function. When the particular function is executed,
+it triggers &lt;code&gt;FileReader&lt;/code&gt;&amp;#39;s &lt;code&gt;onload&lt;/code&gt; event with the result of the data reading process as its callback&amp;#39;s
+parameter, which is used as the image source of the &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; element as shown in the listing above.&lt;/p&gt;
+&lt;p&gt;The uploading part was a bit tricky. I used Backbone View&amp;#39;s event to make sure
 that the newly added book has the right cover image. The way to do this is to
 make sure when a user clicks the &lt;strong&gt;add book button&lt;/strong&gt;, the cover image
 will be uploaded first and when the the upload success an event will be 
@@ -245,7 +252,9 @@ to the &lt;code&gt;ThumbnailView&lt;/code&gt;.&lt;/p&gt;
     &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.listenTo(&lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.thumbnailView, &lt;span class=&quot;hljs-string&quot;&gt;'image-uploaded'&lt;/span&gt;, &lt;span class=&quot;hljs-keyword&quot;&gt;this&lt;/span&gt;.updateInput);
   }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And that&amp;#39;s all folks! The complete solution can be seen &lt;a href=&quot;https://github.com/npatmaja/library&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;And that&amp;#39;s all folks! I hope this tutorial could be a help for someone who looks for the solution
+for the exercise. Please see the &lt;a href=&quot;https://github.com/npatmaja/library&quot;&gt;project&amp;#39;s repository&lt;/a&gt; 
+for the complete solution.&lt;/p&gt;
 
     &lt;/div&gt;
     
