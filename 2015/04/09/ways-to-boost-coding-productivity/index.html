@@ -18,7 +18,7 @@
         }
     </script>
 
-    <title>nauval atmaja</title>
+    <title>Ways to Boost Coding Productivity | nauval atmaja</title>
     <meta name="author" content="Nauval Atmaja">
     <meta name="description" content="Nauval Atmaja's personal notes on software development and all that">
     <meta name="keywords" content="software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX">
@@ -62,6 +62,10 @@
                 <!--<li><a href="/">Blog</a></li>-->
                 <!-- <li><a href="/archives/">Archives</a></li> -->
                 
+                    <li typeof="sioc:Page", about= /pages/archives/>
+                      <a href='/pages/archives/', property="dc:title">Blog Archives</a>
+                    </li>
+                
                 <li class="hidden-xs">
                     <a href="/feed.xml" class="rss"><span class="icon icon-feed"></span></a>
                     <a href="https://twitter.com/novalpas" class="twitter"><span class="icon icon-twitter"></span></a>
@@ -84,105 +88,136 @@
     <div class="row">
         <div class="col-sm-12 col-md-10">
             
-    <article id="post" class="post">
-      <h1><a href='/2014/12/29/rendering-backbone-subview/' class="title">Rendering Backbone (Sub)View</a></h1>
-      <div class="post-date">Dec 29th, 2014</div>
-      <div class="post-content">
-        <p>When learning backbone.js (i&#39;m a novice by the way), at first, I was actually having a hard time
-to grasp the backbone view. Especially how the best practice to render
-the view and build a rather complex view consists of several subviews.
-And then, magically I came accross Ian Storm Taylor&#39;s post about 
-<a href="http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/">his experience on dealing with backbone subview</a>.
-At first I didn&#39;t quiet understand well about the post until I found
-<a href="http://stackoverflow.com/questions/9337927/how-to-handle-initializing-and-rendering-subviews-in-backbone-js">a thread on stackoverflow</a>, which was started by <a href="http://ianstormtaylor.com">Ian Storm Taylor</a>.</p>
-<p>Based on the posts, I created a simple case study to better understand how it works.
-The requirements were to list pairs of username and email input by users.
-So at first I created the view as listed below:</p>
-<pre class="highlight"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"application"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>Add a user to the user list<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"login"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">ul</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"online-users"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">ul</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"login-template"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/template"</span>&gt;</span><span class="javascript">
-  &lt;h1&gt; login &lt;<span class="hljs-regexp">/h1&gt;
-  &lt;input id="username" type="text" placeholder="username" /</span>&gt; 
-  <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">id</span> = "<span class="hljs-attribute">email</span>" <span class="hljs-attribute">type</span> = "<span class="hljs-attribute">text</span>" <span class="hljs-attribute">placeholder</span> = "<span class="hljs-attribute">email</span>" /&gt;</span> 
-  <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">id</span> = "<span class="hljs-attribute">button-login</span>" <span class="hljs-attribute">type</span> = "<span class="hljs-attribute">button</span>"&gt;</span> Login <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
-</span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"userlist-template"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/template"</span>&gt;</span><span class="javascript">
-  &lt;li&gt;
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">%=</span> <span class="hljs-attribute">username</span> %&gt;</span> / <span class="hljs-tag">&lt;<span class="hljs-title">%=</span> <span class="hljs-attribute">email</span> %&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">id</span> = "<span class="hljs-attribute">force-logout</span>"&gt;</span>force logout<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span>
-</span></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</code></pre>
-<p>To better visualize, lets see this picture:</p>
-<p><img src="/images/backbone-view-schema.png" alt="Application view"></p>
-
-      </div>
-      
-        <div class="read-more">
-          <a href='/2014/12/29/rendering-backbone-subview/'>Continue reading <span class="icon icon-arrow-right-2"></a>
-        </div>
-      
-      
-        <div class="post-tags">
-          Posted In: 
-  <a href='/tags/backbone-js/'>backbone.js</a>
-
-  <a href='/tags/view/'>view</a>
-
-  <a href='/tags/javascript/'>javascript</a>
- 
-        </div>
-      
-    </article>
-
-    <article id="post" class="post">
-      <h1><a href='/2014/12/28/blogging-with-docpad/' class="title">Blogging with Docpad</a></h1>
-      <div class="post-date">Dec 28th, 2014</div>
-      <div class="post-content">
-        <p>It has been a long time since I planned to have a dedicated blog for 
-writing about some more <em>&quot;meaningful&quot;</em> stuff instead of just
-my rumbling I posted on my <a href="http://noval78.wordpress.com">trash bin</a>. 
-After looking out what blogging platforms available, I finally decided 
-to use <a href="https://pages.github.com/">GitHub pages</a> 
-to host my posts. However, as it uses <a href="https://github.com/jekyll/jekyll">Jekyll</a>
-as its engine, many people suggested to install Jekyll in my local machine, which
-was a no-show for me. So I tried to built it 
-manually without installing Jekyll locally, which was proven to be a 
-hard thing to do. Later, I had to postponed the project
-due to some higher priority activities until recent time.</p>
-
-      </div>
-      
-        <div class="read-more">
-          <a href='/2014/12/28/blogging-with-docpad/'>Continue reading <span class="icon icon-arrow-right-2"></a>
-        </div>
-      
-      
-        <div class="post-tags">
-          Posted In: 
-  <a href='/tags/blog/'>blog</a>
-
-  <a href='/tags/docpad/'>docpad</a>
-
-  <a href='/tags/node-js/'>node.js</a>
- 
-        </div>
-      
-    </article>
-
-
-<div class="page-nav">
+            <article id="post" class="post">
     
+        <h1 class="title">Ways to Boost Coding Productivity</h1>
     
-    <a class="page-nav-newer" href="/">Newer <span class="icon icon-arrow-right-2"></span></a>
+    <div class="post-date">Apr 9th, 2015</div>
+    <div class="post-content">
+        <p>As a someone who codes frequently, in daily basis in fact, I need an
+environment that is able to boost my productivity when coding. Some 
+might argue that one could be productive in every given environment.
+That is the ideal case, however live is not. Hence, productivity
+tools and workflows are created.</p>
+<p>During my coding adventure, I found some <em>ways</em> that help me
+to boost up my productivity, which are listed below.</p>
+<h1 id="use-nix-platform">Use *nix platform</h1>
+<p>It come across to me that I use shell (terminal) a lot when writing a program,
+e.g., navigating through directories, executing commands, committing
+to local and remote repositories etc. In that regards,
+no better OS to provide that other than *nix (either OS X or linux).
+Moreover, they are more stable, more secure and easier to configure rather
+than Windows. The last part is a bit bias as I have not been using 
+Windows for several years now, maybe in the latest release Windows
+are more configurable than the previous versions. Well, I&#39;m a pragmatic 
+person, I use what works for me. </p>
+<h1 id="use-your-most-comfortable-editor">Use your most comfortable editor</h1>
+<p>I use <a href="http://www.sublimetext.com/3"><em>Sublime Text 3</em></a> to code mostly
+everything, except Java (I&#39;m still using Eclipse for that). 
+<em>Sublime Text</em> is a powerful yet easy to use
+text editor that provides a lot of functionalities. Moreover, it
+has myriad of plugins to make developer&#39;s life easier and tons of 
+themes please the eyes, which is also a very important thing (to
+me at the very least). If you miss
+the efficient vim key bindings, use <a href="https://github.com/guillermooo/Vintageous">vintageaus</a>
+to emulate vim key bindings inside <em>Sublime Text</em>.
+<!-- Read more --> </p>
+<h1 id="change-to-zsh">Change to zsh</h1>
+<p>See 
+<a href="http://www.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692">Brendon Repp&#39;s presentation</a> 
+on why to <a href="http://www.zsh.org/">zsh</a>. I use <a href="http://ohmyz.sh/">oh-my-zsh</a> to manage the zsh
+configuration and all. To sugar its visual, I use the 
+<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#agnoster">agnoster</a> theme. Besides, 
+the theme directly tells me in what git branch I&#39;m currently working on in an awesome way.
+Hence no need to type <code>git status</code> to see the working branch. Combined with the right git
+aliases, it feels like home when coding.</p>
+<h1 id="add-aliases-your-shell">Add aliases your shell</h1>
+<p>Having short aliases is always a good thing to reduce finger movements when typing in
+a terminal regardless of what shell you are using. One of useful alias is 
+aliases to go the the frequently
+visited directoris. So, instead of typing <code>cd ~/codes/learning/nodejs</code> it&#39;s simpler
+to just type <code>learn-nodejs</code> right?!</p>
+<h1 id="adopt-github-flow-and-the-supporting-git-aliases">Adopt GitHub Flow and the supporting git aliases</h1>
+<p>I have been using <a href="http://scottchacon.com/2011/08/31/github-flow.html">GitHub Flow</a>
+for sometime in my recent projects and find it
+is a really straight forward approach in managing the development-deployment
+workflow when using git. Adding the 
+<a href="http://haacked.com/archive/2014/07/28/github-flow-aliases/">GitHub flow aliases</a>
+to your <code>~/.gitconfig</code> will be even more fun. Here&#39;s
+<a href="https://gist.github.com/npatmaja/d72daeb2ec0f21f1af2a">my <code>.gitconfig</code>&#39;s aliases section</a>
+that has some additional aliases beside the GitHub flow aliases.</p>
+<h1 id="have-a-to-do-list">Have a To-do list</h1>
+<p>A to-do list is a really powerful tool to manage and prioritize your tasks. Sometimes
+it is taken for granted but it does help to keep the focus on the tasks that
+should be done, especially for an easily distracted person (just like myself). 
+No need for fancy tools to create a to-do list, any text editor will do. However,
+<a href="https://evernote.com/">Evernote</a> or OS X&#39;s Notes or other to-do list apps
+will be better choice.</p>
+<p>I don&#39;t claim the list above is the best way to increase your coding productivity
+but it works for me and my current working environment. The list is not and will
+never be the final one because achieving better productivity is a long live 
+adventure.</p>
+
+    </div>
     
-    <div class="page-nav-archives"><a href="/pages/archives/">- Blog Archives -</a></div>
+        <div class="twitter-share">
+  <a href='https://twitter.com/intent/tweet?text=Ways+to+Boost+Coding+Productivity&url=http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/&via=novalpas&hashtags=code%2Cproductivity%2Ctips' class='twitter-share-button' data-via='novalpas' data-count= 'none'><img src='/ico/twitter_white_small.png', width='16px', height='16px'/>tweet</a>
 </div>
 
-<div id="me">
+    
+    
+        <div class="post-tags">
+            Posted In: 
+  <a href='/tags/code/'>code</a>
+
+  <a href='/tags/productivity/'>productivity</a>
+
+  <a href='/tags/tips/'>tips</a>
+ 
+        </div>
+    
+</article> 
+            <!-- get next and prev link -->
+            
+            <div class="page-nav">
+              
+                
+                    
+                    
+                         <a href="/2015/01/30/upload-files-with-backbone-nodejs-express-4/" class="page-nav-older">
+                          <span class="icon icon-arrow-left-2"></span> Upload Files with Backbone.js, Node.js and express 4.x
+                        </a>
+                    
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+                
+              
+            </div>
+            <div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+<script type="text/javascript">
+    var disqus_shortname = 'nauvalatmaja';
+    var disqus_url = 'http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/';
+    var disqus_identifier = disqus_url;
+    var disqus_title = 'Ways to Boost Coding Productivity';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+            <div id="me">
     <p>
         <img src="/images/avatar.png", alt="nauval atmaja">
         Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
