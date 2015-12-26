@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nauval atmaja</title>
+    <link>http://nauvalatmaja.com/</link>
+    <description>Recent content on nauval atmaja</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ways to Boost Coding Productivity</title>
+      <link>http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/</link>
+      <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/</guid>
+      <description>
+
+&lt;p&gt;As a someone who codes frequently, in daily basis in fact, I need an
+environment that is able to boost my productivity when coding. Some
+might argue that one could be productive in every given environment.
+That is the ideal case, however live is not. Hence, productivity
+tools and workflows are created.&lt;/p&gt;
+
+&lt;p&gt;During my coding adventure, I found some &lt;em&gt;ways&lt;/em&gt; that help me
+to boost up my productivity, which are listed below.&lt;/p&gt;
+
+&lt;h1 id=&#34;use-nix-platform:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Use *nix platform&lt;/h1&gt;
+
+&lt;p&gt;It come across to me that I use shell (terminal) a lot when writing a program,
+e.g., navigating through directories, executing commands, committing
+to local and remote repositories etc. In that regards,
+no better OS to provide that other than *nix (either OS X or linux).
+Moreover, they are more stable, more secure and easier to configure rather
+than Windows. The last part is a bit bias as I have not been using
+Windows for several years now, maybe in the latest release Windows
+are more configurable than the previous versions. Well, I&amp;rsquo;m a pragmatic
+person, I use what works for me.&lt;/p&gt;
+
+&lt;h1 id=&#34;use-your-most-comfortable-editor:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Use your most comfortable editor&lt;/h1&gt;
+
+&lt;p&gt;I use &lt;a href=&#34;http://www.sublimetext.com/3&#34;&gt;&lt;em&gt;Sublime Text 3&lt;/em&gt;&lt;/a&gt; to code mostly
+everything, except Java (I&amp;rsquo;m still using Eclipse for that).
+&lt;em&gt;Sublime Text&lt;/em&gt; is a powerful yet easy to use
+text editor that provides a lot of functionalities. Moreover, it
+has myriad of plugins to make developer&amp;rsquo;s life easier and tons of
+themes please the eyes, which is also a very important thing (to
+me at the very least). If you miss
+the efficient vim key bindings, use &lt;a href=&#34;https://github.com/guillermooo/Vintageous&#34;&gt;vintageaus&lt;/a&gt;
+to emulate vim key bindings inside &lt;em&gt;Sublime Text&lt;/em&gt;.
+&lt;!-- Read more --&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;change-to-zsh:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Change to zsh&lt;/h1&gt;
+
+&lt;p&gt;See
+&lt;a href=&#34;http://www.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692&#34;&gt;Brendon Repp&amp;rsquo;s presentation&lt;/a&gt;
+on why to &lt;a href=&#34;http://www.zsh.org/&#34;&gt;zsh&lt;/a&gt;. I use &lt;a href=&#34;http://ohmyz.sh/&#34;&gt;oh-my-zsh&lt;/a&gt; to manage the zsh
+configuration and all. To sugar its visual, I use the
+&lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#agnoster&#34;&gt;agnoster&lt;/a&gt; theme. Besides,
+the theme directly tells me in what git branch I&amp;rsquo;m currently working on in an awesome way.
+Hence no need to type &lt;code&gt;git status&lt;/code&gt; to see the working branch. Combined with the right git
+aliases, it feels like home when coding.&lt;/p&gt;
+
+&lt;h1 id=&#34;add-aliases-your-shell:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Add aliases your shell&lt;/h1&gt;
+
+&lt;p&gt;Having short aliases is always a good thing to reduce finger movements when typing in
+a terminal regardless of what shell you are using. One of useful alias is
+aliases to go the the frequently
+visited directoris. So, instead of typing &lt;code&gt;cd ~/codes/learning/nodejs&lt;/code&gt; it&amp;rsquo;s simpler
+to just type &lt;code&gt;learn-nodejs&lt;/code&gt; right?!&lt;/p&gt;
+
+&lt;h1 id=&#34;adopt-github-flow-and-the-supporting-git-aliases:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Adopt GitHub Flow and the supporting git aliases&lt;/h1&gt;
+
+&lt;p&gt;I have been using &lt;a href=&#34;http://scottchacon.com/2011/08/31/github-flow.html&#34;&gt;GitHub Flow&lt;/a&gt;
+for sometime in my recent projects and find it
+is a really straight forward approach in managing the development-deployment
+workflow when using git. Adding the
+&lt;a href=&#34;http://haacked.com/archive/2014/07/28/github-flow-aliases/&#34;&gt;GitHub flow aliases&lt;/a&gt;
+to your &lt;code&gt;~/.gitconfig&lt;/code&gt; will be even more fun. Here&amp;rsquo;s
+&lt;a href=&#34;https://gist.github.com/npatmaja/d72daeb2ec0f21f1af2a&#34;&gt;my &lt;code&gt;.gitconfig&lt;/code&gt;&amp;rsquo;s aliases section&lt;/a&gt;
+that has some additional aliases beside the GitHub flow aliases.&lt;/p&gt;
+
+&lt;h1 id=&#34;have-a-to-do-list:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Have a To-do list&lt;/h1&gt;
+
+&lt;p&gt;A to-do list is a really powerful tool to manage and prioritize your tasks. Sometimes
+it is taken for granted but it does help to keep the focus on the tasks that
+should be done, especially for an easily distracted person (just like myself).
+No need for fancy tools to create a to-do list, any text editor will do. However,
+&lt;a href=&#34;https://evernote.com/&#34;&gt;Evernote&lt;/a&gt; or OS X&amp;rsquo;s Notes or other to-do list apps
+will be better choice.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t claim the list above is the best way to increase your coding productivity
+but it works for me and my current working environment. The list is not and will
+never be the final one because achieving better productivity is a long live
+adventure.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Upload Files with Backbone.js, Node.js and express 4.x</title>
+      <link>http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/</link>
+      <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/addyosmani/backbone-fundamentals&#34;&gt;Backbone fundamentals&lt;/a&gt;
+is a great &lt;em&gt;free&lt;/em&gt; resource to learn Backbone.js from scratch. The book was written by
+&lt;a href=&#34;http://addyosmani.com/&#34;&gt;Addy Osmany&lt;/a&gt; under &lt;a href=&#34;https://en.wikipedia.org/wiki/Creative_Commons_license&#34;&gt;creative-commons license&lt;/a&gt;.
+As its second exercise, the book guide the readers to create a simple library application
+that uses Node.js as the back-end. However, it left the part to upload book&amp;rsquo;s cover
+to the readers as an exercise. Hence, here is the way I did it.&lt;/p&gt;
+
+&lt;h1 id=&#34;requirement:924a8100561ff551d1d1e3f51a0c8593&#34;&gt;Requirement&lt;/h1&gt;
+
+&lt;p&gt;There are two additional requirements for the upload book&amp;rsquo;s cover features:
+- The selected cover should be previewed as thumbnail&lt;/p&gt;
+
+&lt;p&gt;This implies that there should be a space to show the selected
+  image. When users change the image, the preview should change
+  accordingly.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Upload process shall happen only when a new book is added&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The upload happens if and only if when users click the button
+  to add a new book. This signifies that the displaying the cover&amp;rsquo;s
+  preview should not upload to image file to the server.&lt;/p&gt;
+
+&lt;!-- Read more --&gt;
+
+&lt;h1 id=&#34;problems:924a8100561ff551d1d1e3f51a0c8593&#34;&gt;Problems&lt;/h1&gt;
+
+&lt;p&gt;After browsing for awhile, I found &lt;a href=&#34;http://markdawson.tumblr.com/post/18359176420/asynchronous-file-uploading-using-express-and&#34;&gt;a blog post to upload file asynchronously using Node.js and express&lt;/a&gt;, which was good
+as a starting point. However, similar to most of online references I had found,
+they were pretty much obsolete; most of them were using express &amp;lt;= 3.x that supported file upload
+by using &lt;code&gt;body-parse&lt;/code&gt; middleware (as mentioned in the blog post) where in express
+4.x the &lt;code&gt;body-parse&lt;/code&gt; middleware did not support file upload any longer.&lt;/p&gt;
+
+&lt;p&gt;Another problem was to address the requirement: previewing images without
+upload them to the server in the first place. This was tricky, as most of the
+solutions were to have the images uploaded first then fetch the images&amp;rsquo; URL
+to be previewed.&lt;/p&gt;
+
+&lt;h1 id=&#34;solution:924a8100561ff551d1d1e3f51a0c8593&#34;&gt;Solution&lt;/h1&gt;
+
+&lt;p&gt;I had to admit, the first problem is another RTFM problem. So when I read again
+&lt;a href=&#34;https://github.com/expressjs/body-parser&#34;&gt;&lt;code&gt;body-parser&lt;/code&gt;&amp;rsquo;s documentation&lt;/a&gt; it was
+written clearly that &lt;code&gt;body-parse&lt;/code&gt; did not handle multipart bodies (file uploads).
+Furthermore, it mentioned the alternatives modules to handle multipart bodies, and
+one of them is &lt;a href=&#34;https://www.npmjs.com/package/multer#readme&#34;&gt;multer&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Just like another express middleware, I needed to tell express to use multer and
+specified to which directory the files will be uploaded as shown in the following
+coffeescript code (yes, I wrote the back-end using coffeescript).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-coffeescript&#34;&gt;express = require &#39;express&#39;
+multer = require &#39;multer&#39;
+
+app = express()
+app.use multer( { dest: &amp;quot;#{__root}/public/img/covers/&amp;quot; } )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the second problem, I found out that javascript provides a
+&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/API/FileReader&#34;&gt;&lt;code&gt;FileReader&lt;/code&gt; object whose capable of reading file from client&amp;rsquo;s machine&lt;/a&gt;,
+&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications#Example.3A_Showing_thumbnails_of_user-selected_images&#34;&gt;which could be used to load a selected image from a browser locally&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The following code is a Backbone view to handle the feature to display the selected image.
+The main idea is to catch the &lt;code&gt;change&lt;/code&gt; event from an &lt;code&gt;&amp;lt;input type=&amp;quot;file&amp;quot;&amp;gt;&lt;/code&gt; and read the file
+and render it through the designated &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; element and later on to upload the file as well.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app.ThumbnailView = Backbone.View.extend({
+  events: {
+    &#39;change #coverImageUpload&#39;: &#39;renderThumb&#39;,
+    &#39;submit #uploadCoverForm&#39;: &#39;upload&#39;
+  },
+
+  render: function () {
+    this.renderThumb();
+  },
+
+  renderThumb: function () {
+    var input = this.$(&#39;#coverImageUpload&#39;);
+    var img = this.$(&#39;#uploadedImage&#39;)[0];
+    if(input.val() !== &#39;&#39;) {
+      var selected_file = input[0].files[0];
+      var reader = new FileReader();
+      reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+      reader.readAsDataURL(selected_file);
+    }
+  },
+
+  submit: function () {
+    this.$form = this.$(&#39;#uploadCoverForm&#39;);
+    this.$form.submit();
+  },
+
+  upload: function () {
+    var _this = this;
+    this.$form.ajaxSubmit({
+      error: function (xhr) {
+        _this.renderStatus(&#39;Error: &#39; + xhr.status);
+      },
+      success: function (response) {
+        _this.trigger(&#39;image-uploaded&#39;, response.path);
+        _this.clearField();
+      }
+    });
+    return false;
+  },
+
+  renderStatus: function (status) {
+     $(&#39;#status&#39;).text(status);
+  },
+
+  clearField: function () {
+    this.$(&#39;#uploadedImage&#39;)[0].src = &#39;&#39;;
+    this.$(&#39;#coverImageUpload&#39;).val(&#39;&#39;);
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In details, when a user has selected a cover image, the &lt;code&gt;&#39;change #coverImageUpload&#39;: &#39;renderThumb&#39;&lt;/code&gt;
+event will be triggered. To add a bit context, &lt;code&gt;#coverImageUpload&lt;/code&gt; is the id of the &lt;code&gt;&amp;lt;input type=&amp;quot;file&amp;quot;&amp;gt;&lt;/code&gt;
+to upload a file and &lt;code&gt;renderThumb&lt;/code&gt; is the function will be executed as the event&amp;rsquo;s callback. In the
+function, whenever a user selected a picture, the view will get the selected file and read the file
+as data URL through &lt;code&gt;FileReader.readAsDataURL&lt;/code&gt; function. When the particular function is executed,
+it triggers &lt;code&gt;FileReader&lt;/code&gt;&amp;rsquo;s &lt;code&gt;onload&lt;/code&gt; event with the result of the data reading process as its callback&amp;rsquo;s
+parameter, which is used as the image source of the &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; element as shown in the listing above.&lt;/p&gt;
+
+&lt;p&gt;The uploading part was a bit tricky. I used Backbone View&amp;rsquo;s event to make sure
+that the newly added book has the right cover image. The way to do this is to
+make sure when a user clicks the &lt;strong&gt;add book button&lt;/strong&gt;, the cover image
+will be uploaded first and when the the upload success an event will be
+triggered with the server path of the uploaded image as the parameter. Then the path will
+be used as the value of &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; related to the book cover. The last step
+is to create the book object in the Backbone Collection, which will be
+sync&amp;rsquo;d to the Node.js back-end server. The following sequence diagram
+pictures the description above.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sequenceDiagram
+  User-&amp;gt;&amp;gt;LibraryView: click add book button
+  LibraryView-&amp;gt;&amp;gt;ThumbnailView: upload
+  ThumbnailView-&amp;gt;&amp;gt;ThumbnailView: trigger(&#39;uploaded&#39;, response.path)
+  opt uploaded event
+    LibraryView-&amp;gt;&amp;gt;LibraryView: updateInput
+    LibraryView-&amp;gt;&amp;gt;LibraryView: createData
+  end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To enable the event in the &lt;code&gt;LibraryView&lt;/code&gt;, the object needs to listen to
+to the &lt;code&gt;ThumbnailView&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;app.LibraryView = Backbone.View.extend({
+  ...
+
+  initialize: function (initialBooks) {
+    this.collection = new app.Library(initialBooks);
+
+    this.thumbnailView = new app.ThumbnailView();
+    this.bookListView = new app.BookListView( { collection: this.collection } );
+
+    this.listenTo(this.thumbnailView, &#39;image-uploaded&#39;, this.updateInput);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And that&amp;rsquo;s all folks! I hope this tutorial could be a help for someone who looks for the solution
+for the exercise. Please see the &lt;a href=&#34;https://github.com/npatmaja/library&#34;&gt;project&amp;rsquo;s repository&lt;/a&gt;
+for the complete solution.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rendering Mermaid in Docpad</title>
+      <link>http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/</link>
+      <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/</guid>
+      <description>
+
+&lt;p&gt;I stumbled across &lt;a href=&#34;http://knsv.github.io/mermaid/&#34;&gt;Mermaid&lt;/a&gt; when I saw
+&lt;a href=&#34;https://twitter.com/nikmd23/status/553224624130228225&#34;&gt;@ronaldwidha retweeted a tweet about it&lt;/a&gt;.
+Mermaid is a library for &lt;em&gt;writing&lt;/em&gt; diagrams instead of draw
+them similar to &lt;a href=&#34;https://github.com/chjj/marked&#34;&gt;Marked&lt;/a&gt;
+to markdown, awesome! So, I thought I could use this in my blog just in case I
+need to draw some flowcharts or sequence diagrams in the future.&lt;/p&gt;
+
+&lt;p&gt;DocPad uses Marked to render markdown to html via
+&lt;a href=&#34;https://github.com/docpad/docpad-plugin-marked&#34;&gt;docpad-plugin-marked&lt;/a&gt;
+but natively, it doesn&amp;rsquo;t support
+Mermaid syntax. Fortunately, Marked provide
+&lt;a href=&#34;https://github.com/chjj/marked#overriding-renderer-methods&#34;&gt;a way to override its renderer&lt;/a&gt;,
+however, it is not yet supported in the current release of the docpad-plugin-marked,
+and &lt;a href=&#34;https://github.com/docpad/docpad-plugin-marked/issues/11&#34;&gt;someone created a ticket on this issue&lt;/a&gt;.
+So based on the
+explanation there, I forked the plugin and started to hack it down.
+To add the functionality itself was not that hard but to define a proper test
+for the plugin was tougher than it looks, at least at first as I didn&amp;rsquo;t quite
+understand how DocPad&amp;rsquo;s plugin tester works. Thanks to &lt;a href=&#34;http://www.delarre.net/posts/unit-testing-docpad-plugins/&#34;&gt;this awesome post&lt;/a&gt;,
+I could finally write and pass the test. The working version of my fork
+can be found &lt;a href=&#34;https://github.com/npatmaja/docpad-plugin-marked&#34;&gt;at my GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- Read more --&gt;
+
+&lt;p&gt;To use the forked plugin, change the dependency definition in &lt;code&gt;package.json&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;docpad-plugin-marked&amp;quot;: &amp;quot;git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next is to redefine the &lt;code&gt;code&lt;/code&gt; renderer by putting the definition in the &lt;code&gt;docpad.coffee&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;plugins:
+  marked:
+    markedRenderer:
+      code: (code, lang) -&amp;gt;
+        escape = (html, encode) -&amp;gt;
+          pattern = if !encode then /&amp;amp;(?!#?\w+;)/g  else /&amp;amp;/g
+          return html
+            .replace(pattern, &#39;&amp;amp;amp;&#39;)
+            .replace(/&amp;lt;/g, &#39;&amp;amp;lt;&#39;)
+            .replace(/&amp;gt;/g, &#39;&amp;amp;gt;&#39;)
+            .replace(/&amp;quot;/g, &#39;&amp;amp;quot;&#39;)
+            .replace(/&#39;/g, &#39;&amp;amp;#39;&#39;)
+
+        if code.match(/^sequenceDiagram/)|| code.match(/^graph/)
+          return &amp;quot;&amp;lt;div class=\&amp;quot;mermaid\&amp;quot;&amp;gt;\n#{code}\n&amp;lt;/div&amp;gt;\n&amp;quot;
+        else
+          if @options.highlight
+            out = @options.highlight code, lang
+            if out != null &amp;amp;&amp;amp; out != code
+              escaped = true
+              code = out
+
+          if !lang
+            return &#39;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&#39; +
+              (if escaped then code else escape(code, true)) +
+              &#39;\n&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&#39;
+
+          return &#39;&amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;&#39; +
+            this.options.langPrefix +
+            escape(lang, true) +
+            &#39;&amp;quot;&amp;gt;&#39; +
+            (if escaped then code else escape(code, true)) +
+            &#39;\n&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;\n&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Lastly, I added Mermaid.js to blog&amp;rsquo;s layout as mentioned on Mermaid&amp;rsquo;s
+documentation. Now all are set to their place, so whenever I put Mermaid
+syntax in a markdown&amp;rsquo;s code block &lt;code&gt;```&lt;/code&gt; the code will
+be transformed to svg image.&lt;/p&gt;
+
+&lt;p&gt;Without further ado, below are a couple of examples of Mermaid diagram
+definition and their respective rendered diagram. It&amp;rsquo;s show time!&lt;/p&gt;
+
+&lt;h1 id=&#34;simple-graph:16f5e32215aea0606e9a8f52ebcfb505&#34;&gt;Simple graph&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;%% remove comment to render the graph
+graph TB
+  subgraph one
+    a1--&amp;gt;a2
+  end
+  subgraph two
+    b1--&amp;gt;b2
+  end
+  subgraph three
+    c1--&amp;gt;c2
+  end
+  c1--&amp;gt;a2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;graph TB
+  subgraph one
+    a1--&amp;gt;a2
+  end
+  subgraph two
+    b1--&amp;gt;b2
+  end
+  subgraph three
+    c1--&amp;gt;c2
+  end
+  c1--&amp;gt;a2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;sequence-diagram:16f5e32215aea0606e9a8f52ebcfb505&#34;&gt;Sequence diagram&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;%% remove comment to render the diagram
+sequenceDiagram
+  Alice -&amp;gt;&amp;gt; Bob: Hello Bob, how are you?
+  Bob--&amp;gt;&amp;gt;John: How about you John?
+  Bob--x Alice: I am good thanks!
+  Bob-x John: I am good thanks!
+  Note right of John: Bob thinks a long&amp;lt;br/&amp;gt;long time, so long&amp;lt;br/&amp;gt;that the text does&amp;lt;br/&amp;gt;not fit on a row.
+
+  Bob--&amp;gt;Alice: Checking with John...
+  Alice-&amp;gt;John: Yes... John, how are you?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sequenceDiagram
+  Alice -&amp;gt;&amp;gt; Bob: Hello Bob, how are you?
+  Bob--&amp;gt;&amp;gt;John: How about you John?
+  Bob--x Alice: I am good thanks!
+  Bob-x John: I am good thanks!
+  Note right of John: Bob thinks a long&amp;lt;br/&amp;gt;long time, so long&amp;lt;br/&amp;gt;that the text does&amp;lt;br/&amp;gt;not fit on a row.
+
+  Bob--&amp;gt;Alice: Checking with John...
+  Alice-&amp;gt;John: Yes... John, how are you?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;side-note:16f5e32215aea0606e9a8f52ebcfb505&#34;&gt;Side note&lt;/h2&gt;
+
+&lt;p&gt;The CSS I use to style the diagram can be seen &lt;a href=&#34;https://raw.githubusercontent.com/npatmaja/nauvalatmaja.com/master/src/render/styles/mermaid.less&#34;&gt;here&lt;/a&gt;. Happy diagramming!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Android Development with Genymotion</title>
+      <link>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</link>
+      <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</guid>
+      <description>&lt;p&gt;I am a noob in android development and one thing I am not
+comfortable with is the stock android device emulator.
+The default emulator is really slow, the boot-up process could
+take minutes in my machine (I won&amp;rsquo;t say my machine is fast either,
+but it is sufficient), the app deployment takes too much time,
+moreover, the interaction is sluggish. Hence, it is a no go.&lt;/p&gt;
+
+&lt;p&gt;Up to now, I used my own android phone to test my app. It is fast,
+quite responsive, but the downside is I need to connect my phone
+to my laptop when I work on the app. Not to mention when I can&amp;rsquo;t find
+my USB cable, disaster.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://nauvalatmaja.com/img/genymotion.png&#34; alt=&#34;Genymotion in action&#34; /&gt;&lt;/p&gt;
+
+&lt;!-- Read more --&gt;
+
+&lt;p&gt;Fortunately, there is an alternative to android
+stock emulator called &lt;a href=&#34;https://www.genymotion.com&#34;&gt;Genymotion&lt;/a&gt;. It runs
+on top of &lt;a href=&#34;https://www.virtualbox.org&#34;&gt;VirtualBox&lt;/a&gt;, in other words, each android
+virtual device is an virtual machine in VirtualBox. To use Genymotion
+I have to register in the first place (the free account is sufficient for me)
+and then &lt;a href=&#34;https://www.genymotion.com/#!/developers/user-guide#installing-genymotion&#34;&gt;downloaded and installed the application&lt;/a&gt;.
+Following that, I created a virtual device of my liking
+in the Genymotion application.
+As I use Eclipse Android Development Tools, I then installed
+&lt;a href=&#34;http://marketplace.eclipse.org/content/genymotion-plugin-eclipse&#34;&gt;eclipse plugin for Genymotion&lt;/a&gt;. A plugin for
+Android Studio is also available in the Genymotion&amp;rsquo;s website. Restarted Eclipse and
+all was ready. A note, you need to install VirtualBox to use Genymotion,
+otherwise it will complain about can not starting virtualization or
+something.&lt;/p&gt;
+
+&lt;p&gt;At first I was skeptical about this emulator but it turn out to be the
+opposite. It runs flawlessly, it boots up very fast and very responsive, and at some
+point it is even faster than my phone. More importantly, it consumes considerably less
+CPU resources compared to the default emulator, impressive. In the conclusion, I recommend
+this emulator for android development over the stock emulator. If you need to access
+more features other than camera and GPS, you can always change to the subscribe
+version.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setting Up Custom Domain for GitHub Pages</title>
+      <link>http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/</link>
+      <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/</guid>
+      <description>&lt;p&gt;It has been a couple days since &lt;a href=&#34;http://nauvalatmaja.com/&#34;&gt;nauvalatmaja.com&lt;/a&gt; is online,
+and to be honest the process was not as hard as I had imagined. Kudos to
+&lt;a href=&#34;http://davidensinger.com/&#34;&gt;David Ensinger&lt;/a&gt; who has written in details on
+how he &lt;a href=&#34;http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/&#34;&gt;set up his custom domain for his GitHub pages&lt;/a&gt; and
+&lt;a href=&#34;http://davidensinger.com/2014/04/transferring-the-dns-from-namecheap-to-cloudflare-for-github-pages/&#34;&gt;tweak it to get faster by using cloudflare&lt;/a&gt;. All
+the needed information to do this can be found there.&lt;/p&gt;
+
+&lt;p&gt;I purchased this this domain name at &lt;a href=&#34;https://www.namecheap.com/&#34;&gt;NameCheap&lt;/a&gt;, as suggested by David&amp;rsquo;s post,
+with just a bit more than five bucks for a year. Then, I used the free plan of &lt;a href=&#34;https://cloudflare.com&#34;&gt;CloudFlare&lt;/a&gt;
+for the DNSs, which I think it is sufficient for my need, and set up the DNS records using &lt;code&gt;CNAME&lt;/code&gt;
+on the CloudFlare panel to point to my GitHub Pages address. Lastly,
+&lt;a href=&#34;https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/&#34;&gt;I add a &lt;code&gt;CNAME&lt;/code&gt; file in the root directory of my GitHub Pages repository to redirect it&lt;/a&gt;.
+And that&amp;rsquo;s it, practically the process is done after you transfer the DNS from NameCheap to
+CloudFlare, you may need to wait for a while to make the changes take effect.&lt;/p&gt;
+
+&lt;p&gt;It took me less than three hours, more or less, to make my custom domain
+accessible. Frankly, I spent more hours thinking the custom domain name I
+should use than did the actual setup. I am quite happy with the
+setup, hosting static pages on GitHub is right decision. It is simple, easy
+and particularly fast, well it&amp;rsquo;s static html pages anyway.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rendering Backbone (Sub)View</title>
+      <link>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</guid>
+      <description>&lt;p&gt;When learning backbone.js (i&amp;rsquo;m a novice by the way), at first, I was actually having a hard time
+to grasp the backbone view. Especially how the best practice to render
+the view and build a rather complex view consists of several subviews.
+And then, magically I came accross Ian Storm Taylor&amp;rsquo;s post about
+&lt;a href=&#34;http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/&#34;&gt;his experience on dealing with backbone subview&lt;/a&gt;.
+At first I didn&amp;rsquo;t quiet understand well about the post until I found
+&lt;a href=&#34;http://stackoverflow.com/questions/9337927/how-to-handle-initializing-and-rendering-subviews-in-backbone-js&#34;&gt;a thread on stackoverflow&lt;/a&gt;, which was started by &lt;a href=&#34;http://ianstormtaylor.com&#34;&gt;Ian Storm Taylor&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Based on the posts, I created a simple case study to better understand how it works.
+The requirements were to list pairs of username and email input by users.
+So at first I created the view as listed below:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div id=&amp;quot;application&amp;quot;&amp;gt;
+  &amp;lt;p&amp;gt;Add a user to the user list&amp;lt;/p&amp;gt;
+  &amp;lt;div id=&amp;quot;login&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;ul id=&amp;quot;online-users&amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;script id=&amp;quot;login-template&amp;quot; type=&amp;quot;text/template&amp;quot;&amp;gt;
+  &amp;lt;h1&amp;gt; login &amp;lt;/h1&amp;gt;
+  &amp;lt;input id=&amp;quot;username&amp;quot; type=&amp;quot;text&amp;quot; placeholder=&amp;quot;username&amp;quot; /&amp;gt;
+  &amp;lt;input id = &amp;quot;email&amp;quot; type = &amp;quot;text&amp;quot; placeholder = &amp;quot;email&amp;quot; /&amp;gt;
+  &amp;lt;button id = &amp;quot;button-login&amp;quot; type = &amp;quot;button&amp;quot;&amp;gt; Login &amp;lt;/button&amp;gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;script id=&amp;quot;userlist-template&amp;quot; type=&amp;quot;text/template&amp;quot;&amp;gt;
+  &amp;lt;li&amp;gt;
+    &amp;lt;span&amp;gt;&amp;lt;%= username %&amp;gt; / &amp;lt;%= email %&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;button id = &amp;quot;force-logout&amp;quot;&amp;gt;force logout&amp;lt;/button&amp;gt;
+  &amp;lt;/li&amp;gt;
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To better visualize, lets see this picture:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://nauvalatmaja.com/img/backbone-view-schema.png&#34; alt=&#34;Application view&#34; /&gt;&lt;/p&gt;
+
+&lt;!-- Read more --&gt;
+
+&lt;p&gt;The outer container is &lt;code&gt;#application&lt;/code&gt; and inside it there are
+two other sub-containers &lt;code&gt;#login&lt;/code&gt; and &lt;code&gt;#online-users&lt;/code&gt;. Each container
+or sub-container is represented in a separated view: &lt;code&gt;AppView&lt;/code&gt;, &lt;code&gt;LoginView&lt;/code&gt;
+and &lt;code&gt;UserListView&lt;/code&gt; respectively. To make it
+nicely structured, the &lt;code&gt;UserListView&lt;/code&gt; has a sub-view
+called &lt;code&gt;UserView&lt;/code&gt; that renders each pair of username and email
+handles of the button clicked event.
+there is an exception for the last view where the view is
+created for each username-password pair then appended in
+the container &lt;code&gt;#online-users&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s get to the code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;app.AppView = Backbone.View.extend({
+  el: &#39;#application&#39;,
+
+  initialize: function () {
+    this.users = new app.UserList();
+
+    this.loginView = new app.LoginView();
+    this.userListView = new app.UserListView( { collection: this.users } );
+
+    this.listenTo(this.loginView, &#39;login&#39;, this.login);
+  },
+
+  render: function () {
+    this.loginView.setElement(this.$(&#39;#login&#39;)).render();
+    this.userListView.setElement(this.$(&#39;#online-users&#39;)).render();
+  },
+
+  /* ... */
+
+  login: function (user) {
+    this.users.create( user );
+  }
+});
+
+app.LoginView = Backbone.View.extend({
+  template: _.template($(&#39;#login-template&#39;).html()),
+
+  events: {
+    &#39;click #button-login&#39;: &#39;login&#39;
+  },
+
+  render: function () {
+      this.$el.html(this.template());
+  },
+
+  login: function () {
+    // login logic
+  },
+
+  /* ... */
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here, the most important thing to connect Backbone view to
+the html is the &lt;code&gt;el&lt;/code&gt; (element) property. The &lt;code&gt;el&lt;/code&gt; property defines to
+which element the view template will be rendered, or at least in this case
+study. In the &lt;code&gt;AppView&lt;/code&gt; the &lt;code&gt;el&lt;/code&gt; is set to &lt;code&gt;#application&lt;/code&gt;
+as the root container of the application. However, for its
+sub-views, the &lt;code&gt;el&lt;/code&gt; property is not defined in the view
+definition but set dynamically using &lt;code&gt;setElement&lt;/code&gt; method.
+As Ian suggested, this is done to avoid the unbinding of
+sub-views&amp;rsquo; events when rendered more than a time.&lt;/p&gt;
+
+&lt;p&gt;The instantiation
+of sub-views depends on how the sub-views are rendered.
+&lt;code&gt;LoginView&lt;/code&gt; and &lt;code&gt;UserListView&lt;/code&gt; are instantiated in
+the &lt;code&gt;initialize&lt;/code&gt; method as the application only need
+an instance for each of them. In contrast, &lt;code&gt;UserView&lt;/code&gt;
+is instantiated for each user (model) as it needs to
+associate the button click event inside the view with
+the contained model.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;app.UserListView = Backbone.View.extend({
+  initialize: function () {
+    this.listenTo(this.collection, &#39;add&#39;, this.renderOne);
+    this.listenTo(this.collection, &#39;reset&#39;, this.renderAll);
+  },
+
+  render: function () {
+    this.renderAll();
+  },
+
+  renderOne: function (user) {
+    var view = new app.UserView( { model: user } );
+    this.$el.append(view.render().el);
+  },
+
+  renderAll: function () {
+    this.collection.each(this.renderOne);
+  }
+});
+
+app.UserView = Backbone.View.extend({
+  template: _.template($(&#39;#userlist-template&#39;).html()),
+  tagName: &#39;li&#39;,
+  events: {
+      &#39;click #force-logout&#39;: &#39;clear&#39;
+  },
+
+  initialize: function () {
+    this.listenTo(this.model, &#39;destroy&#39;, this.remove);
+  },
+
+  render: function () {
+      this.$el.html( this.template( this.model.attributes ) );
+      return this;
+  },
+
+  clear: function () {
+      this.model.destroy();
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To make the code structured nicely, I used the &lt;code&gt;html()&lt;/code&gt; and
+&lt;code&gt;append()&lt;/code&gt; method of Backbone view&amp;rsquo;s &lt;code&gt;$el&lt;/code&gt; property. Some people
+might use jquery&amp;rsquo;s selector &lt;code&gt;$(&#39;.element&#39;)&lt;/code&gt; to render the html,
+which I think it isn&amp;rsquo;t clean enough. Lastly, I&amp;rsquo;ve made a &lt;a href=&#34;http://jsfiddle.net/npatmaja/csL45j3s/&#34;&gt;fiddle&lt;/a&gt;
+about this post where you can play around. Hope this post
+helps someone to understand more about backbone view.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Blogging with Docpad</title>
+      <link>http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/</link>
+      <pubDate>Sun, 28 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/</guid>
+      <description>&lt;p&gt;It has been a long time since I planned to have a dedicated blog for
+writing about some more &lt;em&gt;&amp;ldquo;meaningful&amp;rdquo;&lt;/em&gt; stuff instead of just
+my rumbling I posted on my &lt;a href=&#34;http://noval78.wordpress.com&#34;&gt;trash bin&lt;/a&gt;.
+After looking out what blogging platforms available, I finally decided
+to use &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub pages&lt;/a&gt;
+to host my posts. However, as it uses &lt;a href=&#34;https://github.com/jekyll/jekyll&#34;&gt;Jekyll&lt;/a&gt;
+as its engine, many people suggested to install Jekyll in my local machine, which
+was a no-show for me. So I tried to built it
+manually without installing Jekyll locally, which was proven to be a
+hard thing to do. Later, I had to postponed the project
+due to some higher priority activities until recent time.&lt;/p&gt;
+
+&lt;!-- Read more --&gt;
+
+&lt;p&gt;As I am now re-learning javascript and node.js, I searched about static
+blogging with node.js to pick this blog project up once again, with a resolution
+to make it online. And that was how I came accross
+&lt;a href=&#34;http://docpad.org&#34;&gt;docpad&lt;/a&gt;, a dinamyc static site generator built
+using node.js. Similar to Jekyll, it can render markdown files to
+bunch of static htmls. Surprisingly, to build a blog using docpad wasn&amp;rsquo;t hard
+thing to do. There were skeletons that you can choose
+to bootstrap your blog when you run &lt;code&gt;docpad run&lt;/code&gt; for the first time.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://nauvalatmaja.com/img/docpad-run-skeleton.png&#34; alt=&#34;docpad skeletons&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After creating the skeleton, next thing that is needed to do is to
+customize blog&amp;rsquo;s appearance. Since I am bad at web design, I searched
+for blogs built using
+docpad whom source hosted on github. Fortunately, I found
+&lt;a href=&#34;http://www.ewal.net&#34;&gt;Erv Walter&amp;rsquo;s blog&lt;/a&gt; which satisfied my
+requirements for being simple and clean. So I cloned the blog&amp;rsquo;s repository
+and adapted it to the skeleton I used and did some minor changes,
+and &lt;em&gt;voila&lt;/em&gt; here it is. Lastly, I
+used &lt;a href=&#34;https://docpad.org/plugin/ghpages&#34;&gt;GitHub pages plugin&lt;/a&gt;
+to &lt;a href=&#34;http://seethroughtrees.github.io/posts/github-pages-with-docpad/&#34;&gt;push the blog to github&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

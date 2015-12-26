@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Namecheap on nauval atmaja</title>
+    <link>http://nauvalatmaja.com/tags/namecheap/</link>
+    <description>Recent content in Namecheap on nauval atmaja</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/namecheap/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Setting Up Custom Domain for GitHub Pages</title>
+      <link>http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/</link>
+      <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/</guid>
+      <description>&lt;p&gt;It has been a couple days since &lt;a href=&#34;http://nauvalatmaja.com/&#34;&gt;nauvalatmaja.com&lt;/a&gt; is online,
+and to be honest the process was not as hard as I had imagined. Kudos to
+&lt;a href=&#34;http://davidensinger.com/&#34;&gt;David Ensinger&lt;/a&gt; who has written in details on
+how he &lt;a href=&#34;http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/&#34;&gt;set up his custom domain for his GitHub pages&lt;/a&gt; and
+&lt;a href=&#34;http://davidensinger.com/2014/04/transferring-the-dns-from-namecheap-to-cloudflare-for-github-pages/&#34;&gt;tweak it to get faster by using cloudflare&lt;/a&gt;. All
+the needed information to do this can be found there.&lt;/p&gt;
+
+&lt;p&gt;I purchased this this domain name at &lt;a href=&#34;https://www.namecheap.com/&#34;&gt;NameCheap&lt;/a&gt;, as suggested by David&amp;rsquo;s post,
+with just a bit more than five bucks for a year. Then, I used the free plan of &lt;a href=&#34;https://cloudflare.com&#34;&gt;CloudFlare&lt;/a&gt;
+for the DNSs, which I think it is sufficient for my need, and set up the DNS records using &lt;code&gt;CNAME&lt;/code&gt;
+on the CloudFlare panel to point to my GitHub Pages address. Lastly,
+&lt;a href=&#34;https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/&#34;&gt;I add a &lt;code&gt;CNAME&lt;/code&gt; file in the root directory of my GitHub Pages repository to redirect it&lt;/a&gt;.
+And that&amp;rsquo;s it, practically the process is done after you transfer the DNS from NameCheap to
+CloudFlare, you may need to wait for a while to make the changes take effect.&lt;/p&gt;
+
+&lt;p&gt;It took me less than three hours, more or less, to make my custom domain
+accessible. Frankly, I spent more hours thinking the custom domain name I
+should use than did the actual setup. I am quite happy with the
+setup, hosting static pages on GitHub is right decision. It is simple, easy
+and particularly fast, well it&amp;rsquo;s static html pages anyway.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on nauval atmaja</title>
+    <link>http://nauvalatmaja.com/tags/blog/</link>
+    <description>Recent content in Blog on nauval atmaja</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Blogging with Docpad</title>
+      <link>http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/</link>
+      <pubDate>Sun, 28 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/</guid>
+      <description>&lt;p&gt;It has been a long time since I planned to have a dedicated blog for
+writing about some more &lt;em&gt;&amp;ldquo;meaningful&amp;rdquo;&lt;/em&gt; stuff instead of just
+my rumbling I posted on my &lt;a href=&#34;http://noval78.wordpress.com&#34;&gt;trash bin&lt;/a&gt;.
+After looking out what blogging platforms available, I finally decided
+to use &lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub pages&lt;/a&gt;
+to host my posts. However, as it uses &lt;a href=&#34;https://github.com/jekyll/jekyll&#34;&gt;Jekyll&lt;/a&gt;
+as its engine, many people suggested to install Jekyll in my local machine, which
+was a no-show for me. So I tried to built it
+manually without installing Jekyll locally, which was proven to be a
+hard thing to do. Later, I had to postponed the project
+due to some higher priority activities until recent time.&lt;/p&gt;
+
+&lt;!-- Read more --&gt;
+
+&lt;p&gt;As I am now re-learning javascript and node.js, I searched about static
+blogging with node.js to pick this blog project up once again, with a resolution
+to make it online. And that was how I came accross
+&lt;a href=&#34;http://docpad.org&#34;&gt;docpad&lt;/a&gt;, a dinamyc static site generator built
+using node.js. Similar to Jekyll, it can render markdown files to
+bunch of static htmls. Surprisingly, to build a blog using docpad wasn&amp;rsquo;t hard
+thing to do. There were skeletons that you can choose
+to bootstrap your blog when you run &lt;code&gt;docpad run&lt;/code&gt; for the first time.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://nauvalatmaja.com/img/docpad-run-skeleton.png&#34; alt=&#34;docpad skeletons&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After creating the skeleton, next thing that is needed to do is to
+customize blog&amp;rsquo;s appearance. Since I am bad at web design, I searched
+for blogs built using
+docpad whom source hosted on github. Fortunately, I found
+&lt;a href=&#34;http://www.ewal.net&#34;&gt;Erv Walter&amp;rsquo;s blog&lt;/a&gt; which satisfied my
+requirements for being simple and clean. So I cloned the blog&amp;rsquo;s repository
+and adapted it to the skeleton I used and did some minor changes,
+and &lt;em&gt;voila&lt;/em&gt; here it is. Lastly, I
+used &lt;a href=&#34;https://docpad.org/plugin/ghpages&#34;&gt;GitHub pages plugin&lt;/a&gt;
+to &lt;a href=&#34;http://seethroughtrees.github.io/posts/github-pages-with-docpad/&#34;&gt;push the blog to github&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

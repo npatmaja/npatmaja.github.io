@@ -1,352 +1,457 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>
+    Rendering Mermaid in Docpad // nauval atmaja
+  </title>
 
-    <script type="text/javascript">
-        if (window.location.hostname == 'www.nauvalatmaja.com' || window.location.hostname == 'nauvalatmaja.com') {
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-58073141-1', 'auto');
-          ga('send', 'pageview');  
-        }
-    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-    <title>Rendering Mermaid in Docpad | nauval atmaja</title>
-    <meta name="author" content="Nauval Atmaja">
-    <meta name="description" content="Nauval Atmaja's personal notes on software development and all that">
-    <meta name="keywords" content="software, engineering, software engineering, architecture, software architecture, programming, thought, javascript, node.js, ruby on rails, java, HTML, code, hack, tips, trick, *nix, OSX">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/feed.xml" rel="alternate" title="www.nauvalatmaja.com" type="application/atom+xml">
-    <!-- <link rel="icon" sizes="300x300" href="icon/icon.png"> -->
-    <!-- <link rel="icon" sizes="196x196" href="icon/icon-196.png"> -->
-    <!-- <link rel="icon" sizes="128x128" href="icon/icon-128.png"> -->
-    <!-- <link rel="apple-touch-icon" sizes="128x128" href="icon/icon-128.png"> -->
-    <!-- <link rel="apple-touch-icon-precomposed" sizes="128x128" href="icon/icon-128.png"> -->
-    <link href="/ico/favicon.ico" rel="shortcut icon">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15" />
 
-    <!-- Bootstrap -->
-    <link href="/styles/site.css?" rel="stylesheet" media="screen">
-    <link rel="stylesheet" type="text/css" href="/vendor/rainbow.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="/scripts/vendor/html5shiv.js"></script>
-    <script src="/scripts/vendor/respond.min.js"></script>
-    <![endif]-->
+  <meta property="og:title" content="Rendering Mermaid in Docpad" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/" />
 
-    <meta name="generator" content="DocPad v6.69.2" />
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://nauvalatmaja.com//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="nauval atmaja" />
+
     
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  <link rel="stylesheet" href="http://nauvalatmaja.com//css/custom.css">
+<link rel="stylesheet" href="http://nauvalatmaja.com//css/404.css">
+
+
+  <script>
+    if (window.location.hostname != "localhost") {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', "UA-58073141-1", 'auto');
+      ga('send', 'pageview');
+    }
+  </script>
+
+
 </head>
+
 <body>
+	
+		<div id="nav-to-top">
+			<a href="#top">
+				<i class="fa fa-angle-double-up"> </i>
+				To Top
+			</a>
+		</div>
+	
 
-<a href="https://plus.google.com/112846605467404730226?rel=author" class="google googleplus-hidden" title="Google+">Google+</a>
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
 
-<div class="navbar navbar-default navbar-static-top navbar-shadow">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/"><span class="text-primary">nauval atmaja</span></a>
-        </div>
-        <div class="collapse navbar-collapse navbar-right">
-            <ul class="nav navbar-nav">
-                <!--<li><a href="/">Blog</a></li>-->
-                <!-- <li><a href="/archives/">Archives</a></li> -->
-                
-                    <li typeof="sioc:Page", about= /pages/archives/>
-                      <a href='/pages/archives/', property="dc:title">Blog Archives</a>
-                    </li>
-                
-                <li class="hidden-xs">
-                    <a href="/feed.xml" class="rss"><span class="icon icon-feed"></span></a>
-                    <a href="https://twitter.com/novalpas" class="twitter"><span class="icon icon-twitter"></span></a>
-                    <a href="https://github.com/npatmaja" class="github"><span class="icon icon-github"></span></a>
-                    <a href="https://id.linkedin.com/in/nauvalatmaja/" class="linkedin"><span class="icon icon-linkedin"></span></a>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-right hidden-xs" role="search" action="http://google.com/search"
-                  method="get">
-                <div class="form-group">
-                    <input type="search" name="q" class="form-control" placeholder="Search">
-                    <input type="hidden" name="q" value="site:www.nauvalatmaja.com">
-                </div>
-            </form>
-        </div>
+    
+
+    
+        <h1 class="brand-title">
+          <a class="title" href="http://nauvalatmaja.com/">
+          <span class="nav-item-separator">//</span>nauval atmaja
+        </a>
+        </h1>
+    
+    
+      <h2 class="brand-tagline">Thoughts on software, product, technology, and anything related</h2>
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/post/">archives</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="http://www.github.com/npatmaja" target="_blank"><i class='fa fa-github fa-2x'></i></a>
+        
+      
+        
+        <a href="https://id.linkedin.com/in/nauvalatmaja/" target="_blank"><i class='fa fa-linkedin-square fa-2x'></i></a>
+        
+      
+        
+        <a href="http://www.twitter.com/novalpas" target="_blank"><i class='fa fa-twitter fa-2x'></i></a>
+        
+      
+        
+        <a href="https://noval78.wordpress.com/" target="_blank"><i class='fa fa-wordpress fa-2x'></i></a>
+        
+      
+
     </div>
+    
+  </div>
 </div>
-<div class="clear">
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-10">
-            
-            <article id="post" class="post">
-    
-        <h1 class="title">Rendering Mermaid in Docpad</h1>
-    
-    <div class="post-date">Jan 13th, 2015</div>
-    <div class="post-content">
-        <p>I stumbled across <a href="http://knsv.github.io/mermaid/">Mermaid</a> when I saw 
-<a href="https://twitter.com/nikmd23/status/553224624130228225">@ronaldwidha retweeted a tweet about it</a>. 
-Mermaid is a library for <em>writing</em> diagrams instead of draw 
+
+
+		
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+			<a name="top"></a>
+			
+
+			
+				
+			    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+					<small class="toc-label">Contents</small>
+			   	 	<nav id="TableOfContents">
+<ul>
+<li><a href="#simple-graph:16f5e32215aea0606e9a8f52ebcfb505">Simple graph</a></li>
+<li><a href="#sequence-diagram:16f5e32215aea0606e9a8f52ebcfb505">Sequence diagram</a>
+<ul>
+<li><a href="#side-note:16f5e32215aea0606e9a8f52ebcfb505">Side note</a></li>
+</ul></li>
+</ul>
+</nav>
+			    </div>
+		    
+	    
+			<div class="wrapper">
+				<section class="post">
+					<header class="post-header">
+						<h1 class="post-title">
+							Rendering Mermaid in Docpad
+						</h1>
+						<h3 class="post-subtitle">
+		        	
+		        </h3>
+					</header>
+	        
+	        	<span class="post-date">
+							<span class="post-date-day"><span class="post-date-month">Jan 13, 2015</span> </span>
+	        	</span>
+	        
+
+	        
+	        	
+	        
+
+					
+					
+
+					
+			    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2015%2f01%2f13%2frendering-mermaid-in-docpad%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f01%2f13%2frendering-mermaid-in-docpad%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f01%2f13%2frendering-mermaid-in-docpad%2f&title=Rendering%20Mermaid%20in%20Docpad&summary=I%20stumbled%20across%20Mermaid%20when%20I%20saw%20%40ronaldwidha%20retweeted%20a%20tweet%20about%20it.%20Mermaid%20is%20a%20library%20for%20writing%20diagrams%20instead%20of%20draw%20them%20similar%20to%20Marked%20to%20markdown%2c%20awesome%21%20So%2c%20I%20thought%20I%20could%20use%20this%20in%20my%20blog%20just%20in%20case%20I%20need%20to%20draw%20some%20flowcharts%20or%20sequence%20diagrams%20in%20the%20future.%20DocPad%20uses%20Marked%20to%20render%20markdown%20to%20html%20via%20docpad-plugin-marked%20but%20natively%2c%20it%20doesn%26rsquo%3bt%20support%20Mermaid%20syntax.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Rendering%20Mermaid%20in%20Docpad&url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f01%2f13%2frendering-mermaid-in-docpad%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+			    
+
+					
+
+	  			
+
+<p>I stumbled across <a href="http://knsv.github.io/mermaid/">Mermaid</a> when I saw
+<a href="https://twitter.com/nikmd23/status/553224624130228225">@ronaldwidha retweeted a tweet about it</a>.
+Mermaid is a library for <em>writing</em> diagrams instead of draw
 them similar to <a href="https://github.com/chjj/marked">Marked</a>
-to markdown, awesome! So, I thought I could use this in my blog just in case I 
+to markdown, awesome! So, I thought I could use this in my blog just in case I
 need to draw some flowcharts or sequence diagrams in the future.</p>
-<p>DocPad uses Marked to render markdown to html via 
-<a href="https://github.com/docpad/docpad-plugin-marked">docpad-plugin-marked</a> 
-but natively, it doesn&#39;t support 
-Mermaid syntax. Fortunately, Marked provide 
+
+<p>DocPad uses Marked to render markdown to html via
+<a href="https://github.com/docpad/docpad-plugin-marked">docpad-plugin-marked</a>
+but natively, it doesn&rsquo;t support
+Mermaid syntax. Fortunately, Marked provide
 <a href="https://github.com/chjj/marked#overriding-renderer-methods">a way to override its renderer</a>,
 however, it is not yet supported in the current release of the docpad-plugin-marked,
-and <a href="https://github.com/docpad/docpad-plugin-marked/issues/11">someone created a ticket on this issue</a>. 
-So based on the 
-explanation there, I forked the plugin and started to hack it down. 
+and <a href="https://github.com/docpad/docpad-plugin-marked/issues/11">someone created a ticket on this issue</a>.
+So based on the
+explanation there, I forked the plugin and started to hack it down.
 To add the functionality itself was not that hard but to define a proper test
-for the plugin was tougher than it looks, at least at first as I didn&#39;t quite 
-understand how DocPad&#39;s plugin tester works. Thanks to <a href="http://www.delarre.net/posts/unit-testing-docpad-plugins/">this awesome post</a>, 
+for the plugin was tougher than it looks, at least at first as I didn&rsquo;t quite
+understand how DocPad&rsquo;s plugin tester works. Thanks to <a href="http://www.delarre.net/posts/unit-testing-docpad-plugins/">this awesome post</a>,
 I could finally write and pass the test. The working version of my fork
 can be found <a href="https://github.com/npatmaja/docpad-plugin-marked">at my GitHub</a>.</p>
+
 <!-- Read more -->
 
 <p>To use the forked plugin, change the dependency definition in <code>package.json</code>:</p>
-<pre class="highlight"><code class="hljs undefined">"docpad-plugin-marked": "git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git"
-</code></pre>
-<p>Next is to redefine the <code>code</code> renderer by putting the definition in the <code>docpad.coffee</code></p>
-<pre class="highlight"><code class="hljs coffeescript"><span class="hljs-attribute">plugins</span>:
-  <span class="hljs-attribute">marked</span>:
-    <span class="hljs-attribute">markedRenderer</span>:
-      <span class="hljs-attribute">code</span>: <span class="hljs-function"><span class="hljs-params">(code, lang)</span> -&gt;</span>
-<span class="hljs-function">        <span class="hljs-title">escape</span> = <span class="hljs-params">(html, encode)</span> -&gt;</span>
-          pattern = <span class="hljs-keyword">if</span> !encode <span class="hljs-keyword">then</span> <span class="hljs-regexp">/&amp;(?!#?\w+;)/g</span>  <span class="hljs-keyword">else</span> <span class="hljs-regexp">/&amp;/g</span>
-          <span class="hljs-keyword">return</span> html
-            .replace(pattern, <span class="hljs-string">'&amp;amp;'</span>)
-            .replace(<span class="hljs-regexp">/&lt;/g</span>, <span class="hljs-string">'&amp;lt;'</span>)
-            .replace(<span class="hljs-regexp">/&gt;/g</span>, <span class="hljs-string">'&amp;gt;'</span>)
-            .replace(<span class="hljs-regexp">/"/g</span>, <span class="hljs-string">'&amp;quot;'</span>)
-            .replace(<span class="hljs-regexp">/'/g</span>, <span class="hljs-string">'&amp;#39;'</span>)
 
-        <span class="hljs-keyword">if</span> code.match(<span class="hljs-regexp">/^sequenceDiagram/</span>)|| code.match(<span class="hljs-regexp">/^graph/</span>)
-          <span class="hljs-keyword">return</span> <span class="hljs-string">"&lt;div class=\"mermaid\"&gt;\n<span class="hljs-subst">#{code}</span>\n&lt;/div&gt;\n"</span>
-        <span class="hljs-keyword">else</span>
-          <span class="hljs-keyword">if</span> <span class="hljs-property">@options</span>.highlight
-            out = <span class="hljs-property">@options</span>.highlight code, lang
-            <span class="hljs-keyword">if</span> out != <span class="hljs-literal">null</span> &amp;&amp; out != code
-              escaped = <span class="hljs-literal">true</span>
+<pre><code class="language-json">&quot;docpad-plugin-marked&quot;: &quot;git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git&quot;
+</code></pre>
+
+<p>Next is to redefine the <code>code</code> renderer by putting the definition in the <code>docpad.coffee</code></p>
+
+<pre><code>plugins:
+  marked:
+    markedRenderer:
+      code: (code, lang) -&gt;
+        escape = (html, encode) -&gt;
+          pattern = if !encode then /&amp;(?!#?\w+;)/g  else /&amp;/g
+          return html
+            .replace(pattern, '&amp;amp;')
+            .replace(/&lt;/g, '&amp;lt;')
+            .replace(/&gt;/g, '&amp;gt;')
+            .replace(/&quot;/g, '&amp;quot;')
+            .replace(/'/g, '&amp;#39;')
+
+        if code.match(/^sequenceDiagram/)|| code.match(/^graph/)
+          return &quot;&lt;div class=\&quot;mermaid\&quot;&gt;\n#{code}\n&lt;/div&gt;\n&quot;
+        else
+          if @options.highlight
+            out = @options.highlight code, lang
+            if out != null &amp;&amp; out != code
+              escaped = true
               code = out
 
-          <span class="hljs-keyword">if</span> !lang
-            <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;pre&gt;&lt;code&gt;'</span> +
-              (<span class="hljs-keyword">if</span> escaped <span class="hljs-keyword">then</span> code <span class="hljs-keyword">else</span> escape(code, <span class="hljs-literal">true</span>)) +
-              <span class="hljs-string">'\n&lt;/code&gt;&lt;/pre&gt;'</span>
+          if !lang
+            return '&lt;pre&gt;&lt;code&gt;' +
+              (if escaped then code else escape(code, true)) +
+              '\n&lt;/code&gt;&lt;/pre&gt;'
 
-          <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;pre&gt;&lt;code class="'</span> +
-            <span class="hljs-keyword">this</span>.options.langPrefix +
-            escape(lang, <span class="hljs-literal">true</span>) +
-            <span class="hljs-string">'"&gt;'</span> +
-            (<span class="hljs-keyword">if</span> escaped <span class="hljs-keyword">then</span> code <span class="hljs-keyword">else</span> escape(code, <span class="hljs-literal">true</span>)) +
-            <span class="hljs-string">'\n&lt;/code&gt;&lt;/pre&gt;\n'</span>
-</code></pre><p>Lastly, I added Mermaid.js to blog&#39;s layout as mentioned on Mermaid&#39;s
-documentation. Now all are set to their place, so whenever I put Mermaid 
-syntax in a markdown&#39;s code block <code>```</code> the code will 
-be transformed to svg image. </p>
+          return '&lt;pre&gt;&lt;code class=&quot;' +
+            this.options.langPrefix +
+            escape(lang, true) +
+            '&quot;&gt;' +
+            (if escaped then code else escape(code, true)) +
+            '\n&lt;/code&gt;&lt;/pre&gt;\n'
+</code></pre>
+
+<p>Lastly, I added Mermaid.js to blog&rsquo;s layout as mentioned on Mermaid&rsquo;s
+documentation. Now all are set to their place, so whenever I put Mermaid
+syntax in a markdown&rsquo;s code block <code>```</code> the code will
+be transformed to svg image.</p>
+
 <p>Without further ado, below are a couple of examples of Mermaid diagram
-definition and their respective rendered diagram. It&#39;s show time!</p>
-<h1 id="simple-graph">Simple graph</h1>
-<pre class="highlight"><code class="hljs livecodeserver">%% remove comment <span class="hljs-built_in">to</span> render <span class="hljs-operator">the</span> graph
-graph TB 
-  subgraph <span class="hljs-constant">one</span> 
-    a1<span class="hljs-comment">--&gt;a2</span>
-  <span class="hljs-function"><span class="hljs-keyword">end</span></span>
-  subgraph <span class="hljs-constant">two</span>
-    b1<span class="hljs-comment">--&gt;b2</span>
-  <span class="hljs-function"><span class="hljs-keyword">end</span></span>
-  subgraph <span class="hljs-constant">three</span>
-    c1<span class="hljs-comment">--&gt;c2</span>
-  <span class="hljs-function"><span class="hljs-keyword">end</span></span>
-  c1<span class="hljs-comment">--&gt;a2</span>
-</code></pre><div class="mermaid">
-graph TB 
-  subgraph one 
-    a1-->a2
+definition and their respective rendered diagram. It&rsquo;s show time!</p>
+
+<h1 id="simple-graph:16f5e32215aea0606e9a8f52ebcfb505">Simple graph</h1>
+
+<pre><code>%% remove comment to render the graph
+graph TB
+  subgraph one
+    a1--&gt;a2
   end
   subgraph two
-    b1-->b2
+    b1--&gt;b2
   end
   subgraph three
-    c1-->c2
+    c1--&gt;c2
   end
-  c1-->a2
-</div>
-<h1 id="sequence-diagram">Sequence diagram</h1>
-<pre class="highlight"><code class="hljs livecodeserver">%% remove comment <span class="hljs-built_in">to</span> render <span class="hljs-operator">the</span> diagram
+  c1--&gt;a2
+</code></pre>
+
+<pre><code>graph TB
+  subgraph one
+    a1--&gt;a2
+  end
+  subgraph two
+    b1--&gt;b2
+  end
+  subgraph three
+    c1--&gt;c2
+  end
+  c1--&gt;a2
+</code></pre>
+
+<h1 id="sequence-diagram:16f5e32215aea0606e9a8f52ebcfb505">Sequence diagram</h1>
+
+<pre><code>%% remove comment to render the diagram
 sequenceDiagram
   Alice -&gt;&gt; Bob: Hello Bob, how are you?
-  Bob<span class="hljs-comment">--&gt;&gt;John: How about you John?</span>
-  Bob<span class="hljs-comment">--x Alice: I am good thanks!</span>
-  Bob-x John: I am good thanks!
-  Note <span class="hljs-constant">right</span> <span class="hljs-operator">of</span> John: Bob thinks <span class="hljs-operator">a</span> <span class="hljs-keyword">long</span>&lt;br/&gt;<span class="hljs-keyword">long</span> <span class="hljs-built_in">time</span>, so <span class="hljs-keyword">long</span>&lt;br/&gt;that <span class="hljs-operator">the</span> <span class="hljs-keyword">text</span> does&lt;br/&gt;<span class="hljs-operator">not</span> fit <span class="hljs-command"><span class="hljs-keyword">on</span> <span class="hljs-title">a</span> <span class="hljs-title">row</span>.</span>
-
-  Bob<span class="hljs-comment">--&gt;Alice: Checking with John...</span>
-  Alice-&gt;John: Yes... John, how are you?
-</code></pre><div class="mermaid">
-sequenceDiagram
-  Alice ->> Bob: Hello Bob, how are you?
-  Bob-->>John: How about you John?
+  Bob--&gt;&gt;John: How about you John?
   Bob--x Alice: I am good thanks!
   Bob-x John: I am good thanks!
-  Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+  Note right of John: Bob thinks a long&lt;br/&gt;long time, so long&lt;br/&gt;that the text does&lt;br/&gt;not fit on a row.
 
-  Bob-->Alice: Checking with John...
-  Alice->John: Yes... John, how are you?
-</div>
-<h2 id="side-note">Side note</h2>
+  Bob--&gt;Alice: Checking with John...
+  Alice-&gt;John: Yes... John, how are you?
+</code></pre>
+
+<pre><code>sequenceDiagram
+  Alice -&gt;&gt; Bob: Hello Bob, how are you?
+  Bob--&gt;&gt;John: How about you John?
+  Bob--x Alice: I am good thanks!
+  Bob-x John: I am good thanks!
+  Note right of John: Bob thinks a long&lt;br/&gt;long time, so long&lt;br/&gt;that the text does&lt;br/&gt;not fit on a row.
+
+  Bob--&gt;Alice: Checking with John...
+  Alice-&gt;John: Yes... John, how are you?
+</code></pre>
+
+<h2 id="side-note:16f5e32215aea0606e9a8f52ebcfb505">Side note</h2>
+
 <p>The CSS I use to style the diagram can be seen <a href="https://raw.githubusercontent.com/npatmaja/nauvalatmaja.com/master/src/render/styles/mermaid.less">here</a>. Happy diagramming!</p>
 
-    </div>
-    
-        <div class="twitter-share">
-  <a href='https://twitter.com/intent/tweet?text=Rendering+Mermaid+in+Docpad&url=http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/&via=novalpas&hashtags=Mermaid%2CDocPad%2CMarked%2Cdocpad-plugin-marked' class='twitter-share-button' data-via='novalpas' data-count= 'none'><img src='/ico/twitter_white_small.png', width='16px', height='16px'/>tweet</a>
+
+					
+			    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2015%2f01%2f13%2frendering-mermaid-in-docpad%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f01%2f13%2frendering-mermaid-in-docpad%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f01%2f13%2frendering-mermaid-in-docpad%2f&title=Rendering%20Mermaid%20in%20Docpad&summary=I%20stumbled%20across%20Mermaid%20when%20I%20saw%20%40ronaldwidha%20retweeted%20a%20tweet%20about%20it.%20Mermaid%20is%20a%20library%20for%20writing%20diagrams%20instead%20of%20draw%20them%20similar%20to%20Marked%20to%20markdown%2c%20awesome%21%20So%2c%20I%20thought%20I%20could%20use%20this%20in%20my%20blog%20just%20in%20case%20I%20need%20to%20draw%20some%20flowcharts%20or%20sequence%20diagrams%20in%20the%20future.%20DocPad%20uses%20Marked%20to%20render%20markdown%20to%20html%20via%20docpad-plugin-marked%20but%20natively%2c%20it%20doesn%26rsquo%3bt%20support%20Mermaid%20syntax.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Rendering%20Mermaid%20in%20Docpad&url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f01%2f13%2frendering-mermaid-in-docpad%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
 </div>
+			    
 
-    
-    
-        <div class="post-tags">
-            Posted In: 
-  <a href='/tags/mermaid/'>Mermaid</a>
+					
+						<div class="post-tags">
+							<i class="fa fa-tags fa-1"></i>
+							
+								<a class="post-tag post-tag-mermaid" href="http://nauvalatmaja.com//tags/mermaid">Mermaid</a>
+							
+								<a class="post-tag post-tag-docpad" href="http://nauvalatmaja.com//tags/docpad">DocPad</a>
+							
+								<a class="post-tag post-tag-marked" href="http://nauvalatmaja.com//tags/marked">Marked</a>
+							
+								<a class="post-tag post-tag-docpad-plugin-marked" href="http://nauvalatmaja.com//tags/docpad-plugin-marked">docpad-plugin-marked</a>
+							
+						</div>
+					
 
-  <a href='/tags/docpad/'>DocPad</a>
+					
+						<div class="paging">
+							<span class="paging-label">More Reading</span>
+							<div class="clear"></div>
+							
+								<div class="paging-older">
+			            <a class="paging-link" href="/2015/01/08/android-development-with-genymotion/">
+										<i class="fa fa-arrow-circle-o-left"></i> Android Development with Genymotion
+									</a>
+			          </div>
+		          
 
-  <a href='/tags/marked/'>Marked</a>
+							
+								<div class="paging-newer">
+									<a class="paging-link" href="/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/">
+										Upload Files with Backbone.js, Node.js and express 4.x <i class="fa fa-arrow-circle-o-right"></i>
+									</a>
+		            </div>
+	            
+		        </div>
+	        
+					<div class="clear">
 
-  <a href='/tags/docpad-plugin-marked/'>docpad-plugin-marked</a>
- 
-        </div>
-    
-</article> 
-            <!-- get next and prev link -->
-            
-            <div class="page-nav">
-              
-                
-              
-                
-              
-                
-                    
-                        <a href="/2015/01/30/upload-files-with-backbone-nodejs-express-4/" class="page-nav-newer">
-                          Upload Files with Backbone.js, Node.js and express 4.x <span class="icon icon-arrow-right-2"></span>
-                        </a>
-                    
-                    
-                         <a href="/2015/01/08/Android-development-with-Genymotion/" class="page-nav-older">
-                          <span class="icon icon-arrow-left-2"></span> Android Development with Genymotion
-                        </a>
-                    
-                
-              
-                
-              
-                
-              
-                
-              
-                
-              
-            </div>
-            <div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+					</div>
+					
+		      	<div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'nauvalatmaja';
-    var disqus_url = 'http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/';
-    var disqus_identifier = disqus_url;
-    var disqus_title = 'Rendering Mermaid in Docpad';
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = '';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="fa fa-disqus">Disqus</span></a>
 
-            <div id="me">
-    <p>
-        <img src="/images/avatar.png", alt="nauval atmaja">
-        Hello, I'm Nauval Atmaja, a software developer who has interest in software architecture and new cool stuff. 
-        Unfortunately, I'm no gamer myself but I will still have fun playing Winning Eleven or Pro Evolution Soccer.
-        Have a look around and don't hesitate to <a href="mailto:nauval.atmaja@gmail.com">contact me</a> with any comments,
-        suggestions or even to just say Hi!
-    </p>
-    <p>
-        <a href="https://twitter.com/novalpas/">@novalpas</a> &#8226;
-        <a href="https://github.com/npatmaja">GitHub</a> &#8226;
-        <a href="https://id.linkedin.com/in/nauvalatmaja/">linkedin</a> &#8226;
-        <a href="mailto:nauval.atmaja@gmail.com">Email Me</a>
-    </p>
-</div>
+		      
+	    	</section>
+				
+  <section class="aboutme">
+    
+      <img src="/img/avatar.png">
+    
+    <p>Hello, my name is Nauval. I like building/crafting things. I code for living. I blog in my spare time.</p> <p>Have a look around and don't hesitate to <a href="mailto:nauval.atmaja@gmail.com">contact me</a> with any comments, suggestions or even to just say Hi!</p>
+  </section>
 
-        </div>
+
+	      <section class="footer">
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+	<p>
+		
+		
+			&copy; 2014-2015 Nauval Atmaja.
+			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
+			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
+			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.
+		</p>
+</section>
+
+			</div>
     </div>
-</div>
-<div class="container">
-    <div class="navbar navbar-footer">
-        <p class="navbar-center navbar-text">© Nauval Atmaja 2014 - 2015</p>
-    </div>
-</div>
+  </div>
+	
+		<script type="text/javascript">
+			onscroll = function() {
+			  var toTopVisible = false;
+			  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			  if (scrollTop > 1000) {
+			    if (!toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'block';
+			    }
+			  } else {
+			    if (scrollTop < 1000 || toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'none';
+			    }
+			  }
+			};
+		</script>
+	
 
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
 
-<script src="/vendor/jquery/dist/jquery.js"></script>
-<script src="/vendor/mermaid.full.min.js"></script>
-<script src="/vendor/components-bootstrap/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/coffee-script/1.6.3/coffee-script.min.js"></script>
-
-
-
-<script type="text/javascript">
-	var $buoop = {
-		url: 'http://whatbrowser.org/',
-        reminder: 0,
-		newwindow: false,
-		'text': 'You are using an outdated browser (%s). <a%s>More information &#187;</a>',
-		'text_af': 'Jy gebruik \'n verouderde webblaaier (%s). <a%s>Meer inligting &#187;</a>',
-		'text_cs': 'Používáte zastaralý prohlížeč (%s). <a%s>Více informací &#187;</a>',
-		'text_da': 'Du bruger en ældre browser (%s). <a%s>Mere information &#187;</a>',
-		'text_de': 'Sie benutzen einen veralteten Browser (%s). <a%s>Mehr Informationen &#187;</a>',
-		'text_el': 'Χρησιμοποιείτε ένα ξεπερασμένο πρόγραμμα περιήγησης. <a%s>Περισσότερες πληροφορίες &#187;</a>',
-		'text_es': 'Su navegador está obsoleto (%s). <a%s>M&aacute;s informaci&oacute;n &#187;</a>',
-		'text_fi': 'Käytät vanhentunutta selainta (%s). <a%s>Lisää tietoa &#187;</a>',
-		'text_fr': 'Votre navigateur n\'est pas à jour (%s). <a%s>Plus d\'information &#187;</a>',
-		'text_hu': 'A böngészője elavult (%s). <a%s>További információ &#187;</a>',
-		'text_id': 'Anda menggunakan web browser versi lama (%s). <a%s>Informasi selengkapnya &#187;</a>',
-		'text_is': 'Þú ert að nota úreltan vafra (%s). <a%s>Nánari upplýsingar &#187;</a>',
-		'text_it': 'Stai usando un browser datato (%s). <a%s>Ulteriori informazioni &#187;</a>',
-		'text_nl': 'U gebruikt op dit moment een verouderde webbrowser (%s). <a%s>Meer informatie &#187;</a>',
-		'text_pl': 'Używasz przestarzałej przeglądarki (%s). <a%s>Więcej informacji &#187;</a>',
-		'text_pt': 'Você está usando um navegador antigo (%s). <a%s>Mais informações &#187;</a>',
-		'text_ro': 'Browserul dumneavoastră este depăşit (%s). <a%s>Mai multe informații &#187;</a>',
-		'text_ru': 'Вы используете устаревший браузер (%s). <a%s>Подробнее &#187;</a>',
-		'text_sk': 'Používate zastaralý prehliadač (%s). <a%s>Viac informácií &#187;</a>',
-		'text_sr': 'Vi koristite zastarelu verziju browsera (%s). <a%s>Vi&#353;e informacija &#187;</a>',
-		'text_sv': 'Du använder en gammal webbläsare (%s). <a%s>Mer information &#187;</a>',
-		'text_tr': 'Çok eski bir tarayıcı kullanıyorsunuz (%s). <a%s>Daha fazla bilgi &#187;</a>',
-		'text_vi': 'Trình duyệt bạn dùng đã lỗi thời rồi (%s). <a%s>Thêm thông tin &#187;</a>'
-	};
-	$buoop.ol = window.onload;
-	window.onload=function(){
-		try {if ($buoop.ol) $buoop.ol();}catch (e) {}
-		var e = document.createElement("script");
-		e.setAttribute("type", "text/javascript");
-		e.setAttribute("src", "//browser-update.org/update.js");
-		document.body.appendChild(e);
-	}
-</script>
-
+  
 </body>
 </html>
