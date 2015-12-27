@@ -176,10 +176,14 @@ rm -rf tmp
 
 &lt;p&gt;What I did next is to automate repetitive tasks such as deployment steps above, which is quite lengthy and prone to errors.
 For this project
-I decided to use &lt;a href=&#34;https://www.gnu.org/software/make/manual/make.html&#34;&gt;gnu&lt;/a&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Make_(software)&#34;&gt;make&lt;/a&gt; as the build tool
-&amp;mdash;I used this
-&lt;a href=&#34;https://gist.github.com/npatmaja/7f30c79c08cb315466dd#file-deploy&#34;&gt;bash script&lt;/a&gt; when dealing with Docpad previously.
-Besides deployment, I created tasks for &lt;a href=&#34;https://github.com/npatmaja/nauvalatmaja.com/blob/master/Makefile&#34;&gt;creating new post, generate static sites, clean the working directory And GitHub-Pages deployment setup&lt;/a&gt;.&lt;/p&gt;
+I decided to use &lt;a href=&#34;https://www.gnu.org/software/make/manual/make.html&#34;&gt;GNU&lt;/a&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Make_(software)&#34;&gt;Make&lt;/a&gt; as the build tool
+&amp;mdash; I used this
+&lt;a href=&#34;https://gist.github.com/npatmaja/7f30c79c08cb315466dd#file-deploy&#34;&gt;bash script&lt;/a&gt; when dealing with Docpad previously. But, why Make?
+Why not! Make has similar capabilities with other recent build tools
+like Cake, Gulp or Grunt. Moreover, my machine has it pre-installed.
+Currently, I&amp;rsquo;m still novice in Make, hence my terrible looking  &lt;a href=&#34;https://github.com/npatmaja/nauvalatmaja.com/blob/master/Makefile&#34;&gt;Makefile&lt;/a&gt;. Following this, I plan to use Make at my office
+as the build tools of the project I&amp;rsquo;m working on. Hope I can be more
+proficient along the time.&lt;/p&gt;
 
 &lt;div class=&#34;sectionsign&#34;
   style=&#34;
