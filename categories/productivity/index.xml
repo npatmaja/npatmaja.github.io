@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Productivity on nauval atmaja</title>
+    <link>http://nauvalatmaja.com/categories/productivity/</link>
+    <description>Recent content in Productivity on nauval atmaja</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/categories/productivity/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ways to Boost Coding Productivity</title>
+      <link>http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/</link>
+      <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/</guid>
+      <description>
+
+&lt;p&gt;As a someone who codes frequently, in daily basis in fact, I need an
+environment that is able to boost my productivity when coding. Some
+might argue that one could be productive in every given environment.
+That is the ideal case, however live is not. Hence, productivity
+tools and workflows are created.&lt;/p&gt;
+
+&lt;p&gt;During my coding adventure, I found some &lt;em&gt;ways&lt;/em&gt; that help me
+to boost up my productivity, which are listed below.&lt;/p&gt;
+
+&lt;h1 id=&#34;use-nix-platform:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Use *nix platform&lt;/h1&gt;
+
+&lt;p&gt;It come across to me that I use shell (terminal) a lot when writing a program,
+e.g., navigating through directories, executing commands, committing
+to local and remote repositories etc. In that regards,
+no better OS to provide that other than *nix (either OS X or linux).
+Moreover, they are more stable, more secure and easier to configure rather
+than Windows. The last part is a bit bias as I have not been using
+Windows for several years now, maybe in the latest release Windows
+are more configurable than the previous versions. Well, I&amp;rsquo;m a pragmatic
+person, I use what works for me.&lt;/p&gt;
+
+&lt;h1 id=&#34;use-your-most-comfortable-editor:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Use your most comfortable editor&lt;/h1&gt;
+
+&lt;p&gt;I use &lt;a href=&#34;http://www.sublimetext.com/3&#34;&gt;&lt;em&gt;Sublime Text 3&lt;/em&gt;&lt;/a&gt; to code mostly
+everything, except Java (I&amp;rsquo;m still using Eclipse for that).
+&lt;em&gt;Sublime Text&lt;/em&gt; is a powerful yet easy to use
+text editor that provides a lot of functionalities. Moreover, it
+has myriad of plugins to make developer&amp;rsquo;s life easier and tons of
+themes please the eyes, which is also a very important thing (to
+me at the very least). If you miss
+the efficient vim key bindings, use &lt;a href=&#34;https://github.com/guillermooo/Vintageous&#34;&gt;vintageaus&lt;/a&gt;
+to emulate vim key bindings inside &lt;em&gt;Sublime Text&lt;/em&gt;.
+&lt;!-- Read more --&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;change-to-zsh:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Change to zsh&lt;/h1&gt;
+
+&lt;p&gt;See
+&lt;a href=&#34;http://www.slideshare.net/jaguardesignstudio/why-zsh-is-cooler-than-your-shell-16194692&#34;&gt;Brendon Repp&amp;rsquo;s presentation&lt;/a&gt;
+on why to &lt;a href=&#34;http://www.zsh.org/&#34;&gt;zsh&lt;/a&gt;. I use &lt;a href=&#34;http://ohmyz.sh/&#34;&gt;oh-my-zsh&lt;/a&gt; to manage the zsh
+configuration and all. To sugar its visual, I use the
+&lt;a href=&#34;https://github.com/robbyrussell/oh-my-zsh/wiki/Themes#agnoster&#34;&gt;agnoster&lt;/a&gt; theme. Besides,
+the theme directly tells me in what git branch I&amp;rsquo;m currently working on in an awesome way.
+Hence no need to type &lt;code&gt;git status&lt;/code&gt; to see the working branch. Combined with the right git
+aliases, it feels like home when coding.&lt;/p&gt;
+
+&lt;h1 id=&#34;add-aliases-your-shell:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Add aliases your shell&lt;/h1&gt;
+
+&lt;p&gt;Having short aliases is always a good thing to reduce finger movements when typing in
+a terminal regardless of what shell you are using. One of useful alias is
+aliases to go the the frequently
+visited directoris. So, instead of typing &lt;code&gt;cd ~/codes/learning/nodejs&lt;/code&gt; it&amp;rsquo;s simpler
+to just type &lt;code&gt;learn-nodejs&lt;/code&gt; right?!&lt;/p&gt;
+
+&lt;h1 id=&#34;adopt-github-flow-and-the-supporting-git-aliases:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Adopt GitHub Flow and the supporting git aliases&lt;/h1&gt;
+
+&lt;p&gt;I have been using &lt;a href=&#34;http://scottchacon.com/2011/08/31/github-flow.html&#34;&gt;GitHub Flow&lt;/a&gt;
+for sometime in my recent projects and find it
+is a really straight forward approach in managing the development-deployment
+workflow when using git. Adding the
+&lt;a href=&#34;http://haacked.com/archive/2014/07/28/github-flow-aliases/&#34;&gt;GitHub flow aliases&lt;/a&gt;
+to your &lt;code&gt;~/.gitconfig&lt;/code&gt; will be even more fun. Here&amp;rsquo;s
+&lt;a href=&#34;https://gist.github.com/npatmaja/d72daeb2ec0f21f1af2a&#34;&gt;my &lt;code&gt;.gitconfig&lt;/code&gt;&amp;rsquo;s aliases section&lt;/a&gt;
+that has some additional aliases beside the GitHub flow aliases.&lt;/p&gt;
+
+&lt;h1 id=&#34;have-a-to-do-list:ad90fd8f744ffbb40f5075f18d48949f&#34;&gt;Have a To-do list&lt;/h1&gt;
+
+&lt;p&gt;A to-do list is a really powerful tool to manage and prioritize your tasks. Sometimes
+it is taken for granted but it does help to keep the focus on the tasks that
+should be done, especially for an easily distracted person (just like myself).
+No need for fancy tools to create a to-do list, any text editor will do. However,
+&lt;a href=&#34;https://evernote.com/&#34;&gt;Evernote&lt;/a&gt; or OS X&amp;rsquo;s Notes or other to-do list apps
+will be better choice.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t claim the list above is the best way to increase your coding productivity
+but it works for me and my current working environment. The list is not and will
+never be the final one because achieving better productivity is a long live
+adventure.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
