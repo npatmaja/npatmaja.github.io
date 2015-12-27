@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Moving to Hugo // nauval atmaja
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.15" />
+
+  <meta property="og:title" content="Moving to Hugo" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://nauvalatmaja.com/2015/12/27/moving-to-hugo/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://nauvalatmaja.com//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="nauval atmaja" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  <link rel="stylesheet" href="http://nauvalatmaja.com//css/custom.css">
+<link rel="stylesheet" href="http://nauvalatmaja.com//css/404.css">
+
+
+  <script>
+    if (window.location.hostname != "localhost") {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', "UA-58073141-1", 'auto');
+      ga('send', 'pageview');
+    }
+  </script>
+
+
+</head>
+
+<body>
+	
+		<div id="nav-to-top">
+			<a href="#top">
+				<i class="fa fa-angle-double-up"> </i>
+				To Top
+			</a>
+		</div>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    
+
+    
+        <h1 class="brand-title">
+          <a class="title" href="http://nauvalatmaja.com/">
+          <span class="nav-item-separator">//</span>nauval atmaja
+        </a>
+        </h1>
+    
+    
+      <h2 class="brand-tagline">Thoughts on software, product, technology, and anything related</h2>
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/post/">archives</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="http://www.github.com/npatmaja" target="_blank"><i class='fa fa-github fa-2x'></i></a>
+        
+      
+        
+        <a href="https://id.linkedin.com/in/nauvalatmaja/" target="_blank"><i class='fa fa-linkedin-square fa-2x'></i></a>
+        
+      
+        
+        <a href="http://www.twitter.com/novalpas" target="_blank"><i class='fa fa-twitter fa-2x'></i></a>
+        
+      
+        
+        <a href="https://noval78.wordpress.com/" target="_blank"><i class='fa fa-wordpress fa-2x'></i></a>
+        
+      
+
+    </div>
+    
+  </div>
+</div>
+
+
+		
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+			<a name="top"></a>
+			
+
+			
+				
+			    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+					<small class="toc-label">Contents</small>
+			   	 	<nav id="TableOfContents">
+<ul>
+<li><a href="#setup-the-site:c708f69283c7d428e0643535a16e1df4">Setup the site</a>
+<ul>
+<li><a href="#install-hugo-and-get-it-running:c708f69283c7d428e0643535a16e1df4">Install Hugo and get it running</a></li>
+<li><a href="#pick-your-theme-and-make-it-yours:c708f69283c7d428e0643535a16e1df4">Pick your theme and make it yours</a></li>
+<li><a href="#migration:c708f69283c7d428e0643535a16e1df4">Migration</a></li>
+</ul></li>
+<li><a href="#hosting-on-github:c708f69283c7d428e0643535a16e1df4">Hosting on GitHub</a></li>
+<li><a href="#automation:c708f69283c7d428e0643535a16e1df4">Automation</a></li>
+</ul>
+</nav>
+			    </div>
+		    
+	    
+			<div class="wrapper">
+				<section class="post">
+					<header class="post-header">
+						<h1 class="post-title">
+							Moving to Hugo
+						</h1>
+						<h3 class="post-subtitle">
+		        	
+		        </h3>
+					</header>
+	        
+	        	<span class="post-date">
+							<span class="post-date-day"><span class="post-date-month">Dec 27, 2015</span> </span>
+	        	</span>
+	        
+
+	        
+	        	
+	        
+
+					
+					
+
+					
+			    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2015%2f12%2f27%2fmoving-to-hugo%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f12%2f27%2fmoving-to-hugo%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f12%2f27%2fmoving-to-hugo%2f&title=Moving%20to%20Hugo&summary=Several%20weeks%20ago%2c%20my%20Docpad%20installation%20got%20screwed.%20There%20was%20some%20errors%20when%20I%20tried%20to%20run%20it.%20My%20assumption%20was%20because%20I%20just%20moved%20to%20Node.js%205.x%2c%20so%20I%20tried%20to%20upgrade%20%28or%20re-install%20it%2c%20maybe%29%20it.%20Though%20the%20errors%20are%20gone%2c%20it%20did%20not%20work%20as%20it%20used%20to%20be%2c%20it%20failed%20to%20build%20my%20blog%20properly%20%26mdash%3b%20or%20I%20just%20forgotten%20how%20to%20use%20it%2c%20that%26rsquo%3bs%20another%20possibility.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Moving%20to%20Hugo&url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f12%2f27%2fmoving-to-hugo%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+			    
+
+					
+
+	  			
+
+<p>Several weeks ago, my <a href="/2014/12/28/blogging-with-docpad/">Docpad</a> installation got screwed.
+There was some errors when I tried to run it. My assumption
+was because I just moved to Node.js 5.x, so I tried to upgrade
+(or re-install it, maybe) it. Though the errors are gone, it
+did not work as it used to be, it failed to build my blog
+properly &mdash; or I just forgotten how to use it, that&rsquo;s another
+possibility.</p>
+
+<p>Since I was looking for alternatives, I found <a href="https://gohugo.io/">Hugo</a>, a
+static site generator created by <a href="http://spf13.com/">Steve Francia</a> using
+<a href="https://golang.org/">Go</a>. The documentation was comprehensive enough to
+get me started. Thanks to Hugo I got this blog up and running
+again.</p>
+
+<p>After digging a bit deeper into Hugo, Compared to Docpad,
+Hugo came out on top. The first and foremost deciding factor
+to me was speed. Docpad took more than 5 seconds to generate
+my blog with just merely 7 posts in it, and (most) sometimes
+it took longer than that.
+It was quite unpleasant experience when I drafted
+a blog post and want to preview it but need to wait that much
+and to make it worse I did it quite often, conscious or
+un-consciously. Amazingly, Hugo took only around 100ms to generate
+my blog, that was 500 time faster, awesome!</p>
+
+<p>So, if you have the same problem as mine or just want to try new
+things, here&rsquo;s my <strong>Hugo How To</strong>.</p>
+
+<h1 id="setup-the-site:c708f69283c7d428e0643535a16e1df4">Setup the site</h1>
+
+<h2 id="install-hugo-and-get-it-running:c708f69283c7d428e0643535a16e1df4">Install Hugo and get it running</h2>
+
+<p>Hugo <a href="https://gohugo.io/overview/installing/">is easy to install</a>, you can download its
+binary or install it via <a href="http://brew.sh/">Homebrew</a> like I did
+or if you feel a bit adventurous you might want to build it from
+source, which might as well quite easy. To get Hugo runs actually
+took quite minimal effort. The <a href="https://gohugo.io/overview/quickstart/">quickstart</a> do a really
+good job to explain the step by step.</p>
+
+<p>One more thing I like about Hugo is it provides a better working
+structure compared to Docpad. When creating a new site by running
+<code>hugo new /path/to/site</code>, Hugo creates a working skeleton
+structure comprises <code>archtypes</code>, <code>content</code>, <code>data</code>, <code>layouts</code>,
+<code>static</code> and <code>themes</code>. Those directories are where we supposed
+to put pre-configured <em>front matter</em>, blog contents (posts),
+data, site layouts, static files and themes that we want to use.
+The <a href="https://gohugo.io/overview/source-directory/">Source Organization</a>
+section elaborates on the directory structure deeper.</p>
+
+<h2 id="pick-your-theme-and-make-it-yours:c708f69283c7d428e0643535a16e1df4">Pick your theme and make it yours</h2>
+
+<p>Hugo comes up with quite a lot <a href="http://themes.gohugo.io/">ready to use themes</a>.
+You can try all the themes by simply <a href="https://github.com/spf13/hugoThemes">clone all the themes</a>
+and run <code>hugo server -t &lt;theme-name&gt;</code>. The command tells Hugo
+to load the specified theme and use it to render the site then
+runs a HTTP server to serve the generated site. If no directory
+given (using <code>-d</code> option), Hugo generates the site to your
+machine&rsquo;s memory when running the <code>hugo server</code> command.</p>
+
+<p>If none of the themes up to your liking, then you can
+<a href="https://gohugo.io/themes/customizing/">customize them</a>
+quite easy. You don&rsquo;t need edit directly the theme you are using,
+you only need to override the specific part to your liking
+instead. The easiest way to do this is by copying the part that
+you want to change from the themes directory to its respective
+directory in your site, e.g.,</p>
+
+<pre><code class="language-sh">cp /themes/redlounge/layouts/index.html layouts/index.html
+</code></pre>
+
+<p>and start modifying it. The way Hugo determines the layout
+is to find respective files in <code>layouts</code> then using defaults
+<code>layouts/_defaults</code> if the desired file can&rsquo;t be found.
+The search is then propagated to the used theme <code>themes/used-theme</code> if the file still not found.</p>
+
+<p>For this blog, I choose <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlounge</a>
+as the base of my blog theme and customized it as you see now. Most of the customizations are related to styles, hence,
+I use <a href="http://sass-lang.com/">SCSS</a> to modularize my custom CSS.
+I put all the SCSS files in a separate <code>src</code> directory and only
+the resulting CSS is put in the <code>static</code> directory to be used.
+Another way is to clone <a href="https://github.com/spf13/spf13.com">Steve Francia&rsquo;s website</a>, which looks
+really awesome and start to customize it as you see fit.</p>
+
+<h2 id="migration:c708f69283c7d428e0643535a16e1df4">Migration</h2>
+
+<p>Migrating from Docpad to Hugo should be easy assuming the posts
+are written in markdown format. In my case, I just needed to copy all posts into <code>content/post</code>. Copying the markdowns alone should be
+enough to make Hugo renders them. However, you might want to
+change the posts&rsquo; <a href="https://gohugo.io/content/front-matter">front matter</a>
+to adhere Hugo&rsquo;s format. Next is to migrate all the static files
+to directory <code>static</code>.</p>
+
+<h1 id="hosting-on-github:c708f69283c7d428e0643535a16e1df4">Hosting on GitHub</h1>
+
+<p>There are several ways to deploy generated site to GitHub-Pages.
+Using <code>git subtree</code> is one of them like shown in
+<a href="https://gohugo.io/tutorials/github-pages-blog/">this tutorial</a>.
+The cons of this method is that you also keep track the generated
+site directory to your working repository. This is a problem for
+me as I have quite slow internet connection so I need the
+the repository to be as small as possible.</p>
+
+<p>To solve the problem, I did is similar to what I did
+previously to Docpad: make the generated site directory (default
+is <code>public</code>) ignored then clone the existing <a href="https://pages.github.com/">gh_pages</a>
+(create one if necessary) to directory <code>public</code>. When deploying to GitHub, the sequence is: copy <code>public/.git</code>, <code>public/.gitignore</code>
+somewhere else, generate the site, put back <code>.git</code> and
+<code>.gitignore</code> to <code>public</code> then commit and push it.</p>
+
+<pre><code class="language-bash"># Do this only one time when setting up public dir.
+# Assuming you are inside your working directory.
+git clone git@github.com:user/user.github.io.git public
+echo &quot;public&quot; &gt;&gt; .gitignore
+
+# commit and push your repository
+git commit -m &quot;ignore public&quot;
+git push origin master
+
+# Deployment sequence
+# create temporary directory
+mkdir tmp
+
+# copy .git/ to temp
+cp -r public/.git tmp/.git
+cp public/.gitignore tmp/.gitignore
+
+# clean out directory public and regenerate htmls
+rm -rf public
+
+# generate static htmls
+hugo -t some_theme
+
+# copy back the git files
+cp -r tmp/.git public/.git
+cp tmp/.gitignore public/.gitignore
+
+# go to the out folder
+pushd public &gt; /dev/null
+
+# create .nojekyll file
+# https://github.com/blog/572-bypassing-jekyll-on-github-pages
+touch .nojekyll
+
+# add and push to github pages
+git add -A
+git commit -m &quot;`date`&quot;
+git push -f origin master
+
+# change back to root dir
+popd &gt; /dev/null
+
+# remove temp directory
+rm -rf tmp
+</code></pre>
+
+<h1 id="automation:c708f69283c7d428e0643535a16e1df4">Automation</h1>
+
+<p>What I did next is to automate repetitive tasks such as deployment steps above, which is quite lengthy and prone to errors.
+For this project
+I decided to use <a href="https://www.gnu.org/software/make/manual/make.html">gnu</a> <a href="https://en.wikipedia.org/wiki/Make_(software)">make</a> as the build tool
+&mdash;I used this
+<a href="https://gist.github.com/npatmaja/7f30c79c08cb315466dd#file-deploy">bash script</a> when dealing with Docpad previously.
+Besides deployment, I created tasks for <a href="https://github.com/npatmaja/nauvalatmaja.com/blob/master/Makefile">creating new post, generate static sites, clean the working directory And GitHub-Pages deployment setup</a>.</p>
+
+<div class="sectionsign"
+  style="
+    margin:0 auto;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  "
+  >
+  <span>&#8213; &#167; &#8213;</span>
+</div>
+
+
+<p>Overall, Hugo is a nice tool to play with. It is very fast, customizable and easy to operate. There are a lot of Hugo&rsquo;s
+features that yet to explore, e.g., shortcodes, taxonomies,
+scratch, etc. Up to this point, I am a satisfied Hugo&rsquo;s user, but,
+we&rsquo;ll see.</p>
+
+
+					
+			    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2015%2f12%2f27%2fmoving-to-hugo%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f12%2f27%2fmoving-to-hugo%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f12%2f27%2fmoving-to-hugo%2f&title=Moving%20to%20Hugo&summary=Several%20weeks%20ago%2c%20my%20Docpad%20installation%20got%20screwed.%20There%20was%20some%20errors%20when%20I%20tried%20to%20run%20it.%20My%20assumption%20was%20because%20I%20just%20moved%20to%20Node.js%205.x%2c%20so%20I%20tried%20to%20upgrade%20%28or%20re-install%20it%2c%20maybe%29%20it.%20Though%20the%20errors%20are%20gone%2c%20it%20did%20not%20work%20as%20it%20used%20to%20be%2c%20it%20failed%20to%20build%20my%20blog%20properly%20%26mdash%3b%20or%20I%20just%20forgotten%20how%20to%20use%20it%2c%20that%26rsquo%3bs%20another%20possibility.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Moving%20to%20Hugo&url=http%3a%2f%2fnauvalatmaja.com%2f2015%2f12%2f27%2fmoving-to-hugo%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+			    
+
+					
+						<div class="post-tags">
+							<i class="fa fa-tags fa-1"></i>
+							
+								<a class="post-tag post-tag-docpad" href="/tags/docpad">docpad</a>
+							
+								<a class="post-tag post-tag-hugo" href="/tags/hugo">hugo</a>
+							
+						</div>
+					
+
+					
+  <div class="paging">
+    <span class="paging-label">More Reading</span>
+    <div class="clear"></div>
+    
+      <div class="paging-older">
+        <a class="paging-link" href="/2015/04/09/ways-to-boost-coding-productivity/">
+          <i class="fa hta-left-white-arrow"></i> Ways to Boost Coding Productivity
+        </a>
+      </div>
+    
+
+    
+  </div>
+
+
+					<div class="clear">
+
+					</div>
+					
+		      	<aside id=comments>
+    <div><h4> Comments </h4></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'nauvalatmaja';
+    var disqus_identifier = 'http:\/\/nauvalatmaja.com\/2015\/12\/27\/moving-to-hugo\/';
+    var disqus_title = 'Moving to Hugo';
+    var disqus_url = 'http:\/\/nauvalatmaja.com\/2015\/12\/27\/moving-to-hugo\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+
+		      
+	    	</section>
+				
+  <section class="aboutme">
+    
+      <img src="/img/avatar.png">
+    
+    <p>Hello, my name is Nauval. I like building/crafting things. I code for living. I blog in my spare time.</p> <p>Have a look around and don't hesitate to <a href="mailto:nauval.atmaja@gmail.com">contact me</a> with any comments, suggestions or even to just say Hi!</p>
+  </section>
+
+
+	      <section class="footer">
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+	<p>
+		
+		
+			&copy; 2014-2015 Nauval Atmaja.
+			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
+			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
+			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.
+		</p>
+</section>
+
+			</div>
+    </div>
+  </div>
+	
+		<script type="text/javascript">
+			onscroll = function() {
+			  var toTopVisible = false;
+			  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			  if (scrollTop > 1000) {
+			    if (!toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'block';
+			    }
+			  } else {
+			    if (scrollTop < 1000 || toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'none';
+			    }
+			  }
+			};
+		</script>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  
+</body>
+</html>

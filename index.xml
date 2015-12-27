@@ -6,8 +6,199 @@
     <description>Recent content on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 27 Dec 2015 00:30:28 +0700</lastBuildDate>
     <atom:link href="http://nauvalatmaja.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Moving to Hugo</title>
+      <link>http://nauvalatmaja.com/2015/12/27/moving-to-hugo/</link>
+      <pubDate>Sun, 27 Dec 2015 00:30:28 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2015/12/27/moving-to-hugo/</guid>
+      <description>
+
+&lt;p&gt;Several weeks ago, my &lt;a href=&#34;http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/&#34;&gt;Docpad&lt;/a&gt; installation got screwed.
+There was some errors when I tried to run it. My assumption
+was because I just moved to Node.js 5.x, so I tried to upgrade
+(or re-install it, maybe) it. Though the errors are gone, it
+did not work as it used to be, it failed to build my blog
+properly &amp;mdash; or I just forgotten how to use it, that&amp;rsquo;s another
+possibility.&lt;/p&gt;
+
+&lt;p&gt;Since I was looking for alternatives, I found &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, a
+static site generator created by &lt;a href=&#34;http://spf13.com/&#34;&gt;Steve Francia&lt;/a&gt; using
+&lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt;. The documentation was comprehensive enough to
+get me started. Thanks to Hugo I got this blog up and running
+again.&lt;/p&gt;
+
+&lt;p&gt;After digging a bit deeper into Hugo, Compared to Docpad,
+Hugo came out on top. The first and foremost deciding factor
+to me was speed. Docpad took more than 5 seconds to generate
+my blog with just merely 7 posts in it, and (most) sometimes
+it took longer than that.
+It was quite unpleasant experience when I drafted
+a blog post and want to preview it but need to wait that much
+and to make it worse I did it quite often, conscious or
+un-consciously. Amazingly, Hugo took only around 100ms to generate
+my blog, that was 500 time faster, awesome!&lt;/p&gt;
+
+&lt;p&gt;So, if you have the same problem as mine or just want to try new
+things, here&amp;rsquo;s my &lt;strong&gt;Hugo How To&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;setup-the-site:c708f69283c7d428e0643535a16e1df4&#34;&gt;Setup the site&lt;/h1&gt;
+
+&lt;h2 id=&#34;install-hugo-and-get-it-running:c708f69283c7d428e0643535a16e1df4&#34;&gt;Install Hugo and get it running&lt;/h2&gt;
+
+&lt;p&gt;Hugo &lt;a href=&#34;https://gohugo.io/overview/installing/&#34;&gt;is easy to install&lt;/a&gt;, you can download its
+binary or install it via &lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt; like I did
+or if you feel a bit adventurous you might want to build it from
+source, which might as well quite easy. To get Hugo runs actually
+took quite minimal effort. The &lt;a href=&#34;https://gohugo.io/overview/quickstart/&#34;&gt;quickstart&lt;/a&gt; do a really
+good job to explain the step by step.&lt;/p&gt;
+
+&lt;p&gt;One more thing I like about Hugo is it provides a better working
+structure compared to Docpad. When creating a new site by running
+&lt;code&gt;hugo new /path/to/site&lt;/code&gt;, Hugo creates a working skeleton
+structure comprises &lt;code&gt;archtypes&lt;/code&gt;, &lt;code&gt;content&lt;/code&gt;, &lt;code&gt;data&lt;/code&gt;, &lt;code&gt;layouts&lt;/code&gt;,
+&lt;code&gt;static&lt;/code&gt; and &lt;code&gt;themes&lt;/code&gt;. Those directories are where we supposed
+to put pre-configured &lt;em&gt;front matter&lt;/em&gt;, blog contents (posts),
+data, site layouts, static files and themes that we want to use.
+The &lt;a href=&#34;https://gohugo.io/overview/source-directory/&#34;&gt;Source Organization&lt;/a&gt;
+section elaborates on the directory structure deeper.&lt;/p&gt;
+
+&lt;h2 id=&#34;pick-your-theme-and-make-it-yours:c708f69283c7d428e0643535a16e1df4&#34;&gt;Pick your theme and make it yours&lt;/h2&gt;
+
+&lt;p&gt;Hugo comes up with quite a lot &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;ready to use themes&lt;/a&gt;.
+You can try all the themes by simply &lt;a href=&#34;https://github.com/spf13/hugoThemes&#34;&gt;clone all the themes&lt;/a&gt;
+and run &lt;code&gt;hugo server -t &amp;lt;theme-name&amp;gt;&lt;/code&gt;. The command tells Hugo
+to load the specified theme and use it to render the site then
+runs a HTTP server to serve the generated site. If no directory
+given (using &lt;code&gt;-d&lt;/code&gt; option), Hugo generates the site to your
+machine&amp;rsquo;s memory when running the &lt;code&gt;hugo server&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;If none of the themes up to your liking, then you can
+&lt;a href=&#34;https://gohugo.io/themes/customizing/&#34;&gt;customize them&lt;/a&gt;
+quite easy. You don&amp;rsquo;t need edit directly the theme you are using,
+you only need to override the specific part to your liking
+instead. The easiest way to do this is by copying the part that
+you want to change from the themes directory to its respective
+directory in your site, e.g.,&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cp /themes/redlounge/layouts/index.html layouts/index.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and start modifying it. The way Hugo determines the layout
+is to find respective files in &lt;code&gt;layouts&lt;/code&gt; then using defaults
+&lt;code&gt;layouts/_defaults&lt;/code&gt; if the desired file can&amp;rsquo;t be found.
+The search is then propagated to the used theme &lt;code&gt;themes/used-theme&lt;/code&gt; if the file still not found.&lt;/p&gt;
+
+&lt;p&gt;For this blog, I choose &lt;a href=&#34;https://github.com/tmaiaroto/hugo-redlounge&#34;&gt;hugo-redlounge&lt;/a&gt;
+as the base of my blog theme and customized it as you see now. Most of the customizations are related to styles, hence,
+I use &lt;a href=&#34;http://sass-lang.com/&#34;&gt;SCSS&lt;/a&gt; to modularize my custom CSS.
+I put all the SCSS files in a separate &lt;code&gt;src&lt;/code&gt; directory and only
+the resulting CSS is put in the &lt;code&gt;static&lt;/code&gt; directory to be used.
+Another way is to clone &lt;a href=&#34;https://github.com/spf13/spf13.com&#34;&gt;Steve Francia&amp;rsquo;s website&lt;/a&gt;, which looks
+really awesome and start to customize it as you see fit.&lt;/p&gt;
+
+&lt;h2 id=&#34;migration:c708f69283c7d428e0643535a16e1df4&#34;&gt;Migration&lt;/h2&gt;
+
+&lt;p&gt;Migrating from Docpad to Hugo should be easy assuming the posts
+are written in markdown format. In my case, I just needed to copy all posts into &lt;code&gt;content/post&lt;/code&gt;. Copying the markdowns alone should be
+enough to make Hugo renders them. However, you might want to
+change the posts&amp;rsquo; &lt;a href=&#34;https://gohugo.io/content/front-matter&#34;&gt;front matter&lt;/a&gt;
+to adhere Hugo&amp;rsquo;s format. Next is to migrate all the static files
+to directory &lt;code&gt;static&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&#34;hosting-on-github:c708f69283c7d428e0643535a16e1df4&#34;&gt;Hosting on GitHub&lt;/h1&gt;
+
+&lt;p&gt;There are several ways to deploy generated site to GitHub-Pages.
+Using &lt;code&gt;git subtree&lt;/code&gt; is one of them like shown in
+&lt;a href=&#34;https://gohugo.io/tutorials/github-pages-blog/&#34;&gt;this tutorial&lt;/a&gt;.
+The cons of this method is that you also keep track the generated
+site directory to your working repository. This is a problem for
+me as I have quite slow internet connection so I need the
+the repository to be as small as possible.&lt;/p&gt;
+
+&lt;p&gt;To solve the problem, I did is similar to what I did
+previously to Docpad: make the generated site directory (default
+is &lt;code&gt;public&lt;/code&gt;) ignored then clone the existing &lt;a href=&#34;https://pages.github.com/&#34;&gt;gh_pages&lt;/a&gt;
+(create one if necessary) to directory &lt;code&gt;public&lt;/code&gt;. When deploying to GitHub, the sequence is: copy &lt;code&gt;public/.git&lt;/code&gt;, &lt;code&gt;public/.gitignore&lt;/code&gt;
+somewhere else, generate the site, put back &lt;code&gt;.git&lt;/code&gt; and
+&lt;code&gt;.gitignore&lt;/code&gt; to &lt;code&gt;public&lt;/code&gt; then commit and push it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# Do this only one time when setting up public dir.
+# Assuming you are inside your working directory.
+git clone git@github.com:user/user.github.io.git public
+echo &amp;quot;public&amp;quot; &amp;gt;&amp;gt; .gitignore
+
+# commit and push your repository
+git commit -m &amp;quot;ignore public&amp;quot;
+git push origin master
+
+# Deployment sequence
+# create temporary directory
+mkdir tmp
+
+# copy .git/ to temp
+cp -r public/.git tmp/.git
+cp public/.gitignore tmp/.gitignore
+
+# clean out directory public and regenerate htmls
+rm -rf public
+
+# generate static htmls
+hugo -t some_theme
+
+# copy back the git files
+cp -r tmp/.git public/.git
+cp tmp/.gitignore public/.gitignore
+
+# go to the out folder
+pushd public &amp;gt; /dev/null
+
+# create .nojekyll file
+# https://github.com/blog/572-bypassing-jekyll-on-github-pages
+touch .nojekyll
+
+# add and push to github pages
+git add -A
+git commit -m &amp;quot;`date`&amp;quot;
+git push -f origin master
+
+# change back to root dir
+popd &amp;gt; /dev/null
+
+# remove temp directory
+rm -rf tmp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;automation:c708f69283c7d428e0643535a16e1df4&#34;&gt;Automation&lt;/h1&gt;
+
+&lt;p&gt;What I did next is to automate repetitive tasks such as deployment steps above, which is quite lengthy and prone to errors.
+For this project
+I decided to use &lt;a href=&#34;https://www.gnu.org/software/make/manual/make.html&#34;&gt;gnu&lt;/a&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Make_(software)&#34;&gt;make&lt;/a&gt; as the build tool
+&amp;mdash;I used this
+&lt;a href=&#34;https://gist.github.com/npatmaja/7f30c79c08cb315466dd#file-deploy&#34;&gt;bash script&lt;/a&gt; when dealing with Docpad previously.
+Besides deployment, I created tasks for &lt;a href=&#34;https://github.com/npatmaja/nauvalatmaja.com/blob/master/Makefile&#34;&gt;creating new post, generate static sites, clean the working directory And GitHub-Pages deployment setup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;sectionsign&#34;
+  style=&#34;
+    margin:0 auto;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  &#34;
+  &gt;
+  &lt;span&gt;&amp;#8213; &amp;#167; &amp;#8213;&lt;/span&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Overall, Hugo is a nice tool to play with. It is very fast, customizable and easy to operate. There are a lot of Hugo&amp;rsquo;s
+features that yet to explore, e.g., shortcodes, taxonomies,
+scratch, etc. Up to this point, I am a satisfied Hugo&amp;rsquo;s user, but,
+we&amp;rsquo;ll see.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Ways to Boost Coding Productivity</title>
