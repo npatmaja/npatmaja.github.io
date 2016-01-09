@@ -98,51 +98,6 @@ adventure.&lt;/p&gt;
     </item>
     
     <item>
-      <title>Android Development with Genymotion</title>
-      <link>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</link>
-      <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</guid>
-      <description>&lt;p&gt;I am a noob in android development and one thing I am not
-comfortable with is the stock android device emulator.
-The default emulator is really slow, the boot-up process could
-take minutes in my machine (I won&amp;rsquo;t say my machine is fast either,
-but it is sufficient), the app deployment takes too much time,
-moreover, the interaction is sluggish. Hence, it is a no go.&lt;/p&gt;
-
-&lt;p&gt;Up to now, I used my own android phone to test my app. It is fast,
-quite responsive, but the downside is I need to connect my phone
-to my laptop when I work on the app. Not to mention when I can&amp;rsquo;t find
-my USB cable, disaster.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://nauvalatmaja.com/img/genymotion.png&#34; alt=&#34;Genymotion in action&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Fortunately, there is an alternative to android
-stock emulator called &lt;a href=&#34;https://www.genymotion.com&#34;&gt;Genymotion&lt;/a&gt;. It runs
-on top of &lt;a href=&#34;https://www.virtualbox.org&#34;&gt;VirtualBox&lt;/a&gt;, in other words, each android
-virtual device is an virtual machine in VirtualBox. To use Genymotion
-I have to register in the first place (the free account is sufficient for me)
-and then &lt;a href=&#34;https://www.genymotion.com/#!/developers/user-guide#installing-genymotion&#34;&gt;downloaded and installed the application&lt;/a&gt;.
-Following that, I created a virtual device of my liking
-in the Genymotion application.
-As I use Eclipse Android Development Tools, I then installed
-&lt;a href=&#34;http://marketplace.eclipse.org/content/genymotion-plugin-eclipse&#34;&gt;eclipse plugin for Genymotion&lt;/a&gt;. A plugin for
-Android Studio is also available in the Genymotion&amp;rsquo;s website. Restarted Eclipse and
-all was ready. A note, you need to install VirtualBox to use Genymotion,
-otherwise it will complain about can not starting virtualization or
-something.&lt;/p&gt;
-
-&lt;p&gt;At first I was skeptical about this emulator but it turn out to be the
-opposite. It runs flawlessly, it boots up very fast and very responsive, and at some
-point it is even faster than my phone. More importantly, it consumes considerably less
-CPU resources compared to the default emulator, impressive. In the conclusion, I recommend
-this emulator for android development over the stock emulator. If you need to access
-more features other than camera and GPS, you can always change to the subscribe
-version.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Rendering Backbone (Sub)View</title>
       <link>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
