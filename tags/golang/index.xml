@@ -191,9 +191,10 @@ proficient along the time.&lt;/p&gt;
     margin-top: -1rem;
     margin-bottom: 1rem;
     text-align: center;
-  &#34;
-  &gt;
-  &lt;span&gt;&amp;#8213; &amp;#167; &amp;#8213;&lt;/span&gt;
+    letter-spacing: 1em;
+    color: #333;
+  &#34;&gt;
+  &lt;span&gt;***&lt;/span&gt;
 &lt;/div&gt;
 
 
