@@ -183,7 +183,7 @@
 			    	<div class="social-sharing">
 	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2016%2f04%2f15%2ffunction-composition-in-go%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
 	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2016%2f04%2f15%2ffunction-composition-in-go%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
-	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2016%2f04%2f15%2ffunction-composition-in-go%2f&title=Function%20Composition%20in%20Go&summary=I%26rsquo%3bve%20been%20playing%20with%20functional%20JavaScript%20for%20a%20while%2c%20especially%20partial%20applications%20and%20function%20composition%2c%20and%20I%20find%20those%20concept%20are%20very%20helpful%20in%20my%20daily%20coding%20practices.%20At%20first%2c%20if%20you%20are%20short%20in%20mathematical%20logic%20systems%20%28just%20like%20me%29%2c%20making%20sense%20anything%20functional%20could%20be%20a%20bit%20out%20of%20hand.%20Fortunately%20there%20are%20a%20lot%20of%20reading%20materials%20that%20do%20a%20great%20job%20explaining%20the%20concept%20in%20an%20easy%20and%20pragmatic%20way.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2016%2f04%2f15%2ffunction-composition-in-go%2f&title=Function%20Composition%20in%20Go&summary=I%26rsquo%3bve%20been%20playing%20with%20functional%20JavaScript%20for%20a%20while%2c%20especially%20partial%20applications%20and%20function%20composition%2c%20and%20I%20find%20those%20concepts%20are%20very%20helpful%20in%20my%20daily%20coding%20practices.%20At%20first%2c%20if%20you%20are%20short%20in%20mathematical%20logic%20systems%20%28just%20like%20me%29%2c%20making%20sense%20anything%20functional%20could%20be%20a%20bit%20out%20of%20hand.%20Fortunately%20there%20are%20a%20lot%20of%20reading%20materials%20that%20do%20a%20great%20job%20explaining%20the%20concepts%20in%20an%20easy%20and%20pragmatic%20way.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
 	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Function%20Composition%20in%20Go&url=http%3a%2f%2fnauvalatmaja.com%2f2016%2f04%2f15%2ffunction-composition-in-go%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
 </div>
 			    
@@ -191,19 +191,19 @@
 					
 
 	  			<p>I&rsquo;ve been playing with functional JavaScript for a while, especially partial
-applications and function composition, and I find those concept are very
+applications and function composition, and I find those concepts are very
 helpful in my daily coding practices. At first, if you are short in
 <a href="https://en.wikipedia.org/wiki/Mathematical_logic">mathematical logic systems</a> (just like me), making sense
 anything functional could be a bit out of hand. Fortunately there are a lot
-of reading materials that do a great job explaining the concept in an easy and
+of reading materials that do a great job explaining the concepts in an easy and
 pragmatic way. You could <a href="https://medium.com/search?q=functional%20javascript">search those articles in medium</a>
 and/or you would want to read this <a href="https://leanpub.com/javascript-allonge/read">book</a>.</p>
 
-<p>Go, by design is quite different from JavaScript. Go is an attempt to combine
-the ease of programming of an interpreted, dynamically typed language (e.g., JavaScript and Python) with the efficiency and safety of a statically typed,
+<p>Go, by design is quite different from JavaScript. It is an attempt to combine
+the ease of programming of an interpreted, dynamically typed language (e.g., JavaScript) with the efficiency and safety of a statically typed,
 compiled language. It also aims to
 be modern, with support for networked and multicore computing
-(<a href="https://golang.org/doc/faq#creating_a_new_language">Go FAQ page</a>, 2016). However there are some similarities
+(<a href="https://golang.org/doc/faq#creating_a_new_language">Go FAQ page</a>, 2016). However, despite the differences, there are some similarities
 between JavaScript and Go, one of them is that they treat
 <a href="https://en.wikipedia.org/wiki/First-class_function">functions as first class object</a>,
 which means function is an object that can be passed
@@ -213,7 +213,7 @@ and yes, function is a type in Go.</p>
 <pre><code>type fnString func(string) string
 </code></pre>
 
-<p>The effect of having first-class functions, we can write Go in a more functional manner, similar to JavaScript.
+<p>The effect of having first-class functions is that we can write Go in a more functional manner, just similar to JavaScript.
 In JavaScript we can easily write a <code>compose</code> function (function to do
 <a href="https://en.wikipedia.org/wiki/Function_composition_%28computer_science%29">function composition</a>) as the following.</p>
 
@@ -226,14 +226,15 @@ const compose = (...functions) =&gt;
 
 <p>In Go, as it is a typed language, and
 <a href="https://golang.org/doc/faq#generics">it does not support generic type</a>
-per se, so first we need to define a type of what the <code>compose</code> function
+per se, first we need to define a type of what the <code>compose</code> function
 will work against.</p>
 
 <pre><code>type fnString func(string) string
 </code></pre>
 
-<p>Here, we define a <code>fnString</code> of function type that receives a <code>string</code>
-argument and returns a <code>string</code>. Next is to define the <code>compose</code> function.</p>
+<p>Here, we define <code>fnString</code> of function type that receives a <code>string</code>
+argument and returns a <code>string</code>. Next, is to define the <code>compose</code>
+function itself.</p>
 
 <pre><code>func compose(a fnString, b fnString) fnString {
 	return func(s string) string {
@@ -242,15 +243,16 @@ argument and returns a <code>string</code>. Next is to define the <code>compose<
 }
 </code></pre>
 
-<p>The <code>compose</code> code is pretty straightforward just like the JavaScript
+<p>The <code>compose</code> code is pretty straight forward just like the JavaScript
 version. The only main difference is that the function has to comply with the
-given type, <code>fnString</code> in the example. So if we want to compose functions
+given type, <code>fnString</code> in the example above. So if we want to compose functions
 that work on other than strings, we might need to define the appropriate type and the appropriate <code>compose</code> function (as Go does not have generic type),
 in contrast to the JavaScript version that will work for all type
 &mdash;JavaScript is a dynamic programming language after all.</p>
 
-<p>How about the variadic version? Fortunately, Go supports variadic
-arguments so it is easier to port the code. However, Go does not
+<p>Then, how about the variadic version? Fortunately, Go supports variadic
+arguments so it is easier to port the JavaScript code into Go.
+However, Go does not
 provide direct translation of JavaScript&rsquo;s <code>Array.reduce</code> function, the
 only way to compose the functions is by iterating through the passed
 functions and compose them one into another.</p>
@@ -267,15 +269,16 @@ func compose(fns ...fnString) fnString {
 		res = fns[0]
 		for i := 1; i &lt; len(fns); i++ {
 			res = compose2(res, fns[i])
-			// fmt.Println(res(s))
 		}
 		return res(s)
 	}
 }
 </code></pre>
 
+<p>As seen in the code, the functions are iterated by using for</p>
+
 <p>The working example of the above function composition can be seen on
-<a href="http://play.golang.org/p/QW9ah7x3d3">http://play.golang.org/p/QW9ah7x3d3</a></p>
+<a href="http://play.golang.org/p/KUetm5b7zW">http://play.golang.org/p/KUetm5b7zW</a></p>
 
 <div class="sectionsign"
   style="
@@ -291,14 +294,14 @@ func compose(fns ...fnString) fnString {
 
 
 <p>Even though writing Go code in a more functional style is possible, however, Go is not a functional programming language. Hence, I&rsquo;m still not convinced
-that writing Go program in a functional manner entirely is a good approach (if that is even possible) but I might be wrong.</p>
+that writing Go program in a functional manner entirely is a good approach (if that is even possible), but I might be wrong.</p>
 
 
 					
 			    	<div class="social-sharing">
 	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2016%2f04%2f15%2ffunction-composition-in-go%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
 	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2016%2f04%2f15%2ffunction-composition-in-go%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
-	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2016%2f04%2f15%2ffunction-composition-in-go%2f&title=Function%20Composition%20in%20Go&summary=I%26rsquo%3bve%20been%20playing%20with%20functional%20JavaScript%20for%20a%20while%2c%20especially%20partial%20applications%20and%20function%20composition%2c%20and%20I%20find%20those%20concept%20are%20very%20helpful%20in%20my%20daily%20coding%20practices.%20At%20first%2c%20if%20you%20are%20short%20in%20mathematical%20logic%20systems%20%28just%20like%20me%29%2c%20making%20sense%20anything%20functional%20could%20be%20a%20bit%20out%20of%20hand.%20Fortunately%20there%20are%20a%20lot%20of%20reading%20materials%20that%20do%20a%20great%20job%20explaining%20the%20concept%20in%20an%20easy%20and%20pragmatic%20way.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2016%2f04%2f15%2ffunction-composition-in-go%2f&title=Function%20Composition%20in%20Go&summary=I%26rsquo%3bve%20been%20playing%20with%20functional%20JavaScript%20for%20a%20while%2c%20especially%20partial%20applications%20and%20function%20composition%2c%20and%20I%20find%20those%20concepts%20are%20very%20helpful%20in%20my%20daily%20coding%20practices.%20At%20first%2c%20if%20you%20are%20short%20in%20mathematical%20logic%20systems%20%28just%20like%20me%29%2c%20making%20sense%20anything%20functional%20could%20be%20a%20bit%20out%20of%20hand.%20Fortunately%20there%20are%20a%20lot%20of%20reading%20materials%20that%20do%20a%20great%20job%20explaining%20the%20concepts%20in%20an%20easy%20and%20pragmatic%20way.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
 	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Function%20Composition%20in%20Go&url=http%3a%2f%2fnauvalatmaja.com%2f2016%2f04%2f15%2ffunction-composition-in-go%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
 </div>
 			    
