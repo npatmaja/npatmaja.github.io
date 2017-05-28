@@ -6,8 +6,19 @@
     <description>Recent content in Development on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Apr 2016 07:40:17 +0700</lastBuildDate>
-    <atom:link href="http://nauvalatmaja.com/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 May 2017 09:18:16 +0700</lastBuildDate>
+    
+	<atom:link href="http://nauvalatmaja.com/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Going Vim</title>
+      <link>http://nauvalatmaja.com/2017/05/28/going-vim/</link>
+      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2017/05/28/going-vim/</guid>
+      <description>Vim or &amp;ldquo;Vi Improved&amp;rdquo; is a text editor that works in every terminal. Some people even consider Vim as the best text editor for programming. However, many people are also intimidated with its steep learning curve. Vim is a terminal-based text editor which means everything are operated through keyboard keys, there is no need to use the trackpad or mouse. This is actually what makes Vim powerful. One does not need to take their fingers off of the keyboard when writing in Vim.</description>
+    </item>
     
     <item>
       <title>Function Composition in Go</title>
@@ -15,112 +26,7 @@
       <pubDate>Fri, 15 Apr 2016 07:40:17 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/2016/04/15/function-composition-in-go/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been playing with functional JavaScript for a while, especially partial
-applications and function composition, and I find those concepts are very
-helpful in my daily coding practices. At first, if you are short in
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Mathematical_logic&#34;&gt;mathematical logic systems&lt;/a&gt; (just like me), making sense
-anything functional could be a bit out of hand. Fortunately there are a lot
-of reading materials that do a great job explaining the concepts in an easy and
-pragmatic way. You could &lt;a href=&#34;https://medium.com/search?q=functional%20javascript&#34;&gt;search those articles in medium&lt;/a&gt;
-and/or you would want to read this &lt;a href=&#34;https://leanpub.com/javascript-allonge/read&#34;&gt;book&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Go, by design is quite different from JavaScript. It is an attempt to combine
-the ease of programming of an interpreted, dynamically typed language (e.g., JavaScript) with the efficiency and safety of a statically typed,
-compiled language. It also aims to
-be modern, with support for networked and multicore computing
-(&lt;a href=&#34;https://golang.org/doc/faq#creating_a_new_language&#34;&gt;Go FAQ page&lt;/a&gt;, 2016). However, despite the differences, there are some similarities
-between JavaScript and Go, one of them is that they treat
-&lt;a href=&#34;https://en.wikipedia.org/wiki/First-class_function&#34;&gt;functions as first class object&lt;/a&gt;,
-which means function is an object that can be passed
-around as function&amp;rsquo;s arguments or can be returned from other functions,
-and yes, function is a type in Go.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type fnString func(string) string
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The effect of having first-class functions is that we can write Go in a more functional manner, just similar to JavaScript.
-In JavaScript we can easily write a &lt;code&gt;compose&lt;/code&gt; function (function to do
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Function_composition_%28computer_science%29&#34;&gt;function composition&lt;/a&gt;) as the following.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const compose = (a, b) =&amp;gt; (val) =&amp;gt; a(b(val));
-
-// variadic versions
-const compose = (...functions) =&amp;gt;
-  (value) =&amp;gt; functions.reverse().reduce((acc, fn) =&amp;gt; fn(acc), value);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In Go, as it is a typed language, and
-&lt;a href=&#34;https://golang.org/doc/faq#generics&#34;&gt;it does not support generic type&lt;/a&gt;
-per se, first we need to define a type of what the &lt;code&gt;compose&lt;/code&gt; function
-will work against.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type fnString func(string) string
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here, we define &lt;code&gt;fnString&lt;/code&gt; of function type that receives a &lt;code&gt;string&lt;/code&gt;
-argument and returns a &lt;code&gt;string&lt;/code&gt;. Next, is to define the &lt;code&gt;compose&lt;/code&gt;
-function itself.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func compose(a fnString, b fnString) fnString {
-	return func(s string) string {
-		return a(b(s))
-	}
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The &lt;code&gt;compose&lt;/code&gt; code is pretty straight forward just like the JavaScript
-version. The only main difference is that the function has to comply with the
-given type, &lt;code&gt;fnString&lt;/code&gt; in the example above. So if we want to compose functions
-that work on other than strings, we might need to define the appropriate type and the appropriate &lt;code&gt;compose&lt;/code&gt; function (as Go does not have generic type),
-in contrast to the JavaScript version that will work for all type
-&amp;mdash;JavaScript is a dynamic programming language after all.&lt;/p&gt;
-
-&lt;p&gt;Then, how about the variadic version? Fortunately, Go supports variadic
-arguments so it is easier to port the JavaScript code into Go.
-However, Go does not
-provide direct translation of JavaScript&amp;rsquo;s &lt;code&gt;Array.reduce&lt;/code&gt; function, the
-only way to compose the functions is by iterating through the passed
-functions and compose them one into another.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func compose2(a fnString, b fnString) fnString {
-	return func(s string) string {
-		return a(b(s))
-	}
-}
-
-func compose(fns ...fnString) fnString {
-	return func(s string) string {
-		var res fnString
-		res = fns[0]
-		for i := 1; i &amp;lt; len(fns); i++ {
-			res = compose2(res, fns[i])
-		}
-		return res(s)
-	}
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As seen in the code, the functions are iterated by using for&lt;/p&gt;
-
-&lt;p&gt;The working example of the above function composition can be seen on
-&lt;a href=&#34;http://play.golang.org/p/KUetm5b7zW&#34;&gt;http://play.golang.org/p/KUetm5b7zW&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&#34;sectionsign&#34;
-  style=&#34;
-    margin:0 auto;
-    margin-top: -1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    letter-spacing: 1em;
-    color: #333;
-  &#34;&gt;
-  &lt;span&gt;***&lt;/span&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;Even though writing Go code in a more functional style is possible, however, Go is not a functional programming language. Hence, I&amp;rsquo;m still not convinced
-that writing Go program in a functional manner entirely is a good approach (if that is even possible), but I might be wrong.&lt;/p&gt;
-</description>
+      <description>I&amp;rsquo;ve been playing with functional JavaScript for a while, especially partial applications and function composition, and I find those concepts are very helpful in my daily coding practices. At first, if you are short in mathematical logic systems (just like me), making sense anything functional could be a bit out of hand. Fortunately there are a lot of reading materials that do a great job explaining the concepts in an easy and pragmatic way.</description>
     </item>
     
     <item>
@@ -129,174 +35,8 @@ that writing Go program in a functional manner entirely is a good approach (if t
       <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
       
       <guid>http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/addyosmani/backbone-fundamentals&#34;&gt;Backbone fundamentals&lt;/a&gt;
-is a great &lt;em&gt;free&lt;/em&gt; resource to learn Backbone.js from scratch. The book was written by
-&lt;a href=&#34;http://addyosmani.com/&#34;&gt;Addy Osmany&lt;/a&gt; under &lt;a href=&#34;https://en.wikipedia.org/wiki/Creative_Commons_license&#34;&gt;creative-commons license&lt;/a&gt;.
-As its second exercise, the book guide the readers to create a simple library application
-that uses Node.js as the back-end. However, it left the part to upload book&amp;rsquo;s cover
-to the readers as an exercise. Hence, here is the way I did it.&lt;/p&gt;
-
-&lt;h1 id=&#34;requirement:924a8100561ff551d1d1e3f51a0c8593&#34;&gt;Requirement&lt;/h1&gt;
-
-&lt;p&gt;There are two additional requirements for the upload book&amp;rsquo;s cover features:
-- The selected cover should be previewed as thumbnail&lt;/p&gt;
-
-&lt;p&gt;This implies that there should be a space to show the selected
-  image. When users change the image, the preview should change
-  accordingly.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Upload process shall happen only when a new book is added&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The upload happens if and only if when users click the button
-  to add a new book. This signifies that the displaying the cover&amp;rsquo;s
-  preview should not upload to image file to the server.&lt;/p&gt;
-
-&lt;!-- Read more --&gt;
-
-&lt;h1 id=&#34;problems:924a8100561ff551d1d1e3f51a0c8593&#34;&gt;Problems&lt;/h1&gt;
-
-&lt;p&gt;After browsing for awhile, I found &lt;a href=&#34;http://markdawson.tumblr.com/post/18359176420/asynchronous-file-uploading-using-express-and&#34;&gt;a blog post to upload file asynchronously using Node.js and express&lt;/a&gt;, which was good
-as a starting point. However, similar to most of online references I had found,
-they were pretty much obsolete; most of them were using express &amp;lt;= 3.x that supported file upload
-by using &lt;code&gt;body-parse&lt;/code&gt; middleware (as mentioned in the blog post) where in express
-4.x the &lt;code&gt;body-parse&lt;/code&gt; middleware did not support file upload any longer.&lt;/p&gt;
-
-&lt;p&gt;Another problem was to address the requirement: previewing images without
-upload them to the server in the first place. This was tricky, as most of the
-solutions were to have the images uploaded first then fetch the images&amp;rsquo; URL
-to be previewed.&lt;/p&gt;
-
-&lt;h1 id=&#34;solution:924a8100561ff551d1d1e3f51a0c8593&#34;&gt;Solution&lt;/h1&gt;
-
-&lt;p&gt;I had to admit, the first problem is another RTFM problem. So when I read again
-&lt;a href=&#34;https://github.com/expressjs/body-parser&#34;&gt;&lt;code&gt;body-parser&lt;/code&gt;&amp;rsquo;s documentation&lt;/a&gt; it was
-written clearly that &lt;code&gt;body-parse&lt;/code&gt; did not handle multipart bodies (file uploads).
-Furthermore, it mentioned the alternatives modules to handle multipart bodies, and
-one of them is &lt;a href=&#34;https://www.npmjs.com/package/multer#readme&#34;&gt;multer&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Just like another express middleware, I needed to tell express to use multer and
-specified to which directory the files will be uploaded as shown in the following
-coffeescript code (yes, I wrote the back-end using coffeescript).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-coffeescript&#34;&gt;express = require &#39;express&#39;
-multer = require &#39;multer&#39;
-
-app = express()
-app.use multer( { dest: &amp;quot;#{__root}/public/img/covers/&amp;quot; } )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For the second problem, I found out that javascript provides a
-&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/API/FileReader&#34;&gt;&lt;code&gt;FileReader&lt;/code&gt; object whose capable of reading file from client&amp;rsquo;s machine&lt;/a&gt;,
-&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications#Example.3A_Showing_thumbnails_of_user-selected_images&#34;&gt;which could be used to load a selected image from a browser locally&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following code is a Backbone view to handle the feature to display the selected image.
-The main idea is to catch the &lt;code&gt;change&lt;/code&gt; event from an &lt;code&gt;&amp;lt;input type=&amp;quot;file&amp;quot;&amp;gt;&lt;/code&gt; and read the file
-and render it through the designated &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; element and later on to upload the file as well.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;app.ThumbnailView = Backbone.View.extend({
-  events: {
-    &#39;change #coverImageUpload&#39;: &#39;renderThumb&#39;,
-    &#39;submit #uploadCoverForm&#39;: &#39;upload&#39;
-  },
-
-  render: function () {
-    this.renderThumb();
-  },
-
-  renderThumb: function () {
-    var input = this.$(&#39;#coverImageUpload&#39;);
-    var img = this.$(&#39;#uploadedImage&#39;)[0];
-    if(input.val() !== &#39;&#39;) {
-      var selected_file = input[0].files[0];
-      var reader = new FileReader();
-      reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
-      reader.readAsDataURL(selected_file);
-    }
-  },
-
-  submit: function () {
-    this.$form = this.$(&#39;#uploadCoverForm&#39;);
-    this.$form.submit();
-  },
-
-  upload: function () {
-    var _this = this;
-    this.$form.ajaxSubmit({
-      error: function (xhr) {
-        _this.renderStatus(&#39;Error: &#39; + xhr.status);
-      },
-      success: function (response) {
-        _this.trigger(&#39;image-uploaded&#39;, response.path);
-        _this.clearField();
-      }
-    });
-    return false;
-  },
-
-  renderStatus: function (status) {
-     $(&#39;#status&#39;).text(status);
-  },
-
-  clearField: function () {
-    this.$(&#39;#uploadedImage&#39;)[0].src = &#39;&#39;;
-    this.$(&#39;#coverImageUpload&#39;).val(&#39;&#39;);
-  }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In details, when a user has selected a cover image, the &lt;code&gt;&#39;change #coverImageUpload&#39;: &#39;renderThumb&#39;&lt;/code&gt;
-event will be triggered. To add a bit context, &lt;code&gt;#coverImageUpload&lt;/code&gt; is the id of the &lt;code&gt;&amp;lt;input type=&amp;quot;file&amp;quot;&amp;gt;&lt;/code&gt;
-to upload a file and &lt;code&gt;renderThumb&lt;/code&gt; is the function will be executed as the event&amp;rsquo;s callback. In the
-function, whenever a user selected a picture, the view will get the selected file and read the file
-as data URL through &lt;code&gt;FileReader.readAsDataURL&lt;/code&gt; function. When the particular function is executed,
-it triggers &lt;code&gt;FileReader&lt;/code&gt;&amp;rsquo;s &lt;code&gt;onload&lt;/code&gt; event with the result of the data reading process as its callback&amp;rsquo;s
-parameter, which is used as the image source of the &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; element as shown in the listing above.&lt;/p&gt;
-
-&lt;p&gt;The uploading part was a bit tricky. I used Backbone View&amp;rsquo;s event to make sure
-that the newly added book has the right cover image. The way to do this is to
-make sure when a user clicks the &lt;strong&gt;add book button&lt;/strong&gt;, the cover image
-will be uploaded first and when the the upload success an event will be
-triggered with the server path of the uploaded image as the parameter. Then the path will
-be used as the value of &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; related to the book cover. The last step
-is to create the book object in the Backbone Collection, which will be
-sync&amp;rsquo;d to the Node.js back-end server. The following sequence diagram
-pictures the description above.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sequenceDiagram
-  User-&amp;gt;&amp;gt;LibraryView: click add book button
-  LibraryView-&amp;gt;&amp;gt;ThumbnailView: upload
-  ThumbnailView-&amp;gt;&amp;gt;ThumbnailView: trigger(&#39;uploaded&#39;, response.path)
-  opt uploaded event
-    LibraryView-&amp;gt;&amp;gt;LibraryView: updateInput
-    LibraryView-&amp;gt;&amp;gt;LibraryView: createData
-  end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To enable the event in the &lt;code&gt;LibraryView&lt;/code&gt;, the object needs to listen to
-to the &lt;code&gt;ThumbnailView&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;app.LibraryView = Backbone.View.extend({
-  ...
-
-  initialize: function (initialBooks) {
-    this.collection = new app.Library(initialBooks);
-
-    this.thumbnailView = new app.ThumbnailView();
-    this.bookListView = new app.BookListView( { collection: this.collection } );
-
-    this.listenTo(this.thumbnailView, &#39;image-uploaded&#39;, this.updateInput);
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And that&amp;rsquo;s all folks! I hope this tutorial could be a help for someone who looks for the solution
-for the exercise. Please see the &lt;a href=&#34;https://github.com/npatmaja/library&#34;&gt;project&amp;rsquo;s repository&lt;/a&gt;
-for the complete solution.&lt;/p&gt;
-</description>
+      <description>Backbone fundamentals is a great free resource to learn Backbone.js from scratch. The book was written by Addy Osmany under creative-commons license. As its second exercise, the book guide the readers to create a simple library application that uses Node.js as the back-end. However, it left the part to upload book&amp;rsquo;s cover to the readers as an exercise. Hence, here is the way I did it.
+Requirement There are two additional requirements for the upload book&amp;rsquo;s cover features: - The selected cover should be previewed as thumbnail</description>
     </item>
     
     <item>
@@ -305,43 +45,8 @@ for the complete solution.&lt;/p&gt;
       <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
       
       <guid>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</guid>
-      <description>&lt;p&gt;I am a noob in android development and one thing I am not
-comfortable with is the stock android device emulator.
-The default emulator is really slow, the boot-up process could
-take minutes in my machine (I won&amp;rsquo;t say my machine is fast either,
-but it is sufficient), the app deployment takes too much time,
-moreover, the interaction is sluggish. Hence, it is a no go.&lt;/p&gt;
-
-&lt;p&gt;Up to now, I used my own android phone to test my app. It is fast,
-quite responsive, but the downside is I need to connect my phone
-to my laptop when I work on the app. Not to mention when I can&amp;rsquo;t find
-my USB cable, disaster.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://nauvalatmaja.com/img/genymotion.png&#34; alt=&#34;Genymotion in action&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Fortunately, there is an alternative to android
-stock emulator called &lt;a href=&#34;https://www.genymotion.com&#34;&gt;Genymotion&lt;/a&gt;. It runs
-on top of &lt;a href=&#34;https://www.virtualbox.org&#34;&gt;VirtualBox&lt;/a&gt;, in other words, each android
-virtual device is an virtual machine in VirtualBox. To use Genymotion
-I have to register in the first place (the free account is sufficient for me)
-and then &lt;a href=&#34;https://www.genymotion.com/#!/developers/user-guide#installing-genymotion&#34;&gt;downloaded and installed the application&lt;/a&gt;.
-Following that, I created a virtual device of my liking
-in the Genymotion application.
-As I use Eclipse Android Development Tools, I then installed
-&lt;a href=&#34;http://marketplace.eclipse.org/content/genymotion-plugin-eclipse&#34;&gt;eclipse plugin for Genymotion&lt;/a&gt;. A plugin for
-Android Studio is also available in the Genymotion&amp;rsquo;s website. Restarted Eclipse and
-all was ready. A note, you need to install VirtualBox to use Genymotion,
-otherwise it will complain about can not starting virtualization or
-something.&lt;/p&gt;
-
-&lt;p&gt;At first I was skeptical about this emulator but it turn out to be the
-opposite. It runs flawlessly, it boots up very fast and very responsive, and at some
-point it is even faster than my phone. More importantly, it consumes considerably less
-CPU resources compared to the default emulator, impressive. In the conclusion, I recommend
-this emulator for android development over the stock emulator. If you need to access
-more features other than camera and GPS, you can always change to the subscribe
-version.&lt;/p&gt;
-</description>
+      <description>I am a noob in android development and one thing I am not comfortable with is the stock android device emulator. The default emulator is really slow, the boot-up process could take minutes in my machine (I won&amp;rsquo;t say my machine is fast either, but it is sufficient), the app deployment takes too much time, moreover, the interaction is sluggish. Hence, it is a no go.
+Up to now, I used my own android phone to test my app.</description>
     </item>
     
     <item>
@@ -350,167 +55,7 @@ version.&lt;/p&gt;
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</guid>
-      <description>&lt;p&gt;When learning backbone.js (i&amp;rsquo;m a novice by the way), at first, I was actually having a hard time
-to grasp the backbone view. Especially how the best practice to render
-the view and build a rather complex view consists of several subviews.
-And then, magically I came accross Ian Storm Taylor&amp;rsquo;s post about
-&lt;a href=&#34;http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/&#34;&gt;his experience on dealing with backbone subview&lt;/a&gt;.
-At first I didn&amp;rsquo;t quiet understand well about the post until I found
-&lt;a href=&#34;http://stackoverflow.com/questions/9337927/how-to-handle-initializing-and-rendering-subviews-in-backbone-js&#34;&gt;a thread on stackoverflow&lt;/a&gt;, which was started by &lt;a href=&#34;http://ianstormtaylor.com&#34;&gt;Ian Storm Taylor&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Based on the posts, I created a simple case study to better understand how it works.
-The requirements were to list pairs of username and email input by users.
-So at first I created the view as listed below:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;div id=&amp;quot;application&amp;quot;&amp;gt;
-  &amp;lt;p&amp;gt;Add a user to the user list&amp;lt;/p&amp;gt;
-  &amp;lt;div id=&amp;quot;login&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
-  &amp;lt;ul id=&amp;quot;online-users&amp;quot;&amp;gt;&amp;lt;/ul&amp;gt;
-&amp;lt;/div&amp;gt;
-&amp;lt;script id=&amp;quot;login-template&amp;quot; type=&amp;quot;text/template&amp;quot;&amp;gt;
-  &amp;lt;h1&amp;gt; login &amp;lt;/h1&amp;gt;
-  &amp;lt;input id=&amp;quot;username&amp;quot; type=&amp;quot;text&amp;quot; placeholder=&amp;quot;username&amp;quot; /&amp;gt;
-  &amp;lt;input id = &amp;quot;email&amp;quot; type = &amp;quot;text&amp;quot; placeholder = &amp;quot;email&amp;quot; /&amp;gt;
-  &amp;lt;button id = &amp;quot;button-login&amp;quot; type = &amp;quot;button&amp;quot;&amp;gt; Login &amp;lt;/button&amp;gt;
-&amp;lt;/script&amp;gt;
-&amp;lt;script id=&amp;quot;userlist-template&amp;quot; type=&amp;quot;text/template&amp;quot;&amp;gt;
-  &amp;lt;li&amp;gt;
-    &amp;lt;span&amp;gt;&amp;lt;%= username %&amp;gt; / &amp;lt;%= email %&amp;gt;&amp;lt;/span&amp;gt;
-    &amp;lt;button id = &amp;quot;force-logout&amp;quot;&amp;gt;force logout&amp;lt;/button&amp;gt;
-  &amp;lt;/li&amp;gt;
-&amp;lt;/script&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To better visualize, lets see this picture:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://nauvalatmaja.com/img/backbone-view-schema.png&#34; alt=&#34;Application view&#34; /&gt;&lt;/p&gt;
-
-&lt;!-- Read more --&gt;
-
-&lt;p&gt;The outer container is &lt;code&gt;#application&lt;/code&gt; and inside it there are
-two other sub-containers &lt;code&gt;#login&lt;/code&gt; and &lt;code&gt;#online-users&lt;/code&gt;. Each container
-or sub-container is represented in a separated view: &lt;code&gt;AppView&lt;/code&gt;, &lt;code&gt;LoginView&lt;/code&gt;
-and &lt;code&gt;UserListView&lt;/code&gt; respectively. To make it
-nicely structured, the &lt;code&gt;UserListView&lt;/code&gt; has a sub-view
-called &lt;code&gt;UserView&lt;/code&gt; that renders each pair of username and email
-handles of the button clicked event.
-there is an exception for the last view where the view is
-created for each username-password pair then appended in
-the container &lt;code&gt;#online-users&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Now let&amp;rsquo;s get to the code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;app.AppView = Backbone.View.extend({
-  el: &#39;#application&#39;,
-
-  initialize: function () {
-    this.users = new app.UserList();
-
-    this.loginView = new app.LoginView();
-    this.userListView = new app.UserListView( { collection: this.users } );
-
-    this.listenTo(this.loginView, &#39;login&#39;, this.login);
-  },
-
-  render: function () {
-    this.loginView.setElement(this.$(&#39;#login&#39;)).render();
-    this.userListView.setElement(this.$(&#39;#online-users&#39;)).render();
-  },
-
-  /* ... */
-
-  login: function (user) {
-    this.users.create( user );
-  }
-});
-
-app.LoginView = Backbone.View.extend({
-  template: _.template($(&#39;#login-template&#39;).html()),
-
-  events: {
-    &#39;click #button-login&#39;: &#39;login&#39;
-  },
-
-  render: function () {
-      this.$el.html(this.template());
-  },
-
-  login: function () {
-    // login logic
-  },
-
-  /* ... */
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here, the most important thing to connect Backbone view to
-the html is the &lt;code&gt;el&lt;/code&gt; (element) property. The &lt;code&gt;el&lt;/code&gt; property defines to
-which element the view template will be rendered, or at least in this case
-study. In the &lt;code&gt;AppView&lt;/code&gt; the &lt;code&gt;el&lt;/code&gt; is set to &lt;code&gt;#application&lt;/code&gt;
-as the root container of the application. However, for its
-sub-views, the &lt;code&gt;el&lt;/code&gt; property is not defined in the view
-definition but set dynamically using &lt;code&gt;setElement&lt;/code&gt; method.
-As Ian suggested, this is done to avoid the unbinding of
-sub-views&amp;rsquo; events when rendered more than a time.&lt;/p&gt;
-
-&lt;p&gt;The instantiation
-of sub-views depends on how the sub-views are rendered.
-&lt;code&gt;LoginView&lt;/code&gt; and &lt;code&gt;UserListView&lt;/code&gt; are instantiated in
-the &lt;code&gt;initialize&lt;/code&gt; method as the application only need
-an instance for each of them. In contrast, &lt;code&gt;UserView&lt;/code&gt;
-is instantiated for each user (model) as it needs to
-associate the button click event inside the view with
-the contained model.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;app.UserListView = Backbone.View.extend({
-  initialize: function () {
-    this.listenTo(this.collection, &#39;add&#39;, this.renderOne);
-    this.listenTo(this.collection, &#39;reset&#39;, this.renderAll);
-  },
-
-  render: function () {
-    this.renderAll();
-  },
-
-  renderOne: function (user) {
-    var view = new app.UserView( { model: user } );
-    this.$el.append(view.render().el);
-  },
-
-  renderAll: function () {
-    this.collection.each(this.renderOne);
-  }
-});
-
-app.UserView = Backbone.View.extend({
-  template: _.template($(&#39;#userlist-template&#39;).html()),
-  tagName: &#39;li&#39;,
-  events: {
-      &#39;click #force-logout&#39;: &#39;clear&#39;
-  },
-
-  initialize: function () {
-    this.listenTo(this.model, &#39;destroy&#39;, this.remove);
-  },
-
-  render: function () {
-      this.$el.html( this.template( this.model.attributes ) );
-      return this;
-  },
-
-  clear: function () {
-      this.model.destroy();
-  }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To make the code structured nicely, I used the &lt;code&gt;html()&lt;/code&gt; and
-&lt;code&gt;append()&lt;/code&gt; method of Backbone view&amp;rsquo;s &lt;code&gt;$el&lt;/code&gt; property. Some people
-might use jquery&amp;rsquo;s selector &lt;code&gt;$(&#39;.element&#39;)&lt;/code&gt; to render the html,
-which I think it isn&amp;rsquo;t clean enough. Lastly, I&amp;rsquo;ve made a &lt;a href=&#34;http://jsfiddle.net/npatmaja/csL45j3s/&#34;&gt;fiddle&lt;/a&gt;
-about this post where you can play around. Hope this post
-helps someone to understand more about backbone view.&lt;/p&gt;
-</description>
+      <description>When learning backbone.js (i&amp;rsquo;m a novice by the way), at first, I was actually having a hard time to grasp the backbone view. Especially how the best practice to render the view and build a rather complex view consists of several subviews. And then, magically I came accross Ian Storm Taylor&amp;rsquo;s post about his experience on dealing with backbone subview. At first I didn&amp;rsquo;t quiet understand well about the post until I found a thread on stackoverflow, which was started by Ian Storm Taylor.</description>
     </item>
     
   </channel>

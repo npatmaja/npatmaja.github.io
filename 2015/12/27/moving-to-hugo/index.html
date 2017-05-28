@@ -14,7 +14,7 @@
 <meta name="description" content="Hugo is a static site generator created by Steve Francia using Golang. It is very fast, customizable and has a comprehensive documentation">
 <meta name="keywords" content="golang,hugo,docpad,static site content generator,web,development,">
 <meta name="author" content="">
-<meta name="generator" content="Hugo 0.15" />
+<meta name="generator" content="Hugo 0.21" />
 
   <meta property="og:title" content="Moving to Hugo" />
 <meta property="og:description" content="Hugo is a static site generator created by Steve Francia using Golang. It is very fast, customizable and has a comprehensive documentation" />
@@ -42,7 +42,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  <link href="" rel="alternate" type="application/rss+xml" title="nauval atmaja" />
+  
 
     
   
@@ -150,14 +150,14 @@
 					<small class="toc-label">Contents</small>
 			   	 	<nav id="TableOfContents">
 <ul>
-<li><a href="#setup-the-site:c708f69283c7d428e0643535a16e1df4">Setup the site</a>
+<li><a href="#setup-the-site">Setup the site</a>
 <ul>
-<li><a href="#install-hugo-and-get-it-running:c708f69283c7d428e0643535a16e1df4">Install Hugo and get it running</a></li>
-<li><a href="#pick-your-theme-and-make-it-yours:c708f69283c7d428e0643535a16e1df4">Pick your theme and make it yours</a></li>
-<li><a href="#migration:c708f69283c7d428e0643535a16e1df4">Migration</a></li>
+<li><a href="#install-hugo-and-get-it-running">Install Hugo and get it running</a></li>
+<li><a href="#pick-your-theme-and-make-it-yours">Pick your theme and make it yours</a></li>
+<li><a href="#migration">Migration</a></li>
 </ul></li>
-<li><a href="#hosting-on-github:c708f69283c7d428e0643535a16e1df4">Hosting on GitHub</a></li>
-<li><a href="#automation:c708f69283c7d428e0643535a16e1df4">Automation</a></li>
+<li><a href="#hosting-on-github">Hosting on GitHub</a></li>
+<li><a href="#automation">Automation</a></li>
 </ul>
 </nav>
 			    </div>
@@ -234,9 +234,9 @@ my blog, that was 500 time faster, awesome!</p>
 <p>So, if you have the same problem as mine or just want to try new
 things, here&rsquo;s my <strong>Hugo How To</strong>.</p>
 
-<h1 id="setup-the-site:c708f69283c7d428e0643535a16e1df4">Setup the site</h1>
+<h1 id="setup-the-site">Setup the site</h1>
 
-<h2 id="install-hugo-and-get-it-running:c708f69283c7d428e0643535a16e1df4">Install Hugo and get it running</h2>
+<h2 id="install-hugo-and-get-it-running">Install Hugo and get it running</h2>
 
 <p>Hugo <a href="https://gohugo.io/overview/installing/">is easy to install</a>, you can download its
 binary or install it via <a href="http://brew.sh/">Homebrew</a> like I did
@@ -255,7 +255,7 @@ data, site layouts, static files and themes that we want to use.
 The <a href="https://gohugo.io/overview/source-directory/">Source Organization</a>
 section elaborates on the directory structure deeper.</p>
 
-<h2 id="pick-your-theme-and-make-it-yours:c708f69283c7d428e0643535a16e1df4">Pick your theme and make it yours</h2>
+<h2 id="pick-your-theme-and-make-it-yours">Pick your theme and make it yours</h2>
 
 <p>Hugo comes up with quite a lot <a href="http://themes.gohugo.io/">ready to use themes</a>.
 You can try all the themes by simply <a href="https://github.com/spf13/hugoThemes">clone all the themes</a>
@@ -289,7 +289,7 @@ the resulting CSS is put in the <code>static</code> directory to be used.
 Another way is to clone <a href="https://github.com/spf13/spf13.com">Steve Francia&rsquo;s website</a>, which looks
 really awesome and start to customize it as you see fit.</p>
 
-<h2 id="migration:c708f69283c7d428e0643535a16e1df4">Migration</h2>
+<h2 id="migration">Migration</h2>
 
 <p>Migrating from Docpad to Hugo should be easy assuming the posts
 are written in markdown format. In my case, I just needed to copy all posts into <code>content/post</code>. Copying the markdowns alone should be
@@ -298,7 +298,7 @@ change the posts&rsquo; <a href="https://gohugo.io/content/front-matter">front m
 to adhere Hugo&rsquo;s format. Next is to migrate all the static files
 to directory <code>static</code>.</p>
 
-<h1 id="hosting-on-github:c708f69283c7d428e0643535a16e1df4">Hosting on GitHub</h1>
+<h1 id="hosting-on-github">Hosting on GitHub</h1>
 
 <p>There are several ways to deploy generated site to GitHub-Pages.
 Using <code>git subtree</code> is one of them like shown in
@@ -361,7 +361,7 @@ popd &gt; /dev/null
 rm -rf tmp
 </code></pre>
 
-<h1 id="automation:c708f69283c7d428e0643535a16e1df4">Automation</h1>
+<h1 id="automation">Automation</h1>
 
 <p>What I did next is to automate repetitive tasks such as deployment steps above, which is quite lengthy and prone to errors.
 For this project
@@ -482,7 +482,7 @@ we&rsquo;ll see.</p>
 	<p>
 		
 		
-			&copy; 2014-2016 Nauval Atmaja.
+			&copy; 2014-2017 Nauval Atmaja.
 			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
 			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
 			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.

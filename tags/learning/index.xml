@@ -7,7 +7,9 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Jan 2016 20:20:12 +0700</lastBuildDate>
-    <atom:link href="http://nauvalatmaja.com/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://nauvalatmaja.com/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>On Learning to Code</title>
@@ -15,78 +17,7 @@
       <pubDate>Sun, 17 Jan 2016 20:20:12 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/2016/01/17/on-learning-to-code/</guid>
-      <description>
-
-&lt;p&gt;My friend at office asked me recently &amp;ldquo;Can I learn to code by myself?&amp;rdquo;. You may have probably encountered
-&lt;a href=&#34;https://medium.com/search?q=learn%20to%20code&#34;&gt;one or two posts that talk about it elsewhere&lt;/a&gt;. And they point to the
-same answer as mine: &amp;ldquo;yes you can&amp;rdquo;. As a background, I receive a formal education in Information System (which had less computer
-science-related courses than computer science or informatics major) and it&amp;rsquo;s
-past a decade when I wrote my first &lt;em&gt;Hello World!&lt;/em&gt; program during my first
-semester at university.&lt;/p&gt;
-
-&lt;p&gt;I have done programming over a decade now. Compared to a decade earlier, now
-is relatively easier for someone to learn to code. A lot of &lt;a href=&#34;https://www.udemy.com/&#34;&gt;web apps&lt;/a&gt;
-&lt;a href=&#34;https://www.codecademy.com/&#34;&gt;built for&lt;/a&gt; &lt;a href=&#34;https://www.codeschool.com/&#34;&gt;this sole purpose&lt;/a&gt; available for either
-free or paid by subscription. Moreover, a zillion of tutorials, discussion board and online classes are available
-over the internet. However, even with aforementioned resources, learning to
-code is still a formidable undertaking. Some will survive and not few won&amp;rsquo;t.&lt;/p&gt;
-
-&lt;p&gt;Though I code for living and done many years programming I find myself still
-learning to program and to have better craftmanship on programming. I&amp;rsquo;ve been
-through the phase from zero to able to write small-course-assignmet programs
-to write bit more complex piece of software, and here&amp;rsquo;s some of my thoughts on learning to code based on those experience.&lt;/p&gt;
-
-&lt;h1 id=&#34;perseverance-is-a-must:832af4bab778639ada7945e8314a1044&#34;&gt;Perseverance is a must&lt;/h1&gt;
-
-&lt;p&gt;Learning to code can be fun at the beginning. Solving small problems keeps us
-going. However, when we getting closer to real world problems, we might
-stumble upon problems that are really hard to solve. We spend hours or even
-days to work on it but to no avail. This is where perseverance play its part
-&amp;mdash; to keep trying until the problem is solved.&lt;/p&gt;
-
-&lt;h1 id=&#34;google-is-your-best-companion:832af4bab778639ada7945e8314a1044&#34;&gt;Google is your best companion&lt;/h1&gt;
-
-&lt;p&gt;Well, it&amp;rsquo;s not necessarily Google, any search engine will do. In fact, I use
-&lt;a href=&#34;https://duckduckgo.com/&#34;&gt;duckduckgo&lt;/a&gt; most of the time. Believe me, we are not
-the only one who have the unsolved problems. A lot of programmers are struggling with the same problems as well and most of the case they have already have the answers. Hence a skill to search on a search engine is a
-necessity when programming.&lt;/p&gt;
-
-&lt;h1 id=&#34;focus-don-t-get-distracted:832af4bab778639ada7945e8314a1044&#34;&gt;Focus, don&amp;rsquo;t get distracted&lt;/h1&gt;
-
-&lt;p&gt;To be honest, this one is rather hard for me, to focus on completing
-one thing at a time. Programming could easily overwhelm someone as there
-are a lot of information need to digest. Therefore, it is best to have a
-plan when we learn programming of any new programming languages. Learn the
-basic first, don&amp;rsquo;t be tempted to learn advance stuff at the beginning.&lt;/p&gt;
-
-&lt;h1 id=&#34;get-the-fundamentals:832af4bab778639ada7945e8314a1044&#34;&gt;Get the fundamentals&lt;/h1&gt;
-
-&lt;p&gt;Some may said it is not really important, but the right data structure and algorithm can optimize a program by lot compared to not using any. Knowing fundamentals in computer science can be a clear separation between a bad programmer with a good one.&lt;/p&gt;
-
-&lt;h1 id=&#34;familiarize-with-well-written-projects:832af4bab778639ada7945e8314a1044&#34;&gt;Familiarize with well-written projects&lt;/h1&gt;
-
-&lt;p&gt;Reading and examining well-written open source projects help a lot to benchmark ourself with the best practice out there. We can learn how to properly structure our project, how to make proper comments,
-and how to modularize the code. After a while we will find that our code written so far is just a pile of garbage compared to the project. However,
-it is a necessary part of learning; we have to know our mistakes to make
-improvements.&lt;/p&gt;
-
-&lt;div class=&#34;sectionsign&#34;
-  style=&#34;
-    margin:0 auto;
-    margin-top: -1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    letter-spacing: 1em;
-    color: #333;
-  &#34;&gt;
-  &lt;span&gt;***&lt;/span&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;In the end, I believe everyone can code but to be a better programmer requires
-one step beyond that, with considerable amount of efforts. Me myself is still
-in the middle of voyage to go there.&lt;/p&gt;
-</description>
+      <description>My friend at office asked me recently &amp;ldquo;Can I learn to code by myself?&amp;rdquo;. You may have probably encountered one or two posts that talk about it elsewhere. And they point to the same answer as mine: &amp;ldquo;yes you can&amp;rdquo;. As a background, I receive a formal education in Information System (which had less computer science-related courses than computer science or informatics major) and it&amp;rsquo;s past a decade when I wrote my first Hello World!</description>
     </item>
     
   </channel>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Going Vim // nauval atmaja
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="A reflection after using Vim as the main code editor for more than a half of year">
+<meta name="keywords" content="vim,programming,IDE,code editor,editor,">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.21" />
+
+  <meta property="og:title" content="Going Vim" />
+<meta property="og:description" content="A reflection after using Vim as the main code editor for more than a half of year" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://nauvalatmaja.com/2017/05/28/going-vim/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://nauvalatmaja.com//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/tomorrow-night-bright.min.css">
+  
+
+
+  
+
+  
+
+  <link rel="stylesheet" href="http://nauvalatmaja.com/css/custom.css">
+
+
+  <script>
+    if (window.location.hostname != "localhost") {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', "UA-58073141-1", 'auto');
+      ga('send', 'pageview');
+    }
+  </script>
+
+
+</head>
+
+<body>
+	
+		<div id="nav-to-top">
+			<a href="#top">
+				<i class="fa fa-angle-double-up"> </i>
+				To Top
+			</a>
+		</div>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    
+
+    
+        <h1 class="brand-title">
+          <a class="title" href="http://nauvalatmaja.com/">
+          <span class="nav-item-separator">//</span>nauval atmaja
+        </a>
+        </h1>
+    
+    
+      <h2 class="brand-tagline">Thoughts on software, product, technology, and anything related</h2>
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/post/">archives</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/categories/">categories</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/series/">series</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="http://www.github.com/npatmaja" target="_blank"><i class='fa fa-github fa-2x'></i></a>
+        
+      
+        
+        <a href="https://id.linkedin.com/in/nauvalatmaja/" target="_blank"><i class='fa fa-linkedin-square fa-2x'></i></a>
+        
+      
+        
+        <a href="http://www.twitter.com/novalpas" target="_blank"><i class='fa fa-twitter fa-2x'></i></a>
+        
+      
+        
+        <a href="https://noval78.wordpress.com/" target="_blank"><i class='fa fa-wordpress fa-2x'></i></a>
+        
+      
+
+    </div>
+    
+  </div>
+</div>
+
+
+		
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+			<a name="top"></a>
+			
+
+			
+				
+			    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+					<small class="toc-label">Contents</small>
+			   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#plugins">Plugins</a></li>
+<li><a href="#enter-tmux">Enter tmux</a></li>
+</ul></li>
+</ul>
+</nav>
+			    </div>
+		    
+	    
+			<div class="wrapper">
+				<section class="post">
+					<header class="post-header">
+						<h1 class="post-title">
+							
+				      Going Vim
+						</h1>
+						<h3 class="post-subtitle">
+		        	
+		        </h3>
+					</header>
+	        
+	        	<span class="post-date">
+							<span class="post-date-day"><span class="post-date-month">May 28, 2017</span> </span>
+	        	</span>
+	        
+
+	        
+	        	
+	        
+
+					
+					
+						<div class="post-categories">
+						
+							<a class="post-category post-category-development" href="http://nauvalatmaja.com//categories/development">Development</a>
+						
+							<a class="post-category post-category-programming" href="http://nauvalatmaja.com//categories/programming">Programming</a>
+						
+							<a class="post-category post-category-productivity" href="http://nauvalatmaja.com//categories/productivity">Productivity</a>
+						
+						</div>
+					
+
+					
+			    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2017%2f05%2f28%2fgoing-vim%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2017%2f05%2f28%2fgoing-vim%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2017%2f05%2f28%2fgoing-vim%2f&title=Going%20Vim&summary=Vim%20or%20%26ldquo%3bVi%20Improved%26rdquo%3b%20is%20a%20text%20editor%20that%20works%20in%20every%20terminal.%20Some%20people%20even%20consider%20Vim%20as%20the%20best%20text%20editor%20for%20programming.%20However%2c%20many%20people%20are%20also%20intimidated%20with%20its%20steep%20learning%20curve.%20Vim%20is%20a%20terminal-based%20text%20editor%20which%20means%20everything%20are%20operated%20through%20keyboard%20keys%2c%20there%20is%20no%20need%20to%20use%20the%20trackpad%20or%20mouse.%20This%20is%20actually%20what%20makes%20Vim%20powerful.%20One%20does%20not%20need%20to%20take%20their%20fingers%20off%20of%20the%20keyboard%20when%20writing%20in%20Vim.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Going%20Vim&url=http%3a%2f%2fnauvalatmaja.com%2f2017%2f05%2f28%2fgoing-vim%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+			    
+
+					
+
+	  			
+
+<p><a href="http://www.vim.org/6k/features.en.txt">Vim or &ldquo;Vi Improved&rdquo; is a text editor that works in every terminal</a>. Some people even
+consider Vim as <a href="https://www.diffur.com/programming/what-is-the-best-text-editor-for-programming">the best text editor for programming</a>. However, many people are
+also intimidated with its steep learning curve.
+Vim is a terminal-based text editor which means everything are operated through keyboard keys,
+there is no need to use the trackpad or mouse. This is actually what makes
+Vim powerful. One does not need to take their fingers off of the keyboard when writing
+in Vim. Yet, this is what exactly the pain when learning to use Vim, the notion of doing everything
+solely by using combination of keyboard keys is intimidating at best and frustrating at worst.</p>
+
+<p>I&rsquo;ve been using Vim on and off since several years ago for light text editing, e.g., writing
+commit messages. Once, I tried to use it as my main text editor for programming after seeing
+a colleague of mine who wrote (mostly) anything using Vim. But, I got frustrated due to the steep learning
+curve. My productivity plummeted dramatically as I had to search for commands that I wanted to
+perform, even for navigating up and down through the document was frustrating at that time.
+Despite all of that, I became hooked with Vim&rsquo;s key binding to move cursor (<code>h, j, k, l</code>) instead
+of using arrow keys thanks to <a href="http://learnvimscriptthehardway.stevelosh.com/chapters/00.html">the Learning Vimscript the Hard Way series</a> (though I never completed the series)
+. Fortunately there&rsquo;s a Vim plugin for Atom and Sublime Text to emulate Vim&rsquo;s key binding inside each editor.</p>
+
+<p>I was a happy Atom user until October last year when I got a new laptop from my workplace. Syncing
+Atom was quite cumbersome task to perform even though there&rsquo;s a <a href="https://atom.io/packages/sync-settings">plugin to help the process</a>.
+Another fact was that Atom was quite heavy for the new laptop which run Ubuntu, to add to that,
+updating Atom in Ubuntu is not as seamless as in OSX, i.e., need to reinstall the package. Then,
+I remembered that I am a part-time Vim user, so I thought it was the right time to be a full-time
+Vim user.</p>
+
+<p>After more than six months using Vim exclusively, I personally think it was the right decision.
+Setting (syncing) up Vim is considerably painless with an <a href="https://github.com/npatmaja/dotfiles">online <code>.vimrc</code></a>. After being synced,
+I will have the same plugins, same custom key bindings, same shortcuts and same look and feel to
+the Vim I have been using in the other machine. And since I&rsquo;ve been using Vim&rsquo;s key bindings for
+quite sometime (in Atom), switching fully to Vim was not a problem not before.</p>
+
+<h2 id="plugins">Plugins</h2>
+
+<p>Here&rsquo;s some essential plugins that I&rsquo;ve been using in daily basis:</p>
+
+<ul>
+<li><a href="https://github.com/junegunn/vim-plug">vim-plug</a>, a minimalist plugin manager for Vim</li>
+<li><a href="https://github.com/Shougo/neocomplete.vim">neocomplete</a>, keywords completion system for Vim</li>
+<li><a href="https://github.com/vim-airline/vim-airline">vim-airline</a>, lean and mean status/tabline for Vim</li>
+<li><a href="https://github.com/airblade/vim-gitgutter">vim-gitgutter</a>, show a git diff it the gutter</li>
+<li><a href="https://github.com/tpope/vim-surround">vim-surround</a>, quoting/parenthesizing made simple</li>
+<li><a href="https://github.com/cohama/lexima.vim">lexima</a>, autoclose parentheses</li>
+<li><a href="https://github.com/vim-syntastic/syntastic">syntastic</a>, syntax checker for Vim</li>
+<li><a href="https://github.com/pangloss/vim-javascript">vim-javascript</a>, JavaScript bundle for Vim</li>
+</ul>
+
+<p>Through these months, I also find some plugins that are great but not really suite my use cases:</p>
+
+<ul>
+<li><a href="https://github.com/scrooloose/nerdtree">nerd-tree</a>, a plugin to explore filesystem just like other
+IDEs do. This plugin is awesome, but it slowed down Vim in my laptop. So I ended up using the native
+<code>netrw</code> module as mentioned in this <a href="http://vimcasts.org/episodes/the-file-explorer/">vimcasts episode</a></li>
+<li><a href="https://github.com/ternjs/tern_for_vim">tern_for_vim</a>, a Vim plugin that provides
+<a href="http://ternjs.net/">Tern</a>-based JavaScript editing support. Tern provides an intellisense for JavaScript editor
+including autocompletion on variables and properties, function argument hints, finding definition, etc.
+It sounds promising, right. However, my experience was that the plugin also slowed down Vim in my
+machine (or maybe I did not configure it correctly).</li>
+</ul>
+
+<h2 id="enter-tmux">Enter tmux</h2>
+
+<p><a href="https://tmux.github.io/"><code>tmux</code></a> is a terminal multiplexer which allows user switch easily between several programs in one
+terminal. <code>tmux</code> comes to light when I was searching for alternatives of iTerm in linux that support
+split screen. <code>tmux</code> provides the functionality that works in any kind of terminals both in Linux and OSX.
+Ultimately, one of its most awesome feature is its ability to attach and detach session. I do not need
+to be frustrated when I accidentally close my terminal tab or window as I can attach a new terminal
+to the closed <code>tmux</code> session. <code>tmux</code> comes with a manageable learning curve compared to Vim&rsquo;s.
+<a href="https://robots.thoughtbot.com/a-tmux-crash-course">Thoughtbot&rsquo;s tmux crash course</a> is a good resource to learn more about <code>tmux</code>.</p>
+
+<div class="sectionsign"
+  style="
+    margin:0 auto;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    letter-spacing: 1em;
+    color: #333;
+  ">
+  <span>***</span>
+</div>
+
+
+<p>Even though Vim has a steep learning curve, the productivity gained pays it off. One thing I could
+recommend for new Vim users is to first use Vim binding plugin in your current editor. After feeling
+comfortable, you can try to switch full-time to Vim. Or, if you brave enough, then jump directly into
+Vim ocean might be the shortest way to master it. One thing for sure, the journey is just starting.</p>
+
+
+					
+			    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2017%2f05%2f28%2fgoing-vim%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2017%2f05%2f28%2fgoing-vim%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2017%2f05%2f28%2fgoing-vim%2f&title=Going%20Vim&summary=Vim%20or%20%26ldquo%3bVi%20Improved%26rdquo%3b%20is%20a%20text%20editor%20that%20works%20in%20every%20terminal.%20Some%20people%20even%20consider%20Vim%20as%20the%20best%20text%20editor%20for%20programming.%20However%2c%20many%20people%20are%20also%20intimidated%20with%20its%20steep%20learning%20curve.%20Vim%20is%20a%20terminal-based%20text%20editor%20which%20means%20everything%20are%20operated%20through%20keyboard%20keys%2c%20there%20is%20no%20need%20to%20use%20the%20trackpad%20or%20mouse.%20This%20is%20actually%20what%20makes%20Vim%20powerful.%20One%20does%20not%20need%20to%20take%20their%20fingers%20off%20of%20the%20keyboard%20when%20writing%20in%20Vim.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Going%20Vim&url=http%3a%2f%2fnauvalatmaja.com%2f2017%2f05%2f28%2fgoing-vim%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+			    
+
+					
+						<div class="post-tags">
+							<i class="fa fa-tags fa-1"></i>
+							
+								<a class="post-tag post-tag-programming" href="/tags/programming">programming</a>
+							
+								<a class="post-tag post-tag-vim" href="/tags/vim">vim</a>
+							
+								<a class="post-tag post-tag-editor" href="/tags/editor">editor</a>
+							
+								<a class="post-tag post-tag-code" href="/tags/code">code</a>
+							
+						</div>
+					
+					
+
+
+					
+  <div class="paging">
+    <span class="paging-label">More Reading</span>
+    <div class="clear"></div>
+    
+      <div class="paging-older">
+        <a class="paging-link" href="/2016/04/15/function-composition-in-go/">
+          <i class="fa hta-left-white-arrow"></i> Function Composition in Go
+        </a>
+      </div>
+    
+
+    
+  </div>
+
+
+					<div class="clear">
+
+					</div>
+					
+		      	<aside id=comments>
+    <div><h4> Comments </h4></div>
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'nauvalatmaja';
+    var disqus_identifier = 'http:\/\/nauvalatmaja.com\/2017\/05\/28\/going-vim\/';
+    var disqus_title = 'Going Vim';
+    var disqus_url = 'http:\/\/nauvalatmaja.com\/2017\/05\/28\/going-vim\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+
+		      
+	    	</section>
+				
+  <section class="aboutme">
+    
+      <img src="/img/avatar.png">
+    
+    <p>Hello, my name is Nauval. I like building/crafting things. I code for living. I blog in my spare time.</p> <p>Have a look around and don't hesitate to <a href="mailto:nauval.atmaja@gmail.com">contact me</a> with any comments, suggestions or even to just say Hi!</p>
+  </section>
+
+
+	      <section class="footer">
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+	<p>
+		
+		
+			&copy; 2014-2017 Nauval Atmaja.
+			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
+			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
+			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.
+		</p>
+</section>
+
+			</div>
+    </div>
+  </div>
+	
+		<script type="text/javascript">
+			onscroll = function() {
+			  var toTopVisible = false;
+			  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			  if (scrollTop > 1000) {
+			    if (!toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'block';
+			    }
+			  } else {
+			    if (scrollTop < 1000 || toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'none';
+			    }
+			  }
+			};
+		</script>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

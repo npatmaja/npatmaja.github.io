@@ -7,7 +7,9 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 13 Jan 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://nauvalatmaja.com/tags/docpad-plugin-marked/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://nauvalatmaja.com/tags/docpad-plugin-marked/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Rendering Mermaid in Docpad</title>
@@ -15,140 +17,8 @@
       <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
       
       <guid>http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/</guid>
-      <description>
-
-&lt;p&gt;I stumbled across &lt;a href=&#34;http://knsv.github.io/mermaid/&#34;&gt;Mermaid&lt;/a&gt; when I saw
-&lt;a href=&#34;https://twitter.com/nikmd23/status/553224624130228225&#34;&gt;@ronaldwidha retweeted a tweet about it&lt;/a&gt;.
-Mermaid is a library for &lt;em&gt;writing&lt;/em&gt; diagrams instead of draw
-them similar to &lt;a href=&#34;https://github.com/chjj/marked&#34;&gt;Marked&lt;/a&gt;
-to markdown, awesome! So, I thought I could use this in my blog just in case I
-need to draw some flowcharts or sequence diagrams in the future.&lt;/p&gt;
-
-&lt;p&gt;DocPad uses Marked to render markdown to html via
-&lt;a href=&#34;https://github.com/docpad/docpad-plugin-marked&#34;&gt;docpad-plugin-marked&lt;/a&gt;
-but natively, it doesn&amp;rsquo;t support
-Mermaid syntax. Fortunately, Marked provide
-&lt;a href=&#34;https://github.com/chjj/marked#overriding-renderer-methods&#34;&gt;a way to override its renderer&lt;/a&gt;,
-however, it is not yet supported in the current release of the docpad-plugin-marked,
-and &lt;a href=&#34;https://github.com/docpad/docpad-plugin-marked/issues/11&#34;&gt;someone created a ticket on this issue&lt;/a&gt;.
-So based on the
-explanation there, I forked the plugin and started to hack it down.
-To add the functionality itself was not that hard but to define a proper test
-for the plugin was tougher than it looks, at least at first as I didn&amp;rsquo;t quite
-understand how DocPad&amp;rsquo;s plugin tester works. Thanks to &lt;a href=&#34;http://www.delarre.net/posts/unit-testing-docpad-plugins/&#34;&gt;this awesome post&lt;/a&gt;,
-I could finally write and pass the test. The working version of my fork
-can be found &lt;a href=&#34;https://github.com/npatmaja/docpad-plugin-marked&#34;&gt;at my GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;!-- Read more --&gt;
-
-&lt;p&gt;To use the forked plugin, change the dependency definition in &lt;code&gt;package.json&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;docpad-plugin-marked&amp;quot;: &amp;quot;git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Next is to redefine the &lt;code&gt;code&lt;/code&gt; renderer by putting the definition in the &lt;code&gt;docpad.coffee&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;plugins:
-  marked:
-    markedRenderer:
-      code: (code, lang) -&amp;gt;
-        escape = (html, encode) -&amp;gt;
-          pattern = if !encode then /&amp;amp;(?!#?\w+;)/g  else /&amp;amp;/g
-          return html
-            .replace(pattern, &#39;&amp;amp;amp;&#39;)
-            .replace(/&amp;lt;/g, &#39;&amp;amp;lt;&#39;)
-            .replace(/&amp;gt;/g, &#39;&amp;amp;gt;&#39;)
-            .replace(/&amp;quot;/g, &#39;&amp;amp;quot;&#39;)
-            .replace(/&#39;/g, &#39;&amp;amp;#39;&#39;)
-
-        if code.match(/^sequenceDiagram/)|| code.match(/^graph/)
-          return &amp;quot;&amp;lt;div class=\&amp;quot;mermaid\&amp;quot;&amp;gt;\n#{code}\n&amp;lt;/div&amp;gt;\n&amp;quot;
-        else
-          if @options.highlight
-            out = @options.highlight code, lang
-            if out != null &amp;amp;&amp;amp; out != code
-              escaped = true
-              code = out
-
-          if !lang
-            return &#39;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&#39; +
-              (if escaped then code else escape(code, true)) +
-              &#39;\n&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&#39;
-
-          return &#39;&amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;&#39; +
-            this.options.langPrefix +
-            escape(lang, true) +
-            &#39;&amp;quot;&amp;gt;&#39; +
-            (if escaped then code else escape(code, true)) +
-            &#39;\n&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;\n&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Lastly, I added Mermaid.js to blog&amp;rsquo;s layout as mentioned on Mermaid&amp;rsquo;s
-documentation. Now all are set to their place, so whenever I put Mermaid
-syntax in a markdown&amp;rsquo;s code block &lt;code&gt;```&lt;/code&gt; the code will
-be transformed to svg image.&lt;/p&gt;
-
-&lt;p&gt;Without further ado, below are a couple of examples of Mermaid diagram
-definition and their respective rendered diagram. It&amp;rsquo;s show time!&lt;/p&gt;
-
-&lt;h1 id=&#34;simple-graph:16f5e32215aea0606e9a8f52ebcfb505&#34;&gt;Simple graph&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;%% remove comment to render the graph
-graph TB
-  subgraph one
-    a1--&amp;gt;a2
-  end
-  subgraph two
-    b1--&amp;gt;b2
-  end
-  subgraph three
-    c1--&amp;gt;c2
-  end
-  c1--&amp;gt;a2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;graph TB
-  subgraph one
-    a1--&amp;gt;a2
-  end
-  subgraph two
-    b1--&amp;gt;b2
-  end
-  subgraph three
-    c1--&amp;gt;c2
-  end
-  c1--&amp;gt;a2
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;sequence-diagram:16f5e32215aea0606e9a8f52ebcfb505&#34;&gt;Sequence diagram&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;%% remove comment to render the diagram
-sequenceDiagram
-  Alice -&amp;gt;&amp;gt; Bob: Hello Bob, how are you?
-  Bob--&amp;gt;&amp;gt;John: How about you John?
-  Bob--x Alice: I am good thanks!
-  Bob-x John: I am good thanks!
-  Note right of John: Bob thinks a long&amp;lt;br/&amp;gt;long time, so long&amp;lt;br/&amp;gt;that the text does&amp;lt;br/&amp;gt;not fit on a row.
-
-  Bob--&amp;gt;Alice: Checking with John...
-  Alice-&amp;gt;John: Yes... John, how are you?
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sequenceDiagram
-  Alice -&amp;gt;&amp;gt; Bob: Hello Bob, how are you?
-  Bob--&amp;gt;&amp;gt;John: How about you John?
-  Bob--x Alice: I am good thanks!
-  Bob-x John: I am good thanks!
-  Note right of John: Bob thinks a long&amp;lt;br/&amp;gt;long time, so long&amp;lt;br/&amp;gt;that the text does&amp;lt;br/&amp;gt;not fit on a row.
-
-  Bob--&amp;gt;Alice: Checking with John...
-  Alice-&amp;gt;John: Yes... John, how are you?
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;side-note:16f5e32215aea0606e9a8f52ebcfb505&#34;&gt;Side note&lt;/h2&gt;
-
-&lt;p&gt;The CSS I use to style the diagram can be seen &lt;a href=&#34;https://raw.githubusercontent.com/npatmaja/nauvalatmaja.com/master/src/render/styles/mermaid.less&#34;&gt;here&lt;/a&gt;. Happy diagramming!&lt;/p&gt;
-</description>
+      <description>I stumbled across Mermaid when I saw @ronaldwidha retweeted a tweet about it. Mermaid is a library for writing diagrams instead of draw them similar to Marked to markdown, awesome! So, I thought I could use this in my blog just in case I need to draw some flowcharts or sequence diagrams in the future.
+DocPad uses Marked to render markdown to html via docpad-plugin-marked but natively, it doesn&amp;rsquo;t support Mermaid syntax.</description>
     </item>
     
   </channel>

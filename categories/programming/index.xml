@@ -6,8 +6,19 @@
     <description>Recent content in Programming on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Apr 2016 07:40:17 +0700</lastBuildDate>
-    <atom:link href="http://nauvalatmaja.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 May 2017 09:18:16 +0700</lastBuildDate>
+    
+	<atom:link href="http://nauvalatmaja.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Going Vim</title>
+      <link>http://nauvalatmaja.com/2017/05/28/going-vim/</link>
+      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2017/05/28/going-vim/</guid>
+      <description>Vim or &amp;ldquo;Vi Improved&amp;rdquo; is a text editor that works in every terminal. Some people even consider Vim as the best text editor for programming. However, many people are also intimidated with its steep learning curve. Vim is a terminal-based text editor which means everything are operated through keyboard keys, there is no need to use the trackpad or mouse. This is actually what makes Vim powerful. One does not need to take their fingers off of the keyboard when writing in Vim.</description>
+    </item>
     
     <item>
       <title>Function Composition in Go</title>
@@ -15,112 +26,7 @@
       <pubDate>Fri, 15 Apr 2016 07:40:17 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/2016/04/15/function-composition-in-go/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been playing with functional JavaScript for a while, especially partial
-applications and function composition, and I find those concepts are very
-helpful in my daily coding practices. At first, if you are short in
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Mathematical_logic&#34;&gt;mathematical logic systems&lt;/a&gt; (just like me), making sense
-anything functional could be a bit out of hand. Fortunately there are a lot
-of reading materials that do a great job explaining the concepts in an easy and
-pragmatic way. You could &lt;a href=&#34;https://medium.com/search?q=functional%20javascript&#34;&gt;search those articles in medium&lt;/a&gt;
-and/or you would want to read this &lt;a href=&#34;https://leanpub.com/javascript-allonge/read&#34;&gt;book&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Go, by design is quite different from JavaScript. It is an attempt to combine
-the ease of programming of an interpreted, dynamically typed language (e.g., JavaScript) with the efficiency and safety of a statically typed,
-compiled language. It also aims to
-be modern, with support for networked and multicore computing
-(&lt;a href=&#34;https://golang.org/doc/faq#creating_a_new_language&#34;&gt;Go FAQ page&lt;/a&gt;, 2016). However, despite the differences, there are some similarities
-between JavaScript and Go, one of them is that they treat
-&lt;a href=&#34;https://en.wikipedia.org/wiki/First-class_function&#34;&gt;functions as first class object&lt;/a&gt;,
-which means function is an object that can be passed
-around as function&amp;rsquo;s arguments or can be returned from other functions,
-and yes, function is a type in Go.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type fnString func(string) string
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The effect of having first-class functions is that we can write Go in a more functional manner, just similar to JavaScript.
-In JavaScript we can easily write a &lt;code&gt;compose&lt;/code&gt; function (function to do
-&lt;a href=&#34;https://en.wikipedia.org/wiki/Function_composition_%28computer_science%29&#34;&gt;function composition&lt;/a&gt;) as the following.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const compose = (a, b) =&amp;gt; (val) =&amp;gt; a(b(val));
-
-// variadic versions
-const compose = (...functions) =&amp;gt;
-  (value) =&amp;gt; functions.reverse().reduce((acc, fn) =&amp;gt; fn(acc), value);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In Go, as it is a typed language, and
-&lt;a href=&#34;https://golang.org/doc/faq#generics&#34;&gt;it does not support generic type&lt;/a&gt;
-per se, first we need to define a type of what the &lt;code&gt;compose&lt;/code&gt; function
-will work against.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type fnString func(string) string
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Here, we define &lt;code&gt;fnString&lt;/code&gt; of function type that receives a &lt;code&gt;string&lt;/code&gt;
-argument and returns a &lt;code&gt;string&lt;/code&gt;. Next, is to define the &lt;code&gt;compose&lt;/code&gt;
-function itself.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func compose(a fnString, b fnString) fnString {
-	return func(s string) string {
-		return a(b(s))
-	}
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The &lt;code&gt;compose&lt;/code&gt; code is pretty straight forward just like the JavaScript
-version. The only main difference is that the function has to comply with the
-given type, &lt;code&gt;fnString&lt;/code&gt; in the example above. So if we want to compose functions
-that work on other than strings, we might need to define the appropriate type and the appropriate &lt;code&gt;compose&lt;/code&gt; function (as Go does not have generic type),
-in contrast to the JavaScript version that will work for all type
-&amp;mdash;JavaScript is a dynamic programming language after all.&lt;/p&gt;
-
-&lt;p&gt;Then, how about the variadic version? Fortunately, Go supports variadic
-arguments so it is easier to port the JavaScript code into Go.
-However, Go does not
-provide direct translation of JavaScript&amp;rsquo;s &lt;code&gt;Array.reduce&lt;/code&gt; function, the
-only way to compose the functions is by iterating through the passed
-functions and compose them one into another.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func compose2(a fnString, b fnString) fnString {
-	return func(s string) string {
-		return a(b(s))
-	}
-}
-
-func compose(fns ...fnString) fnString {
-	return func(s string) string {
-		var res fnString
-		res = fns[0]
-		for i := 1; i &amp;lt; len(fns); i++ {
-			res = compose2(res, fns[i])
-		}
-		return res(s)
-	}
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As seen in the code, the functions are iterated by using for&lt;/p&gt;
-
-&lt;p&gt;The working example of the above function composition can be seen on
-&lt;a href=&#34;http://play.golang.org/p/KUetm5b7zW&#34;&gt;http://play.golang.org/p/KUetm5b7zW&lt;/a&gt;&lt;/p&gt;
-
-&lt;div class=&#34;sectionsign&#34;
-  style=&#34;
-    margin:0 auto;
-    margin-top: -1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    letter-spacing: 1em;
-    color: #333;
-  &#34;&gt;
-  &lt;span&gt;***&lt;/span&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;Even though writing Go code in a more functional style is possible, however, Go is not a functional programming language. Hence, I&amp;rsquo;m still not convinced
-that writing Go program in a functional manner entirely is a good approach (if that is even possible), but I might be wrong.&lt;/p&gt;
-</description>
+      <description>I&amp;rsquo;ve been playing with functional JavaScript for a while, especially partial applications and function composition, and I find those concepts are very helpful in my daily coding practices. At first, if you are short in mathematical logic systems (just like me), making sense anything functional could be a bit out of hand. Fortunately there are a lot of reading materials that do a great job explaining the concepts in an easy and pragmatic way.</description>
     </item>
     
   </channel>

@@ -7,7 +7,9 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 30 Jan 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://nauvalatmaja.com/tags/express/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://nauvalatmaja.com/tags/express/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Upload Files with Backbone.js, Node.js and express 4.x</title>
@@ -15,174 +17,8 @@
       <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
       
       <guid>http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://github.com/addyosmani/backbone-fundamentals&#34;&gt;Backbone fundamentals&lt;/a&gt;
-is a great &lt;em&gt;free&lt;/em&gt; resource to learn Backbone.js from scratch. The book was written by
-&lt;a href=&#34;http://addyosmani.com/&#34;&gt;Addy Osmany&lt;/a&gt; under &lt;a href=&#34;https://en.wikipedia.org/wiki/Creative_Commons_license&#34;&gt;creative-commons license&lt;/a&gt;.
-As its second exercise, the book guide the readers to create a simple library application
-that uses Node.js as the back-end. However, it left the part to upload book&amp;rsquo;s cover
-to the readers as an exercise. Hence, here is the way I did it.&lt;/p&gt;
-
-&lt;h1 id=&#34;requirement:924a8100561ff551d1d1e3f51a0c8593&#34;&gt;Requirement&lt;/h1&gt;
-
-&lt;p&gt;There are two additional requirements for the upload book&amp;rsquo;s cover features:
-- The selected cover should be previewed as thumbnail&lt;/p&gt;
-
-&lt;p&gt;This implies that there should be a space to show the selected
-  image. When users change the image, the preview should change
-  accordingly.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Upload process shall happen only when a new book is added&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The upload happens if and only if when users click the button
-  to add a new book. This signifies that the displaying the cover&amp;rsquo;s
-  preview should not upload to image file to the server.&lt;/p&gt;
-
-&lt;!-- Read more --&gt;
-
-&lt;h1 id=&#34;problems:924a8100561ff551d1d1e3f51a0c8593&#34;&gt;Problems&lt;/h1&gt;
-
-&lt;p&gt;After browsing for awhile, I found &lt;a href=&#34;http://markdawson.tumblr.com/post/18359176420/asynchronous-file-uploading-using-express-and&#34;&gt;a blog post to upload file asynchronously using Node.js and express&lt;/a&gt;, which was good
-as a starting point. However, similar to most of online references I had found,
-they were pretty much obsolete; most of them were using express &amp;lt;= 3.x that supported file upload
-by using &lt;code&gt;body-parse&lt;/code&gt; middleware (as mentioned in the blog post) where in express
-4.x the &lt;code&gt;body-parse&lt;/code&gt; middleware did not support file upload any longer.&lt;/p&gt;
-
-&lt;p&gt;Another problem was to address the requirement: previewing images without
-upload them to the server in the first place. This was tricky, as most of the
-solutions were to have the images uploaded first then fetch the images&amp;rsquo; URL
-to be previewed.&lt;/p&gt;
-
-&lt;h1 id=&#34;solution:924a8100561ff551d1d1e3f51a0c8593&#34;&gt;Solution&lt;/h1&gt;
-
-&lt;p&gt;I had to admit, the first problem is another RTFM problem. So when I read again
-&lt;a href=&#34;https://github.com/expressjs/body-parser&#34;&gt;&lt;code&gt;body-parser&lt;/code&gt;&amp;rsquo;s documentation&lt;/a&gt; it was
-written clearly that &lt;code&gt;body-parse&lt;/code&gt; did not handle multipart bodies (file uploads).
-Furthermore, it mentioned the alternatives modules to handle multipart bodies, and
-one of them is &lt;a href=&#34;https://www.npmjs.com/package/multer#readme&#34;&gt;multer&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Just like another express middleware, I needed to tell express to use multer and
-specified to which directory the files will be uploaded as shown in the following
-coffeescript code (yes, I wrote the back-end using coffeescript).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-coffeescript&#34;&gt;express = require &#39;express&#39;
-multer = require &#39;multer&#39;
-
-app = express()
-app.use multer( { dest: &amp;quot;#{__root}/public/img/covers/&amp;quot; } )
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For the second problem, I found out that javascript provides a
-&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/API/FileReader&#34;&gt;&lt;code&gt;FileReader&lt;/code&gt; object whose capable of reading file from client&amp;rsquo;s machine&lt;/a&gt;,
-&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications#Example.3A_Showing_thumbnails_of_user-selected_images&#34;&gt;which could be used to load a selected image from a browser locally&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The following code is a Backbone view to handle the feature to display the selected image.
-The main idea is to catch the &lt;code&gt;change&lt;/code&gt; event from an &lt;code&gt;&amp;lt;input type=&amp;quot;file&amp;quot;&amp;gt;&lt;/code&gt; and read the file
-and render it through the designated &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; element and later on to upload the file as well.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;app.ThumbnailView = Backbone.View.extend({
-  events: {
-    &#39;change #coverImageUpload&#39;: &#39;renderThumb&#39;,
-    &#39;submit #uploadCoverForm&#39;: &#39;upload&#39;
-  },
-
-  render: function () {
-    this.renderThumb();
-  },
-
-  renderThumb: function () {
-    var input = this.$(&#39;#coverImageUpload&#39;);
-    var img = this.$(&#39;#uploadedImage&#39;)[0];
-    if(input.val() !== &#39;&#39;) {
-      var selected_file = input[0].files[0];
-      var reader = new FileReader();
-      reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
-      reader.readAsDataURL(selected_file);
-    }
-  },
-
-  submit: function () {
-    this.$form = this.$(&#39;#uploadCoverForm&#39;);
-    this.$form.submit();
-  },
-
-  upload: function () {
-    var _this = this;
-    this.$form.ajaxSubmit({
-      error: function (xhr) {
-        _this.renderStatus(&#39;Error: &#39; + xhr.status);
-      },
-      success: function (response) {
-        _this.trigger(&#39;image-uploaded&#39;, response.path);
-        _this.clearField();
-      }
-    });
-    return false;
-  },
-
-  renderStatus: function (status) {
-     $(&#39;#status&#39;).text(status);
-  },
-
-  clearField: function () {
-    this.$(&#39;#uploadedImage&#39;)[0].src = &#39;&#39;;
-    this.$(&#39;#coverImageUpload&#39;).val(&#39;&#39;);
-  }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;In details, when a user has selected a cover image, the &lt;code&gt;&#39;change #coverImageUpload&#39;: &#39;renderThumb&#39;&lt;/code&gt;
-event will be triggered. To add a bit context, &lt;code&gt;#coverImageUpload&lt;/code&gt; is the id of the &lt;code&gt;&amp;lt;input type=&amp;quot;file&amp;quot;&amp;gt;&lt;/code&gt;
-to upload a file and &lt;code&gt;renderThumb&lt;/code&gt; is the function will be executed as the event&amp;rsquo;s callback. In the
-function, whenever a user selected a picture, the view will get the selected file and read the file
-as data URL through &lt;code&gt;FileReader.readAsDataURL&lt;/code&gt; function. When the particular function is executed,
-it triggers &lt;code&gt;FileReader&lt;/code&gt;&amp;rsquo;s &lt;code&gt;onload&lt;/code&gt; event with the result of the data reading process as its callback&amp;rsquo;s
-parameter, which is used as the image source of the &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; element as shown in the listing above.&lt;/p&gt;
-
-&lt;p&gt;The uploading part was a bit tricky. I used Backbone View&amp;rsquo;s event to make sure
-that the newly added book has the right cover image. The way to do this is to
-make sure when a user clicks the &lt;strong&gt;add book button&lt;/strong&gt;, the cover image
-will be uploaded first and when the the upload success an event will be
-triggered with the server path of the uploaded image as the parameter. Then the path will
-be used as the value of &lt;code&gt;&amp;lt;input&amp;gt;&lt;/code&gt; related to the book cover. The last step
-is to create the book object in the Backbone Collection, which will be
-sync&amp;rsquo;d to the Node.js back-end server. The following sequence diagram
-pictures the description above.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sequenceDiagram
-  User-&amp;gt;&amp;gt;LibraryView: click add book button
-  LibraryView-&amp;gt;&amp;gt;ThumbnailView: upload
-  ThumbnailView-&amp;gt;&amp;gt;ThumbnailView: trigger(&#39;uploaded&#39;, response.path)
-  opt uploaded event
-    LibraryView-&amp;gt;&amp;gt;LibraryView: updateInput
-    LibraryView-&amp;gt;&amp;gt;LibraryView: createData
-  end
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To enable the event in the &lt;code&gt;LibraryView&lt;/code&gt;, the object needs to listen to
-to the &lt;code&gt;ThumbnailView&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;app.LibraryView = Backbone.View.extend({
-  ...
-
-  initialize: function (initialBooks) {
-    this.collection = new app.Library(initialBooks);
-
-    this.thumbnailView = new app.ThumbnailView();
-    this.bookListView = new app.BookListView( { collection: this.collection } );
-
-    this.listenTo(this.thumbnailView, &#39;image-uploaded&#39;, this.updateInput);
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And that&amp;rsquo;s all folks! I hope this tutorial could be a help for someone who looks for the solution
-for the exercise. Please see the &lt;a href=&#34;https://github.com/npatmaja/library&#34;&gt;project&amp;rsquo;s repository&lt;/a&gt;
-for the complete solution.&lt;/p&gt;
-</description>
+      <description>Backbone fundamentals is a great free resource to learn Backbone.js from scratch. The book was written by Addy Osmany under creative-commons license. As its second exercise, the book guide the readers to create a simple library application that uses Node.js as the back-end. However, it left the part to upload book&amp;rsquo;s cover to the readers as an exercise. Hence, here is the way I did it.
+Requirement There are two additional requirements for the upload book&amp;rsquo;s cover features: - The selected cover should be previewed as thumbnail</description>
     </item>
     
   </channel>

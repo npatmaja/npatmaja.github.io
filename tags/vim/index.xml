@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on nauval atmaja</title>
+    <link>http://nauvalatmaja.com/tags/vim/</link>
+    <description>Recent content in Vim on nauval atmaja</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 May 2017 09:18:16 +0700</lastBuildDate>
+    
+	<atom:link href="http://nauvalatmaja.com/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Going Vim</title>
+      <link>http://nauvalatmaja.com/2017/05/28/going-vim/</link>
+      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2017/05/28/going-vim/</guid>
+      <description>Vim or &amp;ldquo;Vi Improved&amp;rdquo; is a text editor that works in every terminal. Some people even consider Vim as the best text editor for programming. However, many people are also intimidated with its steep learning curve. Vim is a terminal-based text editor which means everything are operated through keyboard keys, there is no need to use the trackpad or mouse. This is actually what makes Vim powerful. One does not need to take their fingers off of the keyboard when writing in Vim.</description>
+    </item>
+    
+  </channel>
+</rss>

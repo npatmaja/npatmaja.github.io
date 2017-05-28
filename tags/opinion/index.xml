@@ -7,7 +7,9 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Feb 2016 20:47:09 +0700</lastBuildDate>
-    <atom:link href="http://nauvalatmaja.com/tags/opinion/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="http://nauvalatmaja.com/tags/opinion/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Time to be a Programmer</title>
@@ -15,72 +17,8 @@
       <pubDate>Sun, 28 Feb 2016 20:47:09 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/2016/02/28/time-to-be-a-programmer/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://nauvalatmaja.com/img/kids-code.jpg&#34; alt=&#34;Kid who codes&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Indonesian tech startups are gaining momentum in recent years as more VCs
-are investing into local startups. Big names such as Sequoia Capital have entered the country by funding
-&lt;a href=&#34;https://www.techinasia.com/tokopedia-softbank-sequoia-capital-funding-news#!&#34;&gt;Tokopedia (together with SoftBank)&lt;/a&gt; and
-&lt;a href=&#34;https://www.techinasia.com/indonesia-sequoia-go-jek&#34;&gt;Gojek&lt;/a&gt;.
-Chinese VCs also getting more
-active too. &lt;a href=&#34;https://www.techinasia.com/moxybilna-raises-15-million-is-now-called-orami&#34;&gt;Gobi partners latest investment on Oramy (former MoxyBilna)&lt;/a&gt;
-is a proof to the statement.&lt;/p&gt;
-
-&lt;p&gt;Now, it means they pursue growth more than ever. To sustain the required growth
-rate, they need to grow as well, in term of size and organization. Hence, they need a lot of people to fill bunch of positions and software
-developer/programmer are one
-of the most highlighted one. Based on the insider rumours, some startups
-even planning to double their engineering team in the near future to cope
-with their growth.
-Why? because they are &lt;em&gt;tech&lt;/em&gt; companies that
-leverage technologies to solve costumers&amp;rsquo; problems and most of the used
-technologies are computer-based software, which is relatively easier to scale.&lt;/p&gt;
-
-&lt;p&gt;Despite being in high demand, programmers are scarcely available. Currently
-we have under supply of programmers situation, at least based on my
-observation and experience on seeking and interviewing programmers for
-software developer role. So, it is a common sight when a startup hijacks
-other startups&amp;rsquo; programmers to join the team, which also come with a
-significant amount of compensation and additional benefits.&lt;/p&gt;
-
-&lt;p&gt;A decade ago, a computer-science-related graduate in Indonesia
-would see telco,
-banking and oil &amp;amp; gas industries as the top career paths to pursue to make
-a good living. However, now there&amp;rsquo;s an alternative to those: startups.
-An experienced programmer in a startup could earn relatively same
-(or maybe even more) to those who work in those industries, especially
-big name startups with lot of investment funds.&lt;/p&gt;
-
-&lt;p&gt;Aside from the wages, there are a lot of perks when working in a startup.
-Dealing with new cool technologies is one of it. Personally this is the
-very reason I decided to work in a startup a year ago. Being a programmer
-in a corporate is very restraining, way too rigid. There are a lot of
-efforts to put when wanting to implement new technologies, even more, most of the efforts are wasted to non-technical issues, bureaucracy. In contrast,
-in startups programmers are always in search of new technologies available
-to solve problems.&lt;/p&gt;
-
-&lt;p&gt;Additionally, startups culture is almost the opposite of corporates&amp;rsquo;,
-more freedom and less bureaucracy. Usually startups have flatter
-organizational structure. Which means it is easier to communicate to everyone
-else including the CEO. This is particularly important during product development.
-We don&amp;rsquo;t need to set an official meeting just to ask view questions to let&amp;rsquo;s say sales or operation team about our product, efficiency. For the freedom part, at the very least employees are
-free to wear T-shirts to the office, some of them even work remotely.&lt;/p&gt;
-
-&lt;p&gt;Finally, most startups are merit base system, they see what we capable of instead of our formal education background or anything else. It means
-everyone can be a programmer if s/he wants to. Being in high demand, it
-is undeniably very good opportunities to anyone to enter the industry
-as a programmer, given the aforementioned benefits. However, if you don&amp;rsquo;t know computer programming right now but aspire to be a
-programmer in the future (or even just for fun), &lt;a href=&#34;https://www.codecademy.com/&#34;&gt;Codeacademy&lt;/a&gt; could be a
-good place to start, or if you want to be in an after work coding
-class, you might want to check &lt;a href=&#34;http://www.gepi.co/coding-class&#34;&gt;GEPI Coding Class&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In conclusion, is this the right time to be a programmer in Indonesia?
-yes it is, and always is.&lt;/p&gt;
-
-&lt;p&gt;[photo credit]&lt;/p&gt;
-
-&lt;p&gt;A-2-year-old using a MacBook. Photo taken from &lt;a href=&#34;https://danq.me/2014/09/28/kids-code/&#34;&gt;danq.me&lt;/a&gt;, Photograph copyright
-Donnie Ray Jones, used under Creative Commons license.&lt;/p&gt;
-</description>
+      <description>Indonesian tech startups are gaining momentum in recent years as more VCs are investing into local startups. Big names such as Sequoia Capital have entered the country by funding Tokopedia (together with SoftBank) and Gojek. Chinese VCs also getting more active too. Gobi partners latest investment on Oramy (former MoxyBilna) is a proof to the statement.
+Now, it means they pursue growth more than ever. To sustain the required growth rate, they need to grow as well, in term of size and organization.</description>
     </item>
     
   </channel>
