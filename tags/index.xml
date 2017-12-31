@@ -48,7 +48,7 @@
     </item>
     
     <item>
-      <title>Backbone.Js</title>
+      <title>Backbone.js</title>
       <link>http://nauvalatmaja.com/tags/backbone.js/</link>
       <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
       
@@ -89,6 +89,24 @@
       <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
       
       <guid>http://nauvalatmaja.com/tags/custom-domain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>http://nauvalatmaja.com/tags/development/</link>
+      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://nauvalatmaja.com/tags/docker/</link>
+      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/docker/</guid>
       <description></description>
     </item>
     
@@ -158,14 +176,14 @@
     <item>
       <title>Golang</title>
       <link>http://nauvalatmaja.com/tags/golang/</link>
-      <pubDate>Fri, 15 Apr 2016 07:40:17 +0700</pubDate>
+      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>How To Code</title>
+      <title>How to Code</title>
       <link>http://nauvalatmaja.com/tags/how-to-code/</link>
       <pubDate>Sun, 17 Jan 2016 20:20:12 +0700</pubDate>
       
@@ -237,7 +255,7 @@
     </item>
     
     <item>
-      <title>Node.Js</title>
+      <title>Node.js</title>
       <link>http://nauvalatmaja.com/tags/node.js/</link>
       <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
       
@@ -323,6 +341,15 @@
       <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vim Go</title>
+      <link>http://nauvalatmaja.com/tags/vim-go/</link>
+      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/vim-go/</guid>
       <description></description>
     </item>
     

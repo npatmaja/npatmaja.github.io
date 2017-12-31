@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</loc>
+    <lastmod>2017-12-31T15:18:16+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://nauvalatmaja.com/2017/05/28/going-vim/</loc>
     <lastmod>2017-05-28T09:18:16+07:00</lastmod>
   </url>
@@ -122,8 +127,20 @@
   </url>
   
   <url>
+    <loc>http://nauvalatmaja.com/tags/development/</loc>
+    <lastmod>2017-12-31T15:18:16+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://nauvalatmaja.com/categories/development/</loc>
-    <lastmod>2017-05-28T09:18:16+07:00</lastmod>
+    <lastmod>2017-12-31T15:18:16+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://nauvalatmaja.com/tags/docker/</loc>
+    <lastmod>2017-12-31T15:18:16+07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -171,7 +188,7 @@
   
   <url>
     <loc>http://nauvalatmaja.com/tags/golang/</loc>
-    <lastmod>2016-04-15T07:40:17+07:00</lastmod>
+    <lastmod>2017-12-31T15:18:16+07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -237,7 +254,7 @@
   
   <url>
     <loc>http://nauvalatmaja.com/post/</loc>
-    <lastmod>2017-05-28T09:18:16+07:00</lastmod>
+    <lastmod>2017-12-31T15:18:16+07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -249,7 +266,7 @@
   
   <url>
     <loc>http://nauvalatmaja.com/categories/productivity/</loc>
-    <lastmod>2017-05-28T09:18:16+07:00</lastmod>
+    <lastmod>2017-12-31T15:18:16+07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -267,7 +284,7 @@
   
   <url>
     <loc>http://nauvalatmaja.com/categories/programming/</loc>
-    <lastmod>2017-05-28T09:18:16+07:00</lastmod>
+    <lastmod>2017-12-31T15:18:16+07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -319,6 +336,12 @@
   </url>
   
   <url>
+    <loc>http://nauvalatmaja.com/tags/vim-go/</loc>
+    <lastmod>2017-12-31T15:18:16+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://nauvalatmaja.com/categories/web/</loc>
     <lastmod>2015-12-27T00:30:28+07:00</lastmod>
     <priority>0</priority>
@@ -326,7 +349,7 @@
   
   <url>
     <loc>http://nauvalatmaja.com/</loc>
-    <lastmod>2017-05-28T09:18:16+07:00</lastmod>
+    <lastmod>2017-12-31T15:18:16+07:00</lastmod>
     <priority>0</priority>
   </url>
   

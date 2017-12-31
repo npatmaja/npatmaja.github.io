@@ -6,10 +6,20 @@
     <description>Recent content in Programming on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 May 2017 09:18:16 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 31 Dec 2017 15:18:16 +0700</lastBuildDate>
     
 	<atom:link href="http://nauvalatmaja.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Self Contained Go Development Environment</title>
+      <link>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</link>
+      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</guid>
+      <description>Go(lang) is getting momentum in Indonesia during the recent years as big names are migrating to Go. Tokopedia, Go-Jek, I&amp;rsquo;m looking at you both. Not to mention many other startups build their tech-stack using Go from the get-go due to the hype.
+Go is an interesting programming language, not to mention it has fun part in it. It combines the ease of dynamically typed language and the efficiency of statically typed language with support for networked and multicore computing (Go FAQ page, 2017).</description>
+    </item>
     
     <item>
       <title>Going Vim</title>
