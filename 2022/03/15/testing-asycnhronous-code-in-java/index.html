@@ -325,7 +325,8 @@ On the other hand, <em>sampling</em> requires the test to sample observable stat
 <h3 id="listening-capturing-notifications">Listening: Capturing Notifications</h3>
 <p>We will use the same <code>NotificationHandler</code> class to elaborate the detail of the <em>listening</em> mechanism.
 As the name suggest, we need an object that captures events sent by the observed system, called <code>NotificationTrace</code> (see
-<a href="https://github.com/npryce/goos-code-examples/blob/master/testing-asynchronous-systems/src/book/example/async/notifications/NotificationTrace.java">here</a> for the original code). The class provide a method <code>append</code> that needs be
+<a href="https://github.com/npryce/goos-code-examples/blob/master/testing-asynchronous-systems/src/book/example/async/notifications/NotificationTrace.java">here</a>
+for the original code). The class provides a method <code>append</code> that needs to be
 called by the observed system. The append process is wrapped by a <code>synchronized</code> block to make sure that no race
 condition occurred.
 The interesting part actually in the assertion method <code>NotificationTrace#containsNotificationIn</code> where it blocks the thread and
