@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Backbone View on nauval atmaja</title>
+    <title>Backbone view on nauval atmaja</title>
     <link>http://nauvalatmaja.com/tags/backbone-view/</link>
-    <description>Recent content in Backbone View on nauval atmaja</description>
+    <description>Recent content in Backbone view on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Dec 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="http://nauvalatmaja.com/tags/backbone-view/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 29 Dec 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/backbone-view/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rendering Backbone (Sub)View</title>
       <link>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</link>

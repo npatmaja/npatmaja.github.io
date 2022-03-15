@@ -1,23 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Function Composition on nauval atmaja</title>
+    <title>function composition on nauval atmaja</title>
     <link>http://nauvalatmaja.com/tags/function-composition/</link>
-    <description>Recent content in Function Composition on nauval atmaja</description>
+    <description>Recent content in function composition on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Apr 2016 07:40:17 +0700</lastBuildDate>
-    
-	<atom:link href="http://nauvalatmaja.com/tags/function-composition/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 15 Apr 2016 07:40:17 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/function-composition/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Function Composition in Go</title>
       <link>http://nauvalatmaja.com/2016/04/15/function-composition-in-go/</link>
       <pubDate>Fri, 15 Apr 2016 07:40:17 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/2016/04/15/function-composition-in-go/</guid>
-      <description>I&amp;rsquo;ve been playing with functional JavaScript for a while, especially partial applications and function composition, and I find those concepts are very helpful in my daily coding practices. At first, if you are short in mathematical logic systems (just like me), making sense anything functional could be a bit out of hand. Fortunately there are a lot of reading materials that do a great job explaining the concepts in an easy and pragmatic way.</description>
+      <description>How to write function composition in Go</description>
     </item>
     
   </channel>

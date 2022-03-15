@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Testing Asycnhronous Code in Java // nauval atmaja
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="tdd,testing,testing asynchronous code,java,unit test,">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.92.1" />
+
+
+  <meta property="og:title" content="Testing Asycnhronous Code in Java" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://nauvalatmaja.com/2022/03/15/testing-asycnhronous-code-in-java/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://nauvalatmaja.com//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="nauval atmaja" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/tomorrow-night-bright.min.css">
+  
+
+
+  
+
+  
+
+  <link rel="stylesheet" href="http://nauvalatmaja.com/css/custom.css">
+
+
+  <script>
+    if (window.location.hostname != "localhost") {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', "UA-58073141-1", 'auto');
+      ga('send', 'pageview');
+    }
+  </script>
+
+
+</head>
+
+<body>
+	
+		<div id="nav-to-top">
+			<a href="#top">
+				<i class="fa fa-angle-double-up"> </i>
+				To Top
+			</a>
+		</div>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    
+
+    
+        <h1 class="brand-title">
+          <a class="title" href="http://nauvalatmaja.com/">
+          <span class="nav-item-separator">//</span>nauval atmaja
+        </a>
+        </h1>
+    
+    
+      <h2 class="brand-tagline">Thoughts on software, product, technology, and anything related</h2>
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/post/">archives</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/categories/">categories</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/series/">series</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="http://www.github.com/npatmaja" target="_blank"><i class='fa fa-github fa-2x'></i></a>
+        
+      
+        
+        <a href="https://id.linkedin.com/in/nauvalatmaja/" target="_blank"><i class='fa fa-linkedin-square fa-2x'></i></a>
+        
+      
+        
+        <a href="http://www.twitter.com/novalpas" target="_blank"><i class='fa fa-twitter fa-2x'></i></a>
+        
+      
+        
+        <a href="https://noval78.wordpress.com/" target="_blank"><i class='fa fa-wordpress fa-2x'></i></a>
+        
+      
+
+    </div>
+    
+  </div>
+</div>
+
+
+		
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+			<a name="top"></a>
+			
+
+			
+				
+			    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+					<small class="toc-label">Contents</small>
+			   	 	<nav id="TableOfContents">
+  <ul>
+    <li><a href="#separate-concurrency-policy-and-functionality">Separate concurrency policy and functionality</a></li>
+    <li><a href="#asycnronous-code-testing-strategy">Asycnronous code testing strategy</a>
+      <ul>
+        <li><a href="#listening-capturing-notifications">Listening: Capturing Notifications</a></li>
+        <li><a href="#sampling-polling-for-changes">Sampling: Polling for changes</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+			    </div>
+		    
+	    
+			<div class="wrapper">
+				<section class="post">
+					<header class="post-header">
+						<h1 class="post-title">
+							
+				      Testing Asycnhronous Code in Java
+						</h1>
+						<h3 class="post-subtitle">
+		        	
+		        </h3>
+					</header>
+	        
+	        	<span class="post-date">
+							<span class="post-date-day"><span class="post-date-month">Mar 15, 2022</span> </span>
+	        	</span>
+	        
+
+	        
+	        	
+	        
+
+					
+					
+						<div class="post-categories">
+						
+							<a class="post-category post-category-programming" href="http://nauvalatmaja.com//categories/programming">Programming</a>
+						
+							<a class="post-category post-category-development" href="http://nauvalatmaja.com//categories/development">Development</a>
+						
+						</div>
+					
+
+					
+			    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2022%2f03%2f15%2ftesting-asycnhronous-code-in-java%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2022%2f03%2f15%2ftesting-asycnhronous-code-in-java%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2022%2f03%2f15%2ftesting-asycnhronous-code-in-java%2f&title=Testing%20Asycnhronous%20Code%20in%20Java&summary=Testing%20multi-threaded%20code%20is%20tricky%2c%20the%20test%20and%20the%20code%20under%20test%20most%20likely%20are%20run%20under%20different%20threads.%20Here%2c%20we%20will%20discuss%20how%20to%20deal%20with%20the%20issue%20based%20on%20the%20book%20Growing%20Object-Oriented%20Software%20Guided%20by%20Tests}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Testing%20Asycnhronous%20Code%20in%20Java&url=http%3a%2f%2fnauvalatmaja.com%2f2022%2f03%2f15%2ftesting-asycnhronous-code-in-java%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+			    
+
+					
+
+	  			<p>Testing asynchronous code is tricky. In a typical case, we are mostly dealing with a single
+threaded code which means the test and the program (or object) under test are run in the same thread.
+However, in a concurrent setup, the test might be run in a different thread from part of the program
+under test. This is problematic when the program using fire-and-forget asynchronous type of concurrency
+where the program does not need to know what are the outcomes of its children processes.
+The easiest workaround is to make the test <em>wait</em> for the children processes finished using <code>Thread.sleep</code>. Still,
+the aforementioned workaround may be unstable when run in different environment with different hardware
+configuration, e.g., CI runner. In the local machine the test may pass but intermittently fails in CI.</p>
+<p>In the <a href="http://www.growing-object-oriented-software.com/">Growing Object Oriented Software Guided by Tests</a>
+the authors write two dedicated chapters related to test and multi-threading code (chapter 27 and 28). Those
+chapters are intriguing as I have an experience struggling to test a multi-threaded code. While it passes
+all unit tests in the local machine but keep failing in the CI job.</p>
+<p>In my opinion, there are two significant takeaways
+from the chapters to handle such issue:</p>
+<ol>
+<li>Separate the concurrency policy and the functionality</li>
+<li>Asynchronous codes testing strategy</li>
+</ol>
+<h2 id="separate-concurrency-policy-and-functionality">Separate concurrency policy and functionality</h2>
+<p>In short, separation between concurrency policy and the functionality is achieved by making the <code>Executor</code> service
+part of the injected dependencies. Let&rsquo;s say we have a program that sends an email to a list of recipients asynchronously,
+we call it <code>NotificationHandler</code>. The class calls a <code>NotificationGateway#fire</code> to actually send the email.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">NotificationGateway</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">fire</span><span style="color:#f92672">(</span>String anyString<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NotificationHandler</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> NotificationGateway notification<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Executor executor<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">NotificationHandler</span><span style="color:#f92672">(</span>NotificationGateway notification<span style="color:#f92672">,</span> Executor executor<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">notification</span> <span style="color:#f92672">=</span> notification<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">executor</span> <span style="color:#f92672">=</span> executor<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">handleWithExecutor</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> recipients<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String recipient <span style="color:#f92672">:</span> recipients<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            executor<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Runnable<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                    sendNotification<span style="color:#f92672">(</span>recipient<span style="color:#f92672">);</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">});</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@SneakyThrows</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sendNotification</span><span style="color:#f92672">(</span>String emailAddress<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        notification<span style="color:#f92672">.</span><span style="color:#a6e22e">fire</span><span style="color:#f92672">(</span>emailAddress<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>By making the <code>Executor</code> injected, we can actually wait for the pool to terminate before asserting the system under test.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FireAndForgetTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> sendToAddresses <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>
+      <span style="color:#75715e">// redacted
+</span><span style="color:#75715e"></span>      <span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">private</span> NotificationGateway notification<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> NotificationHandler handler<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> ExecutorService executor<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> NotificationTrace<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> trace<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@BeforeEach</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setup</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        notification <span style="color:#f92672">=</span> mock<span style="color:#f92672">(</span>NotificationGateway<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+        trace <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NotificationTrace<span style="color:#f92672">&lt;&gt;();</span>
+        executor <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newFixedThreadPool</span><span style="color:#f92672">(</span>5<span style="color:#f92672">);</span>
+        handler <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NotificationHandler<span style="color:#f92672">(</span>notification<span style="color:#f92672">,</span> executor<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Nested</span>
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UsingExecutor</span> <span style="color:#f92672">{</span>
+        <span style="color:#a6e22e">@Test</span>
+        <span style="color:#a6e22e">@SneakyThrows</span>
+        <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">givenAList_whenHandleWithExecutor_shouldCallNotificationGateway</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            Logger log <span style="color:#f92672">=</span> Logger<span style="color:#f92672">.</span><span style="color:#a6e22e">builder</span><span style="color:#f92672">().</span><span style="color:#a6e22e">start</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">()).</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+
+            doAnswer<span style="color:#f92672">(</span>invocation <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+                log<span style="color:#f92672">.</span><span style="color:#a6e22e">logExecution</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">(),</span> <span style="color:#e6db74">&#34;executes notification#fire&#34;</span><span style="color:#f92672">);</span>
+                Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1000<span style="color:#f92672">);</span>
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}).</span><span style="color:#a6e22e">when</span><span style="color:#f92672">(</span>notification<span style="color:#f92672">).</span><span style="color:#a6e22e">fire</span><span style="color:#f92672">(</span>anyString<span style="color:#f92672">());</span>
+    
+            handler<span style="color:#f92672">.</span><span style="color:#a6e22e">handleWithExecutor</span><span style="color:#f92672">(</span>sendToAddresses<span style="color:#f92672">);</span>
+
+            executor<span style="color:#f92672">.</span><span style="color:#a6e22e">shutdown</span><span style="color:#f92672">();</span>
+            log<span style="color:#f92672">.</span><span style="color:#a6e22e">logExecution</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">(),</span> <span style="color:#e6db74">&#34;executor shutdown&#34;</span><span style="color:#f92672">);</span>
+            
+            executor<span style="color:#f92672">.</span><span style="color:#a6e22e">awaitTermination</span><span style="color:#f92672">(</span>10000<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">MILLISECONDS</span><span style="color:#f92672">);</span>
+            log<span style="color:#f92672">.</span><span style="color:#a6e22e">logExecution</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">(),</span> <span style="color:#e6db74">&#34;executor terminated&#34;</span><span style="color:#f92672">);</span>
+            
+            verify<span style="color:#f92672">(</span>notification<span style="color:#f92672">,</span> times<span style="color:#f92672">(</span>sendToAddresses<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">())).</span><span style="color:#a6e22e">fire</span><span style="color:#f92672">(</span>anyString<span style="color:#f92672">());</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Here, we stub the <code>fire</code> method to simulate a long running process with <code>Thread.sleep(1000)</code>. The <code>executor</code> needs to be shutdown
+after the method under test has been called. Calling <code>executor.shutdown</code> initiates orderly shutdown and no new tasks will be accepted;
+the already submitted tasks will still be executed. The <code>executor.awaitTermination</code> will block the thread until all the tasks are completed
+after a shutdown request.</p>
+<pre tabindex="0"><code>[thread main] executor shutdown after [14 ms] from initial execution time
+[thread pool-1-thread-4] executes notification#fire after [18 ms] from initial execution time
+[thread pool-1-thread-3] executes notification#fire after [18 ms] from initial execution time
+[thread pool-1-thread-1] executes notification#fire after [18 ms] from initial execution time
+[thread pool-1-thread-5] executes notification#fire after [18 ms] from initial execution time
+[thread pool-1-thread-2] executes notification#fire after [18 ms] from initial execution time
+[thread pool-1-thread-4] executes notification#fire after [1020 ms] from initial execution time
+[thread pool-1-thread-3] executes notification#fire after [1021 ms] from initial execution time
+[thread pool-1-thread-1] executes notification#fire after [1023 ms] from initial execution time
+[thread pool-1-thread-2] executes notification#fire after [1023 ms] from initial execution time
+[thread pool-1-thread-5] executes notification#fire after [1023 ms] from initial execution time
+[thread main] executor terminated after [2028 ms] from initial execution time
+</code></pre><p>We can see from the log above that the tasks' actual execution are after the shutdown request have been made while the actual termination
+waits after all the tasks has been completed.</p>
+<h2 id="asycnronous-code-testing-strategy">Asycnronous code testing strategy</h2>
+<p>There are two strategy mentioned in the last chapter of the book namely <em>listening</em> and <em>sampling</em>.
+<em>Listening</em> means that the test should able to listen events that a systems sends out when executing asynchronous tasks.
+On the other hand, <em>sampling</em> requires the test to sample observable state.</p>
+<h3 id="listening-capturing-notifications">Listening: Capturing Notifications</h3>
+<p>We will use the same <code>NotificationHandler</code> class to elaborate the detail of the <em>listening</em> mechanism.
+As the name suggest, we need an object that captures events sent by the observed system, called <code>NotificationTrace</code> (see
+<a href="https://github.com/npryce/goos-code-examples/blob/master/testing-asynchronous-systems/src/book/example/async/notifications/NotificationTrace.java">here</a> for the original code). The class provide a method <code>append</code> that needs be
+called by the observed system. The append process is wrapped by a <code>synchronized</code> block to make sure that no race
+condition occurred.
+The interesting part actually in the assertion method <code>NotificationTrace#containsNotificationIn</code> where it blocks the thread and
+evaluate whether the criteria is satisfied or timed-out. The actual criteria evaluation is delegated to the <code>NotificationListStream</code> class.
+This part is different from the original code as what we want to assert is
+different: we want to assert that all the emails are sent to the correct recipient list. Hence, if we want to
+have another assertion, let&rsquo;s say the size of recipient list is equal to the size of the original recipient list,
+we might have to write another method to express the assertion. Well, it might be an opportunity to refactor the
+<code>NotificationTrace</code> class to have a general assertion method that can work with most criteria for further improvement.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Setter</span>
+<span style="color:#a6e22e">@Getter</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NotificationTrace</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Object tracelock <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> trace <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> timeoutMs <span style="color:#f92672">=</span> 1000L<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>T message<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">synchronized</span> <span style="color:#f92672">(</span>tracelock<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            trace<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>message<span style="color:#f92672">);</span>
+            tracelock<span style="color:#f92672">.</span><span style="color:#a6e22e">notifyAll</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">containsNotificationIn</span><span style="color:#f92672">(</span>Matcher<span style="color:#f92672">&lt;</span>Iterable<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> T<span style="color:#f92672">&gt;&gt;</span> criteria<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException <span style="color:#f92672">{</span>
+        Timeout timeout <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Timeout<span style="color:#f92672">(</span>timeoutMs<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">synchronized</span> <span style="color:#f92672">(</span>tracelock<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            NotificationListStream<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> stream <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> NotificationListStream<span style="color:#f92672">&lt;&gt;(</span>trace<span style="color:#f92672">,</span> criteria<span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>stream<span style="color:#f92672">.</span><span style="color:#a6e22e">hasMatched</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>timeout<span style="color:#f92672">.</span><span style="color:#a6e22e">hasTimedOut</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> AssertionError<span style="color:#f92672">(</span>failureDescriptionFrom<span style="color:#f92672">(</span>criteria<span style="color:#f92672">));</span>
+                <span style="color:#f92672">}</span>
+                timeout<span style="color:#f92672">.</span><span style="color:#a6e22e">waitOn</span><span style="color:#f92672">(</span>tracelock<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">failureDescriptionFrom</span><span style="color:#f92672">(</span>Matcher<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> Object<span style="color:#f92672">&gt;</span> criteria<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// redacted
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#a6e22e">@RequiredArgsConstructor</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NotificationListStream</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> List<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> notifications<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Matcher<span style="color:#f92672">&lt;</span>Iterable<span style="color:#f92672">&lt;?</span> <span style="color:#66d9ef">extends</span> T<span style="color:#f92672">&gt;&gt;</span> criteria<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">hasMatched</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> criteria<span style="color:#f92672">.</span><span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>notifications<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The following snippet is the unit test code omitting instantiation of the <code>NotificationTrace&lt;String&gt; trace</code> object (commented for brevity). To simulate how the observed system sent out events, the method <code>fire</code> is stubbed and calls the <code>trace.append</code> method to notify the listener (the <code>trace</code> object)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// the test
+</span><span style="color:#75715e">// private NotificationTrace&lt;String&gt; trace = new NotificationTrace&lt;&gt;();
+</span><span style="color:#75715e"></span>
+<span style="color:#a6e22e">@SneakyThrows</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">givenAList_whenHandleWithExecutor_shouldCallNotificationGateway</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    trace<span style="color:#f92672">.</span><span style="color:#a6e22e">setTimeoutMs</span><span style="color:#f92672">(</span>10000L<span style="color:#f92672">);</span>
+    doAnswer<span style="color:#f92672">(</span>invocation <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+        Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1000<span style="color:#f92672">);</span>
+        trace<span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span>invocation<span style="color:#f92672">.</span><span style="color:#a6e22e">getArgument</span><span style="color:#f92672">(</span>0<span style="color:#f92672">));</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}).</span><span style="color:#a6e22e">when</span><span style="color:#f92672">(</span>notification<span style="color:#f92672">).</span><span style="color:#a6e22e">fire</span><span style="color:#f92672">(</span>anyString<span style="color:#f92672">());</span>
+
+    handler<span style="color:#f92672">.</span><span style="color:#a6e22e">handleWithExecutor</span><span style="color:#f92672">(</span>sendToAddresses<span style="color:#f92672">);</span>
+
+    trace<span style="color:#f92672">.</span><span style="color:#a6e22e">containsNotificationIn</span><span style="color:#f92672">(</span>
+        containsInAnyOrder<span style="color:#f92672">(</span>convertToArray<span style="color:#f92672">(</span>sendToAddresses<span style="color:#f92672">)));</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The obvious precondition is to have the system under test have the capability to send events, or we need to design it that way.
+The system does not necessarily have dependency to the <code>NotificationTrace</code>, however, it should have
+a dependency to an interface that send those events. Then, we can create an implementation of the interface that
+calls <code>NotificationTrace</code> or simply mock it.</p>
+<h3 id="sampling-polling-for-changes">Sampling: Polling for changes</h3>
+<p>When we do not have the option to make the system sends events or it is not make sense to do so, another way
+to test asynchronous code is by observe the state of the system time to time until the expectation criteria
+is matched or time out occurred. The test will actively polling the system to get its latest observed changes.
+The book introduces two main constructs that allow us to sampling the state of a system under test: a <code>Poller</code>
+and a <code>Probe</code>. A <code>Probe</code> is an interface to capture an observable state of a system under test and validate an assertion based
+on the state. It provides two significant methods namely <code>sample</code> and <code>isSatisfied</code> for sampling the state and
+validating an assertion respectively.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Getter</span>
+<span style="color:#a6e22e">@Setter</span>
+<span style="color:#a6e22e">@AllArgsConstructor</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Poller</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> timeoutMillis<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> pollDelayMillis<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">check</span><span style="color:#f92672">(</span>Probe probe<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException <span style="color:#f92672">{</span>
+        Timeout timeout <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Timeout<span style="color:#f92672">(</span>timeoutMillis<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">(!</span>probe<span style="color:#f92672">.</span><span style="color:#a6e22e">isSatisfied</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>timeout<span style="color:#f92672">.</span><span style="color:#a6e22e">hasTimedOut</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> AssertionError<span style="color:#f92672">(</span>describeFailureOf<span style="color:#f92672">(</span>probe<span style="color:#f92672">));</span>
+            <span style="color:#f92672">}</span>
+            Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>pollDelayMillis<span style="color:#f92672">);</span>
+            probe<span style="color:#f92672">.</span><span style="color:#a6e22e">sample</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> String <span style="color:#a6e22e">describeFailureOf</span><span style="color:#f92672">(</span>Probe probe<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#75715e">// redacted
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">assertEventually</span><span style="color:#f92672">(</span>
+        Probe probe<span style="color:#f92672">,</span>
+        <span style="color:#66d9ef">long</span> timeoutMillis<span style="color:#f92672">,</span>
+        <span style="color:#66d9ef">long</span> delayMillis<span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">throws</span> InterruptedException <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">new</span> Poller<span style="color:#f92672">(</span>timeoutMillis<span style="color:#f92672">,</span> delayMillis<span style="color:#f92672">).</span><span style="color:#a6e22e">check</span><span style="color:#f92672">(</span>probe<span style="color:#f92672">);;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Probe</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isSatisfied</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sample</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">describeAcceptanceCriteriaTo</span><span style="color:#f92672">(</span>Description d<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">describeFailureTo</span><span style="color:#f92672">(</span>Description d<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Timeout</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> endTime<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Timeout</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> duration<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">endTime</span> <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> duration<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">hasTimedOut</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> timeRemaining<span style="color:#f92672">()</span> <span style="color:#f92672">&lt;=</span> 0<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">waitOn</span><span style="color:#f92672">(</span>Object lock<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">long</span> waitTime <span style="color:#f92672">=</span> timeRemaining<span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>waitTime <span style="color:#f92672">&gt;</span> 0<span style="color:#f92672">)</span> lock<span style="color:#f92672">.</span><span style="color:#a6e22e">wait</span><span style="color:#f92672">(</span>waitTime<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">timeRemaining</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> endTime <span style="color:#f92672">-</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">currentTimeMillis</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>The method <code>check</code> in class <code>Poller</code> is waiting (using <code>while</code> loop) until the specified assertion criteria is
+satisfied or a timeout is reached. The fundamental difference between the <em>listening</em> method is that the <em>sampling</em>
+method does not capture the system under test&rsquo;s state in real time, rather, in an a specified interval configured by
+the <code>pollDelayMillis</code> variable. To actually assert using this mechanism, the <code>Poller</code> provides a static assertion method <code>assertEventually</code> that takes
+a <code>probe</code>, <code>timeoutMillis</code> and <code>delayMillis</code> as its parameters then it simply instantiates a new <code>Poller</code> object and
+calls the method <code>check</code> that initiates the sampling procedure.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">// the test method
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@SneakyThrows</span>
+<span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">givenAList_whenHandleWithExecutor_shouldCallNotificationGateway</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    doAnswer<span style="color:#f92672">(</span>invocation <span style="color:#f92672">-&gt;</span> <span style="color:#f92672">{</span>
+        Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1000<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}).</span><span style="color:#a6e22e">when</span><span style="color:#f92672">(</span>notification<span style="color:#f92672">).</span><span style="color:#a6e22e">fire</span><span style="color:#f92672">(</span>anyString<span style="color:#f92672">());</span>
+
+    handler<span style="color:#f92672">.</span><span style="color:#a6e22e">handleWithExecutor</span><span style="color:#f92672">(</span>sendToAddresses<span style="color:#f92672">);</span>
+    
+    assertEventually<span style="color:#f92672">(</span>
+        fireNotificationTo<span style="color:#f92672">(</span>notification<span style="color:#f92672">,</span> is<span style="color:#f92672">(</span>sendToAddresses<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">())),</span>
+        10000L<span style="color:#f92672">,</span> 1000L<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#75715e">// NotificationProbe
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NotificationProbe</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> NOT_SET <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Probe <span style="color:#a6e22e">fireNotificationTo</span><span style="color:#f92672">(</span>
+        NotificationGateway notification<span style="color:#f92672">,</span> <span style="color:#66d9ef">final</span> Matcher<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> matcher<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Probe<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> NOT_SET<span style="color:#f92672">;</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isSatisfied</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+               <span style="color:#66d9ef">return</span> count <span style="color:#f92672">!=</span> NOT_SET <span style="color:#f92672">&amp;&amp;</span> matcher<span style="color:#f92672">.</span><span style="color:#a6e22e">matches</span><span style="color:#f92672">(</span>count<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">sample</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                ArgumentCaptor<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> captor <span style="color:#f92672">=</span> ArgumentCaptor<span style="color:#f92672">.</span><span style="color:#a6e22e">forClass</span><span style="color:#f92672">(</span>String<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">);</span>
+                verify<span style="color:#f92672">(</span>notification<span style="color:#f92672">,</span> atLeastOnce<span style="color:#f92672">()).</span><span style="color:#a6e22e">fire</span><span style="color:#f92672">(</span>captor<span style="color:#f92672">.</span><span style="color:#a6e22e">capture</span><span style="color:#f92672">());</span>
+                count <span style="color:#f92672">=</span> captor<span style="color:#f92672">.</span><span style="color:#a6e22e">getAllValues</span><span style="color:#f92672">().</span><span style="color:#a6e22e">size</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">describeAcceptanceCriteriaTo</span><span style="color:#f92672">(</span>Description d<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                d<span style="color:#f92672">.</span><span style="color:#a6e22e">appendText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;notification&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">appendText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; has been called &#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">appendDescriptionOf</span><span style="color:#f92672">(</span>matcher<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">describeFailureTo</span><span style="color:#f92672">(</span>Description d<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                d<span style="color:#f92672">.</span><span style="color:#a6e22e">appendText</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;call count was &#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">appendValue</span><span style="color:#f92672">(</span>count<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">};</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>In this sampling observation method, we need to define the <code>Probe</code> to capture significant states of a system
+under test and to provide criteria matcher evaluation based on those states. In our case, the <code>Probe</code> definition
+is built in a <code>static</code> helper method <code>notification</code> in class <code>NotificationProbe</code>.</p>
+<p>At the end, the three discussed mechanisms are not mutually exclusive. One mechanism is not inherently superior to others.
+We might ended using only one of them or combination out of the three depends on the situation and the objective of the system.</p>
+<p>Please see this <a href="https://github.com/npatmaja/concurrency-goos-excercise">github repository</a> for the complete implementation.</p>
+
+
+					
+			    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2022%2f03%2f15%2ftesting-asycnhronous-code-in-java%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2022%2f03%2f15%2ftesting-asycnhronous-code-in-java%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2022%2f03%2f15%2ftesting-asycnhronous-code-in-java%2f&title=Testing%20Asycnhronous%20Code%20in%20Java&summary=Testing%20multi-threaded%20code%20is%20tricky%2c%20the%20test%20and%20the%20code%20under%20test%20most%20likely%20are%20run%20under%20different%20threads.%20Here%2c%20we%20will%20discuss%20how%20to%20deal%20with%20the%20issue%20based%20on%20the%20book%20Growing%20Object-Oriented%20Software%20Guided%20by%20Tests}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Testing%20Asycnhronous%20Code%20in%20Java&url=http%3a%2f%2fnauvalatmaja.com%2f2022%2f03%2f15%2ftesting-asycnhronous-code-in-java%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+			    
+
+					
+						<div class="post-tags">
+							<i class="fa fa-tags fa-1"></i>
+							
+								<a class="post-tag post-tag-java" href="/tags/java">java</a>
+							
+								<a class="post-tag post-tag-concurrent" href="/tags/concurrent">concurrent</a>
+							
+								<a class="post-tag post-tag-testing" href="/tags/testing">testing</a>
+							
+								<a class="post-tag post-tag-tdd" href="/tags/tdd">tdd</a>
+							
+								<a class="post-tag post-tag-asynchronous" href="/tags/asynchronous">asynchronous</a>
+							
+								<a class="post-tag post-tag-multithreading" href="/tags/multithreading">multithreading</a>
+							
+						</div>
+					
+					
+
+
+					
+  <div class="paging">
+    <span class="paging-label">More Reading</span>
+    <div class="clear"></div>
+    
+
+    
+      <div class="paging-newer">
+        <a class="paging-link" href="/2017/12/31/a-self-contained-go-development-environment/">
+          A Self Contained Go Development Environment <i class="fa hta-right-white-arrow"></i>
+        </a>
+      </div>
+    
+  </div>
+
+
+					<div class="clear">
+
+					</div>
+					
+		      	<aside id=comments>
+    <div><h4> Comments </h4></div>
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nauvalatmaja" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+
+		      
+	    	</section>
+				
+  <section class="aboutme">
+    
+      <img src="/img/avatar.png">
+    
+    <p>Hello, I'm Nauval. I code for living. I blog in my spare time.</p> <p>Have a look around and drop me an <a href="mailto:nauval.atmaja@gmail.com">email</a> should you have any questions, feedback or just to say hi!</p>
+  </section>
+
+
+	      <section class="footer">
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+	<p>
+		
+		
+			&copy; 2014-2022 Nauval Atmaja.
+			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
+			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
+			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.
+		</p>
+</section>
+
+			</div>
+    </div>
+  </div>
+	
+		<script type="text/javascript">
+			onscroll = function() {
+			  var toTopVisible = false;
+			  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			  if (scrollTop > 1000) {
+			    if (!toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'block';
+			    }
+			  } else {
+			    if (scrollTop < 1000 || toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'none';
+			    }
+			  }
+			};
+		</script>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>

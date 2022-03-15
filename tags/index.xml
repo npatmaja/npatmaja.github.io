@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on nauval atmaja</title>
@@ -6,26 +6,220 @@
     <description>Recent content in Tags on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jan 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="http://nauvalatmaja.com/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 15 Mar 2022 08:18:16 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Android</title>
-      <link>http://nauvalatmaja.com/tags/android/</link>
-      <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
+      <title>asynchronous</title>
+      <link>http://nauvalatmaja.com/tags/asynchronous/</link>
+      <pubDate>Tue, 15 Mar 2022 08:18:16 +0700</pubDate>
       
-      <guid>http://nauvalatmaja.com/tags/android/</guid>
+      <guid>http://nauvalatmaja.com/tags/asynchronous/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Backbone</title>
-      <link>http://nauvalatmaja.com/tags/backbone/</link>
-      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
+      <title>concurrent</title>
+      <link>http://nauvalatmaja.com/tags/concurrent/</link>
+      <pubDate>Tue, 15 Mar 2022 08:18:16 +0700</pubDate>
       
-      <guid>http://nauvalatmaja.com/tags/backbone/</guid>
+      <guid>http://nauvalatmaja.com/tags/concurrent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>java</title>
+      <link>http://nauvalatmaja.com/tags/java/</link>
+      <pubDate>Tue, 15 Mar 2022 08:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>multithreading</title>
+      <link>http://nauvalatmaja.com/tags/multithreading/</link>
+      <pubDate>Tue, 15 Mar 2022 08:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/multithreading/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tdd</title>
+      <link>http://nauvalatmaja.com/tags/tdd/</link>
+      <pubDate>Tue, 15 Mar 2022 08:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/tdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>http://nauvalatmaja.com/tags/testing/</link>
+      <pubDate>Tue, 15 Mar 2022 08:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>development</title>
+      <link>http://nauvalatmaja.com/tags/development/</link>
+      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>http://nauvalatmaja.com/tags/docker/</link>
+      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>http://nauvalatmaja.com/tags/golang/</link>
+      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim-go</title>
+      <link>http://nauvalatmaja.com/tags/vim-go/</link>
+      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/vim-go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code</title>
+      <link>http://nauvalatmaja.com/tags/code/</link>
+      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>editor</title>
+      <link>http://nauvalatmaja.com/tags/editor/</link>
+      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/editor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programming</title>
+      <link>http://nauvalatmaja.com/tags/programming/</link>
+      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>http://nauvalatmaja.com/tags/vim/</link>
+      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>function composition</title>
+      <link>http://nauvalatmaja.com/tags/function-composition/</link>
+      <pubDate>Fri, 15 Apr 2016 07:40:17 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/function-composition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>opinion</title>
+      <link>http://nauvalatmaja.com/tags/opinion/</link>
+      <pubDate>Sun, 28 Feb 2016 20:47:09 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/opinion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>programmer</title>
+      <link>http://nauvalatmaja.com/tags/programmer/</link>
+      <pubDate>Sun, 28 Feb 2016 20:47:09 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/programmer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>startups</title>
+      <link>http://nauvalatmaja.com/tags/startups/</link>
+      <pubDate>Sun, 28 Feb 2016 20:47:09 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/startups/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>how to code</title>
+      <link>http://nauvalatmaja.com/tags/how-to-code/</link>
+      <pubDate>Sun, 17 Jan 2016 20:20:12 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/how-to-code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>learning</title>
+      <link>http://nauvalatmaja.com/tags/learning/</link>
+      <pubDate>Sun, 17 Jan 2016 20:20:12 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docpad</title>
+      <link>http://nauvalatmaja.com/tags/docpad/</link>
+      <pubDate>Sun, 27 Dec 2015 00:30:28 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/docpad/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>http://nauvalatmaja.com/tags/hugo/</link>
+      <pubDate>Sun, 27 Dec 2015 00:30:28 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>productivity</title>
+      <link>http://nauvalatmaja.com/tags/productivity/</link>
+      <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tips</title>
+      <link>http://nauvalatmaja.com/tags/tips/</link>
+      <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/tips/</guid>
       <description></description>
     </item>
     
@@ -39,15 +233,6 @@
     </item>
     
     <item>
-      <title>Backbone View</title>
-      <link>http://nauvalatmaja.com/tags/backbone-view/</link>
-      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/backbone-view/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Backbone.js</title>
       <link>http://nauvalatmaja.com/tags/backbone.js/</link>
       <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
@@ -57,88 +242,7 @@
     </item>
     
     <item>
-      <title>Blog</title>
-      <link>http://nauvalatmaja.com/tags/blog/</link>
-      <pubDate>Sun, 28 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cloudflare</title>
-      <link>http://nauvalatmaja.com/tags/cloudflare/</link>
-      <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/cloudflare/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Code</title>
-      <link>http://nauvalatmaja.com/tags/code/</link>
-      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Custom Domain</title>
-      <link>http://nauvalatmaja.com/tags/custom-domain/</link>
-      <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/custom-domain/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Development</title>
-      <link>http://nauvalatmaja.com/tags/development/</link>
-      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>http://nauvalatmaja.com/tags/docker/</link>
-      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docpad</title>
-      <link>http://nauvalatmaja.com/tags/docpad/</link>
-      <pubDate>Sun, 27 Dec 2015 00:30:28 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/docpad/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docpad Plugin Marked</title>
-      <link>http://nauvalatmaja.com/tags/docpad-plugin-marked/</link>
-      <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/docpad-plugin-marked/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Editor</title>
-      <link>http://nauvalatmaja.com/tags/editor/</link>
-      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/editor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Express</title>
+      <title>express</title>
       <link>http://nauvalatmaja.com/tags/express/</link>
       <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
       
@@ -147,74 +251,38 @@
     </item>
     
     <item>
-      <title>Function Composition</title>
-      <link>http://nauvalatmaja.com/tags/function-composition/</link>
-      <pubDate>Fri, 15 Apr 2016 07:40:17 +0700</pubDate>
+      <title>multer</title>
+      <link>http://nauvalatmaja.com/tags/multer/</link>
+      <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://nauvalatmaja.com/tags/function-composition/</guid>
+      <guid>http://nauvalatmaja.com/tags/multer/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Genymotion</title>
-      <link>http://nauvalatmaja.com/tags/genymotion/</link>
-      <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
+      <title>node.js</title>
+      <link>http://nauvalatmaja.com/tags/node.js/</link>
+      <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://nauvalatmaja.com/tags/genymotion/</guid>
+      <guid>http://nauvalatmaja.com/tags/node.js/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Github Pages</title>
-      <link>http://nauvalatmaja.com/tags/github-pages/</link>
-      <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
+      <title>upload</title>
+      <link>http://nauvalatmaja.com/tags/upload/</link>
+      <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://nauvalatmaja.com/tags/github-pages/</guid>
+      <guid>http://nauvalatmaja.com/tags/upload/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Golang</title>
-      <link>http://nauvalatmaja.com/tags/golang/</link>
-      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
+      <title>docpad-plugin-marked</title>
+      <link>http://nauvalatmaja.com/tags/docpad-plugin-marked/</link>
+      <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://nauvalatmaja.com/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>How to Code</title>
-      <link>http://nauvalatmaja.com/tags/how-to-code/</link>
-      <pubDate>Sun, 17 Jan 2016 20:20:12 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/how-to-code/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>http://nauvalatmaja.com/tags/hugo/</link>
-      <pubDate>Sun, 27 Dec 2015 00:30:28 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Java</title>
-      <link>http://nauvalatmaja.com/tags/java/</link>
-      <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Learning</title>
-      <link>http://nauvalatmaja.com/tags/learning/</link>
-      <pubDate>Sun, 17 Jan 2016 20:20:12 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/learning/</guid>
+      <guid>http://nauvalatmaja.com/tags/docpad-plugin-marked/</guid>
       <description></description>
     </item>
     
@@ -237,16 +305,52 @@
     </item>
     
     <item>
-      <title>Multer</title>
-      <link>http://nauvalatmaja.com/tags/multer/</link>
-      <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
+      <title>Android</title>
+      <link>http://nauvalatmaja.com/tags/android/</link>
+      <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://nauvalatmaja.com/tags/multer/</guid>
+      <guid>http://nauvalatmaja.com/tags/android/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Namecheap</title>
+      <title>Genymotion</title>
+      <link>http://nauvalatmaja.com/tags/genymotion/</link>
+      <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/genymotion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CloudFlare</title>
+      <link>http://nauvalatmaja.com/tags/cloudflare/</link>
+      <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/cloudflare/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>custom domain</title>
+      <link>http://nauvalatmaja.com/tags/custom-domain/</link>
+      <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/custom-domain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GitHub Pages</title>
+      <link>http://nauvalatmaja.com/tags/github-pages/</link>
+      <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://nauvalatmaja.com/tags/github-pages/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NameCheap</title>
       <link>http://nauvalatmaja.com/tags/namecheap/</link>
       <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
       
@@ -255,61 +359,25 @@
     </item>
     
     <item>
-      <title>Node.js</title>
-      <link>http://nauvalatmaja.com/tags/node.js/</link>
-      <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
+      <title>Backbone</title>
+      <link>http://nauvalatmaja.com/tags/backbone/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://nauvalatmaja.com/tags/node.js/</guid>
+      <guid>http://nauvalatmaja.com/tags/backbone/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Opinion</title>
-      <link>http://nauvalatmaja.com/tags/opinion/</link>
-      <pubDate>Sun, 28 Feb 2016 20:47:09 +0700</pubDate>
+      <title>Backbone view</title>
+      <link>http://nauvalatmaja.com/tags/backbone-view/</link>
+      <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://nauvalatmaja.com/tags/opinion/</guid>
+      <guid>http://nauvalatmaja.com/tags/backbone-view/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Productivity</title>
-      <link>http://nauvalatmaja.com/tags/productivity/</link>
-      <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/productivity/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Programmer</title>
-      <link>http://nauvalatmaja.com/tags/programmer/</link>
-      <pubDate>Sun, 28 Feb 2016 20:47:09 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/programmer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Programming</title>
-      <link>http://nauvalatmaja.com/tags/programming/</link>
-      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Startups</title>
-      <link>http://nauvalatmaja.com/tags/startups/</link>
-      <pubDate>Sun, 28 Feb 2016 20:47:09 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/startups/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Subview</title>
+      <title>subview</title>
       <link>http://nauvalatmaja.com/tags/subview/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
       
@@ -318,38 +386,11 @@
     </item>
     
     <item>
-      <title>Tips</title>
-      <link>http://nauvalatmaja.com/tags/tips/</link>
-      <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
+      <title>blog</title>
+      <link>http://nauvalatmaja.com/tags/blog/</link>
+      <pubDate>Sun, 28 Dec 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://nauvalatmaja.com/tags/tips/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Upload</title>
-      <link>http://nauvalatmaja.com/tags/upload/</link>
-      <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/upload/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vim</title>
-      <link>http://nauvalatmaja.com/tags/vim/</link>
-      <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/vim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vim Go</title>
-      <link>http://nauvalatmaja.com/tags/vim-go/</link>
-      <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
-      
-      <guid>http://nauvalatmaja.com/tags/vim-go/</guid>
+      <guid>http://nauvalatmaja.com/tags/blog/</guid>
       <description></description>
     </item>
     

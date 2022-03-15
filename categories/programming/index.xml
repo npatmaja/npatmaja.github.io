@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming on nauval atmaja</title>
@@ -6,10 +6,15 @@
     <description>Recent content in Programming on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Dec 2017 15:18:16 +0700</lastBuildDate>
-    
-	<atom:link href="http://nauvalatmaja.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Tue, 15 Mar 2022 08:18:16 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Testing Asycnhronous Code in Java</title>
+      <link>http://nauvalatmaja.com/2022/03/15/testing-asycnhronous-code-in-java/</link>
+      <pubDate>Tue, 15 Mar 2022 08:18:16 +0700</pubDate>
+      
+      <guid>http://nauvalatmaja.com/2022/03/15/testing-asycnhronous-code-in-java/</guid>
+      <description>Testing multi-threaded code is tricky, the test and the code under test most likely are run under different threads. Here, we will discuss how to deal with the issue based on the book Growing Object-Oriented Software Guided by Tests</description>
+    </item>
     
     <item>
       <title>A Self Contained Go Development Environment</title>
@@ -17,8 +22,7 @@
       <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</guid>
-      <description>Go(lang) is getting momentum in Indonesia during the recent years as big names are migrating to Go. Tokopedia, Go-Jek, I&amp;rsquo;m looking at you both. Not to mention many other startups build their tech-stack using Go from the get-go due to the hype.
-Go is an interesting programming language, not to mention it has fun part in it. It combines the ease of dynamically typed language and the efficiency of statically typed language with support for networked and multicore computing (Go FAQ page, 2017).</description>
+      <description>A Self Contained golang development environment using Docker, vim and vim-go</description>
     </item>
     
     <item>
@@ -27,7 +31,7 @@ Go is an interesting programming language, not to mention it has fun part in it.
       <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/2017/05/28/going-vim/</guid>
-      <description>Vim or &amp;ldquo;Vi Improved&amp;rdquo; is a text editor that works in every terminal. Some people even consider Vim as the best text editor for programming. However, many people are also intimidated with its steep learning curve. Vim is a terminal-based text editor which means everything are operated through keyboard keys, there is no need to use the trackpad or mouse. This is actually what makes Vim powerful. One does not need to take their fingers off of the keyboard when writing in Vim.</description>
+      <description>A reflection after using Vim as the main code editor for more than a half of year</description>
     </item>
     
     <item>
@@ -36,7 +40,7 @@ Go is an interesting programming language, not to mention it has fun part in it.
       <pubDate>Fri, 15 Apr 2016 07:40:17 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/2016/04/15/function-composition-in-go/</guid>
-      <description>I&amp;rsquo;ve been playing with functional JavaScript for a while, especially partial applications and function composition, and I find those concepts are very helpful in my daily coding practices. At first, if you are short in mathematical logic systems (just like me), making sense anything functional could be a bit out of hand. Fortunately there are a lot of reading materials that do a great job explaining the concepts in an easy and pragmatic way.</description>
+      <description>How to write function composition in Go</description>
     </item>
     
   </channel>

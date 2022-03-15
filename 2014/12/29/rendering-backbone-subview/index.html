@@ -14,7 +14,8 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
-<meta name="generator" content="Hugo 0.26" />
+<meta name="generator" content="Hugo 0.92.1" />
+
 
   <meta property="og:title" content="Rendering Backbone (Sub)View" />
 <meta property="og:description" content="" />
@@ -33,7 +34,7 @@
   
 
   <link rel="stylesheet" href="http://nauvalatmaja.com//css/redlounge.css">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
 
@@ -42,7 +43,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  
+  <link href="" rel="alternate" type="application/rss+xml" title="nauval atmaja" />
 
     
   
@@ -146,6 +147,11 @@
 
 			
 				
+			    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+					<small class="toc-label">Contents</small>
+			   	 	<nav id="TableOfContents"></nav>
+			    </div>
+		    
 	    
 			<div class="wrapper">
 				<section class="post">
@@ -197,36 +203,29 @@ And then, magically I came accross Ian Storm Taylor&rsquo;s post about
 <a href="http://ianstormtaylor.com/rendering-views-in-backbonejs-isnt-always-simple/">his experience on dealing with backbone subview</a>.
 At first I didn&rsquo;t quiet understand well about the post until I found
 <a href="http://stackoverflow.com/questions/9337927/how-to-handle-initializing-and-rendering-subviews-in-backbone-js">a thread on stackoverflow</a>, which was started by <a href="http://ianstormtaylor.com">Ian Storm Taylor</a>.</p>
-
 <p>Based on the posts, I created a simple case study to better understand how it works.
 The requirements were to list pairs of username and email input by users.
 So at first I created the view as listed below:</p>
-
-<pre><code class="language-html">&lt;div id=&quot;application&quot;&gt;
-  &lt;p&gt;Add a user to the user list&lt;/p&gt;
-  &lt;div id=&quot;login&quot;&gt;&lt;/div&gt;
-  &lt;ul id=&quot;online-users&quot;&gt;&lt;/ul&gt;
-&lt;/div&gt;
-&lt;script id=&quot;login-template&quot; type=&quot;text/template&quot;&gt;
-  &lt;h1&gt; login &lt;/h1&gt;
-  &lt;input id=&quot;username&quot; type=&quot;text&quot; placeholder=&quot;username&quot; /&gt;
-  &lt;input id = &quot;email&quot; type = &quot;text&quot; placeholder = &quot;email&quot; /&gt;
-  &lt;button id = &quot;button-login&quot; type = &quot;button&quot;&gt; Login &lt;/button&gt;
-&lt;/script&gt;
-&lt;script id=&quot;userlist-template&quot; type=&quot;text/template&quot;&gt;
-  &lt;li&gt;
-    &lt;span&gt;&lt;%= username %&gt; / &lt;%= email %&gt;&lt;/span&gt;
-    &lt;button id = &quot;force-logout&quot;&gt;force logout&lt;/button&gt;
-  &lt;/li&gt;
-&lt;/script&gt;
-</code></pre>
-
-<p>To better visualize, lets see this picture:</p>
-
-<p><img src="/img/backbone-view-schema.png" alt="Application view" /></p>
-
-<!-- Read more -->
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;application&#34;</span>&gt;
+  &lt;<span style="color:#f92672">p</span>&gt;Add a user to the user list&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;login&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;online-users&#34;</span>&gt;&lt;/<span style="color:#f92672">ul</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;login-template&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/template&#34;</span>&gt;
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">login</span> <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">placeholder</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;button-login&#34;</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;button&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">Login</span> <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;userlist-template&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/template&#34;</span>&gt;
+  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">span</span><span style="color:#f92672">&gt;&lt;%=</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">%&gt;</span> <span style="color:#960050;background-color:#1e0010">/ &lt;%= email %&gt;&lt;/span&gt;</span>
+    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;force-logout&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">force</span> <span style="color:#a6e22e">logout</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;</span>
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>To better visualize, lets see this picture:</p>
+<p><img src="/img/backbone-view-schema.png" alt="Application view"></p>
+<!-- raw HTML omitted -->
 <p>The outer container is <code>#application</code> and inside it there are
 two other sub-containers <code>#login</code> and <code>#online-users</code>. Each container
 or sub-container is represented in a separated view: <code>AppView</code>, <code>LoginView</code>
@@ -237,53 +236,49 @@ handles of the button clicked event.
 there is an exception for the last view where the view is
 created for each username-password pair then appended in
 the container <code>#online-users</code>.</p>
-
 <p>Now let&rsquo;s get to the code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">AppView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
+  <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#application&#39;</span>,
 
-<pre><code class="language-javascript">app.AppView = Backbone.View.extend({
-  el: '#application',
+  <span style="color:#a6e22e">initialize</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserList</span>();
 
-  initialize: function () {
-    this.users = new app.UserList();
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginView</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">LoginView</span>();
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userListView</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserListView</span>( { <span style="color:#a6e22e">collection</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span> } );
 
-    this.loginView = new app.LoginView();
-    this.userListView = new app.UserListView( { collection: this.users } );
-
-    this.listenTo(this.loginView, 'login', this.login);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginView</span>, <span style="color:#e6db74">&#39;login&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">login</span>);
   },
 
-  render: function () {
-    this.loginView.setElement(this.$('#login')).render();
-    this.userListView.setElement(this.$('#online-users')).render();
+  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginView</span>.<span style="color:#a6e22e">setElement</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#login&#39;</span>)).<span style="color:#a6e22e">render</span>();
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userListView</span>.<span style="color:#a6e22e">setElement</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#online-users&#39;</span>)).<span style="color:#a6e22e">render</span>();
   },
 
-  /* ... */
+  <span style="color:#75715e">/* ... */</span>
 
-  login: function (user) {
-    this.users.create( user );
+  <span style="color:#a6e22e">login</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">user</span>) {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">create</span>( <span style="color:#a6e22e">user</span> );
   }
 });
 
-app.LoginView = Backbone.View.extend({
-  template: _.template($('#login-template').html()),
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">LoginView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">template</span>(<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#login-template&#39;</span>).<span style="color:#a6e22e">html</span>()),
 
-  events: {
-    'click #button-login': 'login'
+  <span style="color:#a6e22e">events</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#39;click #button-login&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;login&#39;</span>
   },
 
-  render: function () {
-      this.$el.html(this.template());
+  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">html</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">template</span>());
   },
 
-  login: function () {
-    // login logic
-  },
+  <span style="color:#a6e22e">login</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#75715e">// login logic
+</span><span style="color:#75715e"></span>  },
 
-  /* ... */
+  <span style="color:#75715e">/* ... */</span>
 });
-</code></pre>
-
-<p>Here, the most important thing to connect Backbone view to
+</code></pre></div><p>Here, the most important thing to connect Backbone view to
 the html is the <code>el</code> (element) property. The <code>el</code> property defines to
 which element the view template will be rendered, or at least in this case
 study. In the <code>AppView</code> the <code>el</code> is set to <code>#application</code>
@@ -291,8 +286,7 @@ as the root container of the application. However, for its
 sub-views, the <code>el</code> property is not defined in the view
 definition but set dynamically using <code>setElement</code> method.
 As Ian suggested, this is done to avoid the unbinding of
-sub-views&rsquo; events when rendered more than a time.</p>
-
+sub-views' events when rendered more than a time.</p>
 <p>The instantiation
 of sub-views depends on how the sub-views are rendered.
 <code>LoginView</code> and <code>UserListView</code> are instantiated in
@@ -301,50 +295,47 @@ an instance for each of them. In contrast, <code>UserView</code>
 is instantiated for each user (model) as it needs to
 associate the button click event inside the view with
 the contained model.</p>
-
-<pre><code class="language-javascript">app.UserListView = Backbone.View.extend({
-  initialize: function () {
-    this.listenTo(this.collection, 'add', this.renderOne);
-    this.listenTo(this.collection, 'reset', this.renderAll);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserListView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
+  <span style="color:#a6e22e">initialize</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">collection</span>, <span style="color:#e6db74">&#39;add&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderOne</span>);
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">collection</span>, <span style="color:#e6db74">&#39;reset&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderAll</span>);
   },
 
-  render: function () {
-    this.renderAll();
+  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderAll</span>();
   },
 
-  renderOne: function (user) {
-    var view = new app.UserView( { model: user } );
-    this.$el.append(view.render().el);
+  <span style="color:#a6e22e">renderOne</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">user</span>) {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserView</span>( { <span style="color:#a6e22e">model</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">user</span> } );
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">append</span>(<span style="color:#a6e22e">view</span>.<span style="color:#a6e22e">render</span>().<span style="color:#a6e22e">el</span>);
   },
 
-  renderAll: function () {
-    this.collection.each(this.renderOne);
+  <span style="color:#a6e22e">renderAll</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">each</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderOne</span>);
   }
 });
 
-app.UserView = Backbone.View.extend({
-  template: _.template($('#userlist-template').html()),
-  tagName: 'li',
-  events: {
-      'click #force-logout': 'clear'
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
+  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">template</span>(<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#userlist-template&#39;</span>).<span style="color:#a6e22e">html</span>()),
+  <span style="color:#a6e22e">tagName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;li&#39;</span>,
+  <span style="color:#a6e22e">events</span><span style="color:#f92672">:</span> {
+      <span style="color:#e6db74">&#39;click #force-logout&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;clear&#39;</span>
   },
 
-  initialize: function () {
-    this.listenTo(this.model, 'destroy', this.remove);
+  <span style="color:#a6e22e">initialize</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span>, <span style="color:#e6db74">&#39;destroy&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">remove</span>);
   },
 
-  render: function () {
-      this.$el.html( this.template( this.model.attributes ) );
-      return this;
+  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">html</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">template</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">attributes</span> ) );
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
   },
 
-  clear: function () {
-      this.model.destroy();
+  <span style="color:#a6e22e">clear</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">destroy</span>();
   }
 });
-</code></pre>
-
-<p>To make the code structured nicely, I used the <code>html()</code> and
+</code></pre></div><p>To make the code structured nicely, I used the <code>html()</code> and
 <code>append()</code> method of Backbone view&rsquo;s <code>$el</code> property. Some people
 might use jquery&rsquo;s selector <code>$('.element')</code> to render the html,
 which I think it isn&rsquo;t clean enough. Lastly, I&rsquo;ve made a <a href="http://jsfiddle.net/npatmaja/csL45j3s/">fiddle</a>
@@ -384,16 +375,16 @@ helps someone to understand more about backbone view.</p>
     <div class="clear"></div>
     
       <div class="paging-older">
-        <a class="paging-link" href="/2014/12/28/blogging-with-docpad/">
-          <i class="fa hta-left-white-arrow"></i> Blogging with Docpad
+        <a class="paging-link" href="/2014/12/31/setting-up-custom-domain-for-github-pages/">
+          <i class="fa hta-left-white-arrow"></i> Setting Up Custom Domain for GitHub Pages
         </a>
       </div>
     
 
     
       <div class="paging-newer">
-        <a class="paging-link" href="/2014/12/31/setting-up-custom-domain-for-github-pages/">
-          Setting Up Custom Domain for GitHub Pages <i class="fa hta-right-white-arrow"></i>
+        <a class="paging-link" href="/2014/12/28/blogging-with-docpad/">
+          Blogging with Docpad <i class="fa hta-right-white-arrow"></i>
         </a>
       </div>
     
@@ -407,7 +398,7 @@ helps someone to understand more about backbone view.</p>
 		      	<aside id=comments>
     <div><h4> Comments </h4></div>
     <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -424,8 +415,8 @@ helps someone to understand more about backbone view.</p>
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </aside>
 
 		      
@@ -435,7 +426,7 @@ helps someone to understand more about backbone view.</p>
     
       <img src="/img/avatar.png">
     
-    <p>Hello, my name is Nauval. I like building/crafting things. I code for living. I blog in my spare time.</p> <p>Have a look around and don't hesitate to <a href="mailto:nauval.atmaja@gmail.com">contact me</a> with any comments, suggestions or even to just say Hi!</p>
+    <p>Hello, I'm Nauval. I code for living. I blog in my spare time.</p> <p>Have a look around and drop me an <a href="mailto:nauval.atmaja@gmail.com">email</a> should you have any questions, feedback or just to say hi!</p>
   </section>
 
 
@@ -448,7 +439,7 @@ helps someone to understand more about backbone view.</p>
 	<p>
 		
 		
-			&copy; 2014-2018 Nauval Atmaja.
+			&copy; 2014-2022 Nauval Atmaja.
 			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
 			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
 			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.

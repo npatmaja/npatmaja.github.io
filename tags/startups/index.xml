@@ -1,24 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Startups on nauval atmaja</title>
+    <title>startups on nauval atmaja</title>
     <link>http://nauvalatmaja.com/tags/startups/</link>
-    <description>Recent content in Startups on nauval atmaja</description>
+    <description>Recent content in startups on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Feb 2016 20:47:09 +0700</lastBuildDate>
-    
-	<atom:link href="http://nauvalatmaja.com/tags/startups/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 28 Feb 2016 20:47:09 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/startups/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Time to be a Programmer</title>
       <link>http://nauvalatmaja.com/2016/02/28/time-to-be-a-programmer/</link>
       <pubDate>Sun, 28 Feb 2016 20:47:09 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/2016/02/28/time-to-be-a-programmer/</guid>
-      <description>Indonesian tech startups are gaining momentum in recent years as more VCs are investing into local startups. Big names such as Sequoia Capital have entered the country by funding Tokopedia (together with SoftBank) and Gojek. Chinese VCs also getting more active too. Gobi partners latest investment on Oramy (former MoxyBilna) is a proof to the statement.
-Now, it means they pursue growth more than ever. To sustain the required growth rate, they need to grow as well, in term of size and organization.</description>
+      <description>Is this the best time to be a programmer in Indonesia?</description>
     </item>
     
   </channel>

@@ -1,23 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docpad on nauval atmaja</title>
+    <title>docpad on nauval atmaja</title>
     <link>http://nauvalatmaja.com/tags/docpad/</link>
-    <description>Recent content in Docpad on nauval atmaja</description>
+    <description>Recent content in docpad on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Dec 2015 00:30:28 +0700</lastBuildDate>
-    
-	<atom:link href="http://nauvalatmaja.com/tags/docpad/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 27 Dec 2015 00:30:28 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/docpad/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Moving to Hugo</title>
       <link>http://nauvalatmaja.com/2015/12/27/moving-to-hugo/</link>
       <pubDate>Sun, 27 Dec 2015 00:30:28 +0700</pubDate>
       
       <guid>http://nauvalatmaja.com/2015/12/27/moving-to-hugo/</guid>
-      <description>Several weeks ago, my Docpad installation got screwed. There was some errors when I tried to run it. My assumption was because I just moved to Node.js 5.x, so I tried to upgrade (or re-install it, maybe) it. Though the errors are gone, it did not work as it used to be, it failed to build my blog properly &amp;mdash; or I just forgotten how to use it, that&amp;rsquo;s another possibility.</description>
+      <description>Hugo is a static site generator created by Steve Francia using Golang. It is very fast, customizable and has a comprehensive documentation</description>
     </item>
     
     <item>

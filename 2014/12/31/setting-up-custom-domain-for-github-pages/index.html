@@ -14,7 +14,8 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
-<meta name="generator" content="Hugo 0.26" />
+<meta name="generator" content="Hugo 0.92.1" />
+
 
   <meta property="og:title" content="Setting Up Custom Domain for GitHub Pages" />
 <meta property="og:description" content="" />
@@ -33,7 +34,7 @@
   
 
   <link rel="stylesheet" href="http://nauvalatmaja.com//css/redlounge.css">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
 
@@ -42,7 +43,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  
+  <link href="" rel="alternate" type="application/rss+xml" title="nauval atmaja" />
 
     
   
@@ -146,6 +147,11 @@
 
 			
 				
+			    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+					<small class="toc-label">Contents</small>
+			   	 	<nav id="TableOfContents"></nav>
+			    </div>
+		    
 	    
 			<div class="wrapper">
 				<section class="post">
@@ -194,7 +200,6 @@ and to be honest the process was not as hard as I had imagined. Kudos to
 how he <a href="http://davidensinger.com/2013/03/setting-the-dns-for-github-pages-on-namecheap/">set up his custom domain for his GitHub pages</a> and
 <a href="http://davidensinger.com/2014/04/transferring-the-dns-from-namecheap-to-cloudflare-for-github-pages/">tweak it to get faster by using cloudflare</a>. All
 the needed information to do this can be found there.</p>
-
 <p>I purchased this this domain name at <a href="https://www.namecheap.com/">NameCheap</a>, as suggested by David&rsquo;s post,
 with just a bit more than five bucks for a year. Then, I used the free plan of <a href="https://cloudflare.com">CloudFlare</a>
 for the DNSs, which I think it is sufficient for my need, and set up the DNS records using <code>CNAME</code>
@@ -202,7 +207,6 @@ on the CloudFlare panel to point to my GitHub Pages address. Lastly,
 <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/">I add a <code>CNAME</code> file in the root directory of my GitHub Pages repository to redirect it</a>.
 And that&rsquo;s it, practically the process is done after you transfer the DNS from NameCheap to
 CloudFlare, you may need to wait for a while to make the changes take effect.</p>
-
 <p>It took me less than three hours, more or less, to make my custom domain
 accessible. Frankly, I spent more hours thinking the custom domain name I
 should use than did the actual setup. I am quite happy with the
@@ -242,16 +246,16 @@ and particularly fast, well it&rsquo;s static html pages anyway.</p>
     <div class="clear"></div>
     
       <div class="paging-older">
-        <a class="paging-link" href="/2014/12/29/rendering-backbone-subview/">
-          <i class="fa hta-left-white-arrow"></i> Rendering Backbone (Sub)View
+        <a class="paging-link" href="/2015/01/08/android-development-with-genymotion/">
+          <i class="fa hta-left-white-arrow"></i> Android Development with Genymotion
         </a>
       </div>
     
 
     
       <div class="paging-newer">
-        <a class="paging-link" href="/2015/01/08/android-development-with-genymotion/">
-          Android Development with Genymotion <i class="fa hta-right-white-arrow"></i>
+        <a class="paging-link" href="/2014/12/29/rendering-backbone-subview/">
+          Rendering Backbone (Sub)View <i class="fa hta-right-white-arrow"></i>
         </a>
       </div>
     
@@ -265,7 +269,7 @@ and particularly fast, well it&rsquo;s static html pages anyway.</p>
 		      	<aside id=comments>
     <div><h4> Comments </h4></div>
     <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -282,8 +286,8 @@ and particularly fast, well it&rsquo;s static html pages anyway.</p>
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </aside>
 
 		      
@@ -293,7 +297,7 @@ and particularly fast, well it&rsquo;s static html pages anyway.</p>
     
       <img src="/img/avatar.png">
     
-    <p>Hello, my name is Nauval. I like building/crafting things. I code for living. I blog in my spare time.</p> <p>Have a look around and don't hesitate to <a href="mailto:nauval.atmaja@gmail.com">contact me</a> with any comments, suggestions or even to just say Hi!</p>
+    <p>Hello, I'm Nauval. I code for living. I blog in my spare time.</p> <p>Have a look around and drop me an <a href="mailto:nauval.atmaja@gmail.com">email</a> should you have any questions, feedback or just to say hi!</p>
   </section>
 
 
@@ -306,7 +310,7 @@ and particularly fast, well it&rsquo;s static html pages anyway.</p>
 	<p>
 		
 		
-			&copy; 2014-2018 Nauval Atmaja.
+			&copy; 2014-2022 Nauval Atmaja.
 			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
 			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
 			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.

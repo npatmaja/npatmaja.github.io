@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backbone Fundamentals on nauval atmaja</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Backbone Fundamentals on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Jan 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="http://nauvalatmaja.com/tags/backbone-fundamentals/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 30 Jan 2015 00:00:00 +0000</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/backbone-fundamentals/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Upload Files with Backbone.js, Node.js and express 4.x</title>
       <link>http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/</link>
@@ -18,7 +14,7 @@
       
       <guid>http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/</guid>
       <description>Backbone fundamentals is a great free resource to learn Backbone.js from scratch. The book was written by Addy Osmany under creative-commons license. As its second exercise, the book guide the readers to create a simple library application that uses Node.js as the back-end. However, it left the part to upload book&amp;rsquo;s cover to the readers as an exercise. Hence, here is the way I did it.
-Requirement There are two additional requirements for the upload book&amp;rsquo;s cover features: - The selected cover should be previewed as thumbnail</description>
+Requirement There are two additional requirements for the upload book&amp;rsquo;s cover features:</description>
     </item>
     
   </channel>

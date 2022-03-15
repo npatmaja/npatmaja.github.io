@@ -14,7 +14,8 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
-<meta name="generator" content="Hugo 0.26" />
+<meta name="generator" content="Hugo 0.92.1" />
+
 
   <meta property="og:title" content="Rendering Mermaid in Docpad" />
 <meta property="og:description" content="" />
@@ -33,7 +34,7 @@
   
 
   <link rel="stylesheet" href="http://nauvalatmaja.com//css/redlounge.css">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
 
@@ -42,7 +43,7 @@
   <link rel="shortcut icon" href="/favicon.png">
 
   
-  
+  <link href="" rel="alternate" type="application/rss+xml" title="nauval atmaja" />
 
     
   
@@ -149,13 +150,9 @@
 			    <div id="toc" class="pure-u-1 pure-u-md-1-4">
 					<small class="toc-label">Contents</small>
 			   	 	<nav id="TableOfContents">
-<ul>
-<li><a href="#simple-graph">Simple graph</a></li>
-<li><a href="#sequence-diagram">Sequence diagram</a>
-<ul>
-<li><a href="#side-note">Side note</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#side-note">Side note</a></li>
+  </ul>
 </nav>
 			    </div>
 		    
@@ -201,15 +198,12 @@
 
 					
 
-	  			
-
-<p>I stumbled across <a href="http://knsv.github.io/mermaid/">Mermaid</a> when I saw
+	  			<p>I stumbled across <a href="http://knsv.github.io/mermaid/">Mermaid</a> when I saw
 <a href="https://twitter.com/nikmd23/status/553224624130228225">@ronaldwidha retweeted a tweet about it</a>.
 Mermaid is a library for <em>writing</em> diagrams instead of draw
 them similar to <a href="https://github.com/chjj/marked">Marked</a>
 to markdown, awesome! So, I thought I could use this in my blog just in case I
 need to draw some flowcharts or sequence diagrams in the future.</p>
-
 <p>DocPad uses Marked to render markdown to html via
 <a href="https://github.com/docpad/docpad-plugin-marked">docpad-plugin-marked</a>
 but natively, it doesn&rsquo;t support
@@ -224,17 +218,11 @@ for the plugin was tougher than it looks, at least at first as I didn&rsquo;t qu
 understand how DocPad&rsquo;s plugin tester works. Thanks to <a href="http://www.delarre.net/posts/unit-testing-docpad-plugins/">this awesome post</a>,
 I could finally write and pass the test. The working version of my fork
 can be found <a href="https://github.com/npatmaja/docpad-plugin-marked">at my GitHub</a>.</p>
-
-<!-- Read more -->
-
+<!-- raw HTML omitted -->
 <p>To use the forked plugin, change the dependency definition in <code>package.json</code>:</p>
-
-<pre><code class="language-json">&quot;docpad-plugin-marked&quot;: &quot;git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git&quot;
-</code></pre>
-
-<p>Next is to redefine the <code>code</code> renderer by putting the definition in the <code>docpad.coffee</code></p>
-
-<pre><code>plugins:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;docpad-plugin-marked&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git&#34;</span>
+</code></pre></div><p>Next is to redefine the <code>code</code> renderer by putting the definition in the <code>docpad.coffee</code></p>
+<pre tabindex="0"><code>plugins:
   marked:
     markedRenderer:
       code: (code, lang) -&gt;
@@ -267,19 +255,14 @@ can be found <a href="https://github.com/npatmaja/docpad-plugin-marked">at my Gi
             '&quot;&gt;' +
             (if escaped then code else escape(code, true)) +
             '\n&lt;/code&gt;&lt;/pre&gt;\n'
-</code></pre>
-
-<p>Lastly, I added Mermaid.js to blog&rsquo;s layout as mentioned on Mermaid&rsquo;s
+</code></pre><p>Lastly, I added Mermaid.js to blog&rsquo;s layout as mentioned on Mermaid&rsquo;s
 documentation. Now all are set to their place, so whenever I put Mermaid
-syntax in a markdown&rsquo;s code block <code>```</code> the code will
+syntax in a markdown&rsquo;s code block <!-- raw HTML omitted -->```<!-- raw HTML omitted --> the code will
 be transformed to svg image.</p>
-
 <p>Without further ado, below are a couple of examples of Mermaid diagram
 definition and their respective rendered diagram. It&rsquo;s show time!</p>
-
 <h1 id="simple-graph">Simple graph</h1>
-
-<pre><code>%% remove comment to render the graph
+<pre tabindex="0"><code>%% remove comment to render the graph
 graph TB
   subgraph one
     a1--&gt;a2
@@ -291,9 +274,7 @@ graph TB
     c1--&gt;c2
   end
   c1--&gt;a2
-</code></pre>
-
-<pre><code>graph TB
+</code></pre><pre tabindex="0"><code>graph TB
   subgraph one
     a1--&gt;a2
   end
@@ -304,11 +285,8 @@ graph TB
     c1--&gt;c2
   end
   c1--&gt;a2
-</code></pre>
-
-<h1 id="sequence-diagram">Sequence diagram</h1>
-
-<pre><code>%% remove comment to render the diagram
+</code></pre><h1 id="sequence-diagram">Sequence diagram</h1>
+<pre tabindex="0"><code>%% remove comment to render the diagram
 sequenceDiagram
   Alice -&gt;&gt; Bob: Hello Bob, how are you?
   Bob--&gt;&gt;John: How about you John?
@@ -318,9 +296,7 @@ sequenceDiagram
 
   Bob--&gt;Alice: Checking with John...
   Alice-&gt;John: Yes... John, how are you?
-</code></pre>
-
-<pre><code>sequenceDiagram
+</code></pre><pre tabindex="0"><code>sequenceDiagram
   Alice -&gt;&gt; Bob: Hello Bob, how are you?
   Bob--&gt;&gt;John: How about you John?
   Bob--x Alice: I am good thanks!
@@ -329,10 +305,7 @@ sequenceDiagram
 
   Bob--&gt;Alice: Checking with John...
   Alice-&gt;John: Yes... John, how are you?
-</code></pre>
-
-<h2 id="side-note">Side note</h2>
-
+</code></pre><h2 id="side-note">Side note</h2>
 <p>The CSS I use to style the diagram can be seen <a href="https://raw.githubusercontent.com/npatmaja/nauvalatmaja.com/master/src/render/styles/mermaid.less">here</a>. Happy diagramming!</p>
 
 
@@ -368,16 +341,16 @@ sequenceDiagram
     <div class="clear"></div>
     
       <div class="paging-older">
-        <a class="paging-link" href="/2015/01/08/android-development-with-genymotion/">
-          <i class="fa hta-left-white-arrow"></i> Android Development with Genymotion
+        <a class="paging-link" href="/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/">
+          <i class="fa hta-left-white-arrow"></i> Upload Files with Backbone.js, Node.js and express 4.x
         </a>
       </div>
     
 
     
       <div class="paging-newer">
-        <a class="paging-link" href="/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/">
-          Upload Files with Backbone.js, Node.js and express 4.x <i class="fa hta-right-white-arrow"></i>
+        <a class="paging-link" href="/2015/01/08/android-development-with-genymotion/">
+          Android Development with Genymotion <i class="fa hta-right-white-arrow"></i>
         </a>
       </div>
     
@@ -391,7 +364,7 @@ sequenceDiagram
 		      	<aside id=comments>
     <div><h4> Comments </h4></div>
     <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -408,8 +381,8 @@ sequenceDiagram
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </aside>
 
 		      
@@ -419,7 +392,7 @@ sequenceDiagram
     
       <img src="/img/avatar.png">
     
-    <p>Hello, my name is Nauval. I like building/crafting things. I code for living. I blog in my spare time.</p> <p>Have a look around and don't hesitate to <a href="mailto:nauval.atmaja@gmail.com">contact me</a> with any comments, suggestions or even to just say Hi!</p>
+    <p>Hello, I'm Nauval. I code for living. I blog in my spare time.</p> <p>Have a look around and drop me an <a href="mailto:nauval.atmaja@gmail.com">email</a> should you have any questions, feedback or just to say hi!</p>
   </section>
 
 
@@ -432,7 +405,7 @@ sequenceDiagram
 	<p>
 		
 		
-			&copy; 2014-2018 Nauval Atmaja.
+			&copy; 2014-2022 Nauval Atmaja.
 			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
 			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
 			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.
