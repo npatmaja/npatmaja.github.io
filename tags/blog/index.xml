@@ -6,15 +6,14 @@
     <description>Recent content in blog on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Dec 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blogging with Docpad</title>
       <link>http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/</link>
       <pubDate>Sun, 28 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/</guid>
       <description>It has been a long time since I planned to have a dedicated blog for writing about some more &amp;ldquo;meaningful&amp;rdquo; stuff instead of just my rumbling I posted on my trash bin. After looking out what blogging platforms available, I finally decided to use GitHub pages to host my posts. However, as it uses Jekyll as its engine, many people suggested to install Jekyll in my local machine, which was a no-show for me.</description>
     </item>
-    
   </channel>
 </rss>

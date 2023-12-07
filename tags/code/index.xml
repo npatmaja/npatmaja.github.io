@@ -6,53 +6,42 @@
     <description>Recent content in code on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 May 2017 09:18:16 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 May 2017 09:18:16 +0700</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Going Vim</title>
       <link>http://nauvalatmaja.com/2017/05/28/going-vim/</link>
       <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2017/05/28/going-vim/</guid>
       <description>A reflection after using Vim as the main code editor for more than a half of year</description>
     </item>
-    
     <item>
       <title>On Learning to Code</title>
       <link>http://nauvalatmaja.com/2016/01/17/on-learning-to-code/</link>
       <pubDate>Sun, 17 Jan 2016 20:20:12 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2016/01/17/on-learning-to-code/</guid>
       <description>Even with abundant resources, learning to code is still a formidable undertaking. Some will survive and not few won&amp;rsquo;t</description>
     </item>
-    
     <item>
       <title>Ways to Boost Coding Productivity</title>
       <link>http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/</link>
       <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/</guid>
-      <description>As a someone who codes frequently, in daily basis in fact, I need an environment that is able to boost my productivity when coding. Some might argue that one could be productive in every given environment. That is the ideal case, however live is not. Hence, productivity tools and workflows are created.
-During my coding adventure, I found some ways that help me to boost up my productivity, which are listed below.</description>
+      <description>As a someone who codes frequently, in daily basis in fact, I need an environment that is able to boost my productivity when coding. Some might argue that one could be productive in every given environment. That is the ideal case, however live is not. Hence, productivity tools and workflows are created.&#xA;During my coding adventure, I found some ways that help me to boost up my productivity, which are listed below.</description>
     </item>
-    
     <item>
       <title>Android Development with Genymotion</title>
       <link>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</link>
       <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</guid>
-      <description>I am a noob in android development and one thing I am not comfortable with is the stock android device emulator. The default emulator is really slow, the boot-up process could take minutes in my machine (I won&amp;rsquo;t say my machine is fast either, but it is sufficient), the app deployment takes too much time, moreover, the interaction is sluggish. Hence, it is a no go.
-Up to now, I used my own android phone to test my app.</description>
+      <description>I am a noob in android development and one thing I am not comfortable with is the stock android device emulator. The default emulator is really slow, the boot-up process could take minutes in my machine (I won&amp;rsquo;t say my machine is fast either, but it is sufficient), the app deployment takes too much time, moreover, the interaction is sluggish. Hence, it is a no go.&#xA;Up to now, I used my own android phone to test my app.</description>
     </item>
-    
     <item>
       <title>Rendering Backbone (Sub)View</title>
       <link>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</guid>
       <description>When learning backbone.js (i&amp;rsquo;m a novice by the way), at first, I was actually having a hard time to grasp the backbone view. Especially how the best practice to render the view and build a rather complex view consists of several subviews. And then, magically I came accross Ian Storm Taylor&amp;rsquo;s post about his experience on dealing with backbone subview. At first I didn&amp;rsquo;t quiet understand well about the post until I found a thread on stackoverflow, which was started by Ian Storm Taylor.</description>
     </item>
-    
   </channel>
 </rss>

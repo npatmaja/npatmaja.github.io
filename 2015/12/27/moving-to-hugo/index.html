@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="golang,hugo,docpad,static site content generator,web,development,">
 <meta name="author" content="">
-<meta name="generator" content="Hugo 0.92.1" />
+<meta name="generator" content="Hugo 0.121.0">
 
 
   <meta property="og:title" content="Moving to Hugo" />
@@ -256,8 +256,8 @@ you only need to override the specific part to your liking
 instead. The easiest way to do this is by copying the part that
 you want to change from the themes directory to its respective
 directory in your site, e.g.,</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cp /themes/redlounge/layouts/index.html layouts/index.html
-</code></pre></div><p>and start modifying it. The way Hugo determines the layout
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cp /themes/redlounge/layouts/index.html layouts/index.html
+</span></span></code></pre></div><p>and start modifying it. The way Hugo determines the layout
 is to find respective files in <code>layouts</code> then using defaults
 <code>layouts/_defaults</code> if the desired file can&rsquo;t be found.
 The search is then propagated to the used theme <code>themes/used-theme</code> if the file still not found.</p>
@@ -272,7 +272,7 @@ really awesome and start to customize it as you see fit.</p>
 <p>Migrating from Docpad to Hugo should be easy assuming the posts
 are written in markdown format. In my case, I just needed to copy all posts into <code>content/post</code>. Copying the markdowns alone should be
 enough to make Hugo renders them. However, you might want to
-change the posts' <a href="https://gohugo.io/content/front-matter">front matter</a>
+change the posts&rsquo; <a href="https://gohugo.io/content/front-matter">front matter</a>
 to adhere Hugo&rsquo;s format. Next is to migrate all the static files
 to directory <code>static</code>.</p>
 <h1 id="hosting-on-github">Hosting on GitHub</h1>
@@ -289,51 +289,51 @@ is <code>public</code>) ignored then clone the existing <a href="https://pages.g
 (create one if necessary) to directory <code>public</code>. When deploying to GitHub, the sequence is: copy <code>public/.git</code>, <code>public/.gitignore</code>
 somewhere else, generate the site, put back <code>.git</code> and
 <code>.gitignore</code> to <code>public</code> then commit and push it.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Do this only one time when setting up public dir.</span>
-<span style="color:#75715e"># Assuming you are inside your working directory.</span>
-git clone git@github.com:user/user.github.io.git public
-echo <span style="color:#e6db74">&#34;public&#34;</span> &gt;&gt; .gitignore
-
-<span style="color:#75715e"># commit and push your repository</span>
-git commit -m <span style="color:#e6db74">&#34;ignore public&#34;</span>
-git push origin master
-
-<span style="color:#75715e"># Deployment sequence</span>
-<span style="color:#75715e"># create temporary directory</span>
-mkdir tmp
-
-<span style="color:#75715e"># copy .git/ to temp</span>
-cp -r public/.git tmp/.git
-cp public/.gitignore tmp/.gitignore
-
-<span style="color:#75715e"># clean out directory public and regenerate htmls</span>
-rm -rf public
-
-<span style="color:#75715e"># generate static htmls</span>
-hugo -t some_theme
-
-<span style="color:#75715e"># copy back the git files</span>
-cp -r tmp/.git public/.git
-cp tmp/.gitignore public/.gitignore
-
-<span style="color:#75715e"># go to the out folder</span>
-pushd public &gt; /dev/null
-
-<span style="color:#75715e"># create .nojekyll file</span>
-<span style="color:#75715e"># https://github.com/blog/572-bypassing-jekyll-on-github-pages</span>
-touch .nojekyll
-
-<span style="color:#75715e"># add and push to github pages</span>
-git add -A
-git commit -m <span style="color:#e6db74">&#34;`date`&#34;</span>
-git push -f origin master
-
-<span style="color:#75715e"># change back to root dir</span>
-popd &gt; /dev/null
-
-<span style="color:#75715e"># remove temp directory</span>
-rm -rf tmp
-</code></pre></div><h1 id="automation">Automation</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Do this only one time when setting up public dir.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Assuming you are inside your working directory.</span>
+</span></span><span style="display:flex;"><span>git clone git@github.com:user/user.github.io.git public
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;public&#34;</span> &gt;&gt; .gitignore
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># commit and push your repository</span>
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;ignore public&#34;</span>
+</span></span><span style="display:flex;"><span>git push origin master
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Deployment sequence</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># create temporary directory</span>
+</span></span><span style="display:flex;"><span>mkdir tmp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># copy .git/ to temp</span>
+</span></span><span style="display:flex;"><span>cp -r public/.git tmp/.git
+</span></span><span style="display:flex;"><span>cp public/.gitignore tmp/.gitignore
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># clean out directory public and regenerate htmls</span>
+</span></span><span style="display:flex;"><span>rm -rf public
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># generate static htmls</span>
+</span></span><span style="display:flex;"><span>hugo -t some_theme
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># copy back the git files</span>
+</span></span><span style="display:flex;"><span>cp -r tmp/.git public/.git
+</span></span><span style="display:flex;"><span>cp tmp/.gitignore public/.gitignore
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># go to the out folder</span>
+</span></span><span style="display:flex;"><span>pushd public &gt; /dev/null
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># create .nojekyll file</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># https://github.com/blog/572-bypassing-jekyll-on-github-pages</span>
+</span></span><span style="display:flex;"><span>touch .nojekyll
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># add and push to github pages</span>
+</span></span><span style="display:flex;"><span>git add -A
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;`date`&#34;</span>
+</span></span><span style="display:flex;"><span>git push -f origin master
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># change back to root dir</span>
+</span></span><span style="display:flex;"><span>popd &gt; /dev/null
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># remove temp directory</span>
+</span></span><span style="display:flex;"><span>rm -rf tmp
+</span></span></code></pre></div><h1 id="automation">Automation</h1>
 <p>What I did next is to automate repetitive tasks such as deployment steps above, which is quite lengthy and prone to errors.
 For this project
 I decided to use <a href="https://www.gnu.org/software/make/manual/make.html">GNU</a> <a href="https://en.wikipedia.org/wiki/Make_(software)">Make</a> as the build tool
@@ -415,8 +415,8 @@ we&rsquo;ll see.</p>
 		      	<aside id=comments>
     <div><h4> Comments </h4></div>
     <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
+<script>
+    window.disqus_config = function () {
     
     
     
@@ -456,7 +456,7 @@ we&rsquo;ll see.</p>
 	<p>
 		
 		
-			&copy; 2014-2022 Nauval Atmaja.
+			&copy; 2014-2023 Nauval Atmaja.
 			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
 			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
 			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.

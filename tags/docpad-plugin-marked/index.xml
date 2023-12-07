@@ -6,16 +6,14 @@
     <description>Recent content in docpad-plugin-marked on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Jan 2015 00:00:00 +0000</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/docpad-plugin-marked/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/docpad-plugin-marked/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rendering Mermaid in Docpad</title>
       <link>http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/</link>
       <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/</guid>
-      <description>I stumbled across Mermaid when I saw @ronaldwidha retweeted a tweet about it. Mermaid is a library for writing diagrams instead of draw them similar to Marked to markdown, awesome! So, I thought I could use this in my blog just in case I need to draw some flowcharts or sequence diagrams in the future.
-DocPad uses Marked to render markdown to html via docpad-plugin-marked but natively, it doesn&amp;rsquo;t support Mermaid syntax.</description>
+      <description>I stumbled across Mermaid when I saw @ronaldwidha retweeted a tweet about it. Mermaid is a library for writing diagrams instead of draw them similar to Marked to markdown, awesome! So, I thought I could use this in my blog just in case I need to draw some flowcharts or sequence diagrams in the future.&#xA;DocPad uses Marked to render markdown to html via docpad-plugin-marked but natively, it doesn&amp;rsquo;t support Mermaid syntax.</description>
     </item>
-    
   </channel>
 </rss>

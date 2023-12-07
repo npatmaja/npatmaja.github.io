@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="programming,go,golang,combinators,function composition,javascript,composition,">
 <meta name="author" content="">
-<meta name="generator" content="Hugo 0.92.1" />
+<meta name="generator" content="Hugo 0.121.0">
 
 
   <meta property="og:title" content="Function Composition in Go" />
@@ -218,12 +218,12 @@ and yes, function is a type in Go.</p>
 </code></pre><p>The effect of having first-class functions is that we can write Go in a more functional manner, just similar to JavaScript.
 In JavaScript we can easily write a <code>compose</code> function (function to do
 <a href="https://en.wikipedia.org/wiki/Function_composition_%28computer_science%29">function composition</a>) as the following.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">compose</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; (<span style="color:#a6e22e">val</span>) =&gt; <span style="color:#a6e22e">a</span>(<span style="color:#a6e22e">b</span>(<span style="color:#a6e22e">val</span>));
-
-<span style="color:#75715e">// variadic versions
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">compose</span> <span style="color:#f92672">=</span> (...<span style="color:#a6e22e">functions</span>) =&gt;
-  (<span style="color:#a6e22e">value</span>) =&gt; <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">reverse</span>().<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">fn</span>) =&gt; <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">acc</span>), <span style="color:#a6e22e">value</span>);
-</code></pre></div><p>In Go, as it is a typed language, and
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">compose</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; (<span style="color:#a6e22e">val</span>) =&gt; <span style="color:#a6e22e">a</span>(<span style="color:#a6e22e">b</span>(<span style="color:#a6e22e">val</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// variadic versions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">compose</span> <span style="color:#f92672">=</span> (...<span style="color:#a6e22e">functions</span>) =&gt;
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">value</span>) =&gt; <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">reverse</span>().<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">acc</span>, <span style="color:#a6e22e">fn</span>) =&gt; <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">acc</span>), <span style="color:#a6e22e">value</span>);
+</span></span></code></pre></div><p>In Go, as it is a typed language, and
 <a href="https://golang.org/doc/faq#generics">it does not support generic type</a>
 per se, first we need to define a type of what the <code>compose</code> function
 will work against.</p>
@@ -352,8 +352,8 @@ that writing Go program in a functional manner entirely is a good approach (if t
 		      	<aside id=comments>
     <div><h4> Comments </h4></div>
     <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
+<script>
+    window.disqus_config = function () {
     
     
     
@@ -393,7 +393,7 @@ that writing Go program in a functional manner entirely is a good approach (if t
 	<p>
 		
 		
-			&copy; 2014-2022 Nauval Atmaja.
+			&copy; 2014-2023 Nauval Atmaja.
 			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
 			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
 			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.

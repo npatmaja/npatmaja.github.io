@@ -6,137 +6,112 @@
     <description>Recent content in Posts on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Mar 2022 08:18:16 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Dec 2023 08:18:16 +0700</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Struggles with TDD</title>
+      <link>http://nauvalatmaja.com/2023/12/07/my-struggles-with-tdd/</link>
+      <pubDate>Thu, 07 Dec 2023 08:18:16 +0700</pubDate>
+      <guid>http://nauvalatmaja.com/2023/12/07/my-struggles-with-tdd/</guid>
+      <description>TDD is a beter way to develop a software, however there are obstacles that need to be overcomed</description>
+    </item>
     <item>
       <title>Testing Asycnhronous Code in Java</title>
       <link>http://nauvalatmaja.com/2022/03/15/testing-asycnhronous-code-in-java/</link>
       <pubDate>Tue, 15 Mar 2022 08:18:16 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2022/03/15/testing-asycnhronous-code-in-java/</guid>
       <description>Testing multi-threaded code is tricky, the test and the code under test most likely are run under different threads. Here, we will discuss how to deal with the issue based on the book Growing Object-Oriented Software Guided by Tests</description>
     </item>
-    
     <item>
       <title>A Self Contained Go Development Environment</title>
       <link>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</link>
       <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</guid>
       <description>A Self Contained golang development environment using Docker, vim and vim-go</description>
     </item>
-    
     <item>
       <title>Going Vim</title>
       <link>http://nauvalatmaja.com/2017/05/28/going-vim/</link>
       <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2017/05/28/going-vim/</guid>
       <description>A reflection after using Vim as the main code editor for more than a half of year</description>
     </item>
-    
     <item>
       <title>Function Composition in Go</title>
       <link>http://nauvalatmaja.com/2016/04/15/function-composition-in-go/</link>
       <pubDate>Fri, 15 Apr 2016 07:40:17 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2016/04/15/function-composition-in-go/</guid>
       <description>How to write function composition in Go</description>
     </item>
-    
     <item>
       <title>Time to be a Programmer</title>
       <link>http://nauvalatmaja.com/2016/02/28/time-to-be-a-programmer/</link>
       <pubDate>Sun, 28 Feb 2016 20:47:09 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2016/02/28/time-to-be-a-programmer/</guid>
       <description>Is this the best time to be a programmer in Indonesia?</description>
     </item>
-    
     <item>
       <title>On Learning to Code</title>
       <link>http://nauvalatmaja.com/2016/01/17/on-learning-to-code/</link>
       <pubDate>Sun, 17 Jan 2016 20:20:12 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2016/01/17/on-learning-to-code/</guid>
       <description>Even with abundant resources, learning to code is still a formidable undertaking. Some will survive and not few won&amp;rsquo;t</description>
     </item>
-    
     <item>
       <title>Moving to Hugo</title>
       <link>http://nauvalatmaja.com/2015/12/27/moving-to-hugo/</link>
       <pubDate>Sun, 27 Dec 2015 00:30:28 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/12/27/moving-to-hugo/</guid>
       <description>Hugo is a static site generator created by Steve Francia using Golang. It is very fast, customizable and has a comprehensive documentation</description>
     </item>
-    
     <item>
       <title>Ways to Boost Coding Productivity</title>
       <link>http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/</link>
       <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/</guid>
-      <description>As a someone who codes frequently, in daily basis in fact, I need an environment that is able to boost my productivity when coding. Some might argue that one could be productive in every given environment. That is the ideal case, however live is not. Hence, productivity tools and workflows are created.
-During my coding adventure, I found some ways that help me to boost up my productivity, which are listed below.</description>
+      <description>As a someone who codes frequently, in daily basis in fact, I need an environment that is able to boost my productivity when coding. Some might argue that one could be productive in every given environment. That is the ideal case, however live is not. Hence, productivity tools and workflows are created.&#xA;During my coding adventure, I found some ways that help me to boost up my productivity, which are listed below.</description>
     </item>
-    
     <item>
       <title>Upload Files with Backbone.js, Node.js and express 4.x</title>
       <link>http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/</link>
       <pubDate>Fri, 30 Jan 2015 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/01/30/upload-files-with-backbone.js-node.js-and-express-4.x/</guid>
-      <description>Backbone fundamentals is a great free resource to learn Backbone.js from scratch. The book was written by Addy Osmany under creative-commons license. As its second exercise, the book guide the readers to create a simple library application that uses Node.js as the back-end. However, it left the part to upload book&amp;rsquo;s cover to the readers as an exercise. Hence, here is the way I did it.
-Requirement There are two additional requirements for the upload book&amp;rsquo;s cover features:</description>
+      <description>Backbone fundamentals is a great free resource to learn Backbone.js from scratch. The book was written by Addy Osmany under creative-commons license. As its second exercise, the book guide the readers to create a simple library application that uses Node.js as the back-end. However, it left the part to upload book&amp;rsquo;s cover to the readers as an exercise. Hence, here is the way I did it.&#xA;Requirement There are two additional requirements for the upload book&amp;rsquo;s cover features:</description>
     </item>
-    
     <item>
       <title>Rendering Mermaid in Docpad</title>
       <link>http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/</link>
       <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/01/13/rendering-mermaid-in-docpad/</guid>
-      <description>I stumbled across Mermaid when I saw @ronaldwidha retweeted a tweet about it. Mermaid is a library for writing diagrams instead of draw them similar to Marked to markdown, awesome! So, I thought I could use this in my blog just in case I need to draw some flowcharts or sequence diagrams in the future.
-DocPad uses Marked to render markdown to html via docpad-plugin-marked but natively, it doesn&amp;rsquo;t support Mermaid syntax.</description>
+      <description>I stumbled across Mermaid when I saw @ronaldwidha retweeted a tweet about it. Mermaid is a library for writing diagrams instead of draw them similar to Marked to markdown, awesome! So, I thought I could use this in my blog just in case I need to draw some flowcharts or sequence diagrams in the future.&#xA;DocPad uses Marked to render markdown to html via docpad-plugin-marked but natively, it doesn&amp;rsquo;t support Mermaid syntax.</description>
     </item>
-    
     <item>
       <title>Android Development with Genymotion</title>
       <link>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</link>
       <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</guid>
-      <description>I am a noob in android development and one thing I am not comfortable with is the stock android device emulator. The default emulator is really slow, the boot-up process could take minutes in my machine (I won&amp;rsquo;t say my machine is fast either, but it is sufficient), the app deployment takes too much time, moreover, the interaction is sluggish. Hence, it is a no go.
-Up to now, I used my own android phone to test my app.</description>
+      <description>I am a noob in android development and one thing I am not comfortable with is the stock android device emulator. The default emulator is really slow, the boot-up process could take minutes in my machine (I won&amp;rsquo;t say my machine is fast either, but it is sufficient), the app deployment takes too much time, moreover, the interaction is sluggish. Hence, it is a no go.&#xA;Up to now, I used my own android phone to test my app.</description>
     </item>
-    
     <item>
       <title>Setting Up Custom Domain for GitHub Pages</title>
       <link>http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/</link>
       <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/</guid>
-      <description>It has been a couple days since nauvalatmaja.com is online, and to be honest the process was not as hard as I had imagined. Kudos to David Ensinger who has written in details on how he set up his custom domain for his GitHub pages and tweak it to get faster by using cloudflare. All the needed information to do this can be found there.
-I purchased this this domain name at NameCheap, as suggested by David&amp;rsquo;s post, with just a bit more than five bucks for a year.</description>
+      <description>It has been a couple days since nauvalatmaja.com is online, and to be honest the process was not as hard as I had imagined. Kudos to David Ensinger who has written in details on how he set up his custom domain for his GitHub pages and tweak it to get faster by using cloudflare. All the needed information to do this can be found there.&#xA;I purchased this this domain name at NameCheap, as suggested by David&amp;rsquo;s post, with just a bit more than five bucks for a year.</description>
     </item>
-    
     <item>
       <title>Rendering Backbone (Sub)View</title>
       <link>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</guid>
       <description>When learning backbone.js (i&amp;rsquo;m a novice by the way), at first, I was actually having a hard time to grasp the backbone view. Especially how the best practice to render the view and build a rather complex view consists of several subviews. And then, magically I came accross Ian Storm Taylor&amp;rsquo;s post about his experience on dealing with backbone subview. At first I didn&amp;rsquo;t quiet understand well about the post until I found a thread on stackoverflow, which was started by Ian Storm Taylor.</description>
     </item>
-    
     <item>
       <title>Blogging with Docpad</title>
       <link>http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/</link>
       <pubDate>Sun, 28 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2014/12/28/blogging-with-docpad/</guid>
       <description>It has been a long time since I planned to have a dedicated blog for writing about some more &amp;ldquo;meaningful&amp;rdquo; stuff instead of just my rumbling I posted on my trash bin. After looking out what blogging platforms available, I finally decided to use GitHub pages to host my posts. However, as it uses Jekyll as its engine, many people suggested to install Jekyll in my local machine, which was a no-show for me.</description>
     </item>
-    
   </channel>
 </rss>

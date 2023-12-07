@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
-<meta name="generator" content="Hugo 0.92.1" />
+<meta name="generator" content="Hugo 0.121.0">
 
 
   <meta property="og:title" content="Rendering Mermaid in Docpad" />
@@ -220,8 +220,8 @@ I could finally write and pass the test. The working version of my fork
 can be found <a href="https://github.com/npatmaja/docpad-plugin-marked">at my GitHub</a>.</p>
 <!-- raw HTML omitted -->
 <p>To use the forked plugin, change the dependency definition in <code>package.json</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;docpad-plugin-marked&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git&#34;</span>
-</code></pre></div><p>Next is to redefine the <code>code</code> renderer by putting the definition in the <code>docpad.coffee</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#e6db74">&#34;docpad-plugin-marked&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;git+ssh://git@github.com:npatmaja/docpad-plugin-marked.git&#34;</span>
+</span></span></code></pre></div><p>Next is to redefine the <code>code</code> renderer by putting the definition in the <code>docpad.coffee</code></p>
 <pre tabindex="0"><code>plugins:
   marked:
     markedRenderer:
@@ -229,14 +229,14 @@ can be found <a href="https://github.com/npatmaja/docpad-plugin-marked">at my Gi
         escape = (html, encode) -&gt;
           pattern = if !encode then /&amp;(?!#?\w+;)/g  else /&amp;/g
           return html
-            .replace(pattern, '&amp;amp;')
-            .replace(/&lt;/g, '&amp;lt;')
-            .replace(/&gt;/g, '&amp;gt;')
-            .replace(/&quot;/g, '&amp;quot;')
-            .replace(/'/g, '&amp;#39;')
+            .replace(pattern, &#39;&amp;amp;&#39;)
+            .replace(/&lt;/g, &#39;&amp;lt;&#39;)
+            .replace(/&gt;/g, &#39;&amp;gt;&#39;)
+            .replace(/&#34;/g, &#39;&amp;quot;&#39;)
+            .replace(/&#39;/g, &#39;&amp;#39;&#39;)
 
         if code.match(/^sequenceDiagram/)|| code.match(/^graph/)
-          return &quot;&lt;div class=\&quot;mermaid\&quot;&gt;\n#{code}\n&lt;/div&gt;\n&quot;
+          return &#34;&lt;div class=\&#34;mermaid\&#34;&gt;\n#{code}\n&lt;/div&gt;\n&#34;
         else
           if @options.highlight
             out = @options.highlight code, lang
@@ -245,16 +245,16 @@ can be found <a href="https://github.com/npatmaja/docpad-plugin-marked">at my Gi
               code = out
 
           if !lang
-            return '&lt;pre&gt;&lt;code&gt;' +
+            return &#39;&lt;pre&gt;&lt;code&gt;&#39; +
               (if escaped then code else escape(code, true)) +
-              '\n&lt;/code&gt;&lt;/pre&gt;'
+              &#39;\n&lt;/code&gt;&lt;/pre&gt;&#39;
 
-          return '&lt;pre&gt;&lt;code class=&quot;' +
+          return &#39;&lt;pre&gt;&lt;code class=&#34;&#39; +
             this.options.langPrefix +
             escape(lang, true) +
-            '&quot;&gt;' +
+            &#39;&#34;&gt;&#39; +
             (if escaped then code else escape(code, true)) +
-            '\n&lt;/code&gt;&lt;/pre&gt;\n'
+            &#39;\n&lt;/code&gt;&lt;/pre&gt;\n&#39;
 </code></pre><p>Lastly, I added Mermaid.js to blog&rsquo;s layout as mentioned on Mermaid&rsquo;s
 documentation. Now all are set to their place, so whenever I put Mermaid
 syntax in a markdown&rsquo;s code block <!-- raw HTML omitted -->```<!-- raw HTML omitted --> the code will
@@ -364,8 +364,8 @@ sequenceDiagram
 		      	<aside id=comments>
     <div><h4> Comments </h4></div>
     <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
+<script>
+    window.disqus_config = function () {
     
     
     
@@ -405,7 +405,7 @@ sequenceDiagram
 	<p>
 		
 		
-			&copy; 2014-2022 Nauval Atmaja.
+			&copy; 2014-2023 Nauval Atmaja.
 			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
 			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
 			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.

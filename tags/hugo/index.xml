@@ -6,15 +6,14 @@
     <description>Recent content in hugo on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Dec 2015 00:30:28 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Dec 2015 00:30:28 +0700</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Moving to Hugo</title>
       <link>http://nauvalatmaja.com/2015/12/27/moving-to-hugo/</link>
       <pubDate>Sun, 27 Dec 2015 00:30:28 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/12/27/moving-to-hugo/</guid>
       <description>Hugo is a static site generator created by Steve Francia using Golang. It is very fast, customizable and has a comprehensive documentation</description>
     </item>
-    
   </channel>
 </rss>

@@ -6,16 +6,14 @@
     <description>Recent content in CloudFlare on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Dec 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/cloudflare/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/cloudflare/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting Up Custom Domain for GitHub Pages</title>
       <link>http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/</link>
       <pubDate>Wed, 31 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2014/12/31/setting-up-custom-domain-for-github-pages/</guid>
-      <description>It has been a couple days since nauvalatmaja.com is online, and to be honest the process was not as hard as I had imagined. Kudos to David Ensinger who has written in details on how he set up his custom domain for his GitHub pages and tweak it to get faster by using cloudflare. All the needed information to do this can be found there.
-I purchased this this domain name at NameCheap, as suggested by David&amp;rsquo;s post, with just a bit more than five bucks for a year.</description>
+      <description>It has been a couple days since nauvalatmaja.com is online, and to be honest the process was not as hard as I had imagined. Kudos to David Ensinger who has written in details on how he set up his custom domain for his GitHub pages and tweak it to get faster by using cloudflare. All the needed information to do this can be found there.&#xA;I purchased this this domain name at NameCheap, as suggested by David&amp;rsquo;s post, with just a bit more than five bucks for a year.</description>
     </item>
-    
   </channel>
 </rss>

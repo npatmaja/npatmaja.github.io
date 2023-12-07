@@ -6,16 +6,14 @@
     <description>Recent content in Android on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Jan 2015 00:00:00 +0000</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Android Development with Genymotion</title>
       <link>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</link>
       <pubDate>Thu, 08 Jan 2015 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/01/08/android-development-with-genymotion/</guid>
-      <description>I am a noob in android development and one thing I am not comfortable with is the stock android device emulator. The default emulator is really slow, the boot-up process could take minutes in my machine (I won&amp;rsquo;t say my machine is fast either, but it is sufficient), the app deployment takes too much time, moreover, the interaction is sluggish. Hence, it is a no go.
-Up to now, I used my own android phone to test my app.</description>
+      <description>I am a noob in android development and one thing I am not comfortable with is the stock android device emulator. The default emulator is really slow, the boot-up process could take minutes in my machine (I won&amp;rsquo;t say my machine is fast either, but it is sufficient), the app deployment takes too much time, moreover, the interaction is sluggish. Hence, it is a no go.&#xA;Up to now, I used my own android phone to test my app.</description>
     </item>
-    
   </channel>
 </rss>

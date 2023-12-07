@@ -6,34 +6,28 @@
     <description>Recent content in Productivity on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Dec 2017 15:18:16 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/categories/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Dec 2017 15:18:16 +0700</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/categories/productivity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Self Contained Go Development Environment</title>
       <link>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</link>
       <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</guid>
       <description>A Self Contained golang development environment using Docker, vim and vim-go</description>
     </item>
-    
     <item>
       <title>Going Vim</title>
       <link>http://nauvalatmaja.com/2017/05/28/going-vim/</link>
       <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2017/05/28/going-vim/</guid>
       <description>A reflection after using Vim as the main code editor for more than a half of year</description>
     </item>
-    
     <item>
       <title>Ways to Boost Coding Productivity</title>
       <link>http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/</link>
       <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2015/04/09/ways-to-boost-coding-productivity/</guid>
-      <description>As a someone who codes frequently, in daily basis in fact, I need an environment that is able to boost my productivity when coding. Some might argue that one could be productive in every given environment. That is the ideal case, however live is not. Hence, productivity tools and workflows are created.
-During my coding adventure, I found some ways that help me to boost up my productivity, which are listed below.</description>
+      <description>As a someone who codes frequently, in daily basis in fact, I need an environment that is able to boost my productivity when coding. Some might argue that one could be productive in every given environment. That is the ideal case, however live is not. Hence, productivity tools and workflows are created.&#xA;During my coding adventure, I found some ways that help me to boost up my productivity, which are listed below.</description>
     </item>
-    
   </channel>
 </rss>

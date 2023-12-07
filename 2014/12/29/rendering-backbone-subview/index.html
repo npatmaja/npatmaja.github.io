@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="keywords" content="">
 <meta name="author" content="">
-<meta name="generator" content="Hugo 0.92.1" />
+<meta name="generator" content="Hugo 0.121.0">
 
 
   <meta property="og:title" content="Rendering Backbone (Sub)View" />
@@ -206,24 +206,24 @@ At first I didn&rsquo;t quiet understand well about the post until I found
 <p>Based on the posts, I created a simple case study to better understand how it works.
 The requirements were to list pairs of username and email input by users.
 So at first I created the view as listed below:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;application&#34;</span>&gt;
-  &lt;<span style="color:#f92672">p</span>&gt;Add a user to the user list&lt;/<span style="color:#f92672">p</span>&gt;
-  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;login&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
-  &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;online-users&#34;</span>&gt;&lt;/<span style="color:#f92672">ul</span>&gt;
-&lt;/<span style="color:#f92672">div</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;login-template&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/template&#34;</span>&gt;
-  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">login</span> <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
-  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#f92672">/&gt;</span>
-  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">placeholder</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#f92672">/&gt;</span>
-  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;button-login&#34;</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;button&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">Login</span> <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
-&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;userlist-template&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/template&#34;</span>&gt;
-  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">span</span><span style="color:#f92672">&gt;&lt;%=</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">%&gt;</span> <span style="color:#960050;background-color:#1e0010">/ &lt;%= email %&gt;&lt;/span&gt;</span>
-    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;force-logout&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">force</span> <span style="color:#a6e22e">logout</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
-  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;</span>
-&lt;/<span style="color:#f92672">script</span>&gt;
-</code></pre></div><p>To better visualize, lets see this picture:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;application&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">p</span>&gt;Add a user to the user list&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;login&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">ul</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;online-users&#34;</span>&gt;&lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;login-template&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/template&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">login</span> <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">placeholder</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;email&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;button-login&#34;</span> <span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;button&#34;</span><span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">Login</span> <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;userlist-template&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/template&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">span</span><span style="color:#f92672">&gt;&lt;%=</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">%&gt;</span> <span style="color:#960050;background-color:#1e0010">/ &lt;%= email %&gt;&lt;/span&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;force-logout&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">force</span> <span style="color:#a6e22e">logout</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span></code></pre></div><p>To better visualize, lets see this picture:</p>
 <p><img src="/img/backbone-view-schema.png" alt="Application view"></p>
 <!-- raw HTML omitted -->
 <p>The outer container is <code>#application</code> and inside it there are
@@ -237,48 +237,48 @@ there is an exception for the last view where the view is
 created for each username-password pair then appended in
 the container <code>#online-users</code>.</p>
 <p>Now let&rsquo;s get to the code.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">AppView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
-  <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#application&#39;</span>,
-
-  <span style="color:#a6e22e">initialize</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserList</span>();
-
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginView</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">LoginView</span>();
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userListView</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserListView</span>( { <span style="color:#a6e22e">collection</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span> } );
-
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginView</span>, <span style="color:#e6db74">&#39;login&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">login</span>);
-  },
-
-  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginView</span>.<span style="color:#a6e22e">setElement</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#login&#39;</span>)).<span style="color:#a6e22e">render</span>();
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userListView</span>.<span style="color:#a6e22e">setElement</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#online-users&#39;</span>)).<span style="color:#a6e22e">render</span>();
-  },
-
-  <span style="color:#75715e">/* ... */</span>
-
-  <span style="color:#a6e22e">login</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">user</span>) {
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">create</span>( <span style="color:#a6e22e">user</span> );
-  }
-});
-
-<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">LoginView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
-  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">template</span>(<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#login-template&#39;</span>).<span style="color:#a6e22e">html</span>()),
-
-  <span style="color:#a6e22e">events</span><span style="color:#f92672">:</span> {
-    <span style="color:#e6db74">&#39;click #button-login&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;login&#39;</span>
-  },
-
-  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">html</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">template</span>());
-  },
-
-  <span style="color:#a6e22e">login</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-    <span style="color:#75715e">// login logic
-</span><span style="color:#75715e"></span>  },
-
-  <span style="color:#75715e">/* ... */</span>
-});
-</code></pre></div><p>Here, the most important thing to connect Backbone view to
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">AppView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#application&#39;</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">initialize</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserList</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginView</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">LoginView</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userListView</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserListView</span>( { <span style="color:#a6e22e">collection</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span> } );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginView</span>, <span style="color:#e6db74">&#39;login&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">login</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">loginView</span>.<span style="color:#a6e22e">setElement</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#login&#39;</span>)).<span style="color:#a6e22e">render</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">userListView</span>.<span style="color:#a6e22e">setElement</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#online-users&#39;</span>)).<span style="color:#a6e22e">render</span>();
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* ... */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">login</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">user</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">users</span>.<span style="color:#a6e22e">create</span>( <span style="color:#a6e22e">user</span> );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">LoginView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">template</span>(<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#login-template&#39;</span>).<span style="color:#a6e22e">html</span>()),
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">events</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;click #button-login&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;login&#39;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">html</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">template</span>());
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">login</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// login logic
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* ... */</span>
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Here, the most important thing to connect Backbone view to
 the html is the <code>el</code> (element) property. The <code>el</code> property defines to
 which element the view template will be rendered, or at least in this case
 study. In the <code>AppView</code> the <code>el</code> is set to <code>#application</code>
@@ -286,7 +286,7 @@ as the root container of the application. However, for its
 sub-views, the <code>el</code> property is not defined in the view
 definition but set dynamically using <code>setElement</code> method.
 As Ian suggested, this is done to avoid the unbinding of
-sub-views' events when rendered more than a time.</p>
+sub-views&rsquo; events when rendered more than a time.</p>
 <p>The instantiation
 of sub-views depends on how the sub-views are rendered.
 <code>LoginView</code> and <code>UserListView</code> are instantiated in
@@ -295,47 +295,47 @@ an instance for each of them. In contrast, <code>UserView</code>
 is instantiated for each user (model) as it needs to
 associate the button click event inside the view with
 the contained model.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserListView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
-  <span style="color:#a6e22e">initialize</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">collection</span>, <span style="color:#e6db74">&#39;add&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderOne</span>);
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">collection</span>, <span style="color:#e6db74">&#39;reset&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderAll</span>);
-  },
-
-  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderAll</span>();
-  },
-
-  <span style="color:#a6e22e">renderOne</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">user</span>) {
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserView</span>( { <span style="color:#a6e22e">model</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">user</span> } );
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">append</span>(<span style="color:#a6e22e">view</span>.<span style="color:#a6e22e">render</span>().<span style="color:#a6e22e">el</span>);
-  },
-
-  <span style="color:#a6e22e">renderAll</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">each</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderOne</span>);
-  }
-});
-
-<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
-  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">template</span>(<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#userlist-template&#39;</span>).<span style="color:#a6e22e">html</span>()),
-  <span style="color:#a6e22e">tagName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;li&#39;</span>,
-  <span style="color:#a6e22e">events</span><span style="color:#f92672">:</span> {
-      <span style="color:#e6db74">&#39;click #force-logout&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;clear&#39;</span>
-  },
-
-  <span style="color:#a6e22e">initialize</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span>, <span style="color:#e6db74">&#39;destroy&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">remove</span>);
-  },
-
-  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">html</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">template</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">attributes</span> ) );
-      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
-  },
-
-  <span style="color:#a6e22e">clear</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
-      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">destroy</span>();
-  }
-});
-</code></pre></div><p>To make the code structured nicely, I used the <code>html()</code> and
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserListView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">initialize</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">collection</span>, <span style="color:#e6db74">&#39;add&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderOne</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">collection</span>, <span style="color:#e6db74">&#39;reset&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderAll</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderAll</span>();
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">renderOne</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">user</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">view</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserView</span>( { <span style="color:#a6e22e">model</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">user</span> } );
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">append</span>(<span style="color:#a6e22e">view</span>.<span style="color:#a6e22e">render</span>().<span style="color:#a6e22e">el</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">renderAll</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">collection</span>.<span style="color:#a6e22e">each</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">renderOne</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">UserView</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Backbone</span>.<span style="color:#a6e22e">View</span>.<span style="color:#a6e22e">extend</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">_</span>.<span style="color:#a6e22e">template</span>(<span style="color:#a6e22e">$</span>(<span style="color:#e6db74">&#39;#userlist-template&#39;</span>).<span style="color:#a6e22e">html</span>()),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tagName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;li&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">events</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#39;click #force-logout&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;clear&#39;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">initialize</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">listenTo</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span>, <span style="color:#e6db74">&#39;destroy&#39;</span>, <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">remove</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$el</span>.<span style="color:#a6e22e">html</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">template</span>( <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">attributes</span> ) );
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>;
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">clear</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">destroy</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>To make the code structured nicely, I used the <code>html()</code> and
 <code>append()</code> method of Backbone view&rsquo;s <code>$el</code> property. Some people
 might use jquery&rsquo;s selector <code>$('.element')</code> to render the html,
 which I think it isn&rsquo;t clean enough. Lastly, I&rsquo;ve made a <a href="http://jsfiddle.net/npatmaja/csL45j3s/">fiddle</a>
@@ -398,8 +398,8 @@ helps someone to understand more about backbone view.</p>
 		      	<aside id=comments>
     <div><h4> Comments </h4></div>
     <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
+<script>
+    window.disqus_config = function () {
     
     
     
@@ -439,7 +439,7 @@ helps someone to understand more about backbone view.</p>
 	<p>
 		
 		
-			&copy; 2014-2022 Nauval Atmaja.
+			&copy; 2014-2023 Nauval Atmaja.
 			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
 			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
 			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.

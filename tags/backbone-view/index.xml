@@ -6,15 +6,14 @@
     <description>Recent content in Backbone view on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Dec 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/backbone-view/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 Dec 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/backbone-view/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rendering Backbone (Sub)View</title>
       <link>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</link>
       <pubDate>Mon, 29 Dec 2014 00:00:00 +0000</pubDate>
-      
       <guid>http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/</guid>
       <description>When learning backbone.js (i&amp;rsquo;m a novice by the way), at first, I was actually having a hard time to grasp the backbone view. Especially how the best practice to render the view and build a rather complex view consists of several subviews. And then, magically I came accross Ian Storm Taylor&amp;rsquo;s post about his experience on dealing with backbone subview. At first I didn&amp;rsquo;t quiet understand well about the post until I found a thread on stackoverflow, which was started by Ian Storm Taylor.</description>
     </item>
-    
   </channel>
 </rss>

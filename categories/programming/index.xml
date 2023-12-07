@@ -6,42 +6,42 @@
     <description>Recent content in Programming on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Mar 2022 08:18:16 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Dec 2023 08:18:16 +0700</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Struggles with TDD</title>
+      <link>http://nauvalatmaja.com/2023/12/07/my-struggles-with-tdd/</link>
+      <pubDate>Thu, 07 Dec 2023 08:18:16 +0700</pubDate>
+      <guid>http://nauvalatmaja.com/2023/12/07/my-struggles-with-tdd/</guid>
+      <description>TDD is a beter way to develop a software, however there are obstacles that need to be overcomed</description>
+    </item>
     <item>
       <title>Testing Asycnhronous Code in Java</title>
       <link>http://nauvalatmaja.com/2022/03/15/testing-asycnhronous-code-in-java/</link>
       <pubDate>Tue, 15 Mar 2022 08:18:16 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2022/03/15/testing-asycnhronous-code-in-java/</guid>
       <description>Testing multi-threaded code is tricky, the test and the code under test most likely are run under different threads. Here, we will discuss how to deal with the issue based on the book Growing Object-Oriented Software Guided by Tests</description>
     </item>
-    
     <item>
       <title>A Self Contained Go Development Environment</title>
       <link>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</link>
       <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</guid>
       <description>A Self Contained golang development environment using Docker, vim and vim-go</description>
     </item>
-    
     <item>
       <title>Going Vim</title>
       <link>http://nauvalatmaja.com/2017/05/28/going-vim/</link>
       <pubDate>Sun, 28 May 2017 09:18:16 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2017/05/28/going-vim/</guid>
       <description>A reflection after using Vim as the main code editor for more than a half of year</description>
     </item>
-    
     <item>
       <title>Function Composition in Go</title>
       <link>http://nauvalatmaja.com/2016/04/15/function-composition-in-go/</link>
       <pubDate>Fri, 15 Apr 2016 07:40:17 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2016/04/15/function-composition-in-go/</guid>
       <description>How to write function composition in Go</description>
     </item>
-    
   </channel>
 </rss>

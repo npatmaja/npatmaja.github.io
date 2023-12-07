@@ -6,15 +6,14 @@
     <description>Recent content in development on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Dec 2017 15:18:16 +0700</lastBuildDate><atom:link href="http://nauvalatmaja.com/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Dec 2017 15:18:16 +0700</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Self Contained Go Development Environment</title>
       <link>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</link>
       <pubDate>Sun, 31 Dec 2017 15:18:16 +0700</pubDate>
-      
       <guid>http://nauvalatmaja.com/2017/12/31/a-self-contained-go-development-environment/</guid>
       <description>A Self Contained golang development environment using Docker, vim and vim-go</description>
     </item>
-    
   </channel>
 </rss>

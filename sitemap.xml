@@ -2,37 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://nauvalatmaja.com/categories/</loc>
+    <lastmod>2023-12-07T08:18:16+07:00</lastmod>
+  </url><url>
+    <loc>http://nauvalatmaja.com/categories/development/</loc>
+    <lastmod>2023-12-07T08:18:16+07:00</lastmod>
+  </url><url>
+    <loc>http://nauvalatmaja.com/2023/12/07/my-struggles-with-tdd/</loc>
+    <lastmod>2023-12-07T08:18:16+07:00</lastmod>
+  </url><url>
+    <loc>http://nauvalatmaja.com/</loc>
+    <lastmod>2023-12-07T08:18:16+07:00</lastmod>
+  </url><url>
+    <loc>http://nauvalatmaja.com/post/</loc>
+    <lastmod>2023-12-07T08:18:16+07:00</lastmod>
+  </url><url>
+    <loc>http://nauvalatmaja.com/categories/programming/</loc>
+    <lastmod>2023-12-07T08:18:16+07:00</lastmod>
+  </url><url>
+    <loc>http://nauvalatmaja.com/tags/</loc>
+    <lastmod>2023-12-07T08:18:16+07:00</lastmod>
+  </url><url>
+    <loc>http://nauvalatmaja.com/tags/tdd/</loc>
+    <lastmod>2023-12-07T08:18:16+07:00</lastmod>
+  </url><url>
     <loc>http://nauvalatmaja.com/tags/asynchronous/</loc>
     <lastmod>2022-03-15T08:18:16+07:00</lastmod>
   </url><url>
-    <loc>http://nauvalatmaja.com/categories/</loc>
-    <lastmod>2022-03-15T08:18:16+07:00</lastmod>
-  </url><url>
     <loc>http://nauvalatmaja.com/tags/concurrent/</loc>
-    <lastmod>2022-03-15T08:18:16+07:00</lastmod>
-  </url><url>
-    <loc>http://nauvalatmaja.com/categories/development/</loc>
     <lastmod>2022-03-15T08:18:16+07:00</lastmod>
   </url><url>
     <loc>http://nauvalatmaja.com/tags/java/</loc>
     <lastmod>2022-03-15T08:18:16+07:00</lastmod>
   </url><url>
     <loc>http://nauvalatmaja.com/tags/multithreading/</loc>
-    <lastmod>2022-03-15T08:18:16+07:00</lastmod>
-  </url><url>
-    <loc>http://nauvalatmaja.com/</loc>
-    <lastmod>2022-03-15T08:18:16+07:00</lastmod>
-  </url><url>
-    <loc>http://nauvalatmaja.com/post/</loc>
-    <lastmod>2022-03-15T08:18:16+07:00</lastmod>
-  </url><url>
-    <loc>http://nauvalatmaja.com/categories/programming/</loc>
-    <lastmod>2022-03-15T08:18:16+07:00</lastmod>
-  </url><url>
-    <loc>http://nauvalatmaja.com/tags/</loc>
-    <lastmod>2022-03-15T08:18:16+07:00</lastmod>
-  </url><url>
-    <loc>http://nauvalatmaja.com/tags/tdd/</loc>
     <lastmod>2022-03-15T08:18:16+07:00</lastmod>
   </url><url>
     <loc>http://nauvalatmaja.com/tags/testing/</loc>
