@@ -6,8 +6,15 @@
     <description>Recent content in Development on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Dec 2023 08:18:16 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2025 08:18:16 +0700</lastBuildDate>
     <atom:link href="http://nauvalatmaja.com/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graceful Shutdown in Go HTTP Server</title>
+      <link>http://nauvalatmaja.com/2025/01/25/graceful-shutdown-in-go-http-server/</link>
+      <pubDate>Sat, 25 Jan 2025 08:18:16 +0700</pubDate>
+      <guid>http://nauvalatmaja.com/2025/01/25/graceful-shutdown-in-go-http-server/</guid>
+      <description>Graceful shutdown is an important mechanism to deal with suddent sever shutdown or termnination signal. Here, we will explore how to implement graceful shutdown ig Go and how to test it.</description>
+    </item>
     <item>
       <title>My Struggles with TDD</title>
       <link>http://nauvalatmaja.com/2023/12/07/my-struggles-with-tdd/</link>

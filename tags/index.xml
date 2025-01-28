@@ -6,8 +6,22 @@
     <description>Recent content in Tags on nauval atmaja</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Dec 2023 08:18:16 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2025 08:18:16 +0700</lastBuildDate>
     <atom:link href="http://nauvalatmaja.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>server</title>
+      <link>http://nauvalatmaja.com/tags/server/</link>
+      <pubDate>Sat, 25 Jan 2025 08:18:16 +0700</pubDate>
+      <guid>http://nauvalatmaja.com/tags/server/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>software</title>
+      <link>http://nauvalatmaja.com/tags/software/</link>
+      <pubDate>Sat, 25 Jan 2025 08:18:16 +0700</pubDate>
+      <guid>http://nauvalatmaja.com/tags/software/</guid>
+      <description></description>
+    </item>
     <item>
       <title>tdd</title>
       <link>http://nauvalatmaja.com/tags/tdd/</link>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>server on nauval atmaja</title>
+    <link>http://nauvalatmaja.com/tags/server/</link>
+    <description>Recent content in server on nauval atmaja</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Jan 2025 08:18:16 +0700</lastBuildDate>
+    <atom:link href="http://nauvalatmaja.com/tags/server/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graceful Shutdown in Go HTTP Server</title>
+      <link>http://nauvalatmaja.com/2025/01/25/graceful-shutdown-in-go-http-server/</link>
+      <pubDate>Sat, 25 Jan 2025 08:18:16 +0700</pubDate>
+      <guid>http://nauvalatmaja.com/2025/01/25/graceful-shutdown-in-go-http-server/</guid>
+      <description>Graceful shutdown is an important mechanism to deal with suddent sever shutdown or termnination signal. Here, we will explore how to implement graceful shutdown ig Go and how to test it.</description>
+    </item>
+  </channel>
+</rss>

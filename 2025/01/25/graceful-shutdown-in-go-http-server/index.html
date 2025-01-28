@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Graceful Shutdown in Go HTTP Server // nauval atmaja
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.121.0">
+
+
+  <meta property="og:title" content="Graceful Shutdown in Go HTTP Server" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http://nauvalatmaja.com/2025/01/25/graceful-shutdown-in-go-http-server/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http://nauvalatmaja.com//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="nauval atmaja" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/tomorrow-night-bright.min.css">
+  
+
+
+  
+
+  
+
+  <link rel="stylesheet" href="http://nauvalatmaja.com/css/custom.css">
+
+
+  <script>
+    if (window.location.hostname != "localhost") {
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', "UA-58073141-1", 'auto');
+      ga('send', 'pageview');
+    }
+  </script>
+
+
+</head>
+
+<body>
+	
+		<div id="nav-to-top">
+			<a href="#top">
+				<i class="fa fa-angle-double-up"> </i>
+				To Top
+			</a>
+		</div>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+    
+
+    
+        <h1 class="brand-title">
+          <a class="title" href="http://nauvalatmaja.com/">
+          <span class="nav-item-separator">//</span>nauval atmaja
+        </a>
+        </h1>
+    
+    
+      <h2 class="brand-tagline">Thoughts on software, product, technology, and anything related</h2>
+    
+
+    <nav class="nav">
+      <ul class="nav-list">
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/post/">archives</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/categories/">categories</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/series/">series</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="http://www.github.com/npatmaja" target="_blank"><i class='fa fa-github fa-2x'></i></a>
+        
+      
+        
+        <a href="https://id.linkedin.com/in/nauvalatmaja/" target="_blank"><i class='fa fa-linkedin-square fa-2x'></i></a>
+        
+      
+        
+        <a href="http://www.twitter.com/novalpas" target="_blank"><i class='fa fa-twitter fa-2x'></i></a>
+        
+      
+        
+        <a href="https://noval78.wordpress.com/" target="_blank"><i class='fa fa-wordpress fa-2x'></i></a>
+        
+      
+
+    </div>
+    
+  </div>
+</div>
+
+
+		
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+			<a name="top"></a>
+			
+
+			
+				
+			    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+					<small class="toc-label">Contents</small>
+			   	 	<nav id="TableOfContents"></nav>
+			    </div>
+		    
+	    
+			<div class="wrapper">
+				<section class="post">
+					<header class="post-header">
+						<h1 class="post-title">
+							
+				      Graceful Shutdown in Go HTTP Server
+						</h1>
+						<h3 class="post-subtitle">
+		        	
+		        </h3>
+					</header>
+	        
+	        	<span class="post-date">
+							<span class="post-date-day"><span class="post-date-month">Jan 25, 2025</span> </span>
+	        	</span>
+	        
+
+	        
+	        	
+	        
+
+					
+					
+						<div class="post-categories">
+						
+							<a class="post-category post-category-programming" href="http://nauvalatmaja.com//categories/programming">Programming</a>
+						
+							<a class="post-category post-category-development" href="http://nauvalatmaja.com//categories/development">Development</a>
+						
+						</div>
+					
+
+					
+			    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2025%2f01%2f25%2fgraceful-shutdown-in-go-http-server%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2025%2f01%2f25%2fgraceful-shutdown-in-go-http-server%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2025%2f01%2f25%2fgraceful-shutdown-in-go-http-server%2f&title=Graceful%20Shutdown%20in%20Go%20HTTP%20Server&summary=Graceful%20shutdown%20is%20an%20important%20mechanism%20to%20deal%20with%20suddent%20sever%20shutdown%20or%20termnination%20signal.%20Here%2c%20we%20will%20explore%20how%20to%20implement%20graceful%20shutdown%20ig%20Go%20and%20how%20to%20test%20it.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Graceful%20Shutdown%20in%20Go%20HTTP%20Server&url=http%3a%2f%2fnauvalatmaja.com%2f2025%2f01%2f25%2fgraceful-shutdown-in-go-http-server%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+			    
+
+					
+
+	  			<p>Graceful shutdown is a mechanism that refers to handle process termination properly. This is important to make sure the data integrity is not affected when a termination/interrupt signal is received. Imagine the termination signal suddenly received by the application, if without proper  shutdown handling, the ongoing transactions will be terminated which may be compromising the data integrity.</p>
+<p>In Go, fortunately the graceful shutdown is part of the standard library. To trigger the process we just need to call <code>http.Server.Shutdown()</code> method. The method takes a <code>context.Context</code> as its parameter and returns <code>error</code>. The recommended behavior is to use a <code>context.WithTimeOut</code> . The following is a custom <code>struct</code> Server that encapsulate the start and shutdown mechanism.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Server</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">httpServer</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Server</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ShutdownTimeoutSeconds</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">NewServer</span>(<span style="color:#a6e22e">config</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ServerConfig</span>, <span style="color:#a6e22e">handler</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ServeMux</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">Server</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">httpServer</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Server</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Addr</span>:              <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s:%d&#34;</span>, <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">Host</span>, <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">Port</span>),
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Handler</span>:           <span style="color:#a6e22e">handler</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">ReadTimeout</span>:       <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ReadTimeout</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">WriteTimeout</span>:      <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">WriteTimeout</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">ReadHeaderTimeout</span>: <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ReadHeaderTimeout</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">IdleTimeout</span>:       <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">IdleTimeout</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Server</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">httpServer</span>:             <span style="color:#a6e22e">httpServer</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">ShutdownTimeoutSeconds</span>: <span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">ShutdownTimeoutSeconds</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Server</span>) <span style="color:#a6e22e">Start</span>() <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">errorChan</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">error</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">shutdown</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Signal</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">signal</span>.<span style="color:#a6e22e">Notify</span>(<span style="color:#a6e22e">shutdown</span>, <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Interrupt</span>, <span style="color:#a6e22e">syscall</span>.<span style="color:#a6e22e">SIGTERM</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">slog</span>.<span style="color:#a6e22e">Info</span>(<span style="color:#e6db74">&#34;Starting server at&#34;</span>, <span style="color:#a6e22e">slog</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;Addr&#34;</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">httpServer</span>.<span style="color:#a6e22e">Addr</span>))
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">httpServer</span>.<span style="color:#a6e22e">ListenAndServe</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ErrServerClosed</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">errorChan</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">select</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">errorChan</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Fail to start the server. error=%v&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">sig</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">shutdown</span>:
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">slog</span>.<span style="color:#a6e22e">Info</span>(<span style="color:#e6db74">&#34;Shutdown signal received: %v&#34;</span>, <span style="color:#a6e22e">slog</span>.<span style="color:#a6e22e">Any</span>(<span style="color:#e6db74">&#34;sig&#34;</span>, <span style="color:#a6e22e">sig</span>))
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// add cleanup resources here if necessary, i.e., close database connections,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// close cache connections, etc
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Shutdown</span>()
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">s</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Server</span>) <span style="color:#a6e22e">Shutdown</span>() <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">slog</span>.<span style="color:#a6e22e">Info</span>(<span style="color:#e6db74">&#34;Initiating shutdown&#34;</span>, <span style="color:#a6e22e">slog</span>.<span style="color:#a6e22e">Time</span>(<span style="color:#e6db74">&#34;now&#34;</span>, <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()))
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ctx</span>, <span style="color:#a6e22e">cancel</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">WithTimeout</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Duration</span>(<span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">ShutdownTimeoutSeconds</span>)<span style="color:#f92672">*</span><span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">cancel</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">httpServer</span>.<span style="color:#a6e22e">Shutdown</span>(<span style="color:#a6e22e">ctx</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In the method <code>Start</code> the server not only simply listen and serve to a certain port, but it also needs to listen to termination signals from the <a href="https://pkg.go.dev/os/signal"><code>os.Signal</code></a> , e.g., <code>kill</code> command or <code>ctrl + c</code> . This is done by creating a designated channel of <code>os.Signal</code> with length <code>1</code> then relay the os signal to the channel through <code>signal.Notify</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">shutdown</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Signal</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">signal</span>.<span style="color:#a6e22e">Notify</span>(<span style="color:#a6e22e">shutdown</span>, <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Interrupt</span>, <span style="color:#a6e22e">syscall</span>.<span style="color:#a6e22e">SIGTERM</span>)
+</span></span></code></pre></div><p>A goroutine wraps the <code>http.Server.ListenAndServe</code> call so that it won’t block the execution.</p>
+<p>The error checking <code>err != http.ErrServerClosed</code> is important to make sure that the server is running. The error itself is returned when the <code>Shutdown</code> or <code>Close</code> method is called. During the test, without this error checking the server will not work properly as the gap between start and shutdown is in milliseconds.</p>
+<p>Then, a <code>select</code> block statement blocks the execution and wait for error and shutdown signal. When shutdown signal is received the server then call the <code>Shutdown</code> method.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">slog</span>.<span style="color:#a6e22e">Info</span>(<span style="color:#e6db74">&#34;Starting server at&#34;</span>, <span style="color:#a6e22e">slog</span>.<span style="color:#a6e22e">String</span>(<span style="color:#e6db74">&#34;Addr&#34;</span>, <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">httpServer</span>.<span style="color:#a6e22e">Addr</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">httpServer</span>.<span style="color:#a6e22e">ListenAndServe</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ErrServerClosed</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">errorChan</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">errorChan</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Fail to start the server. error=%v&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#a6e22e">sig</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">shutdown</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">slog</span>.<span style="color:#a6e22e">Info</span>(<span style="color:#e6db74">&#34;Shutdown signal received: %v&#34;</span>, <span style="color:#a6e22e">slog</span>.<span style="color:#a6e22e">Any</span>(<span style="color:#e6db74">&#34;sig&#34;</span>, <span style="color:#a6e22e">sig</span>))
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// add cleanup resources here if necessary, i.e., close database connections,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>.<span style="color:#a6e22e">Shutdown</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>Shutdown</code> code is fairly straightforward, first we create a context with timeout, next we call the <code>http.Server.Shutdown</code> with the context as its parameter. Based on the <a href="https://pkg.go.dev/net/http#Server.Shutdown">documentation</a>, when the server initiate shutdown, it will do the following:</p>
+<ol>
+<li>Closes all open listeners</li>
+<li>Closes idle connections</li>
+<li>Wait indefinitely for connections to return to idle (complete the processes) and then shut down. If the context expires before shutdown is complete, Shutdown returns the context’s error, otherwise it returns any error returned from the closing the Server’s listener.</li>
+</ol>
+<p>Based on the aforementioned steps, the Shutdown never closed any connections forcefully even when the timeout context expires. It just wait indefinitely until all requests complete and then shut down.</p>
+<p>Now, how do we test the graceful shutdown behavior? The idea is to use a table testing and in each scenario we will call an endpoint (can be the slow or a fast one) and asserts if the response is correct or if timeout the Shutdown will return the correct error.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">TestGracefulShutdown</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">port</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">9090</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">host</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;http://%s:%d&#34;</span>, <span style="color:#e6db74">&#34;localhost&#34;</span>, <span style="color:#a6e22e">port</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mux</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">NewServeMux</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;GET /fast&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">WriteHeader</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>)
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">mux</span>.<span style="color:#a6e22e">HandleFunc</span>(<span style="color:#e6db74">&#34;GET /slow&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">w</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ResponseWriter</span>, <span style="color:#a6e22e">r</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">w</span>.<span style="color:#a6e22e">WriteHeader</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>)
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">tests</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">testName</span>       <span style="color:#66d9ef">string</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">clientRequest</span>  <span style="color:#66d9ef">func</span>() []<span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Response</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">shutdownDelay</span>  <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Duration</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">expectTimeout</span>  <span style="color:#66d9ef">bool</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">timeoutSeconds</span> <span style="color:#66d9ef">int</span>
+</span></span><span style="display:flex;"><span>	}{
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">testName</span>: <span style="color:#e6db74">&#34;Should complete fast request during shutdown&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">clientRequest</span>: <span style="color:#66d9ef">func</span>() []<span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Response</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s/fast&#34;</span>, <span style="color:#a6e22e">host</span>))
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Fail to execute request&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">return</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Response</span>{<span style="color:#a6e22e">resp</span>}
+</span></span><span style="display:flex;"><span>			},
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">expectTimeout</span>:  <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">shutdownDelay</span>:  <span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">timeoutSeconds</span>: <span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">testName</span>: <span style="color:#e6db74">&#34;Should complete slow request during shutdown&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">clientRequest</span>: <span style="color:#66d9ef">func</span>() []<span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Response</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s/slow&#34;</span>, <span style="color:#a6e22e">host</span>))
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Fail to execute request&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">return</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Response</span>{<span style="color:#a6e22e">resp</span>}
+</span></span><span style="display:flex;"><span>			},
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">expectTimeout</span>:  <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">shutdownDelay</span>:  <span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">timeoutSeconds</span>: <span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">testName</span>: <span style="color:#e6db74">&#34;Should return timeout exceeded when timeout exceeds&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">clientRequest</span>: <span style="color:#66d9ef">func</span>() []<span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Response</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s/slow&#34;</span>, <span style="color:#a6e22e">host</span>))
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Fail to execute request&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">return</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Response</span>{<span style="color:#a6e22e">resp</span>}
+</span></span><span style="display:flex;"><span>			},
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">expectTimeout</span>:  <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">shutdownDelay</span>:  <span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">timeoutSeconds</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">tt</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">tests</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">testName</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">t</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">testing</span>.<span style="color:#a6e22e">T</span>) {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">server</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">NewServer</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">ServerConfig</span>{
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">Port</span>:                   <span style="color:#a6e22e">port</span>,
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">ShutdownTimeoutSeconds</span>: <span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">timeoutSeconds</span>,
+</span></span><span style="display:flex;"><span>			}, <span style="color:#a6e22e">mux</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// start server
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">wg</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Done</span>()
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">Start</span>()
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;Fail to start server. error=%v&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// wait for the server to be ready
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">responses</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Response</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">go</span> <span style="color:#66d9ef">func</span>() {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">responses</span> = <span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">clientRequest</span>()
+</span></span><span style="display:flex;"><span>			}()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// shutdown delay
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">shutdownDelay</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">Shutdown</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// assert shutdown behaviour
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">tt</span>.<span style="color:#a6e22e">expectTimeout</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">DeadlineExceeded</span> {
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Expected timeout. got=%v&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Unexpected shutdown. got=%v&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// verify all requests are completed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">resp</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">responses</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">StatusCode</span> <span style="color:#f92672">!=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span> {
+</span></span><span style="display:flex;"><span>					<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;Status code is not %v. go=%v&#34;</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">StatusCode</span>)
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>		})
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In the third scenario, the test examines whether the server returns <code>context.DeadlineExceeded</code> when shutdown. The <code>expectTimeout</code> is set to true to assert the error returned by the <code>Shutdown</code> method and the timeoutSeconds is set to <code>1</code> second which is lesser than the sleep duration in the <code>/slow</code> endpoint (5 seconds).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">testName</span>: <span style="color:#e6db74">&#34;Should return timeout exceeded when timeout exceeds&#34;</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">clientRequest</span>: <span style="color:#66d9ef">func</span>() []<span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Response</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s/slow&#34;</span>, <span style="color:#a6e22e">host</span>))
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">t</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Fail to execute request&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> []<span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Response</span>{<span style="color:#a6e22e">resp</span>}
+</span></span><span style="display:flex;"><span>	},
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">expectTimeout</span>:  <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">shutdownDelay</span>:  <span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Millisecond</span>,
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">timeoutSeconds</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><p>In conclusion, graceful shutdown is an important feature that needs to be implemented to a web server to reduce data error due to data integrity issues. The implementation is fairly straight forward in Go. Furthermore the mechanism is highly testable.</p>
+
+
+					
+			    	<div class="social-sharing">
+	<a class="share-button-facebook" onClick="return popupShare(this.href);" href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fnauvalatmaja.com%2f2025%2f01%2f25%2fgraceful-shutdown-in-go-http-server%2f" target="_blank"><i class="fa fa-facebook"><span>Like</span></i></a>
+	<a class="share-button-google-plus" onClick="return popupShare(this.href);" href="https://plus.google.com/share?url=http%3a%2f%2fnauvalatmaja.com%2f2025%2f01%2f25%2fgraceful-shutdown-in-go-http-server%2f" target="_blank"><i class="fa fa-google-plus"><span>Google +1</span></i></a>
+	<a class="share-button-linkedin" onClick="return popupShare(this.href);" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2fnauvalatmaja.com%2f2025%2f01%2f25%2fgraceful-shutdown-in-go-http-server%2f&title=Graceful%20Shutdown%20in%20Go%20HTTP%20Server&summary=Graceful%20shutdown%20is%20an%20important%20mechanism%20to%20deal%20with%20suddent%20sever%20shutdown%20or%20termnination%20signal.%20Here%2c%20we%20will%20explore%20how%20to%20implement%20graceful%20shutdown%20ig%20Go%20and%20how%20to%20test%20it.}&source=nauval%20atmaja" target="_blank"><i class="fa fa-linkedin"><span>Share on LinkedIn</span></i></a>
+	<a class="share-button-twitter" onClick="return popupShare(this.href);" href="http://twitter.com/share?text=Graceful%20Shutdown%20in%20Go%20HTTP%20Server&url=http%3a%2f%2fnauvalatmaja.com%2f2025%2f01%2f25%2fgraceful-shutdown-in-go-http-server%2f" target="_blank"><i class="fa fa-twitter"><span>Tweet</span></i></a>	
+</div>
+			    
+
+					
+						<div class="post-tags">
+							<i class="fa fa-tags fa-1"></i>
+							
+								<a class="post-tag post-tag-software" href="/tags/software">software</a>
+							
+								<a class="post-tag post-tag-server" href="/tags/server">server</a>
+							
+						</div>
+					
+					
+
+
+					
+  <div class="paging">
+    <span class="paging-label">More Reading</span>
+    <div class="clear"></div>
+    
+
+    
+      <div class="paging-newer">
+        <a class="paging-link" href="/2023/12/07/my-struggles-with-tdd/">
+          My Struggles with TDD <i class="fa hta-right-white-arrow"></i>
+        </a>
+      </div>
+    
+  </div>
+
+
+					<div class="clear">
+
+					</div>
+					
+		      	<aside id=comments>
+    <div><h4> Comments </h4></div>
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nauvalatmaja" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</aside>
+
+		      
+	    	</section>
+				
+  <section class="aboutme">
+    
+      <img src="/img/avatar.png">
+    
+    <p>Hello, I'm Nauval. I code for living. I blog in my spare time.</p> <p>Have a look around and drop me an <a href="mailto:nauval.atmaja@gmail.com">email</a> should you have any questions, feedback or just to say hi!</p>
+  </section>
+
+
+	      <section class="footer">
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+	<p>
+		
+		
+			&copy; 2014-2025 Nauval Atmaja.
+			<a href="http://creativecommons.org/licenses/by/3.0/">Some rights reserved</a>;
+			please attribute properly and link back. Powered by <a href="http://gohugo.io/">Hugo</a>.
+			Theme based on <a href="https://github.com/tmaiaroto/hugo-redlounge">hugo-redlougne</a>.
+		</p>
+</section>
+
+			</div>
+    </div>
+  </div>
+	
+		<script type="text/javascript">
+			onscroll = function() {
+			  var toTopVisible = false;
+			  var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+			  if (scrollTop > 1000) {
+			    if (!toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'block';
+			    }
+			  } else {
+			    if (scrollTop < 1000 || toTopVisible) {
+			      document.getElementById('nav-to-top').style.display = 'none';
+			    }
+			  }
+			};
+		</script>
+	
+
+	
+		<script type="text/javascript">
+			function popupShare(url) {
+				window.open(url, '_blank', 'scrollbars,resizable,height=525,width=600');
+				return false;
+			}
+		</script>
+	
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>
